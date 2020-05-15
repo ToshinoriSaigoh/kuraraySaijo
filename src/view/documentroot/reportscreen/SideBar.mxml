@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:HGroup
+	xmlns:fx="http://ns.adobe.com/mxml/2009"
+	xmlns:s="library://ns.adobe.com/flex/spark"
+	xmlns:mx="library://ns.adobe.com/flex/mx"
+	xmlns:controller.documentroot.reportscreen="controller.documentroot.reportscreen.*"
+	xmlns:view.documentroot.reportscreen.sidebar="view.documentroot.reportscreen.sidebar.*"
+	height="100%"
+	gap="0"
+	mouseEnabled="false">
+	<fx:Declarations>
+		<controller.documentroot.reportscreen:SideBar id="ctrlr"/>
+	</fx:Declarations>
+	<s:SpriteVisualElement id="body"/>
+	<s:Group id="mainToolBox" width="60" height="100%">
+		<s:Rect width="100%" height="100%" alpha="0.8" left="0" right="0" top="0" bottom="0">
+			<s:fill>
+				<s:SolidColor color="0x000000"/>
+			</s:fill>
+		</s:Rect>
+		<s:VGroup id="menuTop" height="120" width="100%" horizontalAlign="center" gap="0">
+			<s:Button id="emergency1Btn" label="emergency1" skinClass="view.documentroot.reportscreen.sidebar.maintoolbox.Skin_emergency1Btn"/>
+			<!--<s:Button id="emergency2Btn" label="emergency2" skinClass="view.documentroot.reportscreen.sidebar.maintoolbox.Skin_emergency2Btn"/>-->
+			<s:Button id="monitorBtn" label="monitorBtn" skinClass="view.documentroot.reportscreen.sidebar.maintoolbox.Skin_MonitorBtn"/>
+		</s:VGroup>
+		<s:VGroup id="toolBtnGroup" height="100%" top="104" bottom="104" width="100%" horizontalAlign="center" verticalAlign="middle" gap="8">
+			<s:Button id="changeBtn" label="menu" skinClass="view.documentroot.reportscreen.sidebar.maintoolbox.Skin_ChangeBtn"/>
+			<mx:ViewStack id="mainBtnViewStack" top="0" height="336" width="100%" creationPolicy="all" resizeToContent="true">
+				<s:NavigatorContent id="mainToolBtns" width="100%">
+					<s:VGroup id="mainToolGroup" width="100%" horizontalAlign="center" verticalAlign="middle" gap="8">
+						<s:ToggleButton id="scrollToolBtn" label="scrollTool" skinClass="view.documentroot.reportscreen.sidebar.maintoolbox.Skin_ScrollToolBtn"/>
+						<s:ToggleButton id="editToolBtn" label="editTool" skinClass="view.documentroot.reportscreen.sidebar.maintoolbox.Skin_EditToolBtn"/>
+						<s:ToggleButton id="textToolBtn" name="textToolBtn" label="textTool" skinClass="view.documentroot.reportscreen.sidebar.maintoolbox.Skin_TextToolBtn"/>
+						<s:ToggleButton id="penToolBtn" name="penToolBtn" label="penTool" skinClass="view.documentroot.reportscreen.sidebar.maintoolbox.Skin_PenToolBtn"/>
+						<s:ToggleButton id="shapeToolBtn" name="shapeToolBtn" label="shapeTool" skinClass="view.documentroot.reportscreen.sidebar.maintoolbox.Skin_ShapeToolBtn"/>
+						<s:ToggleButton id="stampToolBtn" name="stampToolBtn" label="stampTool" skinClass="view.documentroot.reportscreen.sidebar.maintoolbox.Skin_StampToolBtn"/>
+						<s:ToggleButton id="imageToolBtn" name="imageToolBtn" label="imageTool" skinClass="view.documentroot.reportscreen.sidebar.maintoolbox.Skin_ImageToolBtn"/>
+					</s:VGroup>
+				</s:NavigatorContent>
+				<s:NavigatorContent id="menuBtns" width="100%">
+					<s:VGroup id="menuGroup" width="100%" horizontalAlign="center" verticalAlign="middle" gap="8">
+						<s:ToggleButton id="calendarBtn" label="calendarTool" skinClass="view.documentroot.reportscreen.sidebar.maintoolbox.Skin_CalendarBtn"/>
+						<s:ToggleButton id="fileToolBtn" label="fileTool" skinClass="view.documentroot.reportscreen.sidebar.maintoolbox.Skin_FileBtn"/>
+						<s:ToggleButton id="linkToolBtn" label="linkTool" skinClass="view.documentroot.reportscreen.sidebar.maintoolbox.Skin_LinkToolBtn"/>
+						<s:ToggleButton id="timelineToolBtn" label="timelineTool" skinClass="view.documentroot.reportscreen.sidebar.maintoolbox.Skin_TimelineToolBtn"/>
+						<s:ToggleButton id="settingsBtn" label="settings" skinClass="view.documentroot.reportscreen.sidebar.maintoolbox.Skin_SettingsBtn"/>
+					</s:VGroup>
+				</s:NavigatorContent>
+			</mx:ViewStack>
+		</s:VGroup>
+	</s:Group>
+	<s:Group id="subToolBox" height="100%">
+		<s:Rect width="100%" height="100%" alpha="0.8" left="0" right="0" top="0" bottom="0">
+			<s:fill>
+				<s:SolidColor color="0x000000"/>
+			</s:fill>
+		</s:Rect>
+		<mx:ViewStack id="toolBoxContainer" top="0" width="100%" height="100%" creationPolicy="all" resizeToContent="true">
+			<s:NavigatorContent id="none"/>
+			<view.documentroot.reportscreen.sidebar:EditToolBox id="editTool" name="editToolBox" width="56" height="100%"/>
+			<view.documentroot.reportscreen.sidebar:TextToolBox id="textTool" name="textToolBox" width="56" height="100%"/>
+			<view.documentroot.reportscreen.sidebar:PenToolBox id="penTool" name="penToolBox" width="56" height="100%"/>
+			<view.documentroot.reportscreen.sidebar:ShapeToolBox id="shapeTool" name="shapeToolBox" width="56" height="100%"/>
+			<view.documentroot.reportscreen.sidebar:StampToolBox id="stampTool" name="stampToolBox" width="56" height="100%"/>
+			<view.documentroot.reportscreen.sidebar:ImageToolBox id="imageTool" name="imageToolBox" width="56" height="100%"/>
+			<view.documentroot.reportscreen.sidebar:ScrollToolBox id="scrollTool" name="scrollToolBox" width="56" height="100%"/>
+			<view.documentroot.reportscreen.sidebar:FileListBox id="fileTool" name="fileListBox" height="100%"/>
+			<view.documentroot.reportscreen.sidebar:CalendarDayBox id="calendarDayBox" name="calendarDayBox" width="320" height="100%"/>
+			<view.documentroot.reportscreen.sidebar:LinkToolBox id="linkTool" name="linkToolBox" height="100%"/>
+			<view.documentroot.reportscreen.sidebar:SettingsBox id="settings" name="settingsBox" height="100%"/>
+		</mx:ViewStack>
+	</s:Group>
+	<mx:ViewStack id="pagerViewStack" height="100%" mouseEnabled="false"/>
+</s:HGroup>

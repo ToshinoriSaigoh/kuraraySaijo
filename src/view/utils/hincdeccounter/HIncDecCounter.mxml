@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Group
+	xmlns:fx="http://ns.adobe.com/mxml/2009"
+	xmlns:s="library://ns.adobe.com/flex/spark"
+	xmlns:view.utils.hincdeccounter="view.utils.hincdeccounter.*"
+	>
+	<fx:Script>
+	<![CDATA[
+	/*
+		//import mx.binding.utils.BindingUtils;
+		private function _init(): void
+		{
+			//BindingUtils.bindProperty(counter, "text", Draw, "thick");
+		}
+	*/
+	]]>
+	</fx:Script>
+	<s:HGroup gap="0">
+		<s:Button id="decrease" name="decrease" autoRepeat="true" skinClass="view.utils.hincdeccounter.Skin_HDecreaseBtn"/>
+		<s:Group width="48" height="48">
+			<s:Rect left="0" right="0" top="0" bottom="0">
+				<s:fill>
+					<s:SolidColor color="0xffffff"/>
+				</s:fill>
+				<s:stroke>
+					<s:SolidColorStroke color="0x222222" weight="1" alpha="0"/>
+				</s:stroke>
+			</s:Rect>
+			<s:Label id="counter" styleName="textMedium" width="48" height="48" textAlign="center" verticalAlign="middle" color="0x222222"/>
+		</s:Group>
+		<s:Button id="increase" name="increase" autoRepeat="true" skinClass="view.utils.hincdeccounter.Skin_HIncreaseBtn"/>
+	</s:HGroup>
+</s:Group>

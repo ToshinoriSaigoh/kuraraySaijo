@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:NavigatorContent
+	xmlns:fx="http://ns.adobe.com/mxml/2009"
+	xmlns:s="library://ns.adobe.com/flex/spark"
+	xmlns:controller.documentroot.reportscreen.sidebar="controller.documentroot.reportscreen.sidebar.*"
+	xmlns:view.documentroot.reportscreen.sidebar.edittoolbox="view.documentroot.reportscreen.sidebar.edittoolbox.*"
+	xmlns:view.utils="view.utils.*">
+	<fx:Declarations>
+		<controller.documentroot.reportscreen.sidebar:EditToolBox id="ctrlr"/>
+	</fx:Declarations>
+	<s:VGroup id="toolBtnGroup" height="100%" width="100%" verticalAlign="middle" horizontalAlign="center" gap="8">
+		<s:Button id="deleteBtn" skinClass="view.documentroot.reportscreen.sidebar.edittoolbox.Skin_DeleteBtn"/>
+		<s:VGroup id="selectModeBtn" gap="1">
+			<s:ToggleButton id="singleSelectBtn" selected="true" skinClass="view.documentroot.reportscreen.sidebar.edittoolbox.Skin_SingleSelectBtn"/>
+			<s:ToggleButton id="multiSelectBtn" skinClass="view.documentroot.reportscreen.sidebar.edittoolbox.Skin_MultiSelectBtn"/>
+		</s:VGroup>
+	</s:VGroup>
+	<s:SpriteVisualElement id="body"/>
+</s:NavigatorContent>

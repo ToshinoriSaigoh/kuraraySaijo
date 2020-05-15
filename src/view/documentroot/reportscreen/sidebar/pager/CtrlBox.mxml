@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Group
+	xmlns:fx="http://ns.adobe.com/mxml/2009"
+	xmlns:s="library://ns.adobe.com/flex/spark"
+	xmlns:controller.documentroot.reportscreen.sidebar.pager="controller.documentroot.reportscreen.sidebar.pager.*"
+	width="0" width.default="0" width.thumb="240" width.layer="240"
+	height="0" height.default="0" height.thumb="170" height.layer="{layerBox.height}"
+	currentState="default"
+	>
+	<fx:Declarations>
+		<controller.documentroot.reportscreen.sidebar.pager:CtrlBox id="ctrlr"/>
+	</fx:Declarations>
+	<s:states>
+		<s:State name="default"/>
+		<s:State name="thumb"/>
+		<s:State name="layer"/>
+	</s:states>
+	<!-- state thumb -->
+	<s:Button id="thumbBox" visible="false" visible.thumb="true" skinClass="view.documentroot.reportscreen.sidebar.pager.Skin_CtrlBoxThumbBtn"/>
+	<!-- state layer -->
+	<s:Group width="240" mouseEnabled="false">
+		<s:VGroup id="layerBox" mouseEnabled="false" visible="false" visible.layer="true" width="240" gap="0">
+			<s:Group id="layerBoxFooter" mouseEnabled="false" width="100%" height="46">
+				<s:Rect width="248" height="44" alpha="0.9">
+					<s:fill>
+						<s:SolidColor color="0x00ccee"/>
+					</s:fill>
+				</s:Rect>
+				<s:Button id="addLayer" click="ctrlr.addLayerBtnClickHandler()" verticalCenter="0" horizontalCenter="0" skinClass="view.documentroot.reportscreen.sidebar.pager.Skin_AddLayerBtn"/>
+			</s:Group>
+			<s:Scroller id="layerListBox" top="0" width="100%" skinClass="view.documentroot.reportscreen.sidebar.pager.Skin_VScroller">
+				<s:DataGroup id="layerListData" mouseEnabled="false">
+					<s:layout>
+						<s:VerticalLayout gap="0"/>
+					</s:layout>
+					<s:itemRenderer>
+						<fx:Component>
+							<s:ItemRenderer autoDrawBackground="false">
+								<s:ToggleButton id="layerItem" label="{data.label}" skinClass="view.documentroot.reportscreen.sidebar.pager.Skin_LayerItemBtn"/>
+								<s:Button id="hideLayerBtn" visible="true" width="40" height="40" right="4" verticalCenter="0" skinClass="view.documentroot.reportscreen.sidebar.pager.Skin_HideLayerBtn"/>
+								<s:Line xFrom="0" xTo="240" yFrom="44" yTo="44">
+									<s:stroke>
+										<s:SolidColorStroke color="0xffffff" weight="0"/>
+									</s:stroke>
+								</s:Line>
+							</s:ItemRenderer>
+						</fx:Component>
+					</s:itemRenderer>
+				</s:DataGroup>
+			</s:Scroller>
+		</s:VGroup>
+	</s:Group>
+
+	<s:SpriteVisualElement id="body"/>
+</s:Group>

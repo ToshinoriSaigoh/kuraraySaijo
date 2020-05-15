@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:ItemRenderer
+	xmlns:fx="http://ns.adobe.com/mxml/2009"
+	xmlns:s="library://ns.adobe.com/flex/spark"
+	xmlns:view.utils="view.utils.*"
+	xmlns:view.documentroot.reportscreen.palletcontainer.stamppallet="view.documentroot.reportscreen.palletcontainer.stamppallet.*"
+	xmlns:controller.documentroot.reportscreen.palletcontainer.stamppallet="controller.documentroot.reportscreen.palletcontainer.stamppallet.*"
+	autoDrawBackground="false"
+	width="224"
+	>
+	<s:SpriteVisualElement id="body"/>
+	<s:Group id="fileItem" width="100%" height="100%" mouseEnabled="false">
+		<s:Rect width="100%" height="100%" alpha="0.3">
+			<s:fill>
+				<s:SolidColor color="0x000000"/>
+			</s:fill>
+		</s:Rect>
+		<s:Label name="folder" width="208" left="8" height="66" top="0" verticalAlign="middle" text="{data.name}" styleName="folderListItem" mouseEnabled="false"/>
+	</s:Group>
+</s:ItemRenderer>

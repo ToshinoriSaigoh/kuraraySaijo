@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:SparkSkin
+	xmlns:fx = "http://ns.adobe.com/mxml/2009"
+	xmlns:s = "library://ns.adobe.com/flex/spark">
+	<s:states>
+		<s:State name="default"/>
+		<s:State name="calendar"/>
+		<s:State name="kuraraysaijo"/>
+		<s:State name="document"/>
+		<s:State name="conference"/>
+		<s:State name="meeting"/>
+		<s:State name="trouble"/>
+		<s:State name="emergency"/>
+	</s:states>
+	<s:Rect width="12" height="100%" left="0">
+		<s:fill>
+			<s:SolidColor
+				color="0xbbbbbb"
+				color.default="0xbbbbbb"
+				color.calendar="0xffffff"
+				color.kuraraysaijo="0xffffff"
+				color.document="0x000099"
+				color.meeting="0x0bbee"
+				color.conference="0x009922"
+				color.emergency="0xee0000"
+				color.trouble="0xeecc22"
+			/>
+		</s:fill>
+	</s:Rect>
+</s:SparkSkin>

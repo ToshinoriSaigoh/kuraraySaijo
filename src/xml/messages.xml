@@ -1,0 +1,950 @@
+<posting>
+	<!-- alertScreen -->
+	<message name="alert">
+		<params>
+			<param>visible</param>
+			<param>headText</param>
+			<param>contentText</param>
+		</params>
+		<step type="PB" message="PB_alert">
+			<receiver path="kuraraysaijo.controller.documentroot::AlertScreen"/>
+		</step>
+	</message>
+	<!-- e alertScreen -->
+
+	<!-- reportScreen -->
+	<message name="changePage">
+		<params>
+			<param>report</param>
+			<param>page</param>
+		</params>
+		<step type="PB" message="PB_changePage">
+			<receiver path="model.plugin.report.emergency::EmergencyReport"/>
+			<receiver path="kuraraysaijo.model.plugin.report.calendar::Calendar"/>
+			<receiver path="kuraraysaijo.model.plugin.report::KuraraySaijoReport"/>
+		</step>
+		<step type="PB" name="after" message="PB_changePage_after">
+			<receiver path="controller.documentroot.reportscreen.sidebar.pager::PageBtn"/>
+			<receiver path="controller.documentroot.reportscreen.sidebar.pager::CtrlBox"/>
+			<receiver path="model.plugin.draw::DrawPlayer"/>
+			<receiver path="model.plugin.draw.edittool::EditTool"/>
+		</step>
+	</message>
+	<message name="addPage">
+		<params>
+			<param>report</param>
+		</params>
+		<step type="PB" message="PB_addPage">
+			<receiver path="kuraraysaijo.model.plugin.report::KuraraySaijoReport"/>
+		</step>
+	</message>
+	<message name="addLayer">
+		<params>
+			<option>report</option>
+			<option>page</option>
+		</params>
+		<step type="PB" message="PB_addLayer">
+			<receiver path="model.plugin.report::Page"/>
+		</step>
+	</message>
+	<message name="changeLayer">
+		<params>
+			<param>report</param>
+			<param>page</param>
+			<option>layer</option>
+			<option>change</option>
+		</params>
+		<step type="PB" message="PB_changeLayer">
+			<receiver path="model.plugin.report::Page"/>
+		</step>
+		<step type="PB" name="after" message="PB_changeLayer_after">
+			<receiver path="controller.documentroot.reportscreen.sidebar.pager::CtrlBox"/>
+		</step>
+	</message>
+	<message name="showLayer">
+		<params>
+			<param>report</param>
+			<param>page</param>
+			<param>layer</param>
+			<param>action</param>
+		</params>
+		<step type="PB" message="PB_showLayer">
+			<receiver path="model.plugin.report::Page"/>
+		</step>
+	</message>
+	<message name="addChapter">
+		<params>
+			<option>report</option>
+			<option>chapter</option>
+		</params>
+		<step type="PB" message="PB_addChapter">
+			<receiver path="model.plugin.report::Report"/>
+		</step>
+	</message>
+	<message name="changeChapter">
+		<params>
+			<option>action</option>
+			<option>chapter</option>
+		</params>
+		<step type="PB" message="PB_changeChapter">
+			<receiver path="kuraraysaijo.model.plugin.report::KuraraySaijoReport"/>
+			<receiver path="controller.documentroot.reportscreen.palletcontainer::MovieCtrlr"/>
+		</step>
+	</message>
+
+	<!-- sidebar -->
+	<message name="changeStateCtrlBox" description="ページャーのステート切り替え">
+		<params>
+			<param>state</param>
+			<option>page</option>
+		</params>
+		<step type="PB" message="PB_changeStateCtrlBox">
+			<receiver path="controller.documentroot.reportscreen.sidebar::Pager"/>
+			<receiver path="controller.documentroot.reportscreen.sidebar.pager::PageBtn"/>
+		</step>
+	</message>
+	<message name="toggleSideBar" description="サイドバー開閉">
+		<step type="MSG" message="MSG_toggleSideBar">
+			<receiver path="kuraraysaijo.controller.documentroot.reportscreen::SideBar"/>
+		</step>
+	</message>
+	<!-- sidebar e -->
+
+	<!-- draw -->
+	<message name="flushBuffer">
+		<params>
+			<param>bufferName</param>
+			<option>report</option>
+			<option>page</option>
+		</params>
+		<step type="PB" message="PB_flushBuffer">
+			<receiver path="model.plugin.draw::DrawPlayer"/>
+		</step>
+	</message>
+	<!-- draw e -->
+	<!-- movie -->
+	<message name="actionMovie">
+		<params>
+			<param>action</param>
+			<option>time</option>
+		</params>
+		<step type="PB" message="PB_actionMovie">
+			<receiver path="model.plugin.draw::DrawPlayer"/>
+			<receiver path="kuraraysaijo.model.plugin.report::KuraraySaijoReport"/>
+			<receiver path="controller.documentroot.reportscreen.palletcontainer::MovieCtrlr"/>
+		</step>
+		<step type="PB" name="after" message="PB_actionMovie_after">
+			<receiver path="controller.documentroot.reportscreen.palletcontainer::TimelinePallet"/>
+		</step>
+	</message>
+	<!-- movie e -->
+
+	<!-- アプリケーション初期化・終了・共通処理 -->
+	<message name="appStart" description="アプリケーション開始処理">
+		<step type="MSG" name="" message="MSG_appStart">
+			<receiver path="controller::App" />
+		</step>
+		<step type="MSG" name="after" message="MSG_appStart_after">
+			<receiver path="kuraraysaijo.controller.documentroot.reportscreen::DrawContents" />
+			<receiver path="controller.documentroot.reportscreen.palletcontainer::MovieCtrlr" />
+			<receiver path="kuraraysaijo.controller.documentroot::InitScreen" />
+			<receiver path="model.app.network::ChannelManager" />
+		</step>
+	</message>
+	<message name="appClose" description="アプリケーション終了処理">
+		<step type="GW" name="" message="GW_appClose">
+			<receiver path="controller::App" />
+		</step>
+	</message>
+	<message name="minimizeWindow" description="ウィンドウ最小化">
+		<step type="MSG" name="" message="MSG_minimizeWindow">
+			<receiver path="controller::App" />
+		</step>
+	</message>
+	<message name="changeScreen" description="スクリーン切り替え">
+		<params>
+			<param>screen</param>
+		</params>
+		<step type="PB" name="before" message="PB_changeScreen_before">
+			<receiver path="controller::DesktopScreen" />
+		</step>
+		<step type="PB" name="" message="PB_changeScreen">
+			<receiver path="controller::App" />
+		</step>
+	</message>
+	<!-- アプリケーション初期化・終了・共通処理 end -->
+	<!-- 保存・読み込み -->
+	<message name="saveZip" description="zip保存">
+		<params>
+			<param>report</param>
+		</params>
+		<step type="GW" name="before" message="GW_saveZip_before">
+			<receiver path="model.plugin.report.emergency::EmergencyReport"/>
+			<receiver path="kuraraysaijo.model.plugin.report::KuraraySaijoReport"/>
+			<receiver path="kuraraysaijo.model.plugin.report.calendar::Calendar"/>
+		</step>
+		<step type="GW" name="" message="GW_saveZip">
+			<receiver path="model.plugin.report.emergency::EmergencyReport"/>
+			<receiver path="kuraraysaijo.model.plugin.report.calendar::Calendar"/>
+			<receiver path="kuraraysaijo.model.plugin.report::KuraraySaijoReport"/>
+		</step>
+		<step type="PB" name="after" message="PB_saveZip_after">
+			<receiver path="controller.documentroot.reportscreen.sidebar::FileListBox"/>
+		</step>
+	</message>
+	<message name="saveZipAll">
+		<step type="GW" message="GW_saveZipAll">
+			<receiver path="controller::App"/>
+		</step>
+	</message>
+
+	<message name="saveTmpZip" description="一時ディレクトリへzip保存">
+		<params>
+			<param>report</param>
+		</params>
+		<step type="GW" name="" message="GW_saveTmpZip">
+			<receiver path="model.plugin.report.emergency::EmergencyReport"/>
+			<receiver path="kuraraysaijo.model.plugin.report.calendar::Calendar"/>
+			<receiver path="kuraraysaijo.model.plugin.report::KuraraySaijoReport"/>
+		</step>
+	</message>
+	<message name="loadZip" description="zip読込">
+		<params>
+			<param>year</param>
+			<param>month</param>
+			<param>fileName</param>
+			<option>mode</option>
+		</params>
+		<step type="PB" name="" message="PB_loadZip">
+			<receiver path="model.plugin.report::Load"/>
+		</step>
+	</message>
+	<message name="importZip">
+		<step type="MSG" message="MSG_openSelectZip">
+			<receiver path="model.plugin.report::Load"/>
+		</step>
+	</message>
+	<message name="loadTmpZip" description="一時ディレクトリからzip読込">
+		<params>
+			<param>fileName</param>
+			<param>mode</param>
+			<param>type</param>
+		</params>
+		<step type="PB" name="" message="PB_loadTmpZip">
+			<receiver path="model.plugin.report::Load"/>
+		</step>
+	</message>
+	<message name="loadReport" description="一時ディレクトリからzip読込">
+		<params>
+			<param>dirPath</param>
+		</params>
+		<step type="PB" name="" message="PB_loadReport">
+			<receiver path="model.plugin.report::Load"/>
+		</step>
+	</message>
+	<message name="openReport">
+		<params>
+			<param>report</param>
+			<option>mode</option>
+		</params>
+		<step type="GW" message="GW_openReport">
+			<receiver path="kuraraysaijo.controller.documentroot.reportscreen::DrawContents"/>
+		</step>
+		<step type="PB" name="after" message="PB_openReport_after">
+			<receiver path="kuraraysaijo.controller.documentroot.reportscreen::DrawContents"/>
+		</step>
+	</message>
+	<message name="addReport">
+		<params>
+			<option>type</option>
+			<option>option</option>
+			<option>report</option>
+		</params>
+		<step type="PB" message="PB_addReport">
+			<receiver path="kuraraysaijo.controller.documentroot.reportscreen::DrawContents"/>
+		</step>
+	</message>
+	<message name="creationCompleteReport">
+		<params>
+			<param>report</param>
+		</params>
+		<step type="PB" message="PB_creationCompleteReport">
+			<receiver path="controller.documentroot.reportscreen.sidebar::FileListBox"/>
+			<receiver path="controller.documentroot.reportscreen.palletcontainer::TimelinePallet"/>
+		</step>
+	</message>
+	<message name="deleteCompleteReport">
+		<params>
+			<param>report</param>
+		</params>
+		<step type="PB" message="PB_deleteCompleteReport">
+			<receiver path="kuraraysaijo.controller.documentroot.reportscreen::DrawContents"/>
+			<receiver path="model.app.network::ShareReport"/>
+		</step>
+	</message>
+	<message name="closeReportAll">
+		<step type="GW" message="GW_closeReportAll">
+			<receiver path="controller::App"/>
+		</step>
+	</message>
+	<message name="closeReport">
+		<params>
+			<param>report</param>
+		</params>
+		<step type="PB" name="" message="PB_closeReport">
+			<receiver path="kuraraysaijo.model.plugin.report::KuraraySaijoReport"/>
+			<receiver path="kuraraysaijo.model.plugin.report.calendar::Calendar"/>
+			<receiver path="model.plugin.report.emergency::EmergencyReport"/>
+		</step>
+	</message>
+	<message name="changeReport">
+		<params>
+			<param>report</param>
+		</params>
+		<step type="PB" name="before" message="PB_changeReport_before">
+			<receiver path="kuraraysaijo.controller.documentroot.reportscreen::DrawContents"/>
+		</step>
+		<step type="PB" name="" message="PB_changeReport">
+			<receiver path="kuraraysaijo.controller.documentroot.reportscreen::DrawContents"/>
+		</step>
+		<step type="PB" name="after" message="PB_changeReport_after">
+			<receiver path="controller.documentroot.reportscreen.sidebar::FileListBox"/>
+			<receiver path="controller.documentroot.reportscreen.palletcontainer::TimelinePallet"/>
+			<receiver path="model.plugin.report.emergency::EmergencyHeader"/>
+			<receiver path="kuraraysaijo.model.plugin.report.calendar::Calendar"/>
+			<receiver path="kuraraysaijo.controller.documentroot.reportscreen::SideBar"/>
+		</step>
+	</message>
+
+	<message name="activeReport" description="Global変更">
+		<step type="GLOBAL" message="GLOBAL_activeReport">
+			<receiver path="controller.documentroot.reportscreen.sidebar::FileListBox"/>
+		</step>
+	</message>
+
+	<!-- ウィンドウ -->
+	<message name="windowResize" description="ウィンドウサイズ変更">
+		<step type="MSG" name="" message="MSG_windowResize">
+			<receiver path="model.plugin.report::Page"/>
+			<receiver path="model.plugin.draw::ControlPanel"/>
+		</step>
+	</message>
+	<!-- ウィンドウe -->
+	<!-- reportScreen -->
+	<message name="changeMenu" description="メインボタン切り替え">
+		<params>
+			<option>tool</option>
+		</params>
+		<step type="PB" name="" message="PB_changeMenu">
+			<receiver path="kuraraysaijo.controller.documentroot.reportscreen::SideBar"/>
+		</step>
+	</message>
+	<message name="changeTool" description="ツール切り替え">
+		<params>
+			<param>tool</param>
+			<option>option</option>
+		</params>
+		<step type="PB" name="" message="PB_changeTool">
+			<receiver path="controller.documentroot.reportscreen.sidebar::MainToolBtn"/>
+			<receiver path="controller.documentroot.reportscreen.sidebar::EditToolBox"/>
+			<receiver path="controller.documentroot.reportscreen.sidebar::PenToolBox"/>
+			<receiver path="controller.documentroot.reportscreen.sidebar::TextToolBox"/>
+			<receiver path="controller.documentroot.reportscreen.sidebar::ShapeToolBox"/>
+			<receiver path="controller.documentroot.reportscreen.sidebar::ZoomToolBox"/>
+			<receiver path="controller.documentroot.reportscreen.sidebar::FileListBox"/>
+			<receiver path="kuraraysaijo.controller.documentroot.reportscreen.sidebar::MainToolBtn"/>
+			<receiver path="kuraraysaijo.controller.documentroot.reportscreen::SideBar"/>
+			<receiver path="kuraraysaijo.model.plugin.report::KuraraySaijoMonitorContainer"/>
+			<receiver path="model.plugin.draw::ControlPanel"/>
+			<receiver path="model.plugin.draw.handdraw::HandDraw"/>
+			<receiver path="model.plugin.draw.shapetool::ShapeTool"/>
+			<receiver path="model.plugin.draw.edittool::EditTool"/>
+			<receiver path="model.plugin.draw.scrolltool::ScrollTool"/>
+			<receiver path="model.plugin.draw.hidetool::HideTool"/>
+			<receiver path="model.plugin.draw.texttool::TextTool"/>
+			<receiver path="kuraraysaijo.model.plugin.report.calendar::Calendar"/>
+			<receiver path="model.app.network::ChannelManager"/>
+			<receiver path="kuraraysaijo.model.plugin.report::KuraraySaijoReport"/>
+		</step>
+		<step type="PB" name="after" message="PB_changeTool_after">
+			<receiver path="model.plugin.draw::DrawPlayer"/>
+		</step>
+	</message>
+	<message name="actionTool" description="ツール実行">
+		<params>
+			<param>tool</param>
+		</params>
+		<step type="PB" name="" message="PB_actionTool">
+			<receiver path="model.plugin.draw.handdraw::HandDraw"/>
+			<receiver path="model.plugin.draw.imagetool::ImageTool"/>
+			<receiver path="model.plugin.draw.edittool::EditTool"/>
+			<receiver path="model.plugin.screenshot::ScreenShot"/>
+		</step>
+	</message>
+	<message name="changeToolBox">
+		<params>
+			<param>tool</param>
+			<option>val</option>
+		</params>
+		<step type="PB" name="" message="PB_changeToolBox">
+			<receiver path="kuraraysaijo.controller.documentroot.reportscreen::SideBar"/>
+		</step>
+	</message>
+	<message name="showPallet" description="パレット開閉">
+		<params>
+			<param>pallet</param>
+		</params>
+		<step type="PB" name="" message="PB_showPallet">
+			<receiver path="controller.documentroot.reportscreen::PalletContainer"/>
+		</step>
+	</message>
+	<message name="showMonitor" description="IoTモニタ開閉">
+		<params>
+			<param>value</param>
+		</params>
+		<step type="PB" name="" message="PB_showMonitor">
+			<receiver path="model.plugin.monitor.controller::MonitorContainer"/>
+		</step>
+	</message>
+	<message name="showContainer" description="コンテナ開閉">
+		<params>
+			<param>container</param>
+			<param>action</param>
+		</params>
+		<step type="PB" name="" message="showContainer">
+			<receiver path="kuraraysaijo.controller.documentroot.reportscreen.sidebar::SettingsBox"/>
+		</step>
+	</message>
+	<message name="changeThick" description="線の太さ">
+		<params>
+			<param>operation</param>
+		</params>
+		<step type="PB" name="" message="PB_changeThick">
+			<receiver path="model.plugin.draw.handdraw::HandDraw"/>
+		</step>
+	</message>
+	<message name="changeAlpha" description="透明度">
+		<params>
+			<param>operation</param>
+		</params>
+		<step type="PB" name="" message="PB_changeAlpha">
+			<receiver path="model.plugin.draw.shapetool::ShapeTool"/>
+		</step>
+	</message>
+	<message name="changeScale" description="拡縮">
+		<params>
+			<param>zoom</param>
+		</params>
+		<step type="PB" name="" message="PB_changeScale">
+			<receiver path="model.plugin.draw.zoomtool::ZoomTool"/>
+		</step>
+	</message>
+	<message name="changeStampSize">
+		<params>
+			<param>operation</param>
+		</params>
+		<step type="PB" name="" message="PB_changeStampSize">
+			<receiver path="model.plugin.draw.stamptool::StampTool"/>
+		</step>
+	</message>
+	<message name="changeImageSize">
+		<params>
+			<param>operation</param>
+		</params>
+		<step type="PB" name="" message="PB_changeImageSize">
+			<receiver path="model.plugin.draw.imagetool::ImageTool"/>
+		</step>
+	</message>
+	<message name="changeTextSize">
+		<params>
+			<param>operation</param>
+		</params>
+		<step type="PB" name="" message="PB_changeTextSize">
+			<receiver path="model.plugin.draw.texttool::TextTool"/>
+		</step>
+	</message>
+	<!-- reportScreen e -->
+	<!-- emergency -->
+	<!-- emergency e -->
+
+
+
+
+
+
+
+	<!-- 保存と読み込み -->
+	<message name="reportLoadComplete" description="レポート読み込み完了">
+		<params>
+			<param>reportID</param>
+		</params>
+		<step type="PB" name="" message="PB_reportLoadComplete">
+			<receiver path="controller.reportscreen.drawpanel.reportlist::Report" />
+			<receiver path="model.plugin.draw::DrawPlayer" />
+		</step>
+		<step type="MSG" name="after" message="MSG_reportLoadComplete_after">
+			<receiver path="app.creator::Capture" />
+			<receiver path="kuraraysaijo.controller.documentroot::ReportScreen" />
+			<receiver path="model.plugin.draw::DrawReceiver" />
+		</step>
+	</message>
+	<!-- 保存と読み込み end -->
+	<!-- 設定画面 -->
+	<message name="changedConfig">
+		<step type="MSG" message="MSG_changedConfig">
+		</step>
+	</message>
+	<!-- 設定画面 end -->
+	<!-- dialog -->
+	<message name="showDialog" description="ダイアログ表示">
+		<params>
+			<param>dialogName</param>
+			<param>option</param>
+		</params>
+		<step type="PB" name="" description="実行" message="PB_showDialog">
+			<receiver path="controller.common::GeneralPurposeDialog" />
+			<receiver path="controller.common::HelpDialog" />
+		</step>
+	</message>
+	<message name="hideDialog" description="ダイアログ非表示">
+		<step type="MSG" name="" description="実行" message="MSG_hideDialog">
+			<receiver path="controller.common::GeneralPurposeDialog" />
+			<receiver path="controller.common::HelpDialog" />
+		</step>
+	</message>
+	<!-- dialog end -->
+	<!-- shape pallet -->
+	<message name="changeShapeType" description="線・図形切り替え">
+		<params>
+			<param>shapeType</param>
+		</params>
+		<step type="PB" name="" message="PB_changeShapeType">
+			<receiver path="model.plugin.draw::DrawReceiver" />
+		</step>
+	</message>
+	<!-- shape pallet end -->
+	<!-- thick pallet -->
+	<message name="changeThick" description="線太さ切り替え">
+		<params>
+			<param>thick</param>
+		</params>
+		<step type="PB" name="" message="PB_changeThick">
+			<receiver path="model.plugin.draw::DrawReceiver" />
+		</step>
+	</message>
+	<!-- thick pallet end -->
+	<!-- pen pallet -->
+	<message name="changePenType" description="ペンタイプ切り替え">
+		<params>
+			<param>penType</param>
+		</params>
+		<step type="PB" name="" message="PB_changePenType">
+			<receiver path="controller.reportscreen.toolpanel.toolcontainer::PenToolBtn" />
+		</step>
+	</message>
+	<!-- pen pallet end -->
+	<!-- imageTool -->
+	<message name="actionImageTool" description="画像貼り付け">
+		<step type="MSG" name="" message="MSG_actionImageTool">
+			<receiver path="model.plugin.draw.imagetool::ImageTool" />
+		</step>
+	</message>
+	<!-- imageTool end -->
+	<!-- eraseAll -->
+	<message name="actionEraseAll" description="全消去">
+		<step type="MSG" name="" message="MSG_actionEraseAll">
+			<receiver path="model.plugin.draw.eraseall::EraseAll" />
+			<receiver path="app.creator::Capture" />
+		</step>
+	</message>
+	<!-- eraseAll end -->
+	<!-- deletePage -->
+	<message name="actionDeletePage" description="ページ削除">
+		<params>
+			<param>reportID</param>
+			<param>page</param>
+		</params>
+		<step type="PB" name="" message="PB_actionDeletePage">
+			<receiver path="model.plugin.draw.deletepage::DeletePage" />
+		</step>
+		<step type="PB" name="after" message="PB_actionDeletePage_after">
+			<receiver path="controller.reportscreen.drawpanel.reportlist::Report" />
+		</step>
+		<step type="PB" name="afterafter" message="PB_actionDeletePage_afterafter">
+			<receiver path="controller.reportscreen.toolpanel.sidecontainer.thumblistbox::ThumbList" />
+			<receiver path="controller.reportscreen.toolpanel.footcontainer.thumblistbox::ThumbList" />
+		</step>
+	</message>
+	<!-- deletePage end -->
+	<!-- ReplicatePage -->
+	<message name="actionReplicatePage" description="ページ複製">
+		<params>
+			<param>reportID</param>
+			<param>page</param>
+		</params>
+		<step type="PB" name="" message="PB_actionReplicatePage">
+			<receiver path="model.plugin.draw.replicatepage::ReplicatePage" />
+		</step>
+		<step type="PB" name="after" message="PB_actionReplicatePage_after">
+			<receiver path="controller.reportscreen.drawpanel.reportlist::Report" />
+		</step>
+		<step type="PB" name="afterafter" message="PB_actionReplicatePage_afterafter">
+			<receiver path="controller.reportscreen.toolpanel.footcontainer.thumblistbox::ThumbList" />
+		</step>
+	</message>
+	<!-- ReplicatePage end -->
+	<!-- undo -->
+	<message name="actionUndo" description="やり直し">
+		<params>
+			<param>report</param>
+		</params>
+		<step type="PB" name="" message="PB_actionUndo">
+			<receiver path="model.plugin.draw::DrawReceiver" />
+		</step>
+	</message>
+	<!-- undo end -->
+	<!-- background -->
+	<message name="actionBGImage" description="背景画像選択ダイアログ起動">
+		<params>
+			<param>action</param>
+		</params>
+		<step type="PB" name="" message="PB_actionBG">
+			<receiver path="model.plugin.draw.background::BackgroundActivation" />
+		</step>
+	</message>
+	<message name="refreshBG" description="DBから有効な背景画像を読み出して更新">
+		<step type="MSG" name="" message="MSG_refreshBGImage">
+			<receiver path="model.plugin.draw.background::BackgroundActivation" />
+		</step>
+	</message>
+	<message name="selectedBGImage" description="ファイルオブジェクトを指定して背景画像に設定する">
+		<params>
+			<param>file</param>
+		</params>
+		<step type="PB" name="" message="PB_selectedBGImage">
+			<receiver path="model.plugin.draw.background::BackgroundActivation" />
+		</step>
+	</message>
+	<!-- background end -->
+	<!-- edit tool -->
+	<message name="objectUnmark" description="オブジェクト選択解除">
+		<step type="MSG" name="" message="MSG_objectUnmark">
+			<receiver path="model.plugin.draw.edittool::EditTool" />
+		</step>
+	</message>
+	<!-- edit tool end -->
+	<message name="userName" description="Global変更">
+		<step type="GLOBAL" message="GLOBAL_userName">
+			<receiver path="controller.reportscreen.drawpanel.reportlist.report::Page" />
+		</step>
+	</message>
+	<!-- file list -->
+	<message name="changeOpenFileList" description="新規レポート作成時リスト切り替え">
+		<step type="PB" name="" message="PB_changeOpenFileList">
+			<receiver path="controller.documentroot.reportscreen.sidebar::FileListBox" />
+		</step>
+	</message>
+	<!-- file list end -->
+
+
+
+
+	<!-- file list
+	<message name="selectSaveFileList" description="ファイルリストから選択">
+		<params>
+			<param>report</param>
+		</params>
+		<step type="PB" name="" message="PB_selectSaveFileList">
+			<receiver path="controller.documentroot.reportscreen.sidebar::FileListBox" />
+			<receiver path="controller.documentroot.reportscreen.sidebar.filelistbox::FileItem" />
+		</step>
+	</message>
+	<message name="selectOpenFileList" description="開いているファイルリストから選択">
+		<params>
+			<param>report</param>
+		</params>
+		<step type="PB" name="" message="PB_selectOpenFileList">
+			<receiver path="controller.documentroot.reportscreen.sidebar::FileListBox" />
+			<receiver path="controller.documentroot.reportscreen.sidebar.filelistbox::OpenFileItem" />
+		</step>
+	</message>-->
+	<!-- file list end -->
+
+	<!-- ScreenShot -->
+	<message name="screenShot" description="スクリーンショット">
+		<step type="MSG" name="" message="MSG_screenShot">
+			<receiver path="model.plugin.screenshot::ScreenShot" />
+		</step>
+	</message>
+	<message name="closeScreenShotWindow" description="スクリーンショットウィンドウ非表示">
+		<step type="MSG" name="" message="MSG_closeScreenShotWindow">
+			<receiver path="model.plugin.screenshot::ScreenShot" />
+		</step>
+	</message>
+	<message name="createImageObject" description="画像貼り付け">
+		<params>
+			<param>page</param>
+			<param>imageFile</param>
+			<param>fitting</param>
+			<param>author</param>
+		</params>
+		<step type="PB" name="" description="実行時" message="PB_createImageObject">
+			<receiver path="model.plugin.draw.imagetool::ImageTool" />
+		</step>
+	</message>
+	<!-- ScreenShot end -->
+
+
+
+
+
+
+
+
+
+
+
+	<!-- チャンネル操作 start -->
+	<message name="channelCommand">
+		<params>
+			<param>channelName</param>
+			<param>owner</param>
+		</params>
+		<step type="PB" message="PB_channelCommand" description="チャンネル操作">
+			<receiver path="model.app.network::ChannelManager"/>
+		</step>
+	</message>
+	<!-- チャンネル操作 end -->
+
+
+	<!-- チャンネルイベント start -->
+	<message name="CHANNEL_event">
+		<params>
+			<param>channelName</param>
+			<param>type</param>
+			<param>data</param>
+		</params>
+		<step type="PB" message="PB_CHANNEL_event" description="チャンネルイベント">
+			<receiver path="model.app.network::ChannelManager"/>
+			<receiver path="model.app.network::ShareReport"/>
+			<receiver path="controller.documentroot.reportscreen.sidebar::LinkToolBox"/>
+		</step>
+	</message>
+	<!-- チャンネルイベント end -->
+
+	<!-- レポートデータ共有 start -->
+	<message name="shareReport">
+		<params>
+			<param>type</param>
+			<param>report</param>
+		</params>
+		<step type="PB" message="PB_shareReport" description="レポート共有トリガー">
+			<receiver path="model.app.network::ShareReport"/>
+		</step>
+	</message>
+	<!-- レポートデータ送信 end -->
+
+	<!-- 分割データ受信 start -->
+	<message name="CHANNEL_clusterDataMessage">
+		<params>
+			<param>header</param>
+			<param>key</param>
+			<param>value</param>
+		</params>
+		<step type="PB" message="PB_CHANNEL_clusterDataMessage" description="ClusterDataReceiverプラグイン通信用メッセージ">
+			<receiver path="model.plugin.network.clusterdata::ClusterDataReceiver"/>
+		</step>
+	</message>
+	<message name="receivedClusterData">
+		<params>
+			<param>data</param>
+		</params>
+		<step type="PB" message="PB_receivedClusterData" description="ClusterData受信メッセージ">
+			<receiver path="model.app.network::ShareReport"/>
+			<receiver path="model.app.network::ShareImage"/>
+		</step>
+	</message>
+	<!-- 分割データ受信 end -->
+
+	<!-- カレンダー要求送信トリガー start -->
+	<message name="requestCalendar">
+		<step type="MSG" message="MSG_requestCalendar" description="カレンダー要求送信トリガー">
+			<receiver path="model.app.network::ShareReport"/>
+		</step>
+	</message>
+	<!-- カレンダー要求送信トリガー start -->
+
+	<!-- カレンダー要求受信 start -->
+	<message name="CHANNEL_requestCalendar">
+		<params>
+			<param>header</param>
+			<param>key</param>
+			<param>value</param>
+		</params>
+		<step type="PB" message="PB_CHANNEL_requestCalendar" description="カレンダー要求メッセージ">
+			<receiver path="model.app.network::ShareReport"/>
+		</step>
+	</message>
+	<!-- カレンダー要求受信 end -->
+
+	<!-- カレンダー受信通知 start -->
+	<message name="receivedCalendar">
+		<step type="MSG" message="MSG_receivedCalendar" description="カレンダー要求送信トリガー">
+			<receiver path="model.app.network::ShareReport"/>
+		</step>
+	</message>
+	<!-- カレンダー受信通知 start -->
+
+
+
+
+
+
+
+
+	<!-- 描画共有送信 start -->
+	<message name="sendShareDraw">
+		<params>
+			<param>toolName</param>
+			<param>action</param>
+		</params>
+		<step type="PB" message="PB_sendShareDraw" description="描画共有送信">
+			<receiver path="model.app.network::ShareDraw"/>
+		</step>
+	</message>
+	<!-- 描画共有送信 end -->
+
+	<!-- 描画共有受信 start -->
+	<message name="CHANNEL_shareDraw">
+		<params>
+			<param>header</param>
+			<param>key</param>
+			<param>value</param>
+		</params>
+		<step type="PB" message="PB_CHANNEL_shareDraw" description="描画共有受信">
+			<receiver path="model.app.network::ShareDraw"/>
+		</step>
+	</message>
+	<!-- 描画共有受信 end -->
+
+	<!-- 描画共有データDrawツールへの引き渡し start -->
+	<message name="receiveShareDraw">
+		<params>
+			<param>toolName</param>
+			<param>action</param>
+		</params>
+		<step type="PB" message="PB_receiveShareDraw" description="描画共有データDrawツールへの引き渡し">
+			<receiver path="model.plugin.draw.handdraw::HandDraw"/>
+			<receiver path="model.plugin.draw.hidetool::HideTool"/>
+			<receiver path="model.plugin.draw.imagetool::ImageTool" />
+			<receiver path="model.plugin.draw.shapetool::ShapeTool" />
+			<receiver path="model.plugin.draw.stamptool::StampTool" />
+			<receiver path="model.plugin.draw.edittool::EditTool" />
+		</step>
+	</message>
+	<!-- 描画共有データDrawツールへの引き渡し end -->
+
+	<!-- 画像共有 start -->
+	<message name="shareImage">
+		<params>
+			<param>bytes</param>
+			<param>option</param>
+		</params>
+		<step type="PB" message="PB_shareImage" description="画像共有">
+			<receiver path="model.app.network::ShareImage"/>
+		</step>
+	</message>
+	<!-- 画像共有送信 end -->
+
+
+	<!-- 緊急通知送信 start -->
+	<message name="sendEmergencyNotification">
+		<params>
+			<param>type</param>
+			<param>emergency</param>
+			<param>report</param>
+		</params>
+		<step type="PB" message="PB_sendEmergencyNotification" description="緊急通知送信">
+			<receiver path="model.app.network::EmergencyNotification"/>
+		</step>
+	</message>
+	<!-- 緊急通知送信 end -->
+	<!-- 緊急通知受信 start -->
+	<message name="CHANNEL_emergencyNotification">
+		<params>
+			<param>header</param>
+			<param>key</param>
+			<param>value</param>
+		</params>
+		<step type="PB" message="PB_CHANNEL_emergencyNotification" description="緊急通知受信">
+			<receiver path="model.app.network::EmergencyNotification"/>
+		</step>
+	</message>
+	<!-- 緊急通知受信 end -->
+
+
+	<!-- 汎用操作送信 start -->
+	<message name="sendGenericAction">
+		<params>
+			<param>action</param>
+		</params>
+		<step type="PB" message="PB_sendGenericAction" description="汎用操作送信">
+			<receiver path="model.app.network::GenericAction"/>
+		</step>
+	</message>
+	<!-- 汎用操作送信 end -->
+	<!-- 汎用操作受信 start -->
+	<message name="CHANNEL_genericAction">
+		<params>
+			<param>header</param>
+			<param>key</param>
+			<param>value</param>
+		</params>
+		<step type="PB" message="PB_CHANNEL_genericAction" description="汎用操作受信">
+			<receiver path="model.app.network::GenericAction"/>
+		</step>
+	</message>
+	<!-- 汎用操作受信 end -->
+
+	<!-- 時計 -->
+	<message name="clock" description="時計更新処理">
+		<params>
+			<param>date</param>
+		</params>
+		<step type="PB" name="" description="時計更新" message="PB_clock">
+			<receiver path="kuraraysaijo.model.plugin.report.clock::AnalogClockCtrl" />
+			<receiver path="kuraraysaijo.model.plugin.report.clock::DigitalClockCtrl" />
+			<receiver path="kuraraysaijo.model.batch::ReportChanger" />
+		</step>
+	</message>
+	<message name="clockCtrl" description="時計制御">
+		<params>
+			<param>command</param>
+		</params>
+		<step type="PB" name="" description="時計制御" message="PB_clockCtrl">
+			<receiver path="model.plugin.clock::Clock" />
+		</step>
+	</message>
+	<!-- 時計 end -->
+
+	<!-- 設定リフレッシュ関連 -->
+	<message name="refreshSettings" description="設定更新">
+		<step type="MSG" name="" message="MSG_refreshSettings">
+			<receiver path="kuraraysaijo.model.plugin.report::KuraraySaijoMonitorContainer"/>
+		</step>
+	</message>
+	<message name="refreshCalendar" description="カレンダー更新">
+		<step type="MSG" name="" message="MSG_refreshCalendar">
+			<receiver path="kuraraysaijo.model.plugin.report.calendar::Calendar"/>
+		</step>
+	</message>
+	<!-- 設定リフレッシュ関連 end -->
+
+	<!-- 当日レポートを開く -->
+	<message name="openTodayReport" description="">
+		<step type="MSG" name="" message="MSG_openTodayReport">
+			<receiver path="kuraraysaijo.controller.documentroot.reportscreen::DrawContents" />
+		</step>
+	</message>
+	<!-- 当日レポートを開く end -->
+</posting>

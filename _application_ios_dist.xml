@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<application xmlns="http://ns.adobe.com/air/application/25.0">
+	<id>jp.co.talkie.demo.KurareSaijo</id>
+	<versionLabel>1.0.0</versionLabel>
+	<versionNumber>1</versionNumber>
+	<filename>KurareSaijo</filename>
+	<description/>
+	<name>KurareSaijo</name>
+	<initialWindow>
+		<title>KurareSaijo</title>
+		<content>KurareSaijo.swf</content>
+		<transparent>false</transparent>
+		<fullScreen>true</fullScreen>
+		<aspectRatio>any</aspectRatio>
+		<renderMode>auto</renderMode>
+		<autoOrients>true</autoOrients>
+		<softKeyboardBehavior>none</softKeyboardBehavior>
+	</initialWindow>
+	<iPhone>
+		<InfoAdditions><![CDATA[<key>UIDeviceFamily</key>
+<array>
+	<string>1</string>
+	<string>2</string>
+</array>]]></InfoAdditions>
+		<requestedDisplayResolution>high</requestedDisplayResolution>
+	</iPhone>
+	<supportedLanguages>ja</supportedLanguages>
+</application>

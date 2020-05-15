@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Group xmlns:fx="http://ns.adobe.com/mxml/2009"
+	xmlns:s="library://ns.adobe.com/flex/spark"
+	xmlns:mx="library://ns.adobe.com/flex/mx"
+	xmlns:kuraraysaijo.view.documentroot.workscreen="kuraraysaijo.view.documentroot.workscreen.*"
+	xmlns:kuraraysaijo.model.plugin.report="kuraraysaijo.model.plugin.report.*"
+	xmlns:kuraraysaijo.model.plugin.report.monitorcontainer="kuraraysaijo.model.plugin.report.monitorcontainer.*"
+	xmlns:kuraraysaijo.model.plugin.report.clock="kuraraysaijo.model.plugin.report.clock.*"
+	>
+	<fx:Declarations>
+		<kuraraysaijo.model.plugin.report:KuraraySaijoMonitorContainer id="ctrlr"/>
+	</fx:Declarations>
+	<s:states>
+		<s:State name="normal"/>
+		<s:State name="edit"/>
+	</s:states>
+	<s:Group id="monitorContainer">
+		<s:SpriteVisualElement id="background" width="1920" height="1080" x="0" y="0"/>
+		<s:VGroup id="clock" width="440" height="540" x="0" y="0" paddingTop="40" horizontalAlign="center">
+			<kuraraysaijo.model.plugin.report.clock:AnalogClock width="300" height="300"/>
+			<kuraraysaijo.model.plugin.report.clock:DigitalClock width="100%" height="100%"/>
+		</s:VGroup>
+		<s:Label id="noAccidentRecord" styleName="record" text="{ctrlr.noAccidentRecord}" width="381" height="91" x="669" y="79"/>
+		<s:Label id="noAccidentTarget" styleName="record" text="{ctrlr.noAccidentTarget}" width="381" height="91" x="669" y="178"/>
+		<s:Label id="noAccidentDaysToGo" styleName="record" text="{ctrlr.noAccidentDaysToGo}" width="381" height="91" x="669" y="277"/>
+
+		<s:Label id="spotlessDrivingRecord" styleName="record" text="{ctrlr.spotlessDrivingRecord}" width="381" height="91" x="1432" y="79"/>
+		<s:Label id="spotlessDrivingTarget" styleName="record" text="{ctrlr.spotlessDrivingTarget}" width="381" height="91" x="1432" y="178"/>
+		<s:Label id="spotlessDrivingDaysToGo" styleName="record" text="{ctrlr.spotlessDrivingDaysToGo}" width="381" height="91" x="1432" y="277"/>
+
+		<s:Label id="todayPerson" styleName="person" text="{ctrlr.todayPerson}" width="341" height="49" x="669" y="433"/>
+		<s:Label id="nextPerson" styleName="person" text="{ctrlr.nextPerson}" width="341" height="49" x="1102" y="433"/>
+		<s:Label id="afterNextPerson" styleName="person" text="{ctrlr.afterNextPerson}" width="341" height="49" x="1534" y="433"/>
+
+		<s:Label id="thermometerOutDoor" styleName="meter" text="{ctrlr.thermometerOutDoor}" width="180" height="80" x="169" y="582"/>
+		<s:Label id="hygrometerOutDoor" styleName="meter" text="{ctrlr.hygrometerOutDoor}" width="180" height="80" x="169" y="690"/>
+		<s:Label id="WBGTOutDoor" styleName="meter" text="{ctrlr.WBGTOutDoor}" width="180" height="80" x="169" y="800"/>
+		<kuraraysaijo.model.plugin.report.monitorcontainer:WBGTAlert id="WBGTAlertOutDoor" width="180" height="40" x="169" y="887"/>
+		<kuraraysaijo.model.plugin.report.monitorcontainer:Anemometer id="anemometer" width="180" height="80" x="169" y="961"/>
+
+		<s:Label id="scheduleHead" styleName="head" text="{ctrlr.scheduleHead}" width="684" height="40" x="467" y="495"/>
+		<s:Label id="scheduleLabel" styleName="textarea" text="{ctrlr.scheduleLabel}" width="684" height="500" x="467" y="540" visible="true" visible.edit="false"/>
+		<s:Label id="messageLabel" styleName="textarea" text="{ctrlr.messageLabel}" width="684" height="500" x="1178" y="540" visible="true" visible.edit="false"/>
+		<s:TextArea id="schedule" width="684" height="500" x="467" y="540" visible="false" visible.edit="true"/>
+		<s:TextArea id="message" width="684" height="500" x="1178" y="540" visible="false" visible.edit="true"/>
+		<s:Button id="insertSchedule" label="取り込む" width="120" height="36" x="1030" y="500" visible="false" visible.edit="true" skinClass="view.utils.Skin_BtnText"/>
+		<s:SpriteVisualElement id="body"/>
+	</s:Group>
+</s:Group>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:NavigatorContent
+	xmlns:fx="http://ns.adobe.com/mxml/2009"
+	xmlns:s="library://ns.adobe.com/flex/spark"
+	xmlns:view.documentroot.reportscreen.sidebar.pentoolbox="view.documentroot.reportscreen.sidebar.pentoolbox.*"
+	xmlns:view.utils.vincdeccounter="view.utils.vincdeccounter.*"
+	xmlns:controller.documentroot.reportscreen.sidebar="controller.documentroot.reportscreen.sidebar.*">
+	<fx:Declarations>
+		<controller.documentroot.reportscreen.sidebar:PenToolBox id="ctrlr"/>
+	</fx:Declarations>
+	<s:SpriteVisualElement id="body"/>
+	<s:VGroup id="toolBtnGroup" height="100%" width="100%" verticalAlign="middle" horizontalAlign="center" gap="8">
+		<s:Button id="undoToolBtn" label="" skinClass="view.documentroot.reportscreen.sidebar.pentoolbox.Skin_UndoToolBtn"/>
+		<s:Button id="lineColorBtn" skinClass="view.utils.Skin_LineColorBtn"/>
+		<s:VGroup id="penTypeBtn" gap="1">
+			<s:ToggleButton id="penTypeLaserBtn" label="" skinClass="view.documentroot.reportscreen.sidebar.pentoolbox.Skin_PenTypeLaserBtn"/>
+			<s:ToggleButton id="penTypePenBtn" label="" selected="true" skinClass="view.documentroot.reportscreen.sidebar.pentoolbox.Skin_PenTypePenBtn"/>
+			<s:ToggleButton id="penTypeMarkerBtn" label="" skinClass="view.documentroot.reportscreen.sidebar.pentoolbox.Skin_PenTypeMarkerBtn"/>
+			<s:ToggleButton id="penTypeEraserBtn" label="" skinClass="view.documentroot.reportscreen.sidebar.pentoolbox.Skin_PenTypeEraserBtn"/>
+		</s:VGroup>
+		<s:VGroup id="lineBtn" gap="1">
+			<s:ToggleButton id="curvelineBtn" label="" selected="true" skinClass="view.documentroot.reportscreen.sidebar.pentoolbox.Skin_CurvelineBtn"/>
+			<s:ToggleButton id="straightlineBtn" label="" skinClass="view.documentroot.reportscreen.sidebar.pentoolbox.Skin_StraightlineBtn"/>
+		</s:VGroup>
+		<view.documentroot.reportscreen.sidebar.pentoolbox:IncDecThick id="incDecThick"/>
+	</s:VGroup>
+</s:NavigatorContent>

@@ -1,0 +1,26 @@
+#monitor #label {
+	color: #ffffff;
+	fontSize: 24;
+	paddingLeft: 10;
+	backgroundColor: #111111;
+}
+#monitor #text {
+	color: #ffffff;
+	fontSize: 80;
+	textAlign: right;
+	vertical-align: bottom;
+	paddingLeft: 10;
+	paddingRight: 10;
+	paddingBottom: 10;
+	backgroundColor: #111111;
+}
+#monitor #unit {
+	color: #ffffff;
+	fontSize: 36;
+	textAlign: center;
+	vertical-align: bottom;
+	paddingLeft: 0;
+	paddingRight: 0;
+	paddingBottom: 10;
+	backgroundColor: #111111;
+}

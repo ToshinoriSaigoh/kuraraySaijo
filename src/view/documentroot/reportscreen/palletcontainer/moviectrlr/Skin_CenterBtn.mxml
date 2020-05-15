@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<view.utils:Skin_Btn
+	xmlns:fx="http://ns.adobe.com/mxml/2009"
+	xmlns:s="library://ns.adobe.com/flex/spark"
+	xmlns:view.documentroot.reportscreen.palletcontainer.moviectrlr="view.documentroot.reportscreen.palletcontainer.moviectrlr.*"
+	xmlns:controller.documentroot.reportscreen.palletcontainer.moviectrlr="controller.documentroot.reportscreen.palletcontainer.moviectrlr.*"
+	xmlns:view.utils="view.utils.*"
+	width="64"
+	height="64">
+	<fx:Declarations>
+		<controller.documentroot.reportscreen.palletcontainer.moviectrlr:MovieCtrlrBtn id="ctrlr"/>
+	</fx:Declarations>
+	<view.utils:states>
+		<s:State name="up"/>
+		<s:State name="over"/>
+		<s:State name="down"/>
+		<s:State name="disabled"/>
+	</view.utils:states>
+	<s:Ellipse id="bg" left="1" right="1" top="1" bottom="1" alpha="0" alpha.up="0" alpha.over="1.0" alpha.down="0">
+		<s:fill>
+			<s:SolidColor
+				color="0x000000"
+			/>
+		</s:fill>
+	</s:Ellipse>
+	<view.documentroot.reportscreen.palletcontainer.moviectrlr:CenterBtnIcon id="icon" width="64" height="64" left="0" top="0"/>
+	<s:Ellipse left="0" right="0" top="0" bottom="0">
+		<s:stroke>
+			<s:SolidColorStroke color="0x000000" weight="1"/>
+		</s:stroke>
+	</s:Ellipse>
+</view.utils:Skin_Btn>

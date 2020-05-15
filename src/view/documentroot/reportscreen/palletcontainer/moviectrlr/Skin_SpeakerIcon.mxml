@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<view.utils:Skin_Btn
+	xmlns:fx="http://ns.adobe.com/mxml/2009"
+	xmlns:s="library://ns.adobe.com/flex/spark"
+	xmlns:controller.documentroot.reportscreen.palletcontainer.moviectrlr="controller.documentroot.reportscreen.palletcontainer.moviectrlr.*"
+	xmlns:view.utils="view.utils.*"
+	width="18"
+	height="18"
+	creationComplete="_init()">
+	<fx:Declarations>
+		<!--<controller.documentroot.reportscreen.palletcontainer.moviectrlr:MovieCtrlr id="ctrlr"/>-->
+	</fx:Declarations>
+	<fx:Script>
+	<![CDATA[
+		private function _init(): void
+		{
+			[Embed(source = "SpeakerIcon.svg", mimeType="application/octet-stream")]
+			var Svg: Class;
+			setSvg(Svg, "icon");
+		}
+	]]>
+	</fx:Script>
+	<view.utils:states>
+		<s:State name="up"/>
+		<s:State name="over"/>
+		<s:State name="down"/>
+		<s:State name="disabled"/>
+	</view.utils:states>
+	<s:Group id="icon" width="100%" height="100%"/>
+</view.utils:Skin_Btn>

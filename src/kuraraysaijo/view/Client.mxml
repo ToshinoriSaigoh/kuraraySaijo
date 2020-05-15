@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<view:DocumentRoot xmlns:fx="http://ns.adobe.com/mxml/2009"
+	xmlns:s="library://ns.adobe.com/flex/spark"
+	xmlns:mx="library://ns.adobe.com/flex/mx"
+	xmlns:view="view.*"
+	xmlns:kuraraysaijo.view.documentroot="kuraraysaijo.view.documentroot.*">
+	<fx:Script>
+		<![CDATA[
+			public var appType: String = "client";
+		]]>
+	</fx:Script>
+	<fx:Style source="./style.css"/>
+	<view:states>
+		<s:State name="normal"/>
+		<s:State name="alert"/>
+	</view:states>
+	<s:SpriteVisualElement id="body"/>
+	<s:Group left="0" top="0" right="0" bottom="0" width="100%" height="100%">
+		<s:layout>
+			<s:BasicLayout/>
+		</s:layout>
+		<mx:ViewStack id="rootViewStack" top="0" width="100%" height="100%" creationPolicy="all">
+			<kuraraysaijo.view.documentroot:InitScreen id="initScreen" name="initScreen" width="100%" height="100%"/>
+			<kuraraysaijo.view.documentroot:ReportScreen id="reportScreen" name="reportScreen" width="100%" height="100%"/>
+		</mx:ViewStack>
+	</s:Group>
+	<kuraraysaijo.view.documentroot:AlertScreen id="AlertScreen" visible="false" visible.alert="true"/>
+</view:DocumentRoot>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:SparkSkin
+	xmlns:fx="http://ns.adobe.com/mxml/2009"
+	xmlns:s="library://ns.adobe.com/flex/spark"
+	alpha.disabled="0.1"
+	>
+	<fx:Metadata>
+	<![CDATA[ 
+		[HostComponent("spark.components.ButtonBar")]
+	]]>
+	</fx:Metadata>
+	<fx:Declarations>
+		<fx:Component id="middleButton">
+			<s:ButtonBarButton name="emergencyTypeBtn" allowDeselection="false" width="240" height="44" skinClass="view.documentroot.reportscreen.sidebar.settingsbox.settingsemergencycontainer.Skin_EmergencyTypeButtonBarBtn"/>
+		</fx:Component>
+	</fx:Declarations>
+
+	<s:states>
+		<s:State name="normal"/>
+		<s:State name="disabled"/>
+	</s:states>
+	<s:Scroller width="100%" top="0" bottom="64" right="8" verticalScrollPolicy="on" skinClass="view.documentroot.reportscreen.sidebar.settingsbox.Skin_VScroller">
+		<s:Group>
+			<s:DataGroup id="dataGroup" width="100%" height="100%">
+				<s:layout>
+					<s:VerticalLayout gap="0"/>
+				</s:layout>
+			</s:DataGroup>
+		</s:Group>
+	</s:Scroller>
+</s:SparkSkin>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:SparkSkin
+	xmlns:fx="http://ns.adobe.com/mxml/2009"
+	xmlns:s="library://ns.adobe.com/flex/spark"
+	alpha.disabled="0.1">
+	<fx:Metadata>
+	<![CDATA[
+		[HostComponent("spark.components.TextArea")]
+	]]>
+	</fx:Metadata>
+	<fx:Script>
+	<![CDATA[
+		include "./includes/SvgFuncs.as";
+	]]>
+	</fx:Script>
+	<s:states>
+		<s:State name="normal" stateGroups="normalGroup"/>
+		<s:State name="disabled" stateGroups="disabledGroup"/>
+		<s:State name="normalWithPrompt" stateGroups="normalGroup"/>
+		<s:State name="disabledWithPrompt" stateGroups="disabledGroup"/>
+	</s:states>
+	<s:Rect id="background" left="0" right="0" top="0" bottom="0">
+		<s:fill>
+			<s:SolidColor id="bgFill" color="0x222222" alpha="1.0" />
+		</s:fill>
+	</s:Rect>
+
+	<s:RichEditableText id="textDisplay" heightInLines="10" widthInChars="12" />
+
+	<s:Rect left="0" right="0" top="0" bottom="0">
+		<s:stroke>
+			<s:SolidColorStroke color="0x666666" weight="1"/>
+		</s:stroke>
+	</s:Rect>
+</s:SparkSkin>

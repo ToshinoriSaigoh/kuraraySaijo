@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Group
+	xmlns:fx="http://ns.adobe.com/mxml/2009"
+	xmlns:s="library://ns.adobe.com/flex/spark"
+	xmlns:controller.documentroot.reportscreen.palletcontainer="controller.documentroot.reportscreen.palletcontainer.*"
+	xmlns:view.documentroot.reportscreen.palletcontainer.moviectrlr="view.documentroot.reportscreen.palletcontainer.moviectrlr.*"
+	width="180"
+	height="180"
+	horizontalCenter="0"
+	verticalCenter="0"
+	creationComplete="_init()">
+	<fx:Declarations>
+		<controller.documentroot.reportscreen.palletcontainer:MovieCtrlr id="ctrlr"/>
+	</fx:Declarations>
+	<fx:Script>
+	<![CDATA[
+		import model.plugin.draw.Draw;
+		include "../../../utils/includes/SvgFuncs.as"
+		private function _init(): void
+		{
+			[Embed(source = "./moviectrlr/movieCtrlrBG.svg", mimeType="application/octet-stream")]
+			var TimelineBGLeft: Class;
+			setSvg(TimelineBGLeft, "bg");
+		}
+	]]>
+	</fx:Script>
+	<s:SpriteVisualElement id="body"/>
+	<s:Group id="bg" name="bg" width="100%" height="100%" alpha="0.9" left="0" top="0"/>
+	<s:Label id="time" name="time" text="{Draw.activeDrawPanel.report.timeText}" fontSize="32" textAlign="center" color="0xffffff" horizontalCenter="0" top="28"/>
+	<s:Button id="centerBtn" name="centerBtn" left="58" top="58" skinClass="view.documentroot.reportscreen.palletcontainer.moviectrlr.Skin_CenterBtn"/>
+	<s:Button id="prevBtn" name="prevBtn" left="5" top="66" skinClass="view.documentroot.reportscreen.palletcontainer.moviectrlr.Skin_PrevBtn"/>
+	<s:Button id="nextBtn" name="nextBtn" left="127" top="66" skinClass="view.documentroot.reportscreen.palletcontainer.moviectrlr.Skin_NextBtn"/>
+	<s:Button id="stopBtn" name="stopBtn" left="28" top="111" skinClass="view.documentroot.reportscreen.palletcontainer.moviectrlr.Skin_StopBtn"/>
+	<s:Button id="playBtn" name="playBtn" left="104" top="111" skinClass="view.documentroot.reportscreen.palletcontainer.moviectrlr.Skin_PlayBtn"/>
+	<s:Button id="speakerIcon" name="speakerIcon" left="81" bottom="6" skinClass="view.documentroot.reportscreen.palletcontainer.moviectrlr.Skin_SpeakerIcon"/>
+	<s:Button id="countDownBtn" name="countDownBtn" width="100%" height="100%" left="0" top="0" visible="false" skinClass="view.documentroot.reportscreen.palletcontainer.moviectrlr.Skin_CountDownBtn"/>
+</s:Group>
