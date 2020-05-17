@@ -67,9 +67,9 @@ package kuraraysaijo.model.plugin.report
 
 
 		[Bindable]
-		public var thermometerOutDoor: String;
+		public var thermometerOutDoor: String;//温度計
 		[Bindable]
-		public var hygrometerOutDoor: String;
+		public var hygrometerOutDoor: String;//湿度計
 		[Bindable]
 		public var WBGTOutDoor: String;
 		[Bindable]
@@ -96,7 +96,7 @@ package kuraraysaijo.model.plugin.report
 		public var alertColorLv4: Number;
 
 		[Bindable]
-		public var anemometer: String;
+		public var anemometer: String;//風速計
 
 
 		private var _today: Date;
@@ -136,10 +136,10 @@ package kuraraysaijo.model.plugin.report
 
 
 			//test
-			WBGTAlertOutDoor = "高温注意";
+			WBGTAlertOutDoor = "注意";
 			anemometer = "10.5";
 			mxml.WBGTAlertOutDoor.currentState = "level0";//level0 ～ level4
-			mxml.anemometer.currentState = "level0";//level0 ～ level4
+			mxml.anemometer.currentState = "level1";//level0 ～ level4
 		}
 
 		public function PB_changeTool(): void
@@ -297,9 +297,9 @@ package kuraraysaijo.model.plugin.report
 		//本日の予定//連絡事項
 		private function _setTextLabel(): void
 		{
-			scheduleLabel = mxml.parent.parent.parent.parent.owner.ctrlr.myDataElement.elements("schedule")[0].toString();
-			nextscheduleLabel = mxml.parent.parent.parent.parent.owner.ctrlr.myDataElement.elements("nextschedule")[0].toString();
-			messageLabel = mxml.parent.parent.parent.parent.owner.ctrlr.myDataElement.elements("message")[0].toString();
+			scheduleLabel = mxml.parent.parent.parent.parent.owner.ctrlr.myDataElement.elements("schedule")[0].toString();//KuraraySaijoReport.schedule
+			nextscheduleLabel = mxml.parent.parent.parent.parent.owner.ctrlr.myDataElement.elements("nextschedule")[0].toString();//KuraraySaijoReport.nextschedule
+			messageLabel = mxml.parent.parent.parent.parent.owner.ctrlr.myDataElement.elements("message")[0].toString();//KuraraySaijoReport.message
 		}
 
 		//スケジュール取り込みボタン処理
@@ -313,18 +313,32 @@ package kuraraysaijo.model.plugin.report
 			targetDay += "/";
 			targetDay += PaddingUtils.zeroPadding(reportDate.getDate(), 2);
 
+			var nextWorkDay: Date = Holiday.getNextWorkDay(reportDate);
+			var targetNextDay: String = "";
+			targetNextDay += PaddingUtils.zeroPadding(nextWorkDay.getFullYear(), 4);
+			targetNextDay += "/";
+			targetNextDay += PaddingUtils.zeroPadding(nextWorkDay.getMonth() + 1, 2);
+			targetNextDay += "/";
+			targetNextDay += PaddingUtils.zeroPadding(nextWorkDay.getDate(), 2);
 			var schedule: XML = Config.configTree.schedule[0];
-			var text: String = null;
+			var textSchedule: String = null;
+			var textNextschedule: String = null;
 			if(schedule != null)
 			{
-				text = schedule.day.(@id == targetDay)[0];
-				if(text != null)
+				textSchedule = schedule.day.(@id == targetDay)[0];
+				if(textSchedule != null)
 				{
-					mxml.schedule.text = text;
-					scheduleLabel = text;
-					_setTextValue("schedule", text);
-					nextscheduleLabel = text;
-					_setTextValue("nextscheduleLabel", text);
+					mxml.schedule.text = textSchedule;
+					scheduleLabel = textSchedule;
+					_setTextValue("schedule", textSchedule);
+				}
+
+				textNextschedule = schedule.day.(@id == targetNextDay)[0];
+				if(textNextschedule != null)
+				{
+					mxml.nextschedule.text = textNextschedule;
+					nextscheduleLabel = textNextschedule;
+					_setTextValue("nextschedule", textNextschedule);
 				}
 			}
 		}

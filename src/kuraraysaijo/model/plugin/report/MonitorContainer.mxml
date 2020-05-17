@@ -50,20 +50,20 @@
 		<s:Label id="patrol1Electric" styleName="person" text="{ctrlr.patrol1Electric}" width="230" height="52" x="1160" y="534"/>
 		<s:Label id="patrol2Electric" styleName="person" text="{ctrlr.patrol2Electric}" width="230" height="52" x="1160" y="592"/>
 
-		<s:Label id="thermometerOutDoor" styleName="meter" text="{ctrlr.thermometerOutDoor}" width="180" height="80" x="169" y="582"/>
-		<s:Label id="hygrometerOutDoor" styleName="meter" text="{ctrlr.hygrometerOutDoor}" width="180" height="80" x="169" y="690"/>
-		<s:Label id="WBGTOutDoor" styleName="meter" text="{ctrlr.WBGTOutDoor}" width="180" height="80" x="169" y="800"/>
-		<kuraraysaijo.model.plugin.report.monitorcontainer:WBGTAlert id="WBGTAlertOutDoor" width="180" height="40" x="169" y="887"/>
-		<kuraraysaijo.model.plugin.report.monitorcontainer:Anemometer id="anemometer" width="180" height="80" x="169" y="961"/>
+		<s:Label id="thermometerOutDoor" styleName="meter" text="{ctrlr.thermometerOutDoor}" width="138" height="80" x="133" y="582"/>
+		<s:Label id="hygrometerOutDoor" styleName="meter" text="{ctrlr.hygrometerOutDoor}" width="138" height="80" x="133" y="690"/>
+		<s:Label id="WBGTOutDoor" styleName="meter" text="{ctrlr.WBGTOutDoor}" width="138" height="80" x="133" y="800"/>
+		<kuraraysaijo.model.plugin.report.monitorcontainer:WBGTAlert id="WBGTAlertOutDoor" width="80" height="80" x="344" y="800"/>
+		<kuraraysaijo.model.plugin.report.monitorcontainer:Anemometer id="anemometer" width="138" height="80" x="133" y="955"/>
 
-		<s:Label id="scheduleHead" styleName="head" text="{ctrlr.scheduleHead}" width="684" height="40" x="456" y="671"/><!-- 今日 -->
+		<s:Label id="scheduleHead" styleName="head" text="{ctrlr.scheduleHead}" width="684" height="40" x="456" y="665"/><!-- 今日 -->
 		<s:Label id="scheduleLabel" styleName="textarea" text="{ctrlr.scheduleLabel}" width="465" height="330" x="451" y="710" visible="true" visible.edit="false"/><!-- 今日の予定 -->
 		<s:Label id="nextscheduleLabel" styleName="textarea" text="{ctrlr.nextscheduleLabel}" width="465" height="330" x="933" y="710" visible="true" visible.edit="false"/><!-- 明日の予定 -->
 		<s:Label id="messageLabel" styleName="textarea" text="{ctrlr.messageLabel}" width="465" height="330" x="1416" y="710" visible="true" visible.edit="false"/><!-- 連絡事項-->
 		<s:TextArea id="schedule" width="465" height="330" x="451" y="710" visible="false" visible.edit="true"/><!-- 今日テキストエリア -->
 		<s:TextArea id="nextschedule" width="465" height="330" x="933" y="710" visible="false" visible.edit="true"/><!-- 明日テキストエリア -->
 		<s:TextArea id="message" width="465" height="330" x="1416" y="710" visible="false" visible.edit="true"/><!-- 連絡事項テキストエリア -->
-		<s:Button id="insertSchedule" label="取り込む" width="120" height="36" x="796" y="670" visible="false" visible.edit="true" skinClass="view.utils.Skin_BtnText"/><!-- 取り込むボタン -->
+		<s:Button id="insertSchedule" label="取り込む" width="120" height="36" x="451" y="630" visible="false" visible.edit="true" skinClass="view.utils.Skin_BtnText"/><!-- 取り込むボタン -->
 		<s:SpriteVisualElement id="body"/>
 	</s:Group>
 </s:Group>

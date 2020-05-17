@@ -126,19 +126,19 @@ s|Label.record {
 }
 s|Label.person {
 	color: #111111;
-	fontSize: 40;
+	fontSize: 32;
 	verticalAlign: middle;
 	padding-left: 10;
 }
 s|Label.meter {
 	color: #111111;
-	fontSize: 60;
+	fontSize: 54;
 	vertical-align: middle;
 	text-align: right;
 	padding-right: 10;
 }
 s|Label.alertMeter {
-	fontSize: 60;
+	fontSize: 54;
 	vertical-align: middle;
 	text-align: right;
 	padding-right: 10;
@@ -147,12 +147,13 @@ s|Label.head {
 	fontFamily: "Noto Sans Mono CJK JP Bold CFF";
 	fontWeight: normal;
 	color: #111111;
-	fontSize: 36;
+	fontSize: 31;
 	vertical-align: middle;
 }
 s|Label.textarea {
 	color: #111111;
-	fontSize: 32;
+	fontFamily: "Noto Sans Mono CJK JP Regular CFF";
+	fontSize: 22;
 	paddingTop: 10;
 	paddingRight: 20;
 	paddingBottom: 10;
@@ -174,7 +175,7 @@ s|Label.time {
 }
 #monitorContainer s|TextArea {
 	color: #111111;
-	fontSize: 32;
+	fontSize: 22;
 	paddingTop: 10;
 	paddingRight: 20;
 	paddingBottom: 10;
@@ -182,7 +183,7 @@ s|Label.time {
 }
 #settingsKuraraySaijoContainer s|TextArea {
 	color: #111111;
-	fontSize: 24;
+	fontSize: 22;
 }
 
 /************************

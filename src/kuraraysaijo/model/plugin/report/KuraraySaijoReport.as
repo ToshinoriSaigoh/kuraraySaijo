@@ -26,6 +26,7 @@ package kuraraysaijo.model.plugin.report
 					<layer id="1" name="1"/>
 				</page>
 				<schedule/>
+				<nextschedule/>
 				<message/>
 			</report>;
 			super(parent, reportID, dataElement, "kuraraysaijo", null);
