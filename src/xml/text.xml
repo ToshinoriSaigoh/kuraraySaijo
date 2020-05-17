@@ -85,22 +85,22 @@
 
 	<kuraraySaijo>
 		<settings>
-			<safety>
-				<safetyHead>安全担当</safetyHead>
-				<safetyPersonList>担当者一覧</safetyPersonList>
-			</safety>
-			<noAccident>
-				<noAccidentHead>無災害記録</noAccidentHead>
-				<noAccidentTotal>積算日数</noAccidentTotal>
-				<noAccidentStartDate>基点年月日(yyyy/mm/dd)</noAccidentStartDate>
-				<noAccidentTargetDate>目標年月日(yyyy/mm/dd)</noAccidentTargetDate>
-			</noAccident>
-			<spotlessDriving>
-				<spotlessDrivingHead>交通無事故無違反</spotlessDrivingHead>
-				<spotlessDrivingTotal>積算日数</spotlessDrivingTotal>
-				<spotlessDrivingStartDate>基点年月日(yyyy/mm/dd)</spotlessDrivingStartDate>
-				<spotlessDrivingTargetDate>目標年月日(yyyy/mm/dd)</spotlessDrivingTargetDate>
-			</spotlessDriving>
+			<duty>
+				<dutyHead>担当</dutyHead>
+				<designingPersonList>設計担当者一覧</designingPersonList>
+				<pipePersonList>設管担当者一覧</pipePersonList>
+				<electricPersonList>電装担当者一覧</electricPersonList>
+			</duty>
+			<noAccidentAll>
+				<noAccidentAllHead>事業所無災害記録</noAccidentAllHead>
+				<noAccidentAllTotal>積算日数</noAccidentAllTotal>
+				<noAccidentAllStartDate>基点年月日(yyyy/mm/dd)</noAccidentAllStartDate>
+			</noAccidentAll>
+			<noAccidentDept>
+				<noAccidentDeptHead>設技部無災害記録</noAccidentDeptHead>
+				<noAccidentDeptTotal>積算日数</noAccidentDeptTotal>
+				<noAccidentDeptStartDate>基点年月日(yyyy/mm/dd)</noAccidentDeptStartDate>
+			</noAccidentDept>
 		</settings>
 	</kuraraySaijo>
 </text>

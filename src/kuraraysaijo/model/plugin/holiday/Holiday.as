@@ -35,9 +35,9 @@ package kuraraysaijo.model.plugin.holiday
 		public static function getWorkDays(theDay: Date): int
 		{
 			//基準日
-			var baseDate: Date = DateField.stringToDate(Config.configTree.config.kuraraySaijo.safety.baseDate[0], "YYYY/MM/DD");
+			var baseDate: Date = DateField.stringToDate(Config.configTree.config.kuraraySaijo.duty.baseDate[0], "YYYY/MM/DD");
 			var count: int;//基準日からの経過業務日数
-			var difference: Number = (theDay.valueOf() / 1000 / 60 / 60 / 24) - (baseDate.valueOf() / 1000 / 60 / 60 / 24);//基準日からの経過日数
+			var difference: Number = (theDay.valueOf() / 1000 / 60 / 60 / 24) - (baseDate.valueOf() / 1000 / 60 / 60 / 24) - 1;//基準日からの経過日数
 			var num1Day: Number = 1000 * 60 * 60 * 24;
 			var n: Number;
 			for(n = 0; n < difference; n++)

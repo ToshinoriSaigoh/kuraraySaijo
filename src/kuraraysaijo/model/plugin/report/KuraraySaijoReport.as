@@ -25,6 +25,8 @@ package kuraraysaijo.model.plugin.report
 					<layer id="0" name="0"/>
 					<layer id="1" name="1"/>
 				</page>
+				<absenceList/>
+				<tripList/>
 				<schedule/>
 				<nextschedule/>
 				<message/>

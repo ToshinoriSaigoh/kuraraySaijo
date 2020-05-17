@@ -21,14 +21,12 @@
 		<memberLoginTimeout>5000</memberLoginTimeout>
 	</link>
 	<kuraraySaijo>
-		<person>
+		<duty>
+			<baseDate>2020/01/01</baseDate>
 			<designingPersonList></designingPersonList>
 			<pipePersonList></pipePersonList>
 			<electricPersonList></electricPersonList>
-		</person>
-		<safety>
-			<baseDate>2020/01/01</baseDate>
-		</safety>
+		</duty>
 		<noAccidentAll>
 			<noAccidentTotal>10000</noAccidentTotal>
 			<noAccidentStartDate>2020/01/01</noAccidentStartDate>

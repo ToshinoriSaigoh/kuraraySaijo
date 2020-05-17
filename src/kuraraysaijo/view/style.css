@@ -78,7 +78,7 @@ s|TextArea {
 	fontWeight: normal;
 	color: #ffffff;
 	backgroundColor: #222222;
-	fontSize: 20;
+	fontSize: 24;
 }
 s|Button {
 	color: #ffffff;
@@ -126,9 +126,19 @@ s|Label.record {
 }
 s|Label.person {
 	color: #111111;
+	fontFamily: "Noto Sans Mono CJK JP Regular CFF";
 	fontSize: 32;
 	verticalAlign: middle;
 	padding-left: 10;
+}
+s|Label.personList {
+	color: #111111;
+	fontFamily: "Noto Sans Mono CJK JP Regular CFF";
+	fontSize: 32;
+	paddingTop: 10;
+	paddingRight: 10;
+	paddingBottom: 10;
+	paddingLeft: 10;
 }
 s|Label.meter {
 	color: #111111;
@@ -153,11 +163,11 @@ s|Label.head {
 s|Label.textarea {
 	color: #111111;
 	fontFamily: "Noto Sans Mono CJK JP Regular CFF";
-	fontSize: 22;
+	fontSize: 24;
 	paddingTop: 10;
-	paddingRight: 20;
+	paddingRight: 10;
 	paddingBottom: 10;
-	paddingLeft: 20;
+	paddingLeft: 10;
 }
 s|Label.day {
 	fontFamily: "Noto Sans Mono CJK JP Regular CFF";
@@ -175,11 +185,19 @@ s|Label.time {
 }
 #monitorContainer s|TextArea {
 	color: #111111;
-	fontSize: 22;
+	fontSize: 24;
 	paddingTop: 10;
-	paddingRight: 20;
+	paddingRight: 10;
 	paddingBottom: 10;
-	paddingLeft: 20;
+	paddingLeft: 10;
+}
+#monitorContainer s|TextArea.personList {
+	color: #111111;
+	fontSize: 32;
+	paddingTop: 10;
+	paddingRight: 10;
+	paddingBottom: 10;
+	paddingLeft: 10;
 }
 #settingsKuraraySaijoContainer s|TextArea {
 	color: #111111;

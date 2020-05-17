@@ -22,26 +22,26 @@ package kuraraysaijo.controller.documentroot.reportscreen.sidebar.settingsbox
 		override protected function init(): void
 		{
 			//表示テキスト
-			mxml.safetyHead.text = Config.getText("kuraraySaijo", "settings", "safety", "safetyHead");
-			mxml.noAccidentHead.text = Config.getText("kuraraySaijo", "settings", "noAccident", "noAccidentHead");
-			mxml.noAccidentTotal.text = Config.getText("kuraraySaijo", "settings", "noAccident", "noAccidentTotal");
-			mxml.noAccidentStartDate.text = Config.getText("kuraraySaijo", "settings", "noAccident", "noAccidentStartDate");
-			mxml.noAccidentTargetDate.text = Config.getText("kuraraySaijo", "settings", "noAccident", "noAccidentTargetDate");
-			mxml.spotlessDrivingHead.text = Config.getText("kuraraySaijo", "settings", "spotlessDriving", "spotlessDrivingHead");
-			mxml.spotlessDrivingTotal.text = Config.getText("kuraraySaijo", "settings", "spotlessDriving", "spotlessDrivingTotal");
-			mxml.spotlessDrivingStartDate.text = Config.getText("kuraraySaijo", "settings", "spotlessDriving", "spotlessDrivingStartDate");
-			mxml.spotlessDrivingTargetDate.text = Config.getText("kuraraySaijo", "settings", "spotlessDriving", "spotlessDrivingTargetDate");
+			mxml.dutyHead.text = Config.getText("kuraraySaijo", "settings", "duty", "dutyHead");
 
-			mxml.designingPersonList.text = Config.getText("kuraraySaijo", "settings", "person", "designingPersonList");
-			mxml.pipePersonList.text = Config.getText("kuraraySaijo", "settings", "person", "pipePersonList");
-			mxml.electricPersonList.text = Config.getText("kuraraySaijo", "settings", "person", "electricPersonList");
+			mxml.noAccidentAllHead.text = Config.getText("kuraraySaijo", "settings", "noAccidentAll", "noAccidentAllHead");
+			mxml.noAccidentAllTotal.text = Config.getText("kuraraySaijo", "settings", "noAccidentAll", "noAccidentAllTotal");
+			mxml.noAccidentAllStartDate.text = Config.getText("kuraraySaijo", "settings", "noAccidentAll", "noAccidentAllStartDate");
+
+			mxml.noAccidentDeptHead.text = Config.getText("kuraraySaijo", "settings", "noAccidentDept", "noAccidentDeptHead");
+			mxml.noAccidentDeptTotal.text = Config.getText("kuraraySaijo", "settings", "noAccidentDept", "noAccidentDeptTotal");
+			mxml.noAccidentDeptStartDate.text = Config.getText("kuraraySaijo", "settings", "noAccidentDept", "noAccidentDeptStartDate");
+
+			mxml.designingPersonList.text = Config.getText("kuraraySaijo", "settings", "duty", "designingPersonList");
+			mxml.pipePersonList.text = Config.getText("kuraraySaijo", "settings", "duty", "pipePersonList");
+			mxml.electricPersonList.text = Config.getText("kuraraySaijo", "settings", "duty", "electricPersonList");
 
 			//休日・予定読み込みボタン
 			mxml.importHolidayBtn.addEventListener(MouseEvent.CLICK, _importHolidayBtnClickHandler);
 			mxml.importScheduleBtn.addEventListener(MouseEvent.CLICK, _importScheduleBtnClickHandler);
 
 			//基準日セット
-			baseDateText = Config.configTree.config.kuraraySaijo.safety.baseDate[0];
+			baseDateText = Config.configTree.config.kuraraySaijo.duty.baseDate[0];
 			//基準日設定ボタン
 			mxml.setBaseDateBtn.addEventListener(MouseEvent.CLICK, _setBaseDateBtnClickHandler);
 			//config.xml保存ボタン
@@ -50,7 +50,7 @@ package kuraraysaijo.controller.documentroot.reportscreen.sidebar.settingsbox
 			_refreshConfigValue();
 		}
 
-		//今日を基準日に設定する
+		//今日を担当順の基準日に設定する
 		private function _setBaseDateBtnClickHandler(e: MouseEvent): void
 		{
 			var date: Date = new Date();
@@ -59,7 +59,7 @@ package kuraraysaijo.controller.documentroot.reportscreen.sidebar.settingsbox
 			var day: String = Lib.digitNum(date.getDate(), 2);
 			var today: String = year + "/" + month + "/" + day;
 
-			var targetNode: XML = Config.configTree.config.kuraraySaijo.safety[0];
+			var targetNode: XML = Config.configTree.config.kuraraySaijo.duty[0];
 			if(targetNode.baseDate != null)
 			{
 				targetNode.baseDate = today;
@@ -79,32 +79,27 @@ package kuraraysaijo.controller.documentroot.reportscreen.sidebar.settingsbox
 		private function _refreshConfigValue(): void
 		{
 
-			mxml.textAreaDesigningPersonList.text = Config.get("config", "kuraraySaijo", "safety", "designingPersonList");
-			mxml.textAreaPipePersonList.text = Config.get("config", "kuraraySaijo", "safety", "pipePersonList");
-			mxml.textAreaElectricPersonList.text = Config.get("config", "kuraraySaijo", "safety", "electricPersonList");
+			mxml.textAreaDesigningPersonList.text = Config.get("config", "kuraraySaijo", "duty", "designingPersonList");
+			mxml.textAreaPipePersonList.text = Config.get("config", "kuraraySaijo", "duty", "pipePersonList");
+			mxml.textAreaElectricPersonList.text = Config.get("config", "kuraraySaijo", "duty", "electricPersonList");
 
-			mxml.inputNoAccidentTotal.text = Config.get("config", "kuraraySaijo", "noAccident", "noAccidentTotal");
-			mxml.inputNoAccidentStartDate.text = Config.get("config", "kuraraySaijo", "noAccident", "noAccidentStartDate");
-			mxml.inputNoAccidentTargetDate.text = Config.get("config", "kuraraySaijo", "noAccident", "noAccidentTargetDate");
-			mxml.inputSpotlessDrivingTotal.text = Config.get("config", "kuraraySaijo", "spotlessDriving", "spotlessDrivingTotal");
-			mxml.inputSpotlessDrivingStartDate.text = Config.get("config", "kuraraySaijo", "spotlessDriving", "spotlessDrivingStartDate");
-			mxml.inputSpotlessDrivingTargetDate.text = Config.get("config", "kuraraySaijo", "spotlessDriving", "spotlessDrivingTargetDate");
-			//Config.saveConfigXML(Config.configTree.config[0], "config.xml");
+			mxml.inputNoAccidentAllTotal.text = Config.get("config", "kuraraySaijo", "noAccidentAll", "noAccidentTotal");
+			mxml.inputNoAccidentAllStartDate.text = Config.get("config", "kuraraySaijo", "noAccidentAll", "noAccidentStartDate");
+			mxml.inputNoAccidentDeptTotal.text = Config.get("config", "kuraraySaijo", "noAccidentDept", "noAccidentTotal");
+			mxml.inputNoAccidentDeptStartDate.text = Config.get("config", "kuraraySaijo", "noAccidentDept", "noAccidentStartDate");
 		}
 		//保存ボタン処理
 		private function _saveBtnClickHandler(e: MouseEvent): void
 		{
 			//担当者
-			Config.set("config", "kuraraySaijo", "safety", "designingPersonList", mxml.textAreaDesigningPersonList.text);
-			Config.set("config", "kuraraySaijo", "safety", "pipePersonList", mxml.textAreaPipePersonList.text);
-			Config.set("config", "kuraraySaijo", "safety", "electricPersonList", mxml.textAreaElectricPersonList.text);
+			Config.set("config", "kuraraySaijo", "duty", "designingPersonList", mxml.textAreaDesigningPersonList.text);
+			Config.set("config", "kuraraySaijo", "duty", "pipePersonList", mxml.textAreaPipePersonList.text);
+			Config.set("config", "kuraraySaijo", "duty", "electricPersonList", mxml.textAreaElectricPersonList.text);
 
-			Config.set("config", "kuraraySaijo", "noAccident", "noAccidentTotal", mxml.inputNoAccidentTotal.text);
-			Config.set("config", "kuraraySaijo", "noAccident", "noAccidentStartDate", mxml.inputNoAccidentStartDate.text);
-			Config.set("config", "kuraraySaijo", "noAccident", "noAccidentTargetDate", mxml.inputNoAccidentTargetDate.text);
-			Config.set("config", "kuraraySaijo", "spotlessDriving", "spotlessDrivingTotal", mxml.inputSpotlessDrivingTotal.text);
-			Config.set("config", "kuraraySaijo", "spotlessDriving", "spotlessDrivingStartDate", mxml.inputSpotlessDrivingStartDate.text);
-			Config.set("config", "kuraraySaijo", "spotlessDriving", "spotlessDrivingTargetDate", mxml.inputSpotlessDrivingTargetDate.text);
+			Config.set("config", "kuraraySaijo", "noAccidentAll", "noAccidentTotal", mxml.inputNoAccidentAllTotal.text);
+			Config.set("config", "kuraraySaijo", "noAccidentAll", "noAccidentStartDate", mxml.inputNoAccidentAllStartDate.text);
+			Config.set("config", "kuraraySaijo", "noAccidentDept", "noAccidentTotal", mxml.inputNoAccidentDeptTotal.text);
+			Config.set("config", "kuraraySaijo", "noAccidentDept", "noAccidentStartDate", mxml.inputNoAccidentDeptStartDate.text);
 			Config.saveConfigXML(Config.configTree.config[0], "config.xml");
 			PostBox.send("refreshSettings");
 		}

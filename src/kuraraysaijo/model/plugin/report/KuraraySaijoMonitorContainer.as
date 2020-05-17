@@ -55,6 +55,10 @@ package kuraraysaijo.model.plugin.report
 
 		//テキストエリア
 		[Bindable]
+		public var absenceLabel: String;//欠勤
+		[Bindable]
+		public var tripLabel: String;//出張
+		[Bindable]
 		public var scheduleHead: String;//今日の予定タイトル
 		[Bindable]
 		public var scheduleLabel: String;//今日の予定
@@ -62,9 +66,6 @@ package kuraraysaijo.model.plugin.report
 		public var nextscheduleLabel: String;//明日の予定
 		[Bindable]
 		public var messageLabel: String;//連絡事項
-
-
-
 
 		[Bindable]
 		public var thermometerOutDoor: String;//温度計
@@ -97,6 +98,8 @@ package kuraraysaijo.model.plugin.report
 
 		[Bindable]
 		public var anemometer: String;//風速計
+		[Bindable]
+		public var anemometerAlert: String;//風速計
 
 
 		private var _today: Date;
@@ -136,10 +139,16 @@ package kuraraysaijo.model.plugin.report
 
 
 			//test
+			thermometerOutDoor = "21.5";
+			hygrometerOutDoor = "46.8";
+			WBGTOutDoor = "35.0";
+			anemometer = "20.5";
+			//mxml.anemometer.currentState = "level0";//level0 ～ level4
+
 			WBGTAlertOutDoor = "注意";
-			anemometer = "10.5";
-			mxml.WBGTAlertOutDoor.currentState = "level0";//level0 ～ level4
-			mxml.anemometer.currentState = "level1";//level0 ～ level4
+			mxml.WBGTAlertOutDoor.currentState = "level3";//level0 ～ level4
+			anemometerAlert = "暴風";
+			mxml.anemometerAlert.currentState = "level0";//level0 ～ level4
 		}
 
 		public function PB_changeTool(): void
@@ -164,9 +173,13 @@ package kuraraysaijo.model.plugin.report
 			if(Draw.activeDrawPanel != null)
 			{
 				ControlPanel.controlPanel.visible = false;//手書きポイント読み取り用レイヤー非表示
+				mxml.absence.text = absenceLabel;
+				mxml.trip.text = tripLabel;
 				mxml.schedule.text = scheduleLabel;
 				mxml.nextschedule.text = nextscheduleLabel;
 				mxml.message.text = messageLabel;
+				mxml.absence.addEventListener(FocusEvent.FOCUS_OUT, _changeAbsenceHandler);
+				mxml.trip.addEventListener(FocusEvent.FOCUS_OUT, _changeTripHandler);
 				mxml.schedule.addEventListener(FocusEvent.FOCUS_OUT, _changeScheduleHandler);
 				mxml.nextschedule.addEventListener(FocusEvent.FOCUS_OUT, _changeNextscheduleHandler);
 				mxml.message.addEventListener(FocusEvent.FOCUS_OUT, _changeMessageHandler);
@@ -178,6 +191,8 @@ package kuraraysaijo.model.plugin.report
 		{
 			if(Draw.activeDrawPanel != null)
 			{
+				mxml.absence.removeEventListener(FocusEvent.FOCUS_OUT, _changeAbsenceHandler);
+				mxml.trip.removeEventListener(FocusEvent.FOCUS_OUT, _changeTripHandler);
 				mxml.schedule.removeEventListener(FocusEvent.FOCUS_OUT, _changeScheduleHandler);
 				mxml.nextschedule.removeEventListener(FocusEvent.FOCUS_OUT, _changeNextscheduleHandler);
 				mxml.message.removeEventListener(FocusEvent.FOCUS_OUT, _changeMessageHandler);
@@ -188,7 +203,7 @@ package kuraraysaijo.model.plugin.report
 		//設計担当者
 		private function _setDesigningPerson(): void
 		{
-			var targetNode: XML = Config.configTree.config.kuraraySaijo.person.designingPersonList[0];
+			var targetNode: XML = Config.configTree.config.kuraraySaijo.duty.designingPersonList[0];
 			var __lf: String = "\n";
 			var personArr: Array = targetNode.toString().split(__lf);
 			var i: uint;
@@ -205,10 +220,12 @@ package kuraraysaijo.model.plugin.report
 			exerciseDesigning = personArr[(todayNum + 1) % personArr.length];
 			dust1Designing = personArr[(todayNum + 2) % personArr.length];
 			dust2Designing = personArr[(todayNum + 3) % personArr.length];
+			patrol1Designing = personArr[(todayNum + 4) % personArr.length];
+			patrol2Designing = personArr[(todayNum + 5) % personArr.length];
 		}
 		private function _setPipePerson(): void
 		{
-			var targetNode: XML = Config.configTree.config.kuraraySaijo.person.pipePersonList[0];
+			var targetNode: XML = Config.configTree.config.kuraraySaijo.duty.pipePersonList[0];
 			var __lf: String = "\n";
 			var personArr: Array = targetNode.toString().split(__lf);
 			var i: uint;
@@ -225,10 +242,12 @@ package kuraraysaijo.model.plugin.report
 			exercisePipe = personArr[(todayNum + 1) % personArr.length];
 			dust1Pipe = personArr[(todayNum + 2) % personArr.length];
 			dust2Pipe = personArr[(todayNum + 3) % personArr.length];
+			patrol1Pipe = personArr[(todayNum + 4) % personArr.length];
+			patrol2Pipe = personArr[(todayNum + 5) % personArr.length];
 		}
 		private function _setElectricPerson(): void
 		{
-			var targetNode: XML = Config.configTree.config.kuraraySaijo.person.electricPersonList[0];
+			var targetNode: XML = Config.configTree.config.kuraraySaijo.duty.electricPersonList[0];
 			var __lf: String = "\n";
 			var personArr: Array = targetNode.toString().split(__lf);
 			var i: uint;
@@ -245,6 +264,8 @@ package kuraraysaijo.model.plugin.report
 			exerciseElectric = personArr[(todayNum + 1) % personArr.length];
 			dust1Electric = personArr[(todayNum + 2) % personArr.length];
 			dust2Electric = personArr[(todayNum + 3) % personArr.length];
+			patrol1Electric = personArr[(todayNum + 4) % personArr.length];
+			patrol2Electric = personArr[(todayNum + 5) % personArr.length];
 		}
 
 		private function _getReportDate(): Date
@@ -256,6 +277,16 @@ package kuraraysaijo.model.plugin.report
 		private function _setScheduleHead(): void
 		{
 			scheduleHead = Lib.getDateString(_getReportDate()) + "の予定";
+		}
+		//欠勤書き換え
+		private function _changeAbsenceHandler(evt: FocusEvent): void
+		{
+			_setTextValue("absenceList", evt.target.text);
+		}
+		//出張書き換え
+		private function _changeTripHandler(evt: FocusEvent): void
+		{
+			_setTextValue("tripList", evt.target.text);
 		}
 		//本日の予定書き換え
 		private function _changeScheduleHandler(evt: FocusEvent): void
@@ -294,9 +325,11 @@ package kuraraysaijo.model.plugin.report
 		}
 
 
-		//本日の予定//連絡事項
+		//本日の予定//連絡事項//欠勤//出張
 		private function _setTextLabel(): void
 		{
+			absenceLabel = mxml.parent.parent.parent.parent.owner.ctrlr.myDataElement.elements("absenceList")[0].toString();//KuraraySaijoReport.absence
+			tripLabel = mxml.parent.parent.parent.parent.owner.ctrlr.myDataElement.elements("tripList")[0].toString();//KuraraySaijoReport.trip
 			scheduleLabel = mxml.parent.parent.parent.parent.owner.ctrlr.myDataElement.elements("schedule")[0].toString();//KuraraySaijoReport.schedule
 			nextscheduleLabel = mxml.parent.parent.parent.parent.owner.ctrlr.myDataElement.elements("nextschedule")[0].toString();//KuraraySaijoReport.nextschedule
 			messageLabel = mxml.parent.parent.parent.parent.owner.ctrlr.myDataElement.elements("message")[0].toString();//KuraraySaijoReport.message

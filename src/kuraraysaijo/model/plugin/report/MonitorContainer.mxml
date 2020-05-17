@@ -20,11 +20,11 @@
 			<kuraraysaijo.model.plugin.report.clock:AnalogClock width="300" height="300"/>
 			<kuraraysaijo.model.plugin.report.clock:DigitalClock width="100%" height="100%"/>
 		</s:VGroup>
-		<s:Label id="noAccidentAll" styleName="record" text="{ctrlr.noAccidentAll}" width="270" height="90" x="478" y="89"/><!-- 事業所無災害記録 -->
+		<s:Label id="noAccidentAll" styleName="record" text="{ctrlr.noAccidentAll}" width="305" height="90" x="478" y="89"/><!-- 事業所無災害記録 -->
 		<!--<s:Label id="noAccidentTarget" styleName="record" text="{ctrlr.noAccidentTarget}" width="381" height="91" x="669" y="178"/>
 		<s:Label id="noAccidentDaysToGo" styleName="record" text="{ctrlr.noAccidentDaysToGo}" width="381" height="91" x="669" y="277"/>-->
 
-		<s:Label id="noAccidentDept" styleName="record" text="{ctrlr.noAccidentDept}" width="270" height="90" x="879" y="89"/><!-- 設技部無災害記録 -->
+		<s:Label id="noAccidentDept" styleName="record" text="{ctrlr.noAccidentDept}" width="305" height="90" x="879" y="89"/><!-- 設技部無災害記録 -->
 		<!--<s:Label id="spotlessDrivingTarget" styleName="record" text="{ctrlr.spotlessDrivingTarget}" width="381" height="91" x="1432" y="178"/>
 		<s:Label id="spotlessDrivingDaysToGo" styleName="record" text="{ctrlr.spotlessDrivingDaysToGo}" width="381" height="91" x="1432" y="277"/>-->
 
@@ -53,8 +53,16 @@
 		<s:Label id="thermometerOutDoor" styleName="meter" text="{ctrlr.thermometerOutDoor}" width="138" height="80" x="133" y="582"/>
 		<s:Label id="hygrometerOutDoor" styleName="meter" text="{ctrlr.hygrometerOutDoor}" width="138" height="80" x="133" y="690"/>
 		<s:Label id="WBGTOutDoor" styleName="meter" text="{ctrlr.WBGTOutDoor}" width="138" height="80" x="133" y="800"/>
+		<s:Label id="anemometer" styleName="meter" text="{ctrlr.anemometer}" width="138" height="80" x="133" y="955"/>
+		<!--<kuraraysaijo.model.plugin.report.monitorcontainer:Anemometer id="anemometer" width="138" height="80" x="133" y="955"/>-->
 		<kuraraysaijo.model.plugin.report.monitorcontainer:WBGTAlert id="WBGTAlertOutDoor" width="80" height="80" x="344" y="800"/>
-		<kuraraysaijo.model.plugin.report.monitorcontainer:Anemometer id="anemometer" width="138" height="80" x="133" y="955"/>
+		<kuraraysaijo.model.plugin.report.monitorcontainer:AnemometerAlert id="anemometerAlert" width="80" height="80" x="344" y="955"/>
+
+		<s:Label id="tripLabel" styleName="personList" text="{ctrlr.tripLabel}" width="230" height="382" x="1405" y="264" visible="true" visible.edit="false"/><!-- 出張 -->
+		<s:TextArea id="trip" width="230" styleName="personList" height="382" x="1405" y="264" visible="false" visible.edit="true"/><!-- 出張テキストエリア -->
+		<s:Label id="absenceLabel" styleName="personList" text="{ctrlr.absenceLabel}" width="230" height="382" x="1651" y="264" visible="true" visible.edit="false"/><!-- 欠勤 -->
+		<s:TextArea id="absence" width="230" styleName="personList" height="382" x="1651" y="264" visible="false" visible.edit="true"/><!-- 欠勤テキストエリア -->
+
 
 		<s:Label id="scheduleHead" styleName="head" text="{ctrlr.scheduleHead}" width="684" height="40" x="456" y="665"/><!-- 今日 -->
 		<s:Label id="scheduleLabel" styleName="textarea" text="{ctrlr.scheduleLabel}" width="465" height="330" x="451" y="710" visible="true" visible.edit="false"/><!-- 今日の予定 -->

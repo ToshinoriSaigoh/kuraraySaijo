@@ -14,13 +14,13 @@
 		<s:VGroup top="10" bottom="10" left="10" right="10" width="640" height="100%" gap="20">
 			<s:HGroup gap="0">
 				<s:Group width="200">
-					<s:Label id="safetyHead"/>
+					<s:Label id="dutyHead"/>
 				</s:Group>
 				<s:VGroup width="440" gap="8">
 					<s:Button id="setBaseDateBtn" label="本日を基準日に設定する" name="importScheduleBtn" width="340" height="44" skinClass="view.utils.Skin_BtnText"/>
 					<s:HGroup gap="10">
 						<s:Label text="基準日：" width="80" height="40"/>
-						<s:Label id="safetyBaseDate" text="{ctrlr.baseDateText}"/>
+						<s:Label id="dutyBaseDate" text="{ctrlr.baseDateText}"/>
 					</s:HGroup>
 					<s:Label id="designingPersonList"/>
 					<s:TextArea id="textAreaDesigningPersonList" width="330" height="330"/>
@@ -33,31 +33,29 @@
 			<s:Line left="0" right="0" xFrom="0" xTo="640" yFrom="0" yTo="0"><s:stroke><s:SolidColorStroke color="0x888888" weight="2"/></s:stroke></s:Line>
 			<s:HGroup gap="0">
 				<s:Group width="200">
-					<s:Label id="noAccidentHead"/>
+					<s:Label id="noAccidentAllHead"/>
 				</s:Group>
 				<s:VGroup width="440" gap="8">
-					<s:Label id="noAccidentTotal"/>
-					<s:TextInput id="inputNoAccidentTotal" width="330"/>
-					<s:Label id="noAccidentStartDate"/>
-					<s:TextInput id="inputNoAccidentStartDate" width="330"/>
-					<s:Label id="noAccidentTargetDate"/>
-					<s:TextInput id="inputNoAccidentTargetDate" width="330"/>
+					<s:Label id="noAccidentAllTotal"/>
+					<s:TextInput id="inputNoAccidentAllTotal" width="330"/>
+					<s:Label id="noAccidentAllStartDate"/>
+					<s:TextInput id="inputNoAccidentAllStartDate" width="330"/>
 				</s:VGroup>
 			</s:HGroup>
 			<s:Line left="0" right="0" xFrom="0" xTo="640" yFrom="0" yTo="0"><s:stroke><s:SolidColorStroke color="0x888888" weight="2"/></s:stroke></s:Line>
 			<s:HGroup gap="0">
 				<s:Group width="200">
-					<s:Label id="spotlessDrivingHead"/>
+					<s:Label id="noAccidentDeptHead"/>
 				</s:Group>
 				<s:VGroup width="440" gap="8">
-					<s:Label id="spotlessDrivingTotal"/>
-					<s:TextInput id="inputSpotlessDrivingTotal" width="330"/>
-					<s:Label id="spotlessDrivingStartDate"/>
-					<s:TextInput id="inputSpotlessDrivingStartDate" width="330"/>
-					<s:Label id="spotlessDrivingTargetDate"/>
-					<s:TextInput id="inputSpotlessDrivingTargetDate" width="330"/>
+					<s:Label id="noAccidentDeptTotal"/>
+					<s:TextInput id="inputNoAccidentDeptTotal" width="330"/>
+					<s:Label id="noAccidentDeptStartDate"/>
+					<s:TextInput id="inputNoAccidentDeptStartDate" width="330"/>
 				</s:VGroup>
 			</s:HGroup>
+
+
 			<s:Line left="0" right="0" xFrom="0" xTo="640" yFrom="0" yTo="0"><s:stroke><s:SolidColorStroke color="0x888888" weight="2"/></s:stroke></s:Line>
 			<s:Button id="importHolidayBtn" label="カレンダーインポート" name="importHolidayBtn" width="240" height="44" skinClass="view.utils.Skin_BtnText"/>
 			<s:Line left="0" right="0" xFrom="0" xTo="640" yFrom="0" yTo="0"><s:stroke><s:SolidColorStroke color="0x888888" weight="2"/></s:stroke></s:Line>
