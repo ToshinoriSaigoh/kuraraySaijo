@@ -32,7 +32,9 @@ package kuraraysaijo.controller.documentroot.reportscreen.sidebar.settingsbox
 			mxml.spotlessDrivingStartDate.text = Config.getText("kuraraySaijo", "settings", "spotlessDriving", "spotlessDrivingStartDate");
 			mxml.spotlessDrivingTargetDate.text = Config.getText("kuraraySaijo", "settings", "spotlessDriving", "spotlessDrivingTargetDate");
 
-			mxml.safetyPersonList.text = Config.getText("kuraraySaijo", "settings", "safety", "safetyPersonList");
+			mxml.designingPersonList.text = Config.getText("kuraraySaijo", "settings", "person", "designingPersonList");
+			mxml.pipePersonList.text = Config.getText("kuraraySaijo", "settings", "person", "pipePersonList");
+			mxml.electricPersonList.text = Config.getText("kuraraySaijo", "settings", "person", "electricPersonList");
 
 			//休日・予定読み込みボタン
 			mxml.importHolidayBtn.addEventListener(MouseEvent.CLICK, _importHolidayBtnClickHandler);
@@ -76,18 +78,10 @@ package kuraraysaijo.controller.documentroot.reportscreen.sidebar.settingsbox
 		//設定値Config._myTree: XMLを反映させる
 		private function _refreshConfigValue(): void
 		{
-			/*
-			var personNodes: XMLList = Config.configTree.config.kuraraySaijo.safety.safetyPersonList.person;
-			var personText: String = "";
-			var i: uint;
-			for(i = 0; i < personNodes.length(); i++)
-			{
-			trace("■personNodes[i]■", personNodes[i]);
-				personText+= personNodes[i] + "\n";
-			}
-			*/
 
-			mxml.textAreaSafetyPersonList.text = Config.get("config", "kuraraySaijo", "safety", "safetyPersonList");
+			mxml.textAreaDesigningPersonList.text = Config.get("config", "kuraraySaijo", "safety", "designingPersonList");
+			mxml.textAreaPipePersonList.text = Config.get("config", "kuraraySaijo", "safety", "pipePersonList");
+			mxml.textAreaElectricPersonList.text = Config.get("config", "kuraraySaijo", "safety", "electricPersonList");
 
 			mxml.inputNoAccidentTotal.text = Config.get("config", "kuraraySaijo", "noAccident", "noAccidentTotal");
 			mxml.inputNoAccidentStartDate.text = Config.get("config", "kuraraySaijo", "noAccident", "noAccidentStartDate");
@@ -100,8 +94,10 @@ package kuraraysaijo.controller.documentroot.reportscreen.sidebar.settingsbox
 		//保存ボタン処理
 		private function _saveBtnClickHandler(e: MouseEvent): void
 		{
-			//安全担当者
-			Config.set("config", "kuraraySaijo", "safety", "safetyPersonList", mxml.textAreaSafetyPersonList.text);
+			//担当者
+			Config.set("config", "kuraraySaijo", "safety", "designingPersonList", mxml.textAreaDesigningPersonList.text);
+			Config.set("config", "kuraraySaijo", "safety", "pipePersonList", mxml.textAreaPipePersonList.text);
+			Config.set("config", "kuraraySaijo", "safety", "electricPersonList", mxml.textAreaElectricPersonList.text);
 
 			Config.set("config", "kuraraySaijo", "noAccident", "noAccidentTotal", mxml.inputNoAccidentTotal.text);
 			Config.set("config", "kuraraySaijo", "noAccident", "noAccidentStartDate", mxml.inputNoAccidentStartDate.text);

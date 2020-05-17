@@ -22,8 +22,12 @@
 						<s:Label text="基準日：" width="80" height="40"/>
 						<s:Label id="safetyBaseDate" text="{ctrlr.baseDateText}"/>
 					</s:HGroup>
-					<s:Label id="safetyPersonList"/>
-					<s:TextArea id="textAreaSafetyPersonList" width="330" height="330"/>
+					<s:Label id="designingPersonList"/>
+					<s:TextArea id="textAreaDesigningPersonList" width="330" height="330"/>
+					<s:Label id="pipePersonList"/>
+					<s:TextArea id="textAreaPipePersonList" width="330" height="330"/>
+					<s:Label id="electricPersonList"/>
+					<s:TextArea id="textAreaElectricPersonList" width="330" height="330"/>
 				</s:VGroup>
 			</s:HGroup>
 			<s:Line left="0" right="0" xFrom="0" xTo="640" yFrom="0" yTo="0"><s:stroke><s:SolidColorStroke color="0x888888" weight="2"/></s:stroke></s:Line>

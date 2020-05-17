@@ -21,20 +21,21 @@
 		<memberLoginTimeout>5000</memberLoginTimeout>
 	</link>
 	<kuraraySaijo>
+		<person>
+			<designingPersonList></designingPersonList>
+			<pipePersonList></pipePersonList>
+			<electricPersonList></electricPersonList>
+		</person>
 		<safety>
-			<safetyPersonList>
-			</safetyPersonList>
 			<baseDate>2020/01/01</baseDate>
 		</safety>
-		<noAccident>
+		<noAccidentAll>
 			<noAccidentTotal>10000</noAccidentTotal>
 			<noAccidentStartDate>2020/01/01</noAccidentStartDate>
-			<noAccidentTargetDate>2020/12/31</noAccidentTargetDate>
-		</noAccident>
-		<spotlessDriving>
-			<spotlessDrivingTotal>1000</spotlessDrivingTotal>
-			<spotlessDrivingStartDate>2020/01/01</spotlessDrivingStartDate>
-			<spotlessDrivingTargetDate>2020/12/31</spotlessDrivingTargetDate>
-		</spotlessDriving>
+		</noAccidentAll>
+		<noAccidentDept>
+			<noAccidentTotal>10000</noAccidentTotal>
+			<noAccidentStartDate>2020/01/01</noAccidentStartDate>
+		</noAccidentDept>
 	</kuraraySaijo>
 </config>

@@ -182,7 +182,7 @@ package controller
 				//_disableEscapeKey();
 				//_setTouchPoint();
 				//_setKeepAwake();
-				_setFullScreenSetting();
+				////_setFullScreenSetting();
 			}
 		}
 		override protected function appClose(): void
