@@ -101,6 +101,22 @@ package kuraraysaijo.model.plugin.report
 		[Bindable]
 		public var anemometerAlert: String;//風速計
 
+		//会議室
+		[Bindable]
+		public var MeetingRoomLamp1: String;
+		[Bindable]
+		public var MeetingRoomLamp2: String;
+		[Bindable]
+		public var MeetingRoomLamp3: String;
+		[Bindable]
+		public var MeetingRoomLamp4: String;
+		[Bindable]
+		public var MeetingRoomLamp5: String;
+		[Bindable]
+		public var emptyColor: Number;
+		[Bindable]
+		public var useColor: Number;
+
 
 		private var _today: Date;
 
@@ -122,6 +138,9 @@ package kuraraysaijo.model.plugin.report
 			alertColorLv3 = 0xffffff;
 			alertColorLv4 = 0xffffff;
 
+			emptyColor = 0xaaaaaa;
+			useColor = 0x66ff00;
+
 			super();
 		}
 
@@ -136,6 +155,17 @@ package kuraraysaijo.model.plugin.report
 			_setPipePerson();
 			_setElectricPerson();
 			mxml.insertSchedule.addEventListener(MouseEvent.CLICK, _insertScheduleBtnClickHandler);
+
+			mxml.MeetingRoomLamp1.label.text = "会議室１";
+			mxml.MeetingRoomLamp2.label.text = "会議室２";
+			mxml.MeetingRoomLamp3.label.text = "会議室３";
+			mxml.MeetingRoomLamp4.label.text = "面談室１";
+			mxml.MeetingRoomLamp5.label.text = "面談室２";
+			mxml.MeetingRoomLamp1.currentState = "use";
+			mxml.MeetingRoomLamp2.currentState = "empty";
+			mxml.MeetingRoomLamp3.currentState = "use";
+			mxml.MeetingRoomLamp4.currentState = "empty";
+			mxml.MeetingRoomLamp5.currentState = "empty";
 
 
 			//test

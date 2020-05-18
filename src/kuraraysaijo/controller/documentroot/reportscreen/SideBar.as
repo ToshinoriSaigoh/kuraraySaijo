@@ -146,7 +146,7 @@ package kuraraysaijo.controller.documentroot.reportscreen
 			{
 				case "calendar":
 					mxml.changeModeBtn.enabled = false;
-					PostBox.send("changeTool", {tool: "calendarTool"});
+					//PostBox.send("changeTool", {tool: "calendarTool"});
 					break;
 				default:
 					mxml.changeModeBtn.enabled = true;
