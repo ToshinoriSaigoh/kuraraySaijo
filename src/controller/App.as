@@ -60,6 +60,7 @@ package controller
 			new Config();
 			new HolidayConfig();
 			new ScheduleConfig();
+			new PersonConfig();
 			//new Emergency();
 			myTerminalID = "member";
 			super();

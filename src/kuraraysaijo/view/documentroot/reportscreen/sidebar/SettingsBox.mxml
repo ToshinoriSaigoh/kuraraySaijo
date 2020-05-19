@@ -20,8 +20,7 @@
 			<s:Label id="headerLabel" width="300" height="44" styleName="textMedium" verticalAlign="middle"/>
 			<s:Button id="closeBtn" name="closeBtn" top="2" right="6" skinClass="view.documentroot.reportscreen.sidebar.settingsbox.Skin_CloseBtn"/>
 		</s:Group>
-
-		<mx:ViewStack id="settingsViewStack" top="56" left="56" height="100%">
+		<mx:ViewStack id="settingsViewStack" top="96" left="56" height="100%">
 			<kuraraysaijo.view.documentroot.reportscreen.sidebar.settingsbox:SettingsKuraraySaijoContainer id="settingsKuraraySaijoContainer" name="settingsKuraraySaijoContainer"/>
 		</mx:ViewStack>
 	</s:Group>

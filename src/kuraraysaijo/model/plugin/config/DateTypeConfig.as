@@ -4,6 +4,7 @@ package kuraraysaijo.model.plugin.config
 	import common.StringUtils;
 	import common.csv.CSVLoader;
 	import flash.filesystem.File;
+	import flash.utils.ByteArray;
 	public class DateTypeConfig
 	{
 		private var _tagName: String;
@@ -48,18 +49,22 @@ package kuraraysaijo.model.plugin.config
 			var tree: XML = Config.loadConfigXML(_fileName);
 			if(tree == null)
 			{
+				trace("data == null to create()");
 				_data = create();
 			}
 			else
 			{
 				_data = tree;
 			}
+			trace(_data);
 			Config.configTree.appendChild(_data);
 		}
 
 		//保存
 		public function save(): void
 		{
+			trace("#Config.save()", _fileName);
+			Lib.dump(_data);
 			Config.saveConfigXML(_data, _fileName);
 		}
 
@@ -75,6 +80,7 @@ package kuraraysaijo.model.plugin.config
 			var tmpList: Array = [];
 			var tmpData: Object = {};
 			var list: Array;
+trace("#csv.length", csv.length);
 			for(i = 0; i < csv.length; i++)
 			{
 				row = csv[i];
@@ -94,6 +100,7 @@ package kuraraysaijo.model.plugin.config
 				}
 			}
 
+Lib.dump(tmpData);
 			for(i = 0; i < tmpList.length; i++)
 			{
 				date = tmpList[i];
@@ -107,8 +114,8 @@ package kuraraysaijo.model.plugin.config
 				}
 				dayXML.setChildren(text);
 			}
+trace("dayXML:", dayXML);
 		}
-
 		private function _validate(dateString: String): String
 		{
 			var result: String = null;

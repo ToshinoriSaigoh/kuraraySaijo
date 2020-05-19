@@ -63,15 +63,15 @@ s|Label {
 	color: #ffffff;
 	fontSize: 20;
 }
-s|TextInput {
+/*s|TextInput {
 	fontFamily: "Noto Sans Mono CJK JP Regular CFF";
 	fontWeight: normal;
 	color: #000000;
 	contentBackgroundColor: #ffffff;
 	fontSize: 24;
 	contentBackgroundAlpha: 1.0;
-	/*skinClass: ClassReference("spark.skins.mobile.TextInputSkin");*/
-}
+	//skinClass: ClassReference("spark.skins.mobile.TextInputSkin");
+}*/
 
 s|TextArea {
 	fontFamily: "Noto Sans Mono CJK JP Regular CFF";

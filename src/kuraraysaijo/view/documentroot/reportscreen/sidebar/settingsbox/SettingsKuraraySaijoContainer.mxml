@@ -14,22 +14,40 @@
 		<s:VGroup top="10" bottom="10" left="10" right="10" width="640" height="100%" gap="20">
 			<s:HGroup gap="0">
 				<s:Group width="200">
+					<s:Label id="scheduleHead"/>
+				</s:Group>
+				<s:VGroup width="440" gap="8">
+					<s:Button id="importScheduleBtn" label="スケジュールインポート" name="importScheduleBtn" width="240" height="44" skinClass="view.utils.Skin_BtnText"/>
+					<s:Line left="0" right="0" xFrom="0" xTo="640" yFrom="0" yTo="0"><s:stroke><s:SolidColorStroke color="0x888888" weight="2"/></s:stroke></s:Line>
+					<s:Button id="importHolidayBtn" label="カレンダーインポート" name="importHolidayBtn" width="240" height="44" skinClass="view.utils.Skin_BtnText"/>
+					<s:Line left="0" right="0" xFrom="0" xTo="640" yFrom="0" yTo="0"><s:stroke><s:SolidColorStroke color="0x888888" weight="2"/></s:stroke></s:Line>
+				</s:VGroup>
+			</s:HGroup>
+			<s:HGroup gap="0">
+				<s:Group width="200">
 					<s:Label id="dutyHead"/>
 				</s:Group>
 				<s:VGroup width="440" gap="8">
+					<s:Button id="setMorningBtn" label="朝礼当番インポート" name="importMorningBtn" width="340" height="44" skinClass="view.utils.Skin_BtnText"/>
+					<s:Button id="setExerciseBtn" label="体操当番インポート" name="importExerciseBtn" width="340" height="44" skinClass="view.utils.Skin_BtnText"/>
+					<s:Button id="setDustBtn" label="ゴミ当番インポート" name="importDustBtn" width="340" height="44" skinClass="view.utils.Skin_BtnText"/>
+					<s:Button id="setPatrolBtn" label="パトロールインポート" name="importPatrolBtn" width="340" height="44" skinClass="view.utils.Skin_BtnText"/>
+					<!--
 					<s:Button id="setBaseDateBtn" label="本日を基準日に設定する" name="importScheduleBtn" width="340" height="44" skinClass="view.utils.Skin_BtnText"/>
 					<s:HGroup gap="10">
 						<s:Label text="基準日：" width="80" height="40"/>
 						<s:Label id="dutyBaseDate" text="{ctrlr.baseDateText}"/>
 					</s:HGroup>
 					<s:Label id="designingPersonList"/>
-					<s:TextArea id="textAreaDesigningPersonList" width="330" height="330"/>
+					<s:TextArea id="textAreaDesigningPersonList" width="330" height="330" verticalScrollPolicy="auto"/>
 					<s:Label id="pipePersonList"/>
-					<s:TextArea id="textAreaPipePersonList" width="330" height="330"/>
+					<s:TextArea id="textAreaPipePersonList" width="330" height="330" verticalScrollPolicy="auto"/>
 					<s:Label id="electricPersonList"/>
-					<s:TextArea id="textAreaElectricPersonList" width="330" height="330"/>
+					<s:TextArea id="textAreaElectricPersonList" width="330" height="330" verticalScrollPolicy="auto"/>
+					-->
 				</s:VGroup>
 			</s:HGroup>
+			<!--
 			<s:Line left="0" right="0" xFrom="0" xTo="640" yFrom="0" yTo="0"><s:stroke><s:SolidColorStroke color="0x888888" weight="2"/></s:stroke></s:Line>
 			<s:HGroup gap="0">
 				<s:Group width="200">
@@ -54,13 +72,20 @@
 					<s:TextInput id="inputNoAccidentDeptStartDate" width="330"/>
 				</s:VGroup>
 			</s:HGroup>
+			-->
 
 
 			<s:Line left="0" right="0" xFrom="0" xTo="640" yFrom="0" yTo="0"><s:stroke><s:SolidColorStroke color="0x888888" weight="2"/></s:stroke></s:Line>
-			<s:Button id="importHolidayBtn" label="カレンダーインポート" name="importHolidayBtn" width="240" height="44" skinClass="view.utils.Skin_BtnText"/>
-			<s:Line left="0" right="0" xFrom="0" xTo="640" yFrom="0" yTo="0"><s:stroke><s:SolidColorStroke color="0x888888" weight="2"/></s:stroke></s:Line>
-			<s:Button id="importScheduleBtn" label="スケジュールインポート" name="importScheduleBtn" width="240" height="44" skinClass="view.utils.Skin_BtnText"/>
-			<s:Line left="0" right="0" xFrom="0" xTo="640" yFrom="0" yTo="0"><s:stroke><s:SolidColorStroke color="0x888888" weight="2"/></s:stroke></s:Line>
+			<s:HGroup gap="0">
+				<s:Group width="200">
+					<s:Label id="attendanceHead"/>
+				</s:Group>
+				<s:VGroup width="440" gap="8">
+					<s:Button id="setAttendanceBtn" label="勤怠管理.csvを読み込む" name="setAttendanceBtn" width="340" height="44" skinClass="view.utils.Skin_BtnText"/>
+					<s:Label id="personHead"/>
+					<s:TextArea id="textAreaPersonList" width="330" height="660" verticalScrollPolicy="auto"/>
+				</s:VGroup>
+			</s:HGroup>
 		</s:VGroup>
 	</s:Scroller>
 	<s:Group bottom="10">

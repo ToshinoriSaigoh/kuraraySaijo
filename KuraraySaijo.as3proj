@@ -61,6 +61,7 @@
     <element path=".\utils\libs\coltware_commons_zip_v1_1.swc" />
     <element path=".\utils\libs\Console.swc" />
     <element path="assets\fonts\Fonts.swc" />
+    <element path=".\utils\libs\as3xls-1.0.swc" />
   </libraryPaths>
   <!-- External Libraries -->
   <externalLibraryPaths>
