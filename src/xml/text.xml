@@ -13,11 +13,11 @@
 		<importHolidayBtn>カレンダーインポート</importHolidayBtn>
 		<importScheduleBtn>スケジュールインポート</importScheduleBtn>
 		<setBaseDateBtn>本日を基準日に設定する</setBaseDateBtn>
-		<setAttendanceBtn>勤怠管理.csvインポート</setAttendanceBtn>
-		<setMorningBtn>朝礼.csvインポート</setMorningBtn>
-		<setExerciseBtn>体操.csvインポート</setExerciseBtn>
-		<setDustBtn>ゴミ.csvインポート</setDustBtn>
-		<setPatrolBtn>パトロール.csvインポート</setPatrolBtn>
+		<importAttendanceBtn>勤怠管理.csvインポート</importAttendanceBtn>
+		<importMorningBtn>朝礼.csvインポート</importMorningBtn>
+		<importExerciseBtn>体操.csvインポート</importExerciseBtn>
+		<importDustBtn>ゴミ.csvインポート</importDustBtn>
+		<importPatrolBtn>パトロール.csvインポート</importPatrolBtn>
 	</button>
 	<FileListBox>
 		<saveFileBtn>過去のレポート</saveFileBtn>

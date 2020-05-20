@@ -28,10 +28,10 @@
 					<s:Label id="dutyHead"/>
 				</s:Group>
 				<s:VGroup width="440" gap="8">
-					<s:Button id="setMorningBtn" label="朝礼当番インポート" name="importMorningBtn" width="340" height="44" skinClass="view.utils.Skin_BtnText"/>
-					<s:Button id="setExerciseBtn" label="体操当番インポート" name="importExerciseBtn" width="340" height="44" skinClass="view.utils.Skin_BtnText"/>
-					<s:Button id="setDustBtn" label="ゴミ当番インポート" name="importDustBtn" width="340" height="44" skinClass="view.utils.Skin_BtnText"/>
-					<s:Button id="setPatrolBtn" label="パトロールインポート" name="importPatrolBtn" width="340" height="44" skinClass="view.utils.Skin_BtnText"/>
+					<s:Button id="importMorningBtn" label="朝礼当番インポート" name="importMorningBtn" width="340" height="44" skinClass="view.utils.Skin_BtnText"/>
+					<s:Button id="importExerciseBtn" label="体操当番インポート" name="importExerciseBtn" width="340" height="44" skinClass="view.utils.Skin_BtnText"/>
+					<s:Button id="importDustBtn" label="ゴミ当番インポート" name="importDustBtn" width="340" height="44" skinClass="view.utils.Skin_BtnText"/>
+					<s:Button id="importPatrolBtn" label="パトロールインポート" name="importPatrolBtn" width="340" height="44" skinClass="view.utils.Skin_BtnText"/>
 					<!--
 					<s:Button id="setBaseDateBtn" label="本日を基準日に設定する" name="importScheduleBtn" width="340" height="44" skinClass="view.utils.Skin_BtnText"/>
 					<s:HGroup gap="10">
@@ -81,7 +81,7 @@
 					<s:Label id="attendanceHead"/>
 				</s:Group>
 				<s:VGroup width="440" gap="8">
-					<s:Button id="setAttendanceBtn" label="勤怠管理.csvを読み込む" name="setAttendanceBtn" width="340" height="44" skinClass="view.utils.Skin_BtnText"/>
+					<s:Button id="importAttendanceBtn" label="勤怠管理.csvを読み込む" name="importAttendanceBtn" width="340" height="44" skinClass="view.utils.Skin_BtnText"/>
 					<s:Label id="personHead"/>
 					<s:TextArea id="textAreaPersonList" width="330" height="660" verticalScrollPolicy="auto"/>
 				</s:VGroup>

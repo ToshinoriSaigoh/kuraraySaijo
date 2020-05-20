@@ -13,11 +13,13 @@ package kuraraysaijo.controller.documentroot.reportscreen.sidebar.settingsbox
 	{
 		[Bindable]
 		public var baseDateText: String;
+		private var _dutyConfig: DutyConfig;
 		private var _personConfig: PersonConfig;
 		public function SettingsKuraraySaijoContainer()
 		{
 			vcName = "settingsKuraraySaijoContainer";
 			elementName = "NavigatorContent";
+			_dutyConfig = new DutyConfig();
 			_personConfig = new PersonConfig();
 		}
 
@@ -51,7 +53,7 @@ package kuraraysaijo.controller.documentroot.reportscreen.sidebar.settingsbox
 			mxml.importDustBtn.addEventListener(MouseEvent.CLICK, _importDustBtnClickHandler);
 			mxml.importPatrolBtn.addEventListener(MouseEvent.CLICK, _importPatrolBtnClickHandler);
 			//勤怠管理.csv読込ボタン
-			mxml.setAttendanceBtn.addEventListener(MouseEvent.CLICK, _setAttendanceBtnClickHandler);
+			mxml.importAttendanceBtn.addEventListener(MouseEvent.CLICK, _importAttendanceBtnClickHandler);
 
 
 
@@ -143,26 +145,46 @@ package kuraraysaijo.controller.documentroot.reportscreen.sidebar.settingsbox
 		//保存ボタン処理
 		private function _importMorningBtnClickHandler(evt: MouseEvent): void
 		{
-			_selectFile(DutyConfig.importCSVFile);
+			_selectFile(__selectedAttendanceFile);
+			function __selectedAttendanceFile(file: File): void
+			{
+				_dutyConfig.importCSVFile(file, "morning");
+				PostBox.send("refreshSettings");
+			}
 		}
 		//保存ボタン処理
 		private function _importExerciseBtnClickHandler(evt: MouseEvent): void
 		{
-			_selectFile(DutyConfig.importCSVFile);
+			_selectFile(__selectedAttendanceFile);
+			function __selectedAttendanceFile(file: File): void
+			{
+				_dutyConfig.importCSVFile(file, "exercise");
+				PostBox.send("refreshSettings");
+			}
 		}
 		//保存ボタン処理
 		private function _importDustBtnClickHandler(evt: MouseEvent): void
 		{
-			_selectFile(DutyConfig.importCSVFile);
+			_selectFile(__selectedAttendanceFile);
+			function __selectedAttendanceFile(file: File): void
+			{
+				_dutyConfig.importCSVFile(file, "dust");
+				PostBox.send("refreshSettings");
+			}
 		}
 		//保存ボタン処理
 		private function _importPatrolBtnClickHandler(evt: MouseEvent): void
 		{
-			_selectFile(DutyConfig.importCSVFile);
+			_selectFile(__selectedAttendanceFile);
+			function __selectedAttendanceFile(file: File): void
+			{
+				_dutyConfig.importCSVFile(file, "patrol");
+				PostBox.send("refreshSettings");
+			}
 		}
 
 		//勤怠管理.xlsを読み込む
-		private function _setAttendanceBtnClickHandler(e: MouseEvent): void
+		private function _importAttendanceBtnClickHandler(e: MouseEvent): void
 		{
 			_selectFile(__selectedAttendanceFile);
 			function __selectedAttendanceFile(file: File): void

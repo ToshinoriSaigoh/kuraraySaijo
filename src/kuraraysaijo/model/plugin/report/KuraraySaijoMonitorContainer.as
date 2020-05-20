@@ -147,13 +147,13 @@ package kuraraysaijo.model.plugin.report
 		override protected function init(): void
 		{
 			_today = new Date();
-			_setNoAccidentAllValue();
-			_setNoAccidentDeptValue();
+			//_setNoAccidentAllValue();
+			//_setNoAccidentDeptValue();
 			_setScheduleHead();
 			_setTextLabel();
-			_setDesigningPerson();
-			_setPipePerson();
-			_setElectricPerson();
+			//_setDesigningPerson();
+			//_setPipePerson();
+			//_setElectricPerson();
 			mxml.insertSchedule.addEventListener(MouseEvent.CLICK, _insertScheduleBtnClickHandler);
 
 			mxml.MeetingRoomLamp1.label.text = "会議室１";
@@ -229,7 +229,7 @@ package kuraraysaijo.model.plugin.report
 				_setTextLabel();
 			}
 		}
-
+/*
 		//設計担当者
 		private function _setDesigningPerson(): void
 		{
@@ -297,7 +297,7 @@ package kuraraysaijo.model.plugin.report
 			patrol1Electric = personArr[(todayNum + 4) % personArr.length];
 			patrol2Electric = personArr[(todayNum + 5) % personArr.length];
 		}
-
+*/
 		private function _getReportDate(): Date
 		{
 			return new Date(Number(mxml.parent.parent.parent.parent.owner.ctrlr.year), Number(mxml.parent.parent.parent.parent.owner.ctrlr.month) - 1 , Number(mxml.parent.parent.parent.parent.owner.ctrlr.day));
@@ -339,7 +339,7 @@ package kuraraysaijo.model.plugin.report
 		{
 			mxml.parent.parent.parent.parent.owner.ctrlr.myDataElement.elements(target)[0].setChildren(val);
 		}
-
+/*
 		//無災害記録
 		private function _setNoAccidentAllValue(): void
 		{
@@ -353,7 +353,7 @@ package kuraraysaijo.model.plugin.report
 			var startDate: Number = Date.parse(Config.get("config", "kuraraySaijo", "noAccidentDept", "noAccidentStartDate"));
 			noAccidentDept = String(Math.floor((_today.time - startDate) / 1000 / 60 / 60 / 24) + 1 + total);
 		}
-
+*/
 
 		//本日の予定//連絡事項//欠勤//出張
 		private function _setTextLabel(): void
@@ -409,11 +409,11 @@ package kuraraysaijo.model.plugin.report
 		//安全担当者更新
 		public function MSG_refreshSettings(): void
 		{
-			_setNoAccidentAllValue();
-			_setNoAccidentDeptValue();
-			_setDesigningPerson();
-			_setPipePerson();
-			_setElectricPerson();
+			//_setNoAccidentAllValue();
+			//_setNoAccidentDeptValue();
+			//_setDesigningPerson();
+			//_setPipePerson();
+			//_setElectricPerson();
 		}
 	}
 }
