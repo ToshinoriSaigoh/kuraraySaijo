@@ -1,0 +1,20 @@
+<anemometer>
+	<warning>
+		<level id="0">
+			<label></label>
+			<color>0x000000</color>
+			<backgroundColor>0xFFFFFF</backgroundColor>
+			<conditions>
+				<item type="lessThan">10.0</item>
+			</conditions>
+		</level>
+		<level id="1">
+			<label></label>
+			<color>0xFFFFFF</color>
+			<backgroundColor>0xDD0000</backgroundColor>
+			<conditions>
+				<item type="orMore">10.0</item>
+			</conditions>
+		</level>
+	</warning>
+</anemometer>

@@ -571,6 +571,15 @@ package
 
 			return year + "年" + month + "月" + day + "日" + "(" + weekDayArr[week] + ")";
 		}
+		//xxxx/xx/xx
+		public static function getYMDString(date: Date): String
+		{
+			var year: String = date.getFullYear().toString();
+			var month: String = digitNum(date.getMonth() + 1, 2);
+			var day: String = digitNum(date.getDate(), 2);
+
+			return year + "/" + month + "/" + day;
+		}
 
 		public static function getDateTimeString(dateObj: Date = null, short: Boolean = false): String
 		{

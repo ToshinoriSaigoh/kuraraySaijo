@@ -7,6 +7,7 @@ package controller
 	import model.plugin.report.emergency.Emergency;
 	import kuraraysaijo.model.plugin.config.*;
 	import kuraraysaijo.model.batch.ReportChanger;
+	import kuraraysaijo.model.sensor.SensorInfo;
 
 	import model.plugin.network.channel.*;
 	import model.plugin.network.clusterdata.*;
@@ -81,6 +82,10 @@ package controller
 			new ScreenShot();
 			new Clock();
 			new ReportChanger();
+			new WBGTConfig();
+			new AnemometerConfig();
+			new SensorInfo();
+
 		}
 
 		//アプリ開始時処理
@@ -91,6 +96,7 @@ package controller
 			function changeScreen(): void
 			{
 				//new Debug();
+				PostBox.send("sensorCtrl", {command:"start"});
 				PostBox.send("clockCtrl", {command:"start"});
 				PostBox.send("changeScreen", {screen: "reportScreen"});
 			}

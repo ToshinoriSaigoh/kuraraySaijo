@@ -10,7 +10,9 @@ package kuraraysaijo.model.plugin.config
 		private var _tagName: String;
 		private var _fileName: String;
 		private var _data: XML;
+		private var _branchXML: XML;
 		private var _csvLoader: CSVLoader;
+
 		public function DutyConfig()
 		{
 			_tagName = "duty";
@@ -25,45 +27,38 @@ package kuraraysaijo.model.plugin.config
 			var tree: XML = Config.loadConfigXML(_fileName);
 			if(tree == null)
 			{
-				_data = __create();
+				_data = <{_tagName}><morning/><exercise/><dust/><patrol/></{_tagName}>;
 			}
 			else
 			{
 				_data = tree;
 			}
 			Config.configTree.appendChild(_data);
-			//作成
-			function __create(): XML
-			{
-				return <{_tagName} />;
-			}
+			trace(Config.configTree.duty);
 		}
 
 		//CSV取り込み
-		public function importCSVFile(csvFile: File, mode: String): void
+		public function importCSVFile(csvFile: File, branch: String): void
 		{
-
-			var branchXML: XML;
-
 			if(csvFile != null)
 			{
-				var existsData: XMLList = data.(mode);
+				var existsData: XMLList = data.elements(branch);
 				if(existsData.length() == 0)
 				{
-					branchXML = <{mode}/>;
-					data.appendChild(branchXML);
+					_branchXML = <{branch}/>;
+					data.appendChild(_branchXML);
 				}
 				else
 				{
-					branchXML = existsData[0];
+					_branchXML = existsData[0];
 				}
-				_importCSVFile(csvFile, branchXML);
+				_importCSVFile(csvFile);
 				_save();
 			}
 		}
 
 		//CSV取り込み
-		private function _importCSVFile(csvFile: File, branchXML: XML): void
+		private function _importCSVFile(csvFile: File): void
 		{
 			var csv: Array = _csvLoader.load(csvFile);
 			var i: uint;
@@ -104,7 +99,7 @@ package kuraraysaijo.model.plugin.config
 				node = <day id={date} design={tmpData[date][0]} pipe={tmpData[date][1]} electric={tmpData[date][2]}/>;
 				if(dayXML == null)
 				{
-					branchXML.appendChild(node);
+					_branchXML.appendChild(node);
 					dayXML = _search(date);
 				}
 				else
@@ -117,7 +112,7 @@ package kuraraysaijo.model.plugin.config
 		//列１の日付からデータ検索
 		public function _search(key: String): XML
 		{
-			var existsData: XMLList = data.day.(@id == key);
+			var existsData: XMLList = _branchXML.day.(@id == key);
 			if(existsData.length() > 0)
 			{
 				return existsData[0];

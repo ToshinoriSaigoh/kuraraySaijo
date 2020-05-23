@@ -35,5 +35,9 @@
 			<noAccidentTotal>10000</noAccidentTotal>
 			<noAccidentStartDate>2020/01/01</noAccidentStartDate>
 		</noAccidentDept>
+		<sensor>
+			<inputFile>C:\TEMP\SA00001.csv</inputFile>
+			<inputInterval>60000</inputInterval>
+		</sensor>
 	</kuraraySaijo>
 </config>

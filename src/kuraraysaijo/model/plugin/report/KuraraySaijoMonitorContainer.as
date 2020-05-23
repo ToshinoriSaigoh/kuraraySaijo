@@ -2,10 +2,16 @@ package kuraraysaijo.model.plugin.report
 {
 	import common.PaddingUtils;
 	import kuraraysaijo.model.plugin.holiday.Holiday;
+	import kuraraysaijo.model.plugin.config.WarningInfo;
+	import kuraraysaijo.model.plugin.config.ScheduleConfig;
+	import kuraraysaijo.model.plugin.config.AnemometerConfig;
+	import kuraraysaijo.model.plugin.config.WBGTConfig;
+	import kuraraysaijo.model.plugin.config.WarningInfo;
 	import model.plugin.draw.Draw;
 	import model.plugin.draw.ControlPanel;
 	import flash.events.FocusEvent;
 	import flash.events.MouseEvent;
+	import spark.formatters.NumberFormatter;
 
 	public class KuraraySaijoMonitorContainer extends VC
 	{
@@ -125,6 +131,48 @@ package kuraraysaijo.model.plugin.report
 			vcName = "kuraraySaijoMonitorContainer";
 			elementName = "Group";
 
+/*
+			//WBGT
+			warningInfo = WBGTConfig.getWarningInfo(0);
+			if(warningInfo != null)
+			{
+				alertColorLv0 = warningInfo.color;
+				alertBgLv0 = warningInfo.backgroundColor;
+			}
+			warningInfo = WBGTConfig.getWarningInfo(1);
+			if(warningInfo != null)
+			{
+				alertColorLv1 = warningInfo.color;
+				alertBgLv1 = warningInfo.backgroundColor;
+			}
+			warningInfo = WBGTConfig.getWarningInfo(2);
+			if(warningInfo != null)
+			{
+				alertColorLv2 = warningInfo.color;
+				alertBgLv2 = warningInfo.backgroundColor;
+			}
+			warningInfo = WBGTConfig.getWarningInfo(3);
+			if(warningInfo != null)
+			{
+				alertColorLv3 = warningInfo.color;
+				alertBgLv3 = warningInfo.backgroundColor;
+			}
+
+			//Anemometer
+			warningInfo = AnemometerConfig.getWarningInfo(0);
+			if(warningInfo != null)
+			{
+				alertAnemometerColorLv0 = warningInfo.color;
+				alertAnemometerBgLv0 = warningInfo.backgroundColor;
+			}
+			warningInfo = AnemometerConfig.getWarningInfo(1);
+			if(warningInfo != null)
+			{
+				alertAnemometerColorLv1 = warningInfo.color;
+				alertAnemometerBgLv1 = warningInfo.backgroundColor;
+			}
+*/
+
 			//test
 			//ステートのテキスト色はcreationComplete前に設定しておく
 			alertBgLv0 = 0xffffff;
@@ -151,6 +199,10 @@ package kuraraysaijo.model.plugin.report
 			//_setNoAccidentDeptValue();
 			_setScheduleHead();
 			_setTextLabel();
+			_setDuty("morning");
+			_setDuty("exercise");
+			_setDuty("dust");
+			_setDuty("patrol");
 			//_setDesigningPerson();
 			//_setPipePerson();
 			//_setElectricPerson();
@@ -167,6 +219,7 @@ package kuraraysaijo.model.plugin.report
 			mxml.MeetingRoomLamp4.currentState = "empty";
 			mxml.MeetingRoomLamp5.currentState = "empty";
 
+			PostBox.send("sensorCtrl", {command:"request"});
 
 			//test
 			thermometerOutDoor = "21.5";
@@ -179,6 +232,7 @@ package kuraraysaijo.model.plugin.report
 			mxml.WBGTAlertOutDoor.currentState = "level3";//level0 ～ level4
 			anemometerAlert = "暴風";
 			mxml.anemometerAlert.currentState = "level0";//level0 ～ level4
+
 		}
 
 		public function PB_changeTool(): void
@@ -228,6 +282,82 @@ package kuraraysaijo.model.plugin.report
 				mxml.message.removeEventListener(FocusEvent.FOCUS_OUT, _changeMessageHandler);
 				_setTextLabel();
 			}
+		}
+		//担当表示
+		private function _setDuty(type: String): void
+		{
+			var targetNode: XML = Config.configTree.duty.elements(type)[0];
+			if(targetNode == null) return;
+			var dutyList: Array = _setDutyTheDay(targetNode, new Date());
+			switch(type)
+			{
+				case "morning":
+					morningDesigning = dutyList[0];
+					morningPipe = dutyList[1];
+					morningElectric = dutyList[2];
+					break;
+				case "exercise":
+					exerciseDesigning = dutyList[0];
+					exercisePipe = dutyList[1];
+					exerciseElectric = dutyList[2];
+					break;
+				case "dust":
+					var design: Array = dutyList[0].split(" ");
+					var pipe: Array = dutyList[1].split(" ");
+					var electric: Array = dutyList[2].split(" ");
+					dust1Designing = design[0];
+					dust1Pipe = pipe[0];
+					dust1Electric = electric[0];
+					dust2Designing = design[1] != null ? design[1] : "---";
+					dust2Pipe = pipe[1] != null ? pipe[1] : "---";
+					dust2Electric = electric[1] != null ? electric[1] : "---";
+					break;
+				case "patrol":
+					var today: Date = new Date();
+					var todayDay: Number = today.day;
+					var tue: Date;
+					var thu: Date;
+					//火曜
+					switch(true)
+					{
+						case todayDay < 2:
+							tue = new Date(today.fullYear, today.month, today.date + (2 - todayDay));
+							break;
+						case 2:
+							tue = today;
+							break;
+						case todayDay > 2:
+							tue = new Date(today.fullYear, today.month, today.date - (todayDay - 2));
+							break;
+					}
+					//木曜
+					switch(true)
+					{
+						case todayDay < 4:
+							thu = new Date(today.fullYear, today.month, today.date + (4 - todayDay));
+							break;
+						case 4:
+							thu = today;
+							break;
+						case todayDay > 4:
+							thu = new Date(today.fullYear, today.month, today.date - (todayDay - 4));
+							break;
+					}
+					var dutyList1: Array = _setDutyTheDay(targetNode, tue);
+					patrol1Designing = dutyList1[0];
+					patrol1Pipe = dutyList1[1];
+					patrol1Electric = dutyList1[2];
+					var dutyList2: Array = _setDutyTheDay(targetNode, thu);
+					patrol2Designing = dutyList2[0];
+					patrol2Pipe = dutyList2[1];
+					patrol2Electric = dutyList2[2];
+					break;
+			}
+		}
+		private function _setDutyTheDay(xml: XML, date: Date): Array {
+			var day: String = Lib.getYMDString(date);
+			var node: XML = xml.day.(attribute("id") == day)[0];
+			return [node.@design[0], node.@pipe[0], node.@electric[0]];
 		}
 /*
 		//設計担当者
@@ -409,11 +539,71 @@ package kuraraysaijo.model.plugin.report
 		//安全担当者更新
 		public function MSG_refreshSettings(): void
 		{
+			_setDuty("morning");
+			_setDuty("exercise");
+			_setDuty("dust");
+			_setDuty("patrol");
 			//_setNoAccidentAllValue();
 			//_setNoAccidentDeptValue();
 			//_setDesigningPerson();
 			//_setPipePerson();
 			//_setElectricPerson();
+		}
+
+		//センサー情報
+		public function PB_sensor(): void
+		{
+			var param: Object = PostBox.get("PB_sensor");
+			var temperature: Number = param.data.temperature;
+			var humidity: Number = param.data.humidity;
+			var windSpeed: Number = param.data.windSpeed;
+			var wbgtInfo: WarningInfo;
+			var anemometerInfo: WarningInfo;
+
+			var Yi: Number = 0.90739;
+			var Xi: Number = 0.14775;
+			var YXi: Number = -0.003665;
+			var wbgt: Number = Yi * temperature + Xi * humidity + YXi * temperature * humidity;
+
+			thermometerOutDoor = _formatedNumber(temperature);
+			hygrometerOutDoor = _formatedNumber(humidity);
+			WBGTOutDoor = _formatedNumber(wbgt);
+			anemometer = _formatedNumber(windSpeed);
+
+/*
+			//WBGT
+			wbgtInfo = WBGTConfig.getWarning(wbgt);
+			if(wbgtInfo != null)
+			{
+				mxml.WBGTAlertOutDoor.currentState = "level" + wbgtInfo.id;
+				WBGTAlertOutDoor = wbgtInfo.label;
+			}
+			else
+			{
+				mxml.WBGTAlertOutDoor.currentState = "level0";
+				WBGTAlertOutDoor = "";
+			}
+
+			//風速
+			anemometerInfo = AnemometerConfig.getWarning(windSpeed);
+trace("風速：", windSpeed, anemometerInfo.id);
+			if(anemometerInfo != null)
+			{
+				mxml.anemometer.currentState = "level" + anemometerInfo.id;
+			}
+			else
+			{
+				mxml.anemometer.currentState = "level0";
+			}
+*/
+		}
+
+		//小数点第一位の数値文字列に変換
+		private function _formatedNumber(value: Number): String
+		{
+			var nf:NumberFormatter = new NumberFormatter();
+			nf.fractionalDigits = 1;
+			return nf.format(Math.round(value * 10) / 10);
 		}
 	}
 }

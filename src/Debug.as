@@ -40,5 +40,10 @@
 		{
 			PostBox.send("clock", {date: new Date()});
 		}
+
+		private function requestSensor(): void
+		{
+			PostBox.send("sensorCtrl", {command:"request"});
+		}
 	}
 }

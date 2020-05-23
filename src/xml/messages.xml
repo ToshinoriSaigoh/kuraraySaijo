@@ -947,4 +947,22 @@
 		</step>
 	</message>
 	<!-- 当日レポートを開く end -->
+	<!-- センサー情報 -->
+	<message name="sensor" description="センサー情報">
+		<params>
+			<param>data</param>
+		</params>
+		<step type="PB" name="" description="センサー情報更新" message="PB_sensor">
+			<receiver path="kuraraysaijo.model.plugin.report::KuraraySaijoMonitorContainer"/>
+		</step>
+	</message>
+	<message name="sensorCtrl" description="センサー読み取り処理制御">
+		<params>
+			<param>command</param>
+		</params>
+		<step type="PB" name="" description="センサー読み取り処理制御" message="PB_sensorCtrl">
+			<receiver path="kuraraysaijo.model.sensor::SensorInfo" />
+		</step>
+	</message>
+	<!-- センサー情報 end -->
 </posting>
