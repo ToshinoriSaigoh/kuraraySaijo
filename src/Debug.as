@@ -43,7 +43,10 @@
 
 		private function requestSensor(): void
 		{
+			trace("#Debug.requestSensor()");
 			PostBox.send("sensorCtrl", {command:"request"});
+			PostBox.send("personCtrl", {command:"request"});
+			PostBox.send("meetingroomCtrl", {command:"request"});
 		}
 	}
 }

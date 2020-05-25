@@ -965,4 +965,40 @@
 		</step>
 	</message>
 	<!-- センサー情報 end -->
+	<!-- 会議室情報 -->
+	<message name="meetingroom" description="会議室情報">
+		<params>
+			<param>data</param>
+		</params>
+		<step type="PB" name="" description="会議室情報更新" message="PB_meetingroom">
+			<receiver path="kuraraysaijo.model.plugin.report::KuraraySaijoMonitorContainer"/>
+		</step>
+	</message>
+	<message name="meetingroomCtrl" description="会議室読み取り処理制御">
+		<params>
+			<param>command</param>
+		</params>
+		<step type="PB" name="" description="会議室読み取り処理制御" message="PB_meetingroomCtrl">
+			<receiver path="kuraraysaijo.model.sensor::MeetingroomInfo" />
+		</step>
+	</message>
+	<!-- 会議室情報 end -->
+	<!-- 勤怠情報 -->
+	<message name="person" description="勤怠情報">
+		<params>
+			<param>data</param>
+		</params>
+		<step type="PB" name="" description="勤怠情報更新" message="PB_person">
+			<receiver path="kuraraysaijo.model.plugin.report::KuraraySaijoMonitorContainer"/>
+		</step>
+	</message>
+	<message name="personCtrl" description="勤怠情報読み取り処理制御">
+		<params>
+			<param>command</param>
+		</params>
+		<step type="PB" name="" description="勤怠情報読み取り処理制御" message="PB_personCtrl">
+			<receiver path="kuraraysaijo.model.sensor::PersonInfo" />
+		</step>
+	</message>
+	<!-- 勤怠情報 end -->
 </posting>

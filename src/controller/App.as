@@ -7,7 +7,7 @@ package controller
 	import model.plugin.report.emergency.Emergency;
 	import kuraraysaijo.model.plugin.config.*;
 	import kuraraysaijo.model.batch.ReportChanger;
-	import kuraraysaijo.model.sensor.SensorInfo;
+	import kuraraysaijo.model.sensor.*;
 
 	import model.plugin.network.channel.*;
 	import model.plugin.network.clusterdata.*;
@@ -85,6 +85,8 @@ package controller
 			new WBGTConfig();
 			new AnemometerConfig();
 			new SensorInfo();
+			new MeetingroomInfo();
+			new PersonInfo();
 
 		}
 
@@ -97,6 +99,8 @@ package controller
 			{
 				//new Debug();
 				PostBox.send("sensorCtrl", {command:"start"});
+				PostBox.send("personCtrl", {command:"start"});
+				PostBox.send("meetingroomCtrl", {command:"start"});
 				PostBox.send("clockCtrl", {command:"start"});
 				PostBox.send("changeScreen", {screen: "reportScreen"});
 			}

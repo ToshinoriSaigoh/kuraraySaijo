@@ -35,9 +35,17 @@
 			<noAccidentTotal>10000</noAccidentTotal>
 			<noAccidentStartDate>2020/01/01</noAccidentStartDate>
 		</noAccidentDept>
+		<person>
+			<inputFile>C:\temp\SA00001.csv</inputFile>
+			<inputInterval>60000</inputInterval>
+		</person>
 		<sensor>
-			<inputFile>C:\TEMP\SA00001.csv</inputFile>
+			<inputFile>C:\temp\SA00002.csv</inputFile>
 			<inputInterval>60000</inputInterval>
 		</sensor>
+		<meetingroom>
+			<inputFile>C:\temp\SA00003.csv</inputFile>
+			<inputInterval>30000</inputInterval>
+		</meetingroom>
 	</kuraraySaijo>
 </config>

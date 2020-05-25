@@ -9,7 +9,7 @@ package kuraraysaijo.model.sensor
 	import flash.utils.getTimer;
 	import mx.utils.UIDUtil;
 
-	public class SensorInfo extends Plug
+	public class MeetingroomInfo extends Plug
 	{
 		private var _file: File;//読み込み対象ファイル
 		private var _csvLoader: CSVLoader;//CSVローダー
@@ -18,21 +18,21 @@ package kuraraysaijo.model.sensor
 		private static var _currentTime: int;//現在の時間
 		private static var _inputInterval: int;//読み込みインターバル//ミリ秒
 
-		public function SensorInfo()
+		public function MeetingroomInfo()
 		{
 			super();
-			_file = new File(Config.get("config", "kuraraySaijo", "sensor", "inputFile"));
+			_file = new File(Config.get("config", "kuraraySaijo", "meetingroom", "inputFile"));
 			_csvLoader = new CSVLoader();
 			_procKey = UIDUtil.createUID();;
 			_currentTime = getTimer();
 			_lastTime = 0;
-			_inputInterval = int(Config.get("config", "kuraraySaijo", "sensor", "inputInterval"));
+			_inputInterval = int(Config.get("config", "kuraraySaijo", "meetingroom", "inputInterval"));
 		}
 
 		//制御
-		public function PB_sensorCtrl(): void
+		public function PB_meetingroomCtrl(): void
 		{
-			var param: Object = PostBox.get("PB_sensorCtrl");
+			var param: Object = PostBox.get("PB_meetingroomCtrl");
 			switch(param.command)
 			{
 				case "start":
@@ -58,24 +58,15 @@ package kuraraysaijo.model.sensor
 			}
 		}
 
-		//センサー情報読み込み更新処理
-/*SA0002.csv
+		//会議室情報読み込み更新処理
+/*SA0003.csv
 Dレジスタ, 列名, 名称, 備考
-150	[PLC]D00000150	年	
-151	[PLC]D00000151	月	
-152	[PLC]D00000152	日	
-153	[PLC]D00000153	時	
-154	[PLC]D00000154	分	
-155	[PLC]D00000155	秒	
-156	[PLC]D00000156	曜日	
-172	[PLC]D00000172	湿度	サイネージ”湿度”に表示[10]
-173	[PLC]D00000173	温度	サイネージ”温度”に表示]11]
-174	[PLC]D00000174	風速	サイネージ”風速”に表示[12]
-175	[PLC]D00000175	予備	
-179	[PLC]D00000179	温度ﾚﾍﾞﾙ	
-180	[PLC]D00000180	風速ﾚﾍﾞﾙ	
-182	[PLC]D00000182	事業所無災害連続日数	サイネージ”事業所無災害連続日数”に表示[16]
-183	[PLC]D00000183	設技部無災害連続日数	サイネージ”設技部無災害連続日数”に表示[17]
+187	[PLC]D00000187	会議室1	【0：空き】【1：使用中】
+188	[PLC]D00000188	会議室2	
+189	[PLC]D00000189	会議室3	
+190	[PLC]D00000190	面談室1	
+191	[PLC]D00000191	面談室2	
+
 */
 		private function _update(): void
 		{
@@ -88,15 +79,15 @@ Dレジスタ, 列名, 名称, 備考
 			for(i = csv.length - 1; i >= 0; i--)
 			{
 				row = csv[i];
-				if(row.length >= 6 )
+				if(row.length >= 5 )
 				{
 					data = {};
-					data.humidity = Number(row[9]);//湿度
-					data.temperature = Number(row[10]);//温度
-					data.windSpeed = Number(row[11]);//風速
-					data.recordAll = Number(row[15]);//事業所無災害連続日数
-					data.recordDept = Number(row[16]);//設技部無災害連続日数
-					PostBox.send("sensor", {data: data});
+					data.room1 = Number(row[0]);//会議室1
+					data.room2 = Number(row[1]);//会議室2
+					data.room3 = Number(row[2]);//会議室3
+					data.room4 = Number(row[3]);//面談室1
+					data.room5 = Number(row[4]);//面談室2
+					PostBox.send("meetingroom", {data: data});
 					break;
 				}
 			}

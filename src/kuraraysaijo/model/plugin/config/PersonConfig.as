@@ -58,8 +58,6 @@ package kuraraysaijo.model.plugin.config
 		private function _load(): void
 		{
 			var tree: XML = Config.loadConfigXML(_fileName);
-			_data = _create();
-			/*
 			if(tree == null)
 			{
 				_data = _create();
@@ -68,7 +66,6 @@ package kuraraysaijo.model.plugin.config
 			{
 				_data = tree;
 			}
-			*/
 			Config.configTree.appendChild(_data);
 		}
 

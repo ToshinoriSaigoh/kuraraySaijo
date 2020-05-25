@@ -34,7 +34,6 @@ package kuraraysaijo.model.plugin.config
 				_data = tree;
 			}
 			Config.configTree.appendChild(_data);
-			trace(Config.configTree.duty);
 		}
 
 		//CSV取り込み
@@ -52,7 +51,14 @@ package kuraraysaijo.model.plugin.config
 				{
 					_branchXML = existsData[0];
 				}
-				_importCSVFile(csvFile);
+				if(branch == "dust")
+				{
+					_importCSVFileDust(csvFile);
+				}
+				else
+				{
+					_importCSVFile(csvFile);
+				}
 				_save();
 			}
 		}
@@ -97,6 +103,57 @@ package kuraraysaijo.model.plugin.config
 				date = tmpList[i];
 				dayXML = _search(date);
 				node = <day id={date} design={tmpData[date][0]} pipe={tmpData[date][1]} electric={tmpData[date][2]}/>;
+				if(dayXML == null)
+				{
+					_branchXML.appendChild(node);
+					dayXML = _search(date);
+				}
+				else
+				{
+					dayXML = node;//ノード置き換え
+				}
+			}
+		}
+		//ゴミCSV取り込み
+		private function _importCSVFileDust(csvFile: File): void
+		{
+			var csv: Array = _csvLoader.load(csvFile);
+			var i: uint;
+			var row: Array;
+			var dayXML: XML;
+			var node: XML;
+			var date: String;
+			var design: Array = [];
+			var pipe: Array = [];
+			var electric: Array = [];
+			var tmpList: Array = [];
+			var tmpData: Object = {};
+			var list: Array;
+			for(i = 0; i < csv.length; i++)
+			{
+				row = csv[i];
+				if(row.length >= 2 )
+				{
+					date = _validate(row[0]);
+					design = [row[1], row[2]];
+					pipe = [row[3], row[4]];
+					electric = [row[5], row[6]];
+					if(date != null)
+					{
+						if(tmpData.hasOwnProperty(date) == false)
+						{
+							tmpList.push(date);
+						}
+						tmpData[date] = [design, pipe, electric];
+					}
+				}
+			}
+
+			for(i = 0; i < tmpList.length; i++)
+			{
+				date = tmpList[i];
+				dayXML = _search(date);
+				node = <day id={date} design1={tmpData[date][0][0]} design2={tmpData[date][0][1]} pipe1={tmpData[date][1][0]} pipe2={tmpData[date][1][1]} electric1={tmpData[date][2][0]} electric2={tmpData[date][2][1]}/>;
 				if(dayXML == null)
 				{
 					_branchXML.appendChild(node);

@@ -213,14 +213,17 @@ package kuraraysaijo.model.plugin.report
 			mxml.MeetingRoomLamp3.label.text = "会議室３";
 			mxml.MeetingRoomLamp4.label.text = "面談室１";
 			mxml.MeetingRoomLamp5.label.text = "面談室２";
-			mxml.MeetingRoomLamp1.currentState = "use";
+			mxml.MeetingRoomLamp1.currentState = "empty";
 			mxml.MeetingRoomLamp2.currentState = "empty";
-			mxml.MeetingRoomLamp3.currentState = "use";
+			mxml.MeetingRoomLamp3.currentState = "empty";
 			mxml.MeetingRoomLamp4.currentState = "empty";
 			mxml.MeetingRoomLamp5.currentState = "empty";
 
 			PostBox.send("sensorCtrl", {command:"request"});
+			PostBox.send("meetingroomCtrl", {command:"request"});
+			PostBox.send("personCtrl", {command:"request"});
 
+			/*
 			//test
 			thermometerOutDoor = "21.5";
 			hygrometerOutDoor = "46.8";
@@ -232,7 +235,7 @@ package kuraraysaijo.model.plugin.report
 			mxml.WBGTAlertOutDoor.currentState = "level3";//level0 ～ level4
 			anemometerAlert = "暴風";
 			mxml.anemometerAlert.currentState = "level0";//level0 ～ level4
-
+			*/
 		}
 
 		public function PB_changeTool(): void
@@ -257,13 +260,13 @@ package kuraraysaijo.model.plugin.report
 			if(Draw.activeDrawPanel != null)
 			{
 				ControlPanel.controlPanel.visible = false;//手書きポイント読み取り用レイヤー非表示
-				mxml.absence.text = absenceLabel;
-				mxml.trip.text = tripLabel;
+				//mxml.absence.text = absenceLabel;
+				//mxml.trip.text = tripLabel;
 				mxml.schedule.text = scheduleLabel;
 				mxml.nextschedule.text = nextscheduleLabel;
 				mxml.message.text = messageLabel;
-				mxml.absence.addEventListener(FocusEvent.FOCUS_OUT, _changeAbsenceHandler);
-				mxml.trip.addEventListener(FocusEvent.FOCUS_OUT, _changeTripHandler);
+				//mxml.absence.addEventListener(FocusEvent.FOCUS_OUT, _changeAbsenceHandler);
+				//mxml.trip.addEventListener(FocusEvent.FOCUS_OUT, _changeTripHandler);
 				mxml.schedule.addEventListener(FocusEvent.FOCUS_OUT, _changeScheduleHandler);
 				mxml.nextschedule.addEventListener(FocusEvent.FOCUS_OUT, _changeNextscheduleHandler);
 				mxml.message.addEventListener(FocusEvent.FOCUS_OUT, _changeMessageHandler);
@@ -275,8 +278,8 @@ package kuraraysaijo.model.plugin.report
 		{
 			if(Draw.activeDrawPanel != null)
 			{
-				mxml.absence.removeEventListener(FocusEvent.FOCUS_OUT, _changeAbsenceHandler);
-				mxml.trip.removeEventListener(FocusEvent.FOCUS_OUT, _changeTripHandler);
+				//mxml.absence.removeEventListener(FocusEvent.FOCUS_OUT, _changeAbsenceHandler);
+				//mxml.trip.removeEventListener(FocusEvent.FOCUS_OUT, _changeTripHandler);
 				mxml.schedule.removeEventListener(FocusEvent.FOCUS_OUT, _changeScheduleHandler);
 				mxml.nextschedule.removeEventListener(FocusEvent.FOCUS_OUT, _changeNextscheduleHandler);
 				mxml.message.removeEventListener(FocusEvent.FOCUS_OUT, _changeMessageHandler);
@@ -286,31 +289,34 @@ package kuraraysaijo.model.plugin.report
 		//担当表示
 		private function _setDuty(type: String): void
 		{
+			var dutyList: Array;
 			var targetNode: XML = Config.configTree.duty.elements(type)[0];
 			if(targetNode == null) return;
-			var dutyList: Array = _setDutyTheDay(targetNode, new Date());
 			switch(type)
 			{
 				case "morning":
+					dutyList = _setDutyTheDay(targetNode, new Date());
 					morningDesigning = dutyList[0];
 					morningPipe = dutyList[1];
 					morningElectric = dutyList[2];
 					break;
 				case "exercise":
+					dutyList = _setDutyTheDay(targetNode, new Date());
 					exerciseDesigning = dutyList[0];
 					exercisePipe = dutyList[1];
 					exerciseElectric = dutyList[2];
 					break;
 				case "dust":
-					var design: Array = dutyList[0].split(" ");
-					var pipe: Array = dutyList[1].split(" ");
-					var electric: Array = dutyList[2].split(" ");
+					dutyList = _setDutyDustTheDay(targetNode, new Date());
+					var design: Array = [dutyList[0], dutyList[1]];
+					var pipe: Array = [dutyList[2], dutyList[3]];
+					var electric: Array = [dutyList[4], dutyList[5]];
 					dust1Designing = design[0];
 					dust1Pipe = pipe[0];
 					dust1Electric = electric[0];
-					dust2Designing = design[1] != null ? design[1] : "---";
-					dust2Pipe = pipe[1] != null ? pipe[1] : "---";
-					dust2Electric = electric[1] != null ? electric[1] : "---";
+					dust2Designing = design[1];
+					dust2Pipe = pipe[1];
+					dust2Electric = electric[1];
 					break;
 				case "patrol":
 					var today: Date = new Date();
@@ -323,7 +329,7 @@ package kuraraysaijo.model.plugin.report
 						case todayDay < 2:
 							tue = new Date(today.fullYear, today.month, today.date + (2 - todayDay));
 							break;
-						case 2:
+						case todayDay == 2:
 							tue = today;
 							break;
 						case todayDay > 2:
@@ -336,7 +342,7 @@ package kuraraysaijo.model.plugin.report
 						case todayDay < 4:
 							thu = new Date(today.fullYear, today.month, today.date + (4 - todayDay));
 							break;
-						case 4:
+						case todayDay == 4:
 							thu = today;
 							break;
 						case todayDay > 4:
@@ -355,9 +361,22 @@ package kuraraysaijo.model.plugin.report
 			}
 		}
 		private function _setDutyTheDay(xml: XML, date: Date): Array {
+			if(xml == null || date == null)
+			{
+				return [];
+			}
 			var day: String = Lib.getYMDString(date);
 			var node: XML = xml.day.(attribute("id") == day)[0];
-			return [node.@design[0], node.@pipe[0], node.@electric[0]];
+			return node == null ? [] : [node.@design[0], node.@pipe[0], node.@electric[0]];
+		}
+		private function _setDutyDustTheDay(xml: XML, date: Date): Array {
+			if(xml == null || date == null)
+			{
+				return [];
+			}
+			var day: String = Lib.getYMDString(date);
+			var node: XML = xml.day.(attribute("id") == day)[0];
+			return node == null ? [] : [node.@design1[0], node.@design2[0], node.@pipe1[0], node.@pipe2[0], node.@electric1[0], node.@electric2[0]];
 		}
 /*
 		//設計担当者
@@ -438,6 +457,7 @@ package kuraraysaijo.model.plugin.report
 		{
 			scheduleHead = Lib.getDateString(_getReportDate()) + "の予定";
 		}
+		/*
 		//欠勤書き換え
 		private function _changeAbsenceHandler(evt: FocusEvent): void
 		{
@@ -448,6 +468,7 @@ package kuraraysaijo.model.plugin.report
 		{
 			_setTextValue("tripList", evt.target.text);
 		}
+		*/
 		//本日の予定書き換え
 		private function _changeScheduleHandler(evt: FocusEvent): void
 		{
@@ -570,7 +591,8 @@ package kuraraysaijo.model.plugin.report
 			WBGTOutDoor = _formatedNumber(wbgt);
 			anemometer = _formatedNumber(windSpeed);
 
-/*
+			noAccidentAll = param.data.recordAll;
+			noAccidentDept = param.data.recordDept;
 			//WBGT
 			wbgtInfo = WBGTConfig.getWarning(wbgt);
 			if(wbgtInfo != null)
@@ -586,16 +608,16 @@ package kuraraysaijo.model.plugin.report
 
 			//風速
 			anemometerInfo = AnemometerConfig.getWarning(windSpeed);
-trace("風速：", windSpeed, anemometerInfo.id);
 			if(anemometerInfo != null)
 			{
-				mxml.anemometer.currentState = "level" + anemometerInfo.id;
+				mxml.anemometerAlert.currentState = "level" + anemometerInfo.id;
+				anemometerAlert = anemometerInfo.label;
 			}
 			else
 			{
-				mxml.anemometer.currentState = "level0";
+				mxml.anemometerAlert.currentState = "level0";
+				anemometerAlert = "";
 			}
-*/
 		}
 
 		//小数点第一位の数値文字列に変換
@@ -604,6 +626,31 @@ trace("風速：", windSpeed, anemometerInfo.id);
 			var nf:NumberFormatter = new NumberFormatter();
 			nf.fractionalDigits = 1;
 			return nf.format(Math.round(value * 10) / 10);
+		}
+
+		//会議室情報
+		public function PB_meetingroom(): void
+		{
+			var param: Object = PostBox.get("PB_meetingroom");
+			var temperature: Number = param.data.room1;
+			var humidity: Number = param.data.room2;
+
+			mxml.MeetingRoomLamp1.currentState = param.data.room1 == 1 ? "use" : "empty";
+			mxml.MeetingRoomLamp2.currentState = param.data.room2 == 1 ? "use" : "empty";
+			mxml.MeetingRoomLamp3.currentState = param.data.room3 == 1 ? "use" : "empty";
+			mxml.MeetingRoomLamp4.currentState = param.data.room4 == 1 ? "use" : "empty";
+			mxml.MeetingRoomLamp5.currentState = param.data.room5 == 1 ? "use" : "empty";
+		}
+		//勤怠情報
+		public function PB_person(): void
+		{
+			var param: Object = PostBox.get("PB_person");
+			var tripList: Array = param.data[0];
+			var absenceList: Array = param.data[1];
+		//出張書き換え
+			tripLabel = tripList.length > 0 ? tripList.join("\r") : "";
+		//欠勤書き換え
+			absenceLabel = absenceList.length > 0 ? absenceList.join("\r") : "";
 		}
 	}
 }
