@@ -11,7 +11,7 @@ cd %~dp0 & cd ..
 
 :: AppDir
 set APP_DIR=.\bin
-set SWF_FILE=KurareSaijo.swf
+set SWF_FILE=KuraraySaijo.swf
 
 :: Output
 set AIR_PATH=air
@@ -23,11 +23,11 @@ set WIN_AND_CERT_ORG_UNIT=development
 set WIN_AND_CERT_ORG_NAME=Talkie System Co.,Ltd.
 set WIN_AND_CERT_COUNTRY=JP
 set WIN_AND_CERT_YEARS=25
-set WIN_AND_CERT_FILE=.\bat\KurareSaijo.p12
+set WIN_AND_CERT_FILE=.\bat\KuraraySaijo.p12
 
 :: Windows packaging
 set WIN_SIGNING_OPTIONS=-storetype pkcs12 -keystore "%WIN_AND_CERT_FILE%" -storepass %WIN_AND_CERT_PASS% -tsa none
-set WIN_OUTPUT=KurareSaijo
+set WIN_OUTPUT=KuraraySaijo
 set WIN_APP_XML=application_windows.xml
 set WIN_FILE_OR_DIR=-C ./assets/common . -C ./assets/windows .
 set WIN_ICONS=-C assets\icons .
@@ -35,7 +35,7 @@ set WIN_EXT_DIR=
 
 :: Android packaging
 set AND_SIGNING_OPTIONS=-storetype pkcs12 -keystore "%WIN_AND_CERT_FILE%" -storepass %WIN_AND_CERT_PASS%
-set AND_OUTPUT=KurareSaijo.apk
+set AND_OUTPUT=KuraraySaijo.apk
 set AND_APP_XML=application_android.xml
 set AND_FILE_OR_DIR=-C ./assets/common . -C ./assets/android .
 set AND_ICONS=-C assets\icons .
@@ -46,13 +46,13 @@ set IOS_DEV_CERT_FILE=F:\dev\ios\TalkieDemo\170725_TalkieTest.p12
 set IOS_DEV_CERT_PASS=talkie1124
 set IOS_DEV_PROVISION=F:\dev\ios\TalkieDemo\170725_TalkieTest.mobileprovision
 set IOS_DEV_SIGNING_OPTIONS=-storetype pkcs12 -keystore "%IOS_DEV_CERT_FILE%" -storepass %IOS_DEV_CERT_PASS% -provisioning-profile %IOS_DEV_PROVISION%
-set IOS_DEV_OUTPUT=KurareSaijo_dev.ipa
+set IOS_DEV_OUTPUT=KuraraySaijo_dev.ipa
 set IOS_DEV_APP_XML=application_ios_dev.xml
 set IOS_DIST_CERT_FILE=
 set IOS_DIST_CERT_PASS=
 set IOS_DIST_PROVISION=
 set IOS_DIST_SIGNING_OPTIONS=-storetype pkcs12 -keystore "%IOS_DIST_CERT_FILE%" -storepass %IOS_DIST_CERT_PASS% -provisioning-profile %IOS_DIST_PROVISION%
-set IOS_DIST_OUTPUT=KurareSaijo_dist.ipa
+set IOS_DIST_OUTPUT=KuraraySaijo_dist.ipa
 set IOS_DIST_APP_XML=application_ios_dist.xml
 set IOS_FILE_OR_DIR=-C ./assets/common . -C ./assets/ios .
 set IOS_ICONS=-C assets\icons .
