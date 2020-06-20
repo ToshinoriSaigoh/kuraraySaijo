@@ -99,7 +99,6 @@ package model.plugin.draw
 		{
 			x = getBaseX() + _distanceX;
 			y = getBaseY() + _distanceY;
-
 		}
 		//App.mainStageに合わせた基準位置からのX軸移動距離
 		public function setDistanceX(): void

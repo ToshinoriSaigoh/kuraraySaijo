@@ -16,7 +16,7 @@
 				<s:SolidColor color.level0="{parentDocument.ctrlr.alertBgLv0}" color.level1="{parentDocument.ctrlr.alertBgLv1}" color.level2="{parentDocument.ctrlr.alertBgLv2}" color.level3="{parentDocument.ctrlr.alertBgLv3}" color.level4="{parentDocument.ctrlr.alertBgLv4}"/>
 			</s:fill>
 		</s:Rect>
-		<s:Label id="label" text="{parentDocument.ctrlr.anemometerAlert}" fontSize="36" textAlign="center" verticalAlign="middle" width="100%" height="100%"
+		<s:Label id="label" text="{parentDocument.ctrlr.anemometerAlert}" fontSize="72" textAlign="center" verticalAlign="middle" width="100%" height="100%"
 			color.level0="{parentDocument.ctrlr.alertColorLv0}" color.level1="{parentDocument.ctrlr.alertColorLv1}" color.level2="{parentDocument.ctrlr.alertColorLv2}" color.level3="{parentDocument.ctrlr.alertColorLv3}" color.level4="{parentDocument.ctrlr.alertColorLv4}"/>
 	</s:Group>
 </s:Group>

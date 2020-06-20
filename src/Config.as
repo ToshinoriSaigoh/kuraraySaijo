@@ -13,8 +13,8 @@ package
 		public static const TEST_VERSION: String = ".0";//テストバージョン
 		public static const SERVER_DATA_DIRECTORY_NAME: String     = "KuraraySaijo";//アプリデータディレクトリ
 		public static const SERVER_BASE: String = "http://localhost/";//サーバベースURL
-		public static const BOARD_WIDTH: uint = 1920;//ボード幅
-		public static const BOARD_HEIGHT: uint = 1080;//ボード高さ
+		public static const BOARD_WIDTH: uint = 3840;//ボード幅
+		public static const BOARD_HEIGHT: uint = 2160;//ボード高さ
 		public static const IMAGE_DATA_EXTENSION: String = "img";//画像データ拡張子
 
 		//色設定

@@ -8,14 +8,14 @@
 		<s:State name="use"/>
 	</s:states>
 	<s:Group id="body" width="100%" height="100%">
-		<s:Graphic id="bg" x="0" y="0">
+		<s:Graphic id="bg" x="0" y="0" width="100%" height="100%">
 			<s:Path data="M0,10C0,4.5,4.5,0,10,0h170c5.5,0,10,4.5,10,10v32c0,5.5-4.5,10-10,10H10C4.5,52,0,47.5,0,42V10z">
 				<s:fill>
 					<s:SolidColor color.empty="{parentDocument.ctrlr.emptyColor}" color.use="{parentDocument.ctrlr.useColor}"/>
 				</s:fill>
 			</s:Path>
 		</s:Graphic>
-		<s:Label id="label" fontSize="32" textAlign="center" verticalAlign="middle" width="100%" height="100%"
+		<s:Label id="label" fontSize="64" textAlign="center" verticalAlign="middle" width="100%" height="100%"
 			color.empty="#111111"/>
 	</s:Group>
 </s:Group>

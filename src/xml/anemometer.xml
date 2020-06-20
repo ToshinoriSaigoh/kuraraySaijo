@@ -1,7 +1,7 @@
 <anemometer>
 	<warning>
 		<level id="0">
-			<label></label>
+			<label>平常</label>
 			<color>0x000000</color>
 			<backgroundColor>0xFFFFFF</backgroundColor>
 			<conditions>
@@ -9,11 +9,12 @@
 			</conditions>
 		</level>
 		<level id="1">
-			<label></label>
+			<label>強風</label>
 			<color>0xFFFFFF</color>
-			<backgroundColor>0xDD0000</backgroundColor>
+			<backgroundColor>0xEE0000</backgroundColor>
 			<conditions>
 				<item type="orMore">10.0</item>
+				<item type="lessThan">100.0</item>
 			</conditions>
 		</level>
 	</warning>

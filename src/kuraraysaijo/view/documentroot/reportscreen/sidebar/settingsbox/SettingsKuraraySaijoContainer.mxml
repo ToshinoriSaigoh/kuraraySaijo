@@ -10,30 +10,30 @@
 		<kuraraysaijo.controller.documentroot.reportscreen.sidebar.settingsbox:SettingsKuraraySaijoContainer id="ctrlr"/>
 	</fx:Declarations>
 	<s:SpriteVisualElement id="body"/>
-	<s:Scroller id="scroller" width="100%" height="100%" top="20" bottom="80" left="4" right="4" verticalScrollPolicy="on" skinClass="view.documentroot.reportscreen.sidebar.settingsbox.Skin_VScroller">
-		<s:VGroup top="10" bottom="10" left="10" right="10" width="640" height="100%" gap="20">
+	<s:Scroller id="scroller" width="100%" height="100%" top="40" bottom="160" left="8" right="8" verticalScrollPolicy="on" skinClass="view.documentroot.reportscreen.sidebar.settingsbox.Skin_VScroller">
+		<s:VGroup top="20" bottom="20" left="20" right="20" width="1280" height="100%" gap="40">
 			<s:HGroup gap="0">
-				<s:Group width="200">
+				<s:Group width="400">
 					<s:Label id="scheduleHead"/>
 				</s:Group>
-				<s:VGroup width="440" gap="8">
-					<s:Button id="importScheduleBtn" label="スケジュールインポート" name="importScheduleBtn" width="240" height="44" skinClass="view.utils.Skin_BtnText"/>
-					<s:Line left="0" right="0" xFrom="0" xTo="640" yFrom="0" yTo="0"><s:stroke><s:SolidColorStroke color="0x888888" weight="2"/></s:stroke></s:Line>
-					<s:Button id="importHolidayBtn" label="カレンダーインポート" name="importHolidayBtn" width="240" height="44" skinClass="view.utils.Skin_BtnText"/>
-					<s:Line left="0" right="0" xFrom="0" xTo="640" yFrom="0" yTo="0"><s:stroke><s:SolidColorStroke color="0x888888" weight="2"/></s:stroke></s:Line>
+				<s:VGroup width="880" gap="16">
+					<s:Button id="importScheduleBtn" label="スケジュールインポート" name="importScheduleBtn" width="480" height="88" skinClass="view.utils.Skin_BtnText"/>
+					<s:Line left="0" right="0" xFrom="0" xTo="1280" yFrom="0" yTo="0"><s:stroke><s:SolidColorStroke color="0x888888" weight="2"/></s:stroke></s:Line>
+					<s:Button id="importHolidayBtn" label="カレンダーインポート" name="importHolidayBtn" width="480" height="88" skinClass="view.utils.Skin_BtnText"/>
+					<s:Line left="0" right="0" xFrom="0" xTo="1280" yFrom="0" yTo="0"><s:stroke><s:SolidColorStroke color="0x888888" weight="2"/></s:stroke></s:Line>
 				</s:VGroup>
 			</s:HGroup>
 			<s:HGroup gap="0">
-				<s:Group width="200">
+				<s:Group width="400">
 					<s:Label id="dutyHead"/>
 				</s:Group>
-				<s:VGroup width="440" gap="8">
-					<s:Button id="importMorningBtn" label="朝礼当番インポート" name="importMorningBtn" width="340" height="44" skinClass="view.utils.Skin_BtnText"/>
-					<s:Button id="importExerciseBtn" label="体操当番インポート" name="importExerciseBtn" width="340" height="44" skinClass="view.utils.Skin_BtnText"/>
-					<s:Button id="importDustBtn" label="ゴミ当番インポート" name="importDustBtn" width="340" height="44" skinClass="view.utils.Skin_BtnText"/>
-					<s:Button id="importPatrolBtn" label="パトロールインポート" name="importPatrolBtn" width="340" height="44" skinClass="view.utils.Skin_BtnText"/>
+				<s:VGroup width="880" gap="16">
+					<s:Button id="importMorningBtn" label="朝礼当番インポート" name="importMorningBtn" width="680" height="88" skinClass="view.utils.Skin_BtnText"/>
+					<s:Button id="importExerciseBtn" label="体操当番インポート" name="importExerciseBtn" width="680" height="88" skinClass="view.utils.Skin_BtnText"/>
+					<s:Button id="importDustBtn" label="ゴミ当番インポート" name="importDustBtn" width="680" height="88" skinClass="view.utils.Skin_BtnText"/>
+					<s:Button id="importPatrolBtn" label="パトロールインポート" name="importPatrolBtn" width="680" height="88" skinClass="view.utils.Skin_BtnText"/>
 					<!--
-					<s:Button id="setBaseDateBtn" label="本日を基準日に設定する" name="importScheduleBtn" width="340" height="44" skinClass="view.utils.Skin_BtnText"/>
+					<s:Button id="setBaseDateBtn" label="本日を基準日に設定する" name="importScheduleBtn" width="680" height="88" skinClass="view.utils.Skin_BtnText"/>
 					<s:HGroup gap="10">
 						<s:Label text="基準日：" width="80" height="40"/>
 						<s:Label id="dutyBaseDate" text="{ctrlr.baseDateText}"/>
@@ -75,20 +75,20 @@
 			-->
 
 
-			<s:Line left="0" right="0" xFrom="0" xTo="640" yFrom="0" yTo="0"><s:stroke><s:SolidColorStroke color="0x888888" weight="2"/></s:stroke></s:Line>
+			<s:Line left="0" right="0" xFrom="0" xTo="1280" yFrom="0" yTo="0"><s:stroke><s:SolidColorStroke color="0x888888" weight="2"/></s:stroke></s:Line>
 			<s:HGroup gap="0">
-				<s:Group width="200">
+				<s:Group width="400">
 					<s:Label id="attendanceHead"/>
 				</s:Group>
-				<s:VGroup width="440" gap="8">
-					<s:Button id="importAttendanceBtn" label="勤怠管理.csvを読み込む" name="importAttendanceBtn" width="340" height="44" skinClass="view.utils.Skin_BtnText"/>
+				<s:VGroup width="880" gap="16">
+					<s:Button id="importAttendanceBtn" label="勤怠管理.csvを読み込む" name="importAttendanceBtn" width="680" height="88" skinClass="view.utils.Skin_BtnText"/>
 					<s:Label id="personHead"/>
-					<s:TextArea id="textAreaPersonList" width="330" height="660" verticalScrollPolicy="auto"/>
+					<s:TextArea id="textAreaPersonList" width="660" height="1320" verticalScrollPolicy="auto"/>
 				</s:VGroup>
 			</s:HGroup>
 		</s:VGroup>
 	</s:Scroller>
-	<s:Group bottom="10">
-		<s:Button id="saveBtn" name="saveBtn" width="120" height="44" left="200" skinClass="view.utils.Skin_BtnText"/>
+	<s:Group bottom="20">
+		<s:Button id="saveBtn" name="saveBtn" width="240" height="88" left="400" skinClass="view.utils.Skin_BtnText"/>
 	</s:Group>
 </s:NavigatorContent>

@@ -39,5 +39,5 @@
 			<s:SolidColorStroke color="0x666666" color.over="0xeeeeee" color.down="0x00bbee" weight="2"/>
 		</s:stroke>
 	</s:Rect>
-	<s:Label id="label" styleName="btnText" textAlign="center" verticalAlign="middle" fontSize="20" width="100%" height="100%"/>
+	<s:Label id="label" styleName="btnText" textAlign="center" verticalAlign="middle" width="100%" height="100%"/>
 </view.utils:Skin_Btn>

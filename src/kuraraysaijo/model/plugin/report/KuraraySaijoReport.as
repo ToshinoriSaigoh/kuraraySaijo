@@ -98,7 +98,8 @@ package kuraraysaijo.model.plugin.report
 		{
 			//background
 			pageCollection.source[0].drawLayers[0].body.graphics.beginFill(0xffffff, 1.0);
-			pageCollection.source[0].drawLayers[0].body.graphics.drawRect(0, 0, 1920, 1080);
+			//pageCollection.source[0].drawLayers[0].body.graphics.drawRect(0, 0, 1920, 1080);////saigoh
+			pageCollection.source[0].drawLayers[0].body.graphics.drawRect(0, 0, viewWidth, viewHeight);
 			pageCollection.source[0].drawLayers[0].body.graphics.endFill();
 
 			//monitor
@@ -111,6 +112,7 @@ package kuraraysaijo.model.plugin.report
 			[Embed(source = "./KuraraySaijoReportBG.svg", mimeType="application/octet-stream")]
 			var Svg: Class;
 			Lib.setSvg(monitorContainer.background, Svg);
+trace("#KuraraySaijoReport", viewWidth, monitorContainer.background.width);
 		}
 	}
 }

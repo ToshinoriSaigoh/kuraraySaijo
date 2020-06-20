@@ -1,0 +1,830 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"c",
+				"circle\tlist-style"
+			],
+			[
+				"ob",
+				"object-fit\tproperty"
+			],
+			[
+				"inline",
+				"inline-block\tdisplay"
+			],
+			[
+				"border",
+				"border-radius"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "src/kuraraysaijo/model/plugin/report/KuraraySaijoMonitorContainer.as",
+			"settings":
+			{
+				"buffer_size": 20669,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/kuraraysaijo/model/plugin/config/SensorConfig.as",
+			"settings":
+			{
+				"buffer_size": 2355,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/kuraraysaijo/model/plugin/config/WarningInfo.as",
+			"settings":
+			{
+				"buffer_size": 1791,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/kuraraysaijo/model/plugin/report/monitorcontainer/AnemometerAlert.mxml",
+			"settings":
+			{
+				"buffer_size": 1236,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/kuraraysaijo/model/plugin/config/AnemometerConfig.as",
+			"settings":
+			{
+				"buffer_size": 738,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 380.0,
+		"last_filter": "color",
+		"selected_items":
+		[
+			[
+				"color",
+				"ColorSchemeSelector: Select Color Scheme"
+			],
+			[
+				"Package Control: install",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: ins",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: insta",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Install Package"
+			],
+			[
+				"action script",
+				"Set Syntax: ActionScript"
+			]
+		],
+		"width": 400.0
+	},
+	"console":
+	{
+		"height": 153.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '2915d1851351e5ee549c20394736b442' + '8bc59f460fa1548d1514676163dafc88'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/F/git/KuraraySaijo/src"
+	],
+	"file_history":
+	[
+		"/F/git/KuraraySaijo/src/xml/anemometer.xml",
+		"/C/KuraraySaijo/anemometer.xml",
+		"/F/git/KuraraySaijo/src/model/plugin/draw/DrawPanel.as",
+		"/F/git/KuraraySaijo/src/xml/wbgt.xml",
+		"/F/git/KuraraySaijo/src/kuraraysaijo/model/plugin/report/MonitorContainer.mxml",
+		"/F/git/KuraraySaijo/src/kuraraysaijo/model/plugin/config/WarningInfo.as",
+		"/F/git/KuraraySaijo/src/kuraraysaijo/model/plugin/config/AnemometerConfig.as",
+		"/F/git/KuraraySaijo/src/kuraraysaijo/model/plugin/report/monitorcontainer/WBGTAlert.mxml",
+		"/F/git/KuraraySaijo/src/kuraraysaijo/model/plugin/report/monitorcontainer/Anemometer.mxml",
+		"/F/git/KuraraySaijo/src/kuraraysaijo/model/plugin/report/calendar/DayBody.as",
+		"/F/git/KuraraySaijo/src/kuraraysaijo/model/plugin/report/calendar/Calendar.as",
+		"/F/git/KuraraySaijo/src/kuraraysaijo/model/plugin/report/calendar/Day.as",
+		"/F/git/KuraraySaijo/src/kuraraysaijo/model/plugin/report/KuraraySaijoMonitorContainer.as",
+		"/F/git/KuraraySaijo/src/kuraraysaijo/view/documentroot/reportscreen/sidebar/settingsbox/SettingsKuraraySaijoContainer.mxml",
+		"/F/git/KuraraySaijo/src/kuraraysaijo/view/style.css",
+		"/F/git/KuraraySaijo/src/kuraraysaijo/view/documentroot/reportscreen/sidebar/SettingsBox.mxml",
+		"/F/git/KuraraySaijo/src/view/utils/Skin_BtnText.mxml",
+		"/F/git/KuraraySaijo/src/view/style.css",
+		"/F/git/KuraraySaijo/src/kuraraysaijo/view/documentroot/reportscreen/SideBar.mxml",
+		"/F/git/KuraraySaijo/src/kuraraysaijo/view/documentroot/reportscreen/sidebar/Skin_ChangeModeBtn.mxml",
+		"/F/git/KuraraySaijo/src/kuraraysaijo/view/documentroot/reportscreen/sidebar/Skin_CloseAppBtn.mxml",
+		"/F/git/KuraraySaijo/src/kuraraysaijo/view/documentroot/reportscreen/sidebar/Skin_ToggleSideBarBtn.mxml",
+		"/F/git/KuraraySaijo/src/kuraraysaijo/view/documentroot/reportscreen/sidebar/settingsbox/Skin_CloseBtn.mxml",
+		"/F/git/KuraraySaijo/src/kuraraysaijo/view/documentroot/reportscreen/sidebar/settingsbox/Skin_VScrollBar.mxml",
+		"/F/git/KuraraySaijo/src/kuraraysaijo/view/documentroot/reportscreen/sidebar/settingsbox/Skin_SettingsLinkBtn.mxml",
+		"/F/git/KuraraySaijo/src/kuraraysaijo/view/documentroot/reportscreen/sidebar/settingsbox/Skin_SettingsKuraraySaijoBtn.mxml",
+		"/F/git/KuraraySaijo/src/kuraraysaijo/view/documentroot/reportscreen/sidebar/settingsbox/SettingsToolContainer.mxml",
+		"/F/git/KuraraySaijo/src/kuraraysaijo/view/documentroot/reportscreen/sidebar/settingsbox/SettingsLinkContainer.mxml",
+		"/F/git/KuraraySaijo/src/kuraraysaijo/model/plugin/report/clock/AnalogClock.mxml",
+		"/F/git/KuraraySaijo/src/kuraraysaijo/model/plugin/report/clock/AnalogClockCtrl.as",
+		"/F/git/KuraraySaijo/src/model/plugin/report/Report.as",
+		"/F/git/KuraraySaijo/src/kuraraysaijo/model/plugin/report/KuraraySaijoReport.as",
+		"/F/git/KuraraySaijo/src/kuraraysaijo/model/plugin/report/monitorcontainer/AnemometerAlert.mxml",
+		"/F/git/KuraraySaijo/src/kuraraysaijo/model/plugin/report/monitorcontainer/MeetingRoomLamp.mxml",
+		"/F/git/KuraraySaijo/src/controller/documentroot/reportscreen/DrawContents.as",
+		"/F/git/KuraraySaijo/src/model/plugin/report/Page.as",
+		"/F/git/KuraraySaijo/src/Lib.as",
+		"/F/git/KuraraySaijo/src/model/plugin/report/ReportBody.as",
+		"/C/KuraraySaijo/config.xml",
+		"/F/git/KuraraySaijo/src/kuraraysaijo/model/sensor/SensorInfo.as",
+		"/F/git/KuraraySaijo/src/model/plugin/draw/ControlPanel.as",
+		"/F/git/KuraraySaijo/src/controller/App.as",
+		"/F/git/KuraraySaijo/src/common/SVGUtils.as",
+		"/F/git/KuraraySaijo/src/xml/config.xml",
+		"/F/git/KuraraySaijo/src/model/plugin/report/calendar/Calendar.as",
+		"/F/git/KuraraySaijo/src/kuraraysaijo/model/plugin/report/KuraraySaijoReportBG.svg",
+		"/F/git/KuraraySaijo/src/Config.as",
+		"/F/git/KuraraySaijo/src/model/plugin/report/Layer.as",
+		"/F/git/KuraraySaijo/src/model/plugin/report/ReportItem.as",
+		"/F/git/KuraraySaijo/src/kuraraysaijo/model/plugin/report/KuraraySaijoReportBody.as",
+		"/F/git/KuraraySaijo/src/view/documentroot/reportscreen/DrawContents.mxml",
+		"/F/git/KuraraySaijo/src/controller/documentroot/ReportScreen.as",
+		"/F/git/KurarayDensoOffice-master/src/src/xml/config.xml",
+		"/C/www/public_html/herald-itn/root/index.php",
+		"/C/www/public_html/herald-itn/wp-content/themes/herald-itn/js/js.js",
+		"/C/www/public_html/herald-itn/wp-content/themes/herald-itn/company.css",
+		"/F/git/KuraraySaijo/src/kuraraysaijo/model/sensor/MeetingroomInfo.as",
+		"/C/www/public_html/herald-itn/wp-content/themes/herald-itn/page-company.php",
+		"/C/www/public_html/herald-itn/wp-content/themes/herald-itn/footer.php",
+		"/C/www/public_html/herald-itn/wp-content/themes/herald-itn/style.css",
+		"/C/KuraraySaijo/holiday.xml",
+		"/C/KuraraySaijo/schedule.xml",
+		"/C/www/public_html/herald-itn/新しいフォルダー/index.php",
+		"/C/www/public_html/herald-itn/wp-content/themes/vanilla/company.css",
+		"/C/www/public_html/herald-itn/wp-content/themes/vanilla/style.css",
+		"/C/www/public_html/herald-itn/wp-content/themes/vanilla/page-company.php",
+		"/C/www/public_html/herald-itn/wp-content/themes/vanilla/footer.php",
+		"/C/www/public_html/herald-itn/wp-content/themes/vanilla/header.php",
+		"/C/www/public_html/herald-itn/wp-content/themes/vanilla/js/js.js",
+		"/C/www/public_html/herald-itn/wp-content/themes/vanilla/index.php",
+		"/C/www/public_html/herald-itn/wp-content/themes/vanilla/section_index.php",
+		"/C/www/public_html/vanilla/wp-content/themes/vanilla/section_index.php",
+		"/C/www/public_html/vanilla/wp-content/themes/vanilla/category-topics.php",
+		"/C/www/public_html/vanilla/wp-content/themes/vanilla/category-qa.php",
+		"/C/www/public_html/vanilla/wp-content/themes/vanilla/category.css",
+		"/C/www/public_html/vanilla/wp-content/themes/vanilla/header.php",
+		"/C/www/public_html/vanilla/wp-content/themes/vanilla/style.css",
+		"/C/www/public_html/vanilla/wp-content/themes/vanilla/footer.php",
+		"/C/www/public_html/vanilla/wp-content/themes/vanilla/category.php",
+		"/C/www/public_html/vanilla/wp-content/themes/vanilla/topics.css",
+		"/C/www/public_html/vanilla/wp-content/themes/vanilla/single-topics.php",
+		"/C/KuraraySaijo/wbgt.xml",
+		"/C/KuraraySaijo/duty.xml",
+		"/C/KuraraySaijo/persons.xml",
+		"/F/git/KurarayDensoOffice-master/src/src/Config.as",
+		"/F/git/KuraraySaijo/src/kuraraysaijo/model/sensor/PersonInfo.as",
+		"/F/git/KuraraySaijo/src/kuraraysaijo/model/plugin/config/HolidayConfig.as",
+		"/F/git/KuraraySaijo/src/kuraraysaijo/model/plugin/config/PersonConfig.as",
+		"/F/git/KuraraySaijo/src/kuraraysaijo/model/plugin/config/DateTypeConfig.as",
+		"/F/git/KuraraySaijo/src/kuraraysaijo/model/plugin/holiday/Holiday.as",
+		"/F/git/KuraraySaijo/src/xml/messages.xml",
+		"/F/git/KuraraySaijo/src/Debug.as",
+		"/F/git/KuraraySaijo/src/kuraraysaijo/controller/documentroot/reportscreen/sidebar/settingsbox/SettingsKuraraySaijoContainer.as",
+		"/F/git/KuraraySaijo/src/kuraraysaijo/model/plugin/config/DutyConfig.as",
+		"/F/git/KuraraySaijo/src/kuraraysaijo/model/plugin/config/SensorConfig.as",
+		"/F/git/KuraraySaijo/src/kuraraysaijo/model/plugin/config/WBGTConfig.as",
+		"/F/works/中国学園/2021/2020.04.03メール配信対象年度/mail/backup/mail_entry.php",
+		"/F/works/中国学園/2021/2020.04.03メール配信対象年度/mail/mail_entry.php",
+		"/F/works/中国学園/2021/2020.04.03メール配信対象年度/mail/backup/mail_news.php",
+		"/F/git/KuraraySaijo/src/common/URLReqUtils.as",
+		"/F/git/KuraraySaijo/src/common/EnterFrameProccess.as",
+		"/F/git/KuraraySaijo/src/xml/text.xml",
+		"/F/git/KurarayDensoOffice-master/src/src/xml/messages.xml",
+		"/F/git/20180808_s1_DensoOffice/DensoOffice/src/densooffice/model/plugin/report/MonitorContainer.mxml",
+		"/F/git/20180808_s1_DensoOffice/DensoOffice/src/densooffice/model/plugin/report/DensoOfficeMonitorContainer.as",
+		"/F/git/KuraraySaijo/src/xml/duty.xml",
+		"/C/KuraraySaijo/person.xml",
+		"/F/git/KuraraySaijo/src/kuraraysaijo/view/documentroot/ReportScreen.mxml",
+		"/F/git/KuraraySaijo/src/kuraraysaijo/model/plugin/config/ScheduleConfig.as",
+		"/F/git/KuraraySaijo/src/kuraraysaijo/model/plugin/report/KuraraySaijoSave.as",
+		"/F/works/talkie/クラレ西条工場/3.UIユーザーインターフェース設計書/meetingroomMonitor.svg",
+		"/F/git/KuraraySaijo/src/kuraraysaijo/controller/documentroot/reportscreen/SideBar.as",
+		"/F/git/KuraraySaijo/src/kuraraysaijo/controller/documentroot/reportscreen/sidebar/SettingsBox.as",
+		"/F/git/KuraraySaijo/src/common/ZipUtils.as",
+		"/E/talkiePC/works/Sharin/180115_m2_Sharin/Sharin/src/PostBox.as",
+		"/F/git/KuraraySaijo/application_windows.xml",
+		"/C/Users/user/AppData/Roaming/KuraraySaijo/Local Store/calendar/2020/data/data.xml",
+		"/F/git/KuraraySaijo/src/common/storage/DirectoryUtils.as",
+		"/F/git/KuraraySaijo/src/model/app/network/ChannelManager.as",
+		"/F/git/KuraraySaijo/utils/libs/core - コピー/catalog.xml",
+		"/F/git/KuraraySaijo/src/kuraraysaijo/model/batch/ReportChanger.as",
+		"/F/git/KuraraySaijo/src/view/DocumentRoot.mxml",
+		"/F/git/KuraraySaijo/src/controller/documentroot/reportscreen/sidebar/SettingsBox.as",
+		"/C/KuraraySaijo/2020/files.xml",
+		"/F/git/KuraraySaijo/src/model/plugin/monitor/controller/MonitorContainer.as",
+		"/C/www/public_html/aisei/templates/index.tpl",
+		"/C/www/public_html/aisei/index.css",
+		"/F/git/KuraraySaijo/src/controller/documentroot/reportscreen/_DrawContents.as"
+	],
+	"find":
+	{
+		"height": 48.0
+	},
+	"find_in_files":
+	{
+		"height": 128.0,
+		"where_history":
+		[
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"trace",
+			"anemometerAlert",
+			"alertAnemometerColorLv0",
+			"alertColorLv0",
+			"alertAnemometerColorLv1",
+			"getWarningInfo",
+			"getWarningByID",
+			"anemo",
+			"getWarningInfo",
+			"anemometerAlert",
+			"AnemometerConfig",
+			"anemometerInfo",
+			"orMore",
+			"anemometer",
+			"anemomenter",
+			"alertBgLv1",
+			"alertBgLv4",
+			"alertBgLv0",
+			"WBGTAlertOutDoor",
+			"anemometerAlert",
+			"anemometerInfo",
+			"anemometerAlert",
+			"anemometer",
+			"patrol1Designing",
+			"patrol1Pipe",
+			"MeetingRoomLamp1",
+			"height=\"208\"",
+			"height=\"104\"",
+			"y=\"264\"",
+			"x=\"689\"",
+			"height=\"52\"",
+			"width=\"230\"",
+			"background",
+			"svg",
+			"trace",
+			"viewWidth",
+			"centeringPoint",
+			"point.x",
+			"MonitorContainer",
+			".x",
+			"MonitorContainer",
+			"KuraraySaijoMonitorContainer",
+			"1920",
+			"fullscreen",
+			"svg",
+			"mainStage",
+			"/ 2",
+			"/2",
+			"viewWidth",
+			"width",
+			"3840",
+			"1920",
+			"1080",
+			"1920",
+			"svg",
+			"body",
+			"pageCollection",
+			"drawContentsViewStack",
+			"centering",
+			"ControlPanel",
+			"page",
+			"viewWidth",
+			"new page",
+			"viewWidth",
+			"defaultViewWidth",
+			"viewWidth",
+			"defaultViewWidth",
+			"ddc8a8",
+			"reservation_form",
+			"fixed",
+			"vanilla",
+			"#222",
+			"222",
+			"wrap",
+			"bold",
+			"salon",
+			"cat_list",
+			"$cat",
+			"cat",
+			"a:hover",
+			"opacity",
+			"question",
+			"link_arrow",
+			"link",
+			"category.css",
+			"content",
+			"https://schema.org",
+			"cat_name",
+			"topics",
+			"parent",
+			"temp\\",
+			"meetingroom",
+			"temperature",
+			"MeetingRoomLamp1",
+			"meeting",
+			"fullscreen",
+			"_file",
+			"c:\\",
+			"icons",
+			"idons",
+			"_setTextValue",
+			"absenceList",
+			"(@id",
+			".(@",
+			".@",
+			".attribute",
+			"Config.configTree.",
+			"_load",
+			"DateTypeConfig",
+			"holiday",
+			"PersonConfig",
+			"persons",
+			"PB_meetingroomCtrl",
+			"MeetingroomInfo",
+			"meetingroomCtrl",
+			"sensorCtrl",
+			"meetingroomCtrl",
+			"personCtrl",
+			"PB_person",
+			"PB_meetingroom",
+			"sensor",
+			"trace(",
+			"meetingroom",
+			"meetingroomCtrl",
+			"sensorCtrl",
+			"sensorconfig",
+			"config",
+			"sensorCtrl"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"height=\"104\"",
+			"height=\"208\"",
+			"y=\"528\"",
+			"x=\"1378\"",
+			"height=\"104\"",
+			"width=\"460\"",
+			"ddd",
+			"#ddd",
+			"#444",
+			"company"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 4,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "src/kuraraysaijo/model/plugin/report/KuraraySaijoMonitorContainer.as",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 20669,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								19484,
+								19484
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/ActionScript/ActionScript.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 16069.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "src/kuraraysaijo/model/plugin/config/SensorConfig.as",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2355,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1759,
+								1773
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/ActionScript/ActionScript.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1377.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "src/kuraraysaijo/model/plugin/config/WarningInfo.as",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1791,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								325,
+								330
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/ActionScript/ActionScript.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "src/kuraraysaijo/model/plugin/report/monitorcontainer/AnemometerAlert.mxml",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1236,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								847,
+								862
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/XML/XML.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "src/kuraraysaijo/model/plugin/config/AnemometerConfig.as",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 738,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								557,
+								557
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/ActionScript/ActionScript.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 36.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "base.sublime-project",
+	"replace":
+	{
+		"height": 88.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"drawpanel",
+				"model\\plugin\\draw\\DrawPanel.as"
+			],
+			[
+				"WarningInfo",
+				"kuraraysaijo\\model\\plugin\\config\\WarningInfo.as"
+			],
+			[
+				"AnemometerAlert",
+				"kuraraysaijo\\model\\plugin\\report\\monitorcontainer\\AnemometerAlert.mxml"
+			],
+			[
+				"monitor",
+				"kuraraysaijo\\model\\plugin\\report\\MonitorContainer.mxml"
+			],
+			[
+				"WBGT",
+				"xml\\wbgt.xml"
+			],
+			[
+				"SensorConfig",
+				"kuraraysaijo\\model\\plugin\\config\\SensorConfig.as"
+			],
+			[
+				"AnemometerConfig",
+				"kuraraysaijo\\model\\plugin\\config\\AnemometerConfig.as"
+			],
+			[
+				"anemometer",
+				"xml\\anemometer.xml"
+			],
+			[
+				"anemo",
+				"kuraraysaijo\\model\\plugin\\report\\monitorcontainer\\Anemometer.mxml"
+			],
+			[
+				"monito",
+				"kuraraysaijo\\model\\plugin\\report\\MonitorContainer.mxml"
+			],
+			[
+				"calendar",
+				"kuraraysaijo\\model\\plugin\\report\\calendar\\Calendar.as"
+			],
+			[
+				"Skin_BtnText",
+				"view\\utils\\Skin_BtnText.mxml"
+			],
+			[
+				"style",
+				"view\\style.css"
+			],
+			[
+				"wbgt",
+				"kuraraysaijo\\model\\plugin\\report\\monitorcontainer\\WBGTAlert.mxml"
+			],
+			[
+				"MeetingRoomLamp",
+				"kuraraysaijo\\model\\plugin\\report\\monitorcontainer\\MeetingRoomLamp.mxml"
+			],
+			[
+				"monitorcon",
+				"kuraraysaijo\\model\\plugin\\report\\MonitorContainer.mxml"
+			],
+			[
+				"lib",
+				"Lib.as"
+			],
+			[
+				"KuraraySaijoMonitorContainer",
+				"kuraraysaijo\\model\\plugin\\report\\MonitorContainer.mxml"
+			],
+			[
+				"MonitorContainer",
+				"kuraraysaijo\\model\\plugin\\report\\KuraraySaijoMonitorContainer.as"
+			],
+			[
+				"svgu",
+				"common\\SVGUtils.as"
+			],
+			[
+				"Lib",
+				"Lib.as"
+			],
+			[
+				"page",
+				"model\\plugin\\report\\Page.as"
+			],
+			[
+				"DrawPanel",
+				"model\\plugin\\draw\\DrawPanel.as"
+			],
+			[
+				"person",
+				"kuraraysaijo\\model\\plugin\\config\\PersonConfig.as"
+			],
+			[
+				"config",
+				"xml\\config.xml"
+			],
+			[
+				"app",
+				"controller\\App.as"
+			],
+			[
+				"message",
+				"xml\\messages.xml"
+			],
+			[
+				"kuraraysaijomonitor",
+				"kuraraysaijo\\model\\plugin\\report\\KuraraySaijoMonitorContainer.as"
+			],
+			[
+				"debug",
+				"Debug.as"
+			],
+			[
+				"confi",
+				"Config.as"
+			],
+			[
+				"DateTypeConfig",
+				"kuraraysaijo\\model\\plugin\\config\\DateTypeConfig.as"
+			],
+			[
+				"text",
+				"xml\\text.xml"
+			],
+			[
+				"settingskura",
+				"kuraraysaijo\\controller\\documentroot\\reportscreen\\sidebar\\settingsbox\\SettingsKuraraySaijoContainer.as"
+			],
+			[
+				"SettingsKuraraySaijoContainer",
+				"kuraraysaijo\\view\\documentroot\\reportscreen\\sidebar\\settingsbox\\SettingsKuraraySaijoContainer.mxml"
+			],
+			[
+				"zip",
+				"common\\ZipUtils.as"
+			],
+			[
+				"setting",
+				"controller\\documentroot\\reportscreen\\sidebar\\SettingsBox.as"
+			],
+			[
+				"conf",
+				"xml\\config.xml"
+			],
+			[
+				"monitorcont",
+				"model\\plugin\\monitor\\controller\\MonitorContainer.as"
+			],
+			[
+				"_drawcontents",
+				"controller\\documentroot\\reportscreen\\_DrawContents.as"
+			],
+			[
+				"stamptool",
+				"model\\plugin\\draw\\stamptool\\StampTool.as"
+			],
+			[
+				"StampPalletBase.as",
+				"model\\plugin\\draw\\stamptool\\StampPalletBase.as"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 208.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

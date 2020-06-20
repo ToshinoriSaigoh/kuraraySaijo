@@ -32,8 +32,8 @@ package kuraraysaijo.model.plugin.report.calendar
 		private var _calendar: Object;//_calendar[1～12]{body: monthPanel(Sprite), days: {1～31: box(Day)}} //Day(VC) -> DayBody(Sprite)
 		public function Calendar(parent: VC, y: uint)
 		{
-			_calendarWidth = 1040;
-			_calendarHeight = 940;
+			_calendarWidth = 2080;//1040////saigoh
+			_calendarHeight = 1880;//940////saigoh
 			_createCalendar(y);
 
 			var now: Date = new Date();
@@ -237,7 +237,7 @@ package kuraraysaijo.model.plugin.report.calendar
 			var yearField: UITextField = new UITextField();
 			var formatYear: TextFormat = new TextFormat();
 			formatYear.color = 0x222222;
-			formatYear.size = 48;
+			formatYear.size = 96;
 			yearField.embedFonts = true;
 			formatYear.font = Lib.notoSansMonoCJKJP;
 			yearField.defaultTextFormat = formatYear;
@@ -245,6 +245,8 @@ package kuraraysaijo.model.plugin.report.calendar
 			yearField.mouseEnabled = false;
 			yearField.name = "yearField";
 			yearField.text = String(year);
+			yearField.width = 300;
+			yearField.height = 120;
 			yearField.border = false;
 			yearField.background = false;
 			yearField.styleName = "calendarYearField";
@@ -254,7 +256,7 @@ package kuraraysaijo.model.plugin.report.calendar
 			var monthField: UITextField = new UITextField();
 			var formatMonth: TextFormat = new TextFormat();
 			formatMonth.color = 0x222222;
-			formatMonth.size = 96;
+			formatMonth.size = 192;
 			formatMonth.bold = true;
 			formatMonth.align = TextFormatAlign.CENTER;
 			formatMonth.font = Lib.notoSansMonoCJKJP;
@@ -264,8 +266,8 @@ package kuraraysaijo.model.plugin.report.calendar
 			monthField.mouseEnabled = false;
 			monthField.name = "monthField";
 			monthField.text = String(date.getMonth() + 1);
-			monthField.width = 150;
-			monthField.height = 120;
+			monthField.width = 300;
+			monthField.height = 240;
 			monthField.border = false;
 			monthField.background = false;
 			monthField.styleName = "calendarMonthField";
@@ -280,7 +282,7 @@ package kuraraysaijo.model.plugin.report.calendar
 			var formatWeekHead: TextFormat = new TextFormat();
 			formatWeekHead.font = Lib.notoSansMonoCJKJP;
 			formatWeekHead.color = 0x222222;
-			formatWeekHead.size = 36;
+			formatWeekHead.size = 72;
 			formatWeekHead.align = TextFormatAlign.CENTER;
 
 			var i: uint;
@@ -293,12 +295,12 @@ package kuraraysaijo.model.plugin.report.calendar
 				weekHeadArr[n].embedFonts = true;
 				weekHeadArr[n].defaultTextFormat = formatWeekHead;
 				weekHeadArr[n].mouseEnabled = false;
-				weekHeadArr[n].width = 140;
-				weekHeadArr[n].height = 50;
+				weekHeadArr[n].width = 280;
+				weekHeadArr[n].height = 100;
 				weekHeadArr[n].border = false;
 				weekHeadArr[n].background = false;
-				weekHeadArr[n].x = (i - firstWeekDay) * 150;
-				weekHeadArr[n].y = 124;
+				weekHeadArr[n].x = (i - firstWeekDay) * 300;
+				weekHeadArr[n].y = 248;
 				weekHeadArr[n].text = String(weekDayArr[n]);
 				weekHeadArr[n].styleName = "calendarHead";
 				weekHeadArr[n].type = TextFieldType.DYNAMIC;
@@ -307,9 +309,9 @@ package kuraraysaijo.model.plugin.report.calendar
 			//整列
 			yearField.text = String(year);
 			yearField.x = 0;
-			yearField.y = 10;
+			yearField.y = 20;
 			monthField.x = (monthPanel.width / 2) - (monthField.width / 2);
-			monthField.y = 10;
+			monthField.y = 20;
 
 			days = [];
 			var daysNum: uint;//ひと月に表示する日数
@@ -320,22 +322,22 @@ package kuraraysaijo.model.plugin.report.calendar
 
 			var boxW: uint;
 			var boxH: uint;
-			var col: uint = 180;//日付Y基準値
+			var col: uint = 360;//日付Y基準値
 			var row: uint = 0;
-			var boxMargin: uint = 10;
+			var boxMargin: uint = 20;
 			var lastDate: Date = new Date(date.fullYear, date.getMonth() + 1, -1);//月末
 
 			if(lastDays < -5 && lastDate.getDate() > 29)
 			{
 				daysNum = 42;
-				boxW = 140;
-				boxH = 120;
+				boxW = 280;
+				boxH = 240;
 			}
 			else
 			{
 				daysNum = 35;
-				boxW = 140;
-				boxH = 140;
+				boxW = 280;
+				boxH = 280;
 			}
 
 			_calendar[String(m + 1)].days = {};
@@ -365,8 +367,8 @@ package kuraraysaijo.model.plugin.report.calendar
 			for(i = 0; i < pageCollection.source.length; i++)
 			{
 				pageCollection.source[i].drawLayers[0].body.addChildAt(_calendar[String(i + 1)].body, 0);
-				_calendar[String(i + 1)].body.x = (1920 / 2) - (_calendar[String(i + 1)].body.width / 2);
-				_calendar[String(i + 1)].body.y = 35;
+				_calendar[String(i + 1)].body.x = (viewWidth / 2) - (_calendar[String(i + 1)].body.width / 2);
+				_calendar[String(i + 1)].body.y = viewHeight / 2160 * 35;
 			}
 		}
 		private function _dayClickHandler(evt: MouseEvent): void

@@ -6,8 +6,8 @@
 	xmlns:kuraraysaijo.controller.documentroot.reportscreen.sidebar="kuraraysaijo.controller.documentroot.reportscreen.sidebar.*"
 	top="0"
 	bottom="0"
-	width="44"
-	height="44"
+	width="88"
+	height="88"
 	creationComplete="_init()">
 	<fx:Script>
 	<![CDATA[

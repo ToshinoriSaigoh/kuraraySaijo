@@ -44,6 +44,7 @@ package model.plugin.draw
 		{
 			body.width = App.mainStage.stageWidth;
 			body.height = App.mainStage.stageHeight;
+//trace("##ControlPanel:", body.width, body.height, App.mainStage.stageWidth, App.mainStage.stageHeight);
 		}
 
 		public function PB_changeTool(): void

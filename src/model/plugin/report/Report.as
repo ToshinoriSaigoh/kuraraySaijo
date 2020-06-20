@@ -126,7 +126,6 @@ package model.plugin.report
 				viewWidth = Number(dataElement.@viewWidth);
 				viewHeight = Number(dataElement.@viewHeight);
 			}
-
 			firstTime = 0;
 			nowTime = 0;
 			super(parent);

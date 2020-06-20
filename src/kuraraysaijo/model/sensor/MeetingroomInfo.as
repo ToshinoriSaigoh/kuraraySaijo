@@ -79,14 +79,17 @@ Dレジスタ, 列名, 名称, 備考
 			for(i = csv.length - 1; i >= 0; i--)
 			{
 				row = csv[i];
-				if(row.length >= 5 )
+trace("#row.length", row.length);
+				if(row.length >= 5)
 				{
 					data = {};
-					data.room1 = Number(row[0]);//会議室1
-					data.room2 = Number(row[1]);//会議室2
-					data.room3 = Number(row[2]);//会議室3
-					data.room4 = Number(row[3]);//面談室1
-					data.room5 = Number(row[4]);//面談室2
+					data.room1 = Number(row[3]);//会議室1
+					data.room2 = Number(row[4]);//会議室2
+					data.room3 = Number(row[5]);//会議室3
+					data.room4 = Number(row[6]);//面談室1
+					data.room5 = Number(row[7]);//面談室2
+Lib.dump(data);
+
 					PostBox.send("meetingroom", {data: data});
 					break;
 				}

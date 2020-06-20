@@ -347,7 +347,7 @@ package model.plugin.report.calendar
 			for(i = 0; i < pageCollection.source.length; i++)
 			{
 				pageCollection.source[i].drawLayers[0].body.addChildAt(_calendar[String(i + 1)].body, 0);
-				_calendar[String(i + 1)].body.x = (1920 / 2) - (_calendar[String(i + 1)].body.width / 2);
+				_calendar[String(i + 1)].body.x = (3840 / 2) - (_calendar[String(i + 1)].body.width / 2);
 				_calendar[String(i + 1)].body.y = 35;
 			}
 		}

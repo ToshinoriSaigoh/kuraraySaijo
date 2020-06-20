@@ -28,10 +28,12 @@ package kuraraysaijo.model.plugin.report
 		public var dust1Designing: String;//ゴミ
 		[Bindable]
 		public var dust2Designing: String;//ゴミ
+		/*
 		[Bindable]
 		public var patrol1Designing: String;//パトロール
 		[Bindable]
 		public var patrol2Designing: String;//パトロール
+		*/
 		//設管
 		[Bindable]
 		public var morningPipe: String;//朝礼
@@ -41,10 +43,12 @@ package kuraraysaijo.model.plugin.report
 		public var dust1Pipe: String;//ゴミ
 		[Bindable]
 		public var dust2Pipe: String;//ゴミ
+		/*
 		[Bindable]
 		public var patrol1Pipe: String;//パトロール
 		[Bindable]
 		public var patrol2Pipe: String;//パトロール
+		*/
 		//電装
 		[Bindable]
 		public var morningElectric: String;//朝礼
@@ -54,10 +58,17 @@ package kuraraysaijo.model.plugin.report
 		public var dust1Electric: String;//ゴミ
 		[Bindable]
 		public var dust2Electric: String;//ゴミ
+		/*
 		[Bindable]
 		public var patrol1Electric: String;//パトロール
 		[Bindable]
 		public var patrol2Electric: String;//パトロール
+		*/
+		//パトロール
+		[Bindable]
+		public var patrol1: String;//パトロール
+		[Bindable]
+		public var patrol2: String;//パトロール
 
 		//テキストエリア
 		[Bindable]
@@ -105,7 +116,7 @@ package kuraraysaijo.model.plugin.report
 		[Bindable]
 		public var anemometer: String;//風速計
 		[Bindable]
-		public var anemometerAlert: String;//風速計
+		public var anemometerAlert: String;//風速計テキスト
 
 		//会議室
 		[Bindable]
@@ -176,7 +187,7 @@ package kuraraysaijo.model.plugin.report
 			//test
 			//ステートのテキスト色はcreationComplete前に設定しておく
 			alertBgLv0 = 0xffffff;
-			alertBgLv1 = 0x00aa00;
+			alertBgLv1 = 0x00AA00;
 			alertBgLv2= 0xFFDD00;
 			alertBgLv3 = 0xFF4F00;
 			alertBgLv4 = 0xDD0000;
@@ -223,8 +234,8 @@ package kuraraysaijo.model.plugin.report
 			PostBox.send("meetingroomCtrl", {command:"request"});
 			PostBox.send("personCtrl", {command:"request"});
 
-			/*
 			//test
+			/*
 			thermometerOutDoor = "21.5";
 			hygrometerOutDoor = "46.8";
 			WBGTOutDoor = "35.0";
@@ -350,13 +361,13 @@ package kuraraysaijo.model.plugin.report
 							break;
 					}
 					var dutyList1: Array = _setDutyTheDay(targetNode, tue);
-					patrol1Designing = dutyList1[0];
-					patrol1Pipe = dutyList1[1];
-					patrol1Electric = dutyList1[2];
+					//patrol1Designing = dutyList1[0];
+					//patrol1Pipe = dutyList1[1];
+					//patrol1Electric = dutyList1[2];
 					var dutyList2: Array = _setDutyTheDay(targetNode, thu);
-					patrol2Designing = dutyList2[0];
-					patrol2Pipe = dutyList2[1];
-					patrol2Electric = dutyList2[2];
+					//patrol2Designing = dutyList2[0];
+					//patrol2Pipe = dutyList2[1];
+					//patrol2Electric = dutyList2[2];
 					break;
 			}
 		}
@@ -632,9 +643,6 @@ package kuraraysaijo.model.plugin.report
 		public function PB_meetingroom(): void
 		{
 			var param: Object = PostBox.get("PB_meetingroom");
-			var temperature: Number = param.data.room1;
-			var humidity: Number = param.data.room2;
-
 			mxml.MeetingRoomLamp1.currentState = param.data.room1 == 1 ? "use" : "empty";
 			mxml.MeetingRoomLamp2.currentState = param.data.room2 == 1 ? "use" : "empty";
 			mxml.MeetingRoomLamp3.currentState = param.data.room3 == 1 ? "use" : "empty";
