@@ -108,7 +108,8 @@ Dレジスタ[部員ID]	CSV列名	ステータス	部員名	所属
 			var absenceList: Array = [];
 			for(p = 0; p < personList.length; p++)
 			{
-				switch(personList[p][1])
+				var status: String = personList[p][1];
+				switch(status..replace(/\s+/g, ""))
 				{
 					case "0":
 						person = persons.person.(@id == personList[p][0])[0];

@@ -60,7 +60,9 @@ package kuraraysaijo.model.sensor
 
 		//会議室情報読み込み更新処理
 /*SA0003.csv
-Dレジスタ, 列名, 名称, 備考
+空欄
+日付
+時刻
 187	[PLC]D00000187	会議室1	【0：空き】【1：使用中】
 188	[PLC]D00000188	会議室2	
 189	[PLC]D00000189	会議室3	
@@ -79,7 +81,6 @@ Dレジスタ, 列名, 名称, 備考
 			for(i = csv.length - 1; i >= 0; i--)
 			{
 				row = csv[i];
-trace("#row.length", row.length);
 				if(row.length >= 5)
 				{
 					data = {};
@@ -88,7 +89,6 @@ trace("#row.length", row.length);
 					data.room3 = Number(row[5]);//会議室3
 					data.room4 = Number(row[6]);//面談室1
 					data.room5 = Number(row[7]);//面談室2
-Lib.dump(data);
 
 					PostBox.send("meetingroom", {data: data});
 					break;

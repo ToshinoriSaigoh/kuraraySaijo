@@ -91,11 +91,11 @@ Dレジスタ, 列名, 名称, 備考
 				if(row.length >= 6 )
 				{
 					data = {};
-					data.humidity = Number(row[9]);//湿度
-					data.temperature = Number(row[10]);//温度
-					data.windSpeed = Number(row[11]);//風速
-					data.recordAll = Number(row[15]);//事業所無災害連続日数
-					data.recordDept = Number(row[16]);//設技部無災害連続日数
+					data.humidity = Number(row[10]);//湿度
+					data.temperature = Number(row[11]);//温度
+					data.windSpeed = Number(row[12]);//風速
+					data.recordAll = Number(row[16]);//事業所無災害連続日数
+					data.recordDept = Number(row[17]);//設技部無災害連続日数
 					PostBox.send("sensor", {data: data});
 					break;
 				}

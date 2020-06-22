@@ -42,6 +42,7 @@ package controller
 	import flash.display.NativeWindowInitOptions;
 	import flash.display.NativeWindowType;
 	import flash.display.NativeWindowSystemChrome;
+	import flash.system.System;
 
 	public class App extends Main
 	{
@@ -58,6 +59,7 @@ package controller
 
 		public function App()
 		{
+			//System.useCodePage = true;//SJIS
 			new Config();
 			new HolidayConfig();
 			new ScheduleConfig();

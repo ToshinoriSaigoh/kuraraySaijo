@@ -36,16 +36,16 @@
 			<noAccidentStartDate>2020/01/01</noAccidentStartDate>
 		</noAccidentDept>
 		<person>
-			<inputFile>C:\temp\SA00001.csv</inputFile>
-			<inputInterval>60000</inputInterval>
+			<inputFile>C:\Temp\SAMP01\SA00001.csv</inputFile>
+			<inputInterval>6000</inputInterval>
 		</person>
 		<sensor>
-			<inputFile>C:\temp\SA00002.csv</inputFile>
-			<inputInterval>60000</inputInterval>
+			<inputFile>C:\Temp\SAMP02\SA00002.csv</inputFile>
+			<inputInterval>6000</inputInterval>
 		</sensor>
 		<meetingroom>
-			<inputFile>C:\temp\SA00003.csv</inputFile>
-			<inputInterval>30000</inputInterval>
+			<inputFile>C:\Temp\SAMP03\SA00003.csv</inputFile>
+			<inputInterval>6000</inputInterval>
 		</meetingroom>
 	</kuraraySaijo>
 </config>

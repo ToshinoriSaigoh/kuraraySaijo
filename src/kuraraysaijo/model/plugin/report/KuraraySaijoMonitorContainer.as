@@ -364,10 +364,12 @@ package kuraraysaijo.model.plugin.report
 					//patrol1Designing = dutyList1[0];
 					//patrol1Pipe = dutyList1[1];
 					//patrol1Electric = dutyList1[2];
+					patrol1 = dutyList1[0];
 					var dutyList2: Array = _setDutyTheDay(targetNode, thu);
 					//patrol2Designing = dutyList2[0];
 					//patrol2Pipe = dutyList2[1];
 					//patrol2Electric = dutyList2[2];
+					patrol2 = dutyList2[0];
 					break;
 			}
 		}
