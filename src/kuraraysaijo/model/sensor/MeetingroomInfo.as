@@ -8,6 +8,7 @@ package kuraraysaijo.model.sensor
 	import flash.events.Event;
 	import flash.utils.getTimer;
 	import mx.utils.UIDUtil;
+	//import flash.system.System;
 
 	public class MeetingroomInfo extends Plug
 	{
@@ -72,6 +73,7 @@ package kuraraysaijo.model.sensor
 */
 		private function _update(): void
 		{
+			//System.useCodePage = true;//SJIS
 			var csv: Array = _csvLoader.load(_file);
 			var i: int;
 			var row: Array;

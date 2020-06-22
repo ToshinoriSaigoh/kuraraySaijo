@@ -8,6 +8,7 @@ package kuraraysaijo.model.sensor
 	import flash.events.Event;
 	import flash.utils.getTimer;
 	import mx.utils.UIDUtil;
+	//import flash.system.System;
 
 	public class PersonInfo extends Plug
 	{
@@ -78,6 +79,7 @@ Dレジスタ[部員ID]	CSV列名	ステータス	部員名	所属
 */
 		private function _update(): void
 		{
+			//System.useCodePage = true;//SJIS
 			var csv: Array = _csvLoader.load(_file);
 			var i: int;
 			var row: Array;

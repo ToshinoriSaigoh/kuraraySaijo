@@ -8,6 +8,7 @@ package kuraraysaijo.model.sensor
 	import flash.events.Event;
 	import flash.utils.getTimer;
 	import mx.utils.UIDUtil;
+	//import flash.system.System;
 
 	public class SensorInfo extends Plug
 	{
@@ -79,6 +80,7 @@ Dレジスタ, 列名, 名称, 備考
 */
 		private function _update(): void
 		{
+			//System.useCodePage = true;//SJIS
 			var csv: Array = _csvLoader.load(_file);
 			var i: int;
 			var row: Array;

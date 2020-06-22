@@ -5,7 +5,7 @@ package kuraraysaijo.model.plugin.config
 	import common.csv.CSVLoader;
 	import flash.filesystem.File;
 	import flash.utils.ByteArray;
-	import flash.system.System;
+	//import flash.system.System;
 	public class PersonConfig
 	{
 		private var _tagName: String;
@@ -78,7 +78,7 @@ package kuraraysaijo.model.plugin.config
 		//CSV取り込み
 		private function _importCSV(csvFile: File): void
 		{
-			System.useCodePage = true;
+			//System.useCodePage = true;
 			var csv: Array = _csvLoader.load(csvFile);
 			var i: uint;
 			var row: Array;

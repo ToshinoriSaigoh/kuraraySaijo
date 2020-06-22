@@ -62,6 +62,7 @@
     <element path=".\utils\libs\Console.swc" />
     <element path="assets\fonts\Fonts.swc" />
     <element path=".\utils\libs\as3xls-1.0.swc" />
+    <element path=".\utils\libs\as3jcode-1_0_3.swc" />
   </libraryPaths>
   <!-- External Libraries -->
   <externalLibraryPaths>

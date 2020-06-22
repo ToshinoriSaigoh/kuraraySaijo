@@ -5,6 +5,7 @@ package kuraraysaijo.model.plugin.config
 	import common.csv.CSVLoader;
 	import flash.filesystem.File;
 	import flash.utils.ByteArray;
+	//import flash.system.System;
 	public class DutyConfig
 	{
 		private var _tagName: String;
@@ -39,6 +40,7 @@ package kuraraysaijo.model.plugin.config
 		//CSV取り込み
 		public function importCSVFile(csvFile: File, branch: String): void
 		{
+			//System.useCodePage = true;//SJIS
 			if(csvFile != null)
 			{
 				var existsData: XMLList = data.elements(branch);
@@ -66,6 +68,7 @@ package kuraraysaijo.model.plugin.config
 		//CSV取り込み
 		private function _importCSVFile(csvFile: File): void
 		{
+			//System.useCodePage = true;
 			var csv: Array = _csvLoader.load(csvFile);
 			var i: uint;
 			var row: Array;

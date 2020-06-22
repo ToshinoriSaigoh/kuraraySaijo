@@ -42,7 +42,7 @@ package controller
 	import flash.display.NativeWindowInitOptions;
 	import flash.display.NativeWindowType;
 	import flash.display.NativeWindowSystemChrome;
-	import flash.system.System;
+	//import flash.system.System;
 
 	public class App extends Main
 	{
