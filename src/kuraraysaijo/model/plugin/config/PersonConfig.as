@@ -6,6 +6,7 @@ package kuraraysaijo.model.plugin.config
 	import flash.filesystem.File;
 	import flash.utils.ByteArray;
 	//import flash.system.System;
+	
 	public class PersonConfig
 	{
 		private var _tagName: String;
@@ -78,6 +79,7 @@ package kuraraysaijo.model.plugin.config
 		//CSV取り込み
 		private function _importCSV(csvFile: File): void
 		{
+			_data = _create();
 			//System.useCodePage = true;
 			var csv: Array = _csvLoader.load(csvFile);
 			var i: uint;
@@ -121,6 +123,8 @@ package kuraraysaijo.model.plugin.config
 					data.appendChild(<person id={bizCode} num={num} name={name} title={bizTitle} />);
 				}
 			}
+			Config.configTree.setChildren(_data);
+			PostBox.send("personCtrl", {command:"request"});
 		}
 		public function padLeft(value: String, padChar: String, length: uint):String {
 			var s: String = value;

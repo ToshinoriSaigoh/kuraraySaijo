@@ -43,16 +43,10 @@ package kuraraysaijo.model.plugin.config
 			//System.useCodePage = true;//SJIS
 			if(csvFile != null)
 			{
-				var existsData: XMLList = data.elements(branch);
-				if(existsData.length() == 0)
-				{
-					_branchXML = <{branch}/>;
-					data.appendChild(_branchXML);
-				}
-				else
-				{
-					_branchXML = existsData[0];
-				}
+				_branchXML = <{branch}/>;
+				/*
+				*/
+				//_branchXML = <{branch}/>;//中身を空にする
 				if(branch == "dust")
 				{
 					_importCSVFileDust(csvFile);
@@ -61,6 +55,17 @@ package kuraraysaijo.model.plugin.config
 				{
 					_importCSVFile(csvFile);
 				}
+				var existsData: XMLList = data.elements(branch);
+				if(existsData.length() == 0)
+				{
+					data.appendChild(_branchXML);
+				}
+				else
+				{
+					//_branchXML = existsData[0];
+					data.replace(branch, _branchXML);
+				}
+				
 				_save();
 			}
 		}

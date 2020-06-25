@@ -82,8 +82,10 @@
 				</s:Group>
 				<s:VGroup width="880" gap="16">
 					<s:Button id="importAttendanceBtn" label="勤怠管理.csvを読み込む" name="importAttendanceBtn" width="680" height="88" skinClass="view.utils.Skin_BtnText"/>
+					<!--
 					<s:Label id="personHead"/>
 					<s:TextArea id="textAreaPersonList" width="660" height="1320" verticalScrollPolicy="auto"/>
+				-->
 				</s:VGroup>
 			</s:HGroup>
 		</s:VGroup>

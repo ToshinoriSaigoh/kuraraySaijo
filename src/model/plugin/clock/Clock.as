@@ -31,7 +31,8 @@ package model.plugin.clock
 		{
 			if(_date != null || _startDate != null)
 			{
-				_date.setTime(_startDate.getTime() + (getTimer() - _startTime));
+				//_date.setTime(_startDate.getTime() + (getTimer() - _startTime));
+				_date = new Date();
 			}
 		}
 

@@ -29,7 +29,7 @@ package kuraraysaijo.controller.documentroot.reportscreen.sidebar.settingsbox
 			mxml.scheduleHead.text = Config.getText("kuraraySaijo", "settings", "schedule", "scheduleHead");
 			mxml.dutyHead.text = Config.getText("kuraraySaijo", "settings", "duty", "dutyHead");
 			mxml.attendanceHead.text = Config.getText("kuraraySaijo", "settings", "person", "attendanceHead");
-			mxml.personHead.text = Config.getText("kuraraySaijo", "settings", "person", "personHead");
+			//mxml.personHead.text = Config.getText("kuraraySaijo", "settings", "person", "personHead");
 /*
 			mxml.noAccidentAllHead.text = Config.getText("kuraraySaijo", "settings", "noAccidentAll", "noAccidentAllHead");
 			mxml.noAccidentAllTotal.text = Config.getText("kuraraySaijo", "settings", "noAccidentAll", "noAccidentAllTotal");

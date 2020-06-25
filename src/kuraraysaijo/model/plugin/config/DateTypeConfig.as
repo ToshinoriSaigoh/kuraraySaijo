@@ -69,6 +69,7 @@ package kuraraysaijo.model.plugin.config
 		public function importCSVFile(csvFile: File): void
 		{
 			//System.useCodePage = true;//SJIS
+			_data = create();
 			var csv: Array = _csvLoader.load(csvFile);
 			var i: uint;
 			var row: Array;
