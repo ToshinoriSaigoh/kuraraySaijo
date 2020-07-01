@@ -271,6 +271,7 @@
 		<step type="PB" message="PB_creationCompleteReport">
 			<receiver path="controller.documentroot.reportscreen.sidebar::FileListBox"/>
 			<receiver path="controller.documentroot.reportscreen.palletcontainer::TimelinePallet"/>
+			<receiver path="kuraraysaijo.model.plugin.report::KuraraySaijoMonitorContainer"/>
 		</step>
 	</message>
 	<message name="deleteCompleteReport">

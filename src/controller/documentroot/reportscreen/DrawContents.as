@@ -80,7 +80,7 @@ package controller.documentroot.reportscreen
 		public function PB_creationCompleteReport(): void
 		{
 			var param: Object = PostBox.get("PB_creationCompleteReport");
-			trace("#############PB_creationCompleteReport", param.report);
+//trace("#############PB_creationCompleteReport", param.report);
 			PostBox.send("changeReport", {report: param.report});
 		}
 		//レポートディレクトリ（解凍したレポートデータ.zip）からレポートを開く

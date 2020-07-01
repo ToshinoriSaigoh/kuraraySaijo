@@ -293,6 +293,16 @@ package kuraraysaijo.model.plugin.report
 			mxml.anemometerAlert.currentState = "level0";//level0 ～ level4
 			*/
 		}
+		public function PB_creationCompleteReport(): void
+		{
+			_insertSchecule();
+			_setMessageBoard();
+		}
+		private function _setMessageBoard(): void
+		{
+			messageLabel = Config.get("config", "report", "message");
+			_setTextValue("message", messageLabel);
+		}
 
 		public function PB_changeTool(): void
 		{
@@ -586,10 +596,20 @@ package kuraraysaijo.model.plugin.report
 			scheduleLabel = mxml.parent.parent.parent.parent.owner.ctrlr.myDataElement.elements("schedule")[0].toString();//KuraraySaijoReport.schedule
 			nextscheduleLabel = mxml.parent.parent.parent.parent.owner.ctrlr.myDataElement.elements("nextschedule")[0].toString();//KuraraySaijoReport.nextschedule
 			messageLabel = mxml.parent.parent.parent.parent.owner.ctrlr.myDataElement.elements("message")[0].toString();//KuraraySaijoReport.message
+
+			//config.xmlに連絡事項を保存
+			Config.set("config", "report", "message", messageLabel);
+			Config.saveConfigXML(Config.configTree.config[0], "config.xml");
 		}
 
 		//スケジュール取り込みボタン処理
 		private function _insertScheduleBtnClickHandler(evt: MouseEvent): void
+		{
+trace("■取り込むボタン");
+			_insertSchecule();
+		}
+
+		private function _insertSchecule(): void
 		{
 			var reportDate: Date = _getReportDate();
 			var targetDay: String = "";
@@ -607,6 +627,7 @@ package kuraraysaijo.model.plugin.report
 			targetNextDay += "/";
 			targetNextDay += PaddingUtils.zeroPadding(nextWorkDay.getDate(), 2);
 			var schedule: XML = Config.configTree.schedule[0];
+trace(schedule);
 			var textSchedule: String = null;
 			var textNextschedule: String = null;
 			if(schedule != null)
@@ -638,9 +659,6 @@ package kuraraysaijo.model.plugin.report
 			_setDuty("patrol");
 			//_setNoAccidentAllValue();
 			//_setNoAccidentDeptValue();
-			//_setDesigningPerson();
-			//_setPipePerson();
-			//_setElectricPerson();
 		}
 		[Bindable]
 		public var wbgtInfo: WarningInfo;

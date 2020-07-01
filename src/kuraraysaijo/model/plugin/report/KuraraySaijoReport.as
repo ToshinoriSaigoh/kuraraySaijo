@@ -70,7 +70,7 @@ package kuraraysaijo.model.plugin.report
 		override public function creationComplete(): void
 		{
 			_mount();
-
+			
 			PostBox.send("changePage", {report: vcName, page: getFirstPageID()});
 			if(GroupWork.hasOwnWork("GW_openReport"))
 			{
@@ -112,7 +112,6 @@ package kuraraysaijo.model.plugin.report
 			[Embed(source = "./KuraraySaijoReportBG.svg", mimeType="application/octet-stream")]
 			var Svg: Class;
 			Lib.setSvg(monitorContainer.background, Svg);
-trace("#KuraraySaijoReport", viewWidth, monitorContainer.background.width);
 		}
 	}
 }
