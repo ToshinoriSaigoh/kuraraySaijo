@@ -13,6 +13,7 @@
 	<report>
 		<defaultViewWidth>3840</defaultViewWidth>
 		<defaultViewHeight>2160</defaultViewHeight>
+		<message/>
 	</report>
 	<link>
 		<defaultLoginChannel></defaultLoginChannel>

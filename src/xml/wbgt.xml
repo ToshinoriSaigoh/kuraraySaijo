@@ -1,35 +1,50 @@
 <wbgt>
 	<warning>
 		<level id="0">
-			<label>注意</label>
-			<color>0xFFFFFF</color>
-			<backgroundColor>0x92D050</backgroundColor>
+			<label>安全</label>
+			<fontSize>64</fontSize>
+			<color>#000000</color>
+			<backgroundColor>0x99CCFF</backgroundColor>
 			<conditions>
-				<item type="lessThan">25.0</item>
+				<item type="lessThan">21.0</item>
 			</conditions>
 		</level>
 		<level id="1">
+			<label>注意</label>
+			<fontSize>64</fontSize>
+			<color>#000000</color>
+			<backgroundColor>0x66AAFF</backgroundColor>
+			<conditions>
+				<item type="orMore">21.0</item>
+				<item type="lessThan">25.0</item>
+			</conditions>
+		</level>
+		<level id="2">
 			<label>警戒</label>
-			<color>0xFFFFFF</color>
-			<backgroundColor>0xFF9900</backgroundColor>
+			<fontSize>64</fontSize>
+			<color>#000000</color>
+			<backgroundColor>0xEEEE00</backgroundColor>
 			<conditions>
 				<item type="orMore">25.0</item>
 				<item type="lessThan">28.0</item>
 			</conditions>
 		</level>
-		<level id="2">
-			<label>厳重警戒</label>
-			<color>0xFFFFFF</color>
-			<backgroundColor>0xFF0000</backgroundColor>
+		<level id="3">
+			<label>厳重
+警戒</label>
+			<fontSize>64</fontSize>
+			<color>#000000</color>
+			<backgroundColor>0xEEAA00</backgroundColor>
 			<conditions>
 				<item type="orMore">28.0</item>
 				<item type="lessThan">31.0</item>
 			</conditions>
 		</level>
-		<level id="3">
+		<level id="4">
 			<label>危険</label>
-			<color>0xFFFFFF</color>
-			<backgroundColor>0xC00000</backgroundColor>
+			<fontSize>64</fontSize>
+			<color>#FFFFFF</color>
+			<backgroundColor>0xEE0000</backgroundColor>
 			<conditions>
 				<item type="orMore">31.0</item>
 			</conditions>

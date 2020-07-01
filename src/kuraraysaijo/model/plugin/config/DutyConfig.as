@@ -51,6 +51,10 @@ package kuraraysaijo.model.plugin.config
 				{
 					_importCSVFileDust(csvFile);
 				}
+				else if(branch == "patrol")
+				{
+					_importCSVFilePatrol(csvFile);
+				}
 				else
 				{
 					_importCSVFile(csvFile);
@@ -162,6 +166,56 @@ package kuraraysaijo.model.plugin.config
 				date = tmpList[i];
 				dayXML = _search(date);
 				node = <day id={date} design1={tmpData[date][0][0]} design2={tmpData[date][0][1]} pipe1={tmpData[date][1][0]} pipe2={tmpData[date][1][1]} electric1={tmpData[date][2][0]} electric2={tmpData[date][2][1]}/>;
+				if(dayXML == null)
+				{
+					_branchXML.appendChild(node);
+					dayXML = _search(date);
+				}
+				else
+				{
+					dayXML = node;//ノード置き換え
+				}
+			}
+		}
+		//パトロールCSV取り込み
+		private function _importCSVFilePatrol(csvFile: File): void
+		{
+			//System.useCodePage = true;
+			var csv: Array = _csvLoader.load(csvFile);
+			var i: uint;
+			var row: Array;
+			var dayXML: XML;
+			var node: XML;
+			var date: String;
+			var patrol1: String;
+			var patrol2: String;
+			var electric: String;
+			var tmpList: Array = [];
+			var tmpData: Object = {};
+			var list: Array;
+			for(i = 0; i < csv.length; i++)
+			{
+				row = csv[i];
+				if(row.length >= 2 )
+				{
+					date = _validate(row[0]);
+					patrol1 = row[1];
+					patrol2 = row[2];
+					if(date != null)
+					{
+						if(tmpData.hasOwnProperty(date) == false)
+						{
+							tmpList.push(date);
+						}
+						tmpData[date] = [patrol1, patrol2];
+					}
+				}
+			}
+			for(i = 0; i < tmpList.length; i++)
+			{
+				date = tmpList[i];
+				dayXML = _search(date);
+				node = <day id={date} patrol1={tmpData[date][0]} patrol2={tmpData[date][1]}/>;
 				if(dayXML == null)
 				{
 					_branchXML.appendChild(node);

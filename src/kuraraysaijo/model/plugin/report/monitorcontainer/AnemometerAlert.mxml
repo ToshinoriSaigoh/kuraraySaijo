@@ -9,14 +9,18 @@
 		<s:State name="level2"/>
 		<s:State name="level3"/>
 		<s:State name="level4"/>
+		<s:State name="level5"/>
+		<s:State name="level6"/>
 	</s:states>
-	<s:Group id="body" width="100%" height="100%" visible.level0="false" visible.level1="true" visible.level2="true" visible.level3="true" visible.level4="true">
+	<s:Group id="body" width="100%" height="100%">
 		<s:Rect width="100%" height="100%">
 			<s:fill>
-				<s:SolidColor color.level0="{parentDocument.ctrlr.alertBgLv0}" color.level1="{parentDocument.ctrlr.alertBgLv1}" color.level2="{parentDocument.ctrlr.alertBgLv2}" color.level3="{parentDocument.ctrlr.alertBgLv3}" color.level4="{parentDocument.ctrlr.alertBgLv4}"/>
+				<s:SolidColor id="bg"/>
 			</s:fill>
 		</s:Rect>
-		<s:Label id="label" text="{parentDocument.ctrlr.anemometerAlert}" fontSize="72" textAlign="center" verticalAlign="middle" width="100%" height="100%"
-			color.level0="{parentDocument.ctrlr.alertColorLv0}" color.level1="{parentDocument.ctrlr.alertColorLv1}" color.level2="{parentDocument.ctrlr.alertColorLv2}" color.level3="{parentDocument.ctrlr.alertColorLv3}" color.level4="{parentDocument.ctrlr.alertColorLv4}"/>
+		<s:Label id="label"
+			text="{parentDocument.ctrlr.anemometerInfo.label}"
+			styleName=""
+			textAlign="center" verticalAlign="middle" width="100%" height="100%"/>
 	</s:Group>
 </s:Group>

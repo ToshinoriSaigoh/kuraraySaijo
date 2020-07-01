@@ -66,15 +66,23 @@ package kuraraysaijo.model.plugin.report
 		*/
 		//パトロール
 		[Bindable]
-		public var patrol1: String;//パトロール
+		public var patrol11: String;//パトロール
 		[Bindable]
-		public var patrol2: String;//パトロール
+		public var patrol12: String;//パトロール
+		[Bindable]
+		public var patrol21: String;//パトロール
+		[Bindable]
+		public var patrol22: String;//パトロール
 
 		//テキストエリア
 		[Bindable]
-		public var absenceLabel: String;//欠勤
+		public var absenceLabel1: String;//欠勤
 		[Bindable]
-		public var tripLabel: String;//出張
+		public var absenceLabel2: String;//欠勤
+		[Bindable]
+		public var tripLabel1: String;//出張
+		[Bindable]
+		public var tripLabel2: String;//出張
 		[Bindable]
 		public var scheduleHead: String;//今日の予定タイトル
 		[Bindable]
@@ -91,32 +99,55 @@ package kuraraysaijo.model.plugin.report
 		[Bindable]
 		public var WBGTOutDoor: String;
 		[Bindable]
-		public var WBGTAlertOutDoor: String;
+		public var anemometer: String;//風速計
+
+
+/*
 		[Bindable]
-		public var alertBgLv0: Number;
+		public var WBGTAlertLv0: AlertLv;
 		[Bindable]
-		public var alertBgLv1: Number;
+		public var WBGTAlertLv1: AlertLv;
 		[Bindable]
-		public var alertBgLv2: Number;
+		public var WBGTAlertLv2: AlertLv;
 		[Bindable]
-		public var alertBgLv3: Number;
+		public var WBGTAlertLv3: AlertLv;
 		[Bindable]
-		public var alertBgLv4: Number;
-		[Bindable]
-		public var alertColorLv0: Number;
-		[Bindable]
-		public var alertColorLv1: Number;
-		[Bindable]
-		public var alertColorLv2: Number;
-		[Bindable]
-		public var alertColorLv3: Number;
-		[Bindable]
-		public var alertColorLv4: Number;
+		public var WBGTAlertLv4: AlertLv;
 
 		[Bindable]
-		public var anemometer: String;//風速計
+		public var anemometerAlertLv0: AlertLv;//風速計テキスト
+		[Bindable]
+		public var anemometerAlertLv1: AlertLv;//風速計テキスト
+		[Bindable]
+		public var anemometerAlertLv2: AlertLv;//風速計テキスト
+		[Bindable]
+		public var anemometerAlertLv3: AlertLv;//風速計テキスト
+		[Bindable]
+		public var anemometerAlertLv4: AlertLv;//風速計テキスト
+		[Bindable]
+		public var anemometerAlertLv5: AlertLv;//風速計テキスト
+		[Bindable]
+		public var anemometerAlertLv6: AlertLv;//風速計テキスト
+
+		[Bindable]
+		public var WBGTAlertColor: String;
+		[Bindable]
+		public var WBGTAlertFontSize: String;
+		[Bindable]
+		public var anemometerAlertColor: String;
+		[Bindable]
+		public var anemometerAlertFontSize: String;
+*/
+
+		[Bindable]
+		public var WBGTAlertOutDoor: String;
+		[Bindable]
+		public var WBGTAlertBg: Number;
+
 		[Bindable]
 		public var anemometerAlert: String;//風速計テキスト
+		[Bindable]
+		public var anemometerAlertBg: Number;
 
 		//会議室
 		[Bindable]
@@ -143,6 +174,19 @@ package kuraraysaijo.model.plugin.report
 			elementName = "Group";
 
 /*
+			WBGTAlertLv0 = new AlertLv("安全", "32", "0x000000", 0x99CCFF);
+			WBGTAlertLv1 = new AlertLv("注意", "24", "0x000000", 0x66AAFF);
+			WBGTAlertLv2 = new AlertLv("警戒", "48", "0x000000", 0xEEEE00);
+			WBGTAlertLv3 = new AlertLv("厳重\n警戒", "64", "0x000000", 0xEEAA00);
+			WBGTAlertLv4 = new AlertLv("危険", "64", "0xFFFFFF", 0xEE0000);
+			anemometerAlertLv0 = new AlertLv("静穏", "14", "0xFFFF00", 0x99CCFF);
+			anemometerAlertLv1 = new AlertLv("弱風", "64", "0x000000", 0x66AAFF);
+			anemometerAlertLv2 = new AlertLv("やや\n強い風", "48", "0x000000", 0xEEEE00);
+			anemometerAlertLv3 = new AlertLv("強い風", "64", "0x000000", 0xEEAA00);
+			anemometerAlertLv4 = new AlertLv("非常に\n強い風", "48", "0xEE0000", 0xEEAA00);
+			anemometerAlertLv5 = new AlertLv("暴風", "64", "0xFFFFFF", 0xEE0000);
+			anemometerAlertLv6 = new AlertLv("猛烈な\n風", "48", "0xEEEE00", 0xEE0000);
+
 			//WBGT
 			warningInfo = WBGTConfig.getWarningInfo(0);
 			if(warningInfo != null)
@@ -186,17 +230,18 @@ package kuraraysaijo.model.plugin.report
 
 			//test
 			//ステートのテキスト色はcreationComplete前に設定しておく
+			/*
 			alertBgLv0 = 0xffffff;
-			alertBgLv1 = 0x00AA00;
-			alertBgLv2= 0xFFDD00;
-			alertBgLv3 = 0xFF4F00;
-			alertBgLv4 = 0xDD0000;
 			alertColorLv0 = 0x000000;
+			alertBgLv1 = 0x00AA00;
 			alertColorLv1 = 0xffffff;
+			alertBgLv2= 0xFFDD00;
 			alertColorLv2= 0x000000;
+			alertBgLv3 = 0xFF4F00;
 			alertColorLv3 = 0xffffff;
+			alertBgLv4 = 0xDD0000;
 			alertColorLv4 = 0xffffff;
-
+			*/
 			emptyColor = 0xaaaaaa;
 			useColor = 0x66ff00;
 
@@ -307,27 +352,27 @@ package kuraraysaijo.model.plugin.report
 			{
 				case "morning":
 					dutyList = _setDutyTheDay(targetNode, new Date());
-					morningDesigning = dutyList[0];
-					morningPipe = dutyList[1];
-					morningElectric = dutyList[2];
+					morningDesigning = dutyList[0] != null ? dutyList[0] : "";
+					morningPipe = dutyList[1] != null ? dutyList[1] : "";
+					morningElectric = dutyList[2] != null ? dutyList[2] : "";
 					break;
 				case "exercise":
 					dutyList = _setDutyTheDay(targetNode, new Date());
-					exerciseDesigning = dutyList[0];
-					exercisePipe = dutyList[1];
-					exerciseElectric = dutyList[2];
+					exerciseDesigning = dutyList[0] != null ? dutyList[0] : "";
+					exercisePipe = dutyList[1] != null ? dutyList[1] : "";
+					exerciseElectric = dutyList[2] != null ? dutyList[2] : "";
 					break;
 				case "dust":
 					dutyList = _setDutyDustTheDay(targetNode, new Date());
 					var design: Array = [dutyList[0], dutyList[1]];
 					var pipe: Array = [dutyList[2], dutyList[3]];
 					var electric: Array = [dutyList[4], dutyList[5]];
-					dust1Designing = design[0];
-					dust1Pipe = pipe[0];
-					dust1Electric = electric[0];
-					dust2Designing = design[1];
-					dust2Pipe = pipe[1];
-					dust2Electric = electric[1];
+					dust1Designing = design[0] != null ? design[0] : "";
+					dust1Pipe = pipe[0] != null ? pipe[0] : "";
+					dust1Electric = electric[0] != null ? electric[0] : "";
+					dust2Designing = design[1] != null ? design[1] : "";
+					dust2Pipe = pipe[1] != null ? pipe[1] : "";
+					dust2Electric = electric[1] != null ? electric[1] : "";
 					break;
 				case "patrol":
 					var today: Date = new Date();
@@ -360,16 +405,18 @@ package kuraraysaijo.model.plugin.report
 							thu = new Date(today.fullYear, today.month, today.date - (todayDay - 4));
 							break;
 					}
-					var dutyList1: Array = _setDutyTheDay(targetNode, tue);
+					var dutyList1: Array = _setDutyPatrolTheDay(targetNode, tue);
 					//patrol1Designing = dutyList1[0];
 					//patrol1Pipe = dutyList1[1];
 					//patrol1Electric = dutyList1[2];
-					patrol1 = dutyList1[0];
-					var dutyList2: Array = _setDutyTheDay(targetNode, thu);
+					patrol11 = dutyList1[0] != null ? dutyList1[0] : "";
+					patrol12 = dutyList1[1] != null ? dutyList1[1] : "";
+					var dutyList2: Array = _setDutyPatrolTheDay(targetNode, thu);
 					//patrol2Designing = dutyList2[0];
 					//patrol2Pipe = dutyList2[1];
 					//patrol2Electric = dutyList2[2];
-					patrol2 = dutyList2[0];
+					patrol21 = dutyList2[0] != null ? dutyList2[0] : "";
+					patrol22 = dutyList2[1] != null ? dutyList2[1] : "";
 					break;
 			}
 		}
@@ -390,6 +437,15 @@ package kuraraysaijo.model.plugin.report
 			var day: String = Lib.getYMDString(date);
 			var node: XML = xml.day.(attribute("id") == day)[0];
 			return node == null ? [] : [node.@design1[0], node.@design2[0], node.@pipe1[0], node.@pipe2[0], node.@electric1[0], node.@electric2[0]];
+		}
+		private function _setDutyPatrolTheDay(xml: XML, date: Date): Array {
+			if(xml == null || date == null)
+			{
+				return [];
+			}
+			var day: String = Lib.getYMDString(date);
+			var node: XML = xml.day.(attribute("id") == day)[0];
+			return node == null ? [] : [node.@patrol1[0], node.@patrol2[0]];
 		}
 /*
 		//設計担当者
@@ -522,8 +578,11 @@ package kuraraysaijo.model.plugin.report
 		//本日の予定//連絡事項//欠勤//出張
 		private function _setTextLabel(): void
 		{
-			absenceLabel = mxml.parent.parent.parent.parent.owner.ctrlr.myDataElement.elements("absenceList")[0].toString();//KuraraySaijoReport.absence
-			tripLabel = mxml.parent.parent.parent.parent.owner.ctrlr.myDataElement.elements("tripList")[0].toString();//KuraraySaijoReport.trip
+			//absenceLabel1 = mxml.parent.parent.parent.parent.owner.ctrlr.myDataElement.elements("absenceList")[0].toString();//KuraraySaijoReport.absence
+			//tripLabel1 = mxml.parent.parent.parent.parent.owner.ctrlr.myDataElement.elements("tripList")[0].toString();//KuraraySaijoReport.trip
+			//absenceLabel2 = mxml.parent.parent.parent.parent.owner.ctrlr.myDataElement.elements("absenceList")[0].toString();//KuraraySaijoReport.absence
+			//tripLabel2 = mxml.parent.parent.parent.parent.owner.ctrlr.myDataElement.elements("tripList")[0].toString();//KuraraySaijoReport.trip
+
 			scheduleLabel = mxml.parent.parent.parent.parent.owner.ctrlr.myDataElement.elements("schedule")[0].toString();//KuraraySaijoReport.schedule
 			nextscheduleLabel = mxml.parent.parent.parent.parent.owner.ctrlr.myDataElement.elements("nextschedule")[0].toString();//KuraraySaijoReport.nextschedule
 			messageLabel = mxml.parent.parent.parent.parent.owner.ctrlr.myDataElement.elements("message")[0].toString();//KuraraySaijoReport.message
@@ -583,6 +642,10 @@ package kuraraysaijo.model.plugin.report
 			//_setPipePerson();
 			//_setElectricPerson();
 		}
+		[Bindable]
+		public var wbgtInfo: WarningInfo;
+		[Bindable]
+		public var anemometerInfo: WarningInfo;
 
 		//センサー情報
 		public function PB_sensor(): void
@@ -591,18 +654,16 @@ package kuraraysaijo.model.plugin.report
 			var temperature: Number = param.data.temperature;
 			var humidity: Number = param.data.humidity;
 			var windSpeed: Number = param.data.windSpeed;
-			var wbgtInfo: WarningInfo;
-			var anemometerInfo: WarningInfo;
 
 			var Yi: Number = 0.90739;
 			var Xi: Number = 0.14775;
 			var YXi: Number = -0.003665;
 			var wbgt: Number = Yi * temperature + Xi * humidity + YXi * temperature * humidity;
 
-			thermometerOutDoor = _formatedNumber(temperature);
-			hygrometerOutDoor = _formatedNumber(humidity);
-			WBGTOutDoor = _formatedNumber(wbgt);
-			anemometer = _formatedNumber(windSpeed);
+			thermometerOutDoor = _formatedNumber(temperature, 0);
+			hygrometerOutDoor = _formatedNumber(humidity, 1);
+			WBGTOutDoor = _formatedNumber(wbgt, 0);
+			anemometer = _formatedNumber(windSpeed, 0);
 
 			noAccidentAll = param.data.recordAll;
 			noAccidentDept = param.data.recordDept;
@@ -610,35 +671,46 @@ package kuraraysaijo.model.plugin.report
 			wbgtInfo = WBGTConfig.getWarning(wbgt);
 			if(wbgtInfo != null)
 			{
-				mxml.WBGTAlertOutDoor.currentState = "level" + wbgtInfo.id;
-				WBGTAlertOutDoor = wbgtInfo.label;
-			}
-			else
-			{
-				mxml.WBGTAlertOutDoor.currentState = "level0";
-				WBGTAlertOutDoor = "";
+				//mxml.WBGTAlertOutDoor.currentState = "level" + wbgtInfo.id;
+				mxml.WBGTAlertOutDoor.label.styleName = "WBGTlv" + wbgtInfo.id;
+				mxml.WBGTAlertOutDoor.bg.color = wbgtInfo.backgroundColor;
+				//WBGTAlertOutDoor = wbgtInfo.label;
+				//WBGTAlertBg = wbgtInfo.backgroundColor;
+				/*
+
+				mxml.WBGTAlertOutDoor.setStyle("s|Label", {color: "#009900"});
+				mxml.WBGTAlertOutDoor.label.setStyle("fontSize", wbgtInfo.fontSize);
+				trace("#wbgtInfo:", wbgtInfo, wbgtInfo.id, wbgtInfo.label, wbgtInfo.color, wbgtInfo.fontSize);
+				trace("#wbgtInfo:", wbgtInfo.id, wbgtInfo.label, wbgtInfo.color, wbgtInfo.fontSize);
+				*/
 			}
 
 			//風速
 			anemometerInfo = AnemometerConfig.getWarning(windSpeed);
 			if(anemometerInfo != null)
 			{
-				mxml.anemometerAlert.currentState = "level" + anemometerInfo.id;
-				anemometerAlert = anemometerInfo.label;
-			}
-			else
-			{
-				mxml.anemometerAlert.currentState = "level0";
-				anemometerAlert = "";
+				//mxml.anemometerAlert.currentState = "level" + anemometerInfo.id;
+				mxml.anemometerAlert.label.styleName = "anemometerlv" + anemometerInfo.id;
+				mxml.anemometerAlert.bg.color = anemometerInfo.backgroundColor;
+				//anemometerAlert = anemometerInfo.label;
+				//anemometerAlertBg = anemometerInfo.backgroundColor;
+				/*
+				mxml.anemometerAlert.label.setStyle("color", anemometerInfo.color);
+				mxml.anemometerAlert.label.setStyle("fontSize", anemometerInfo.fontSize);
+				mxml.anemometerAlert.setStyle("s|Label", {fontSize: 80});
+
+				trace("#anemometerInfo:", anemometerInfo, anemometerInfo.id, anemometerInfo.label, anemometerInfo.color, anemometerInfo.fontSize, mxml.anemometerAlert.label.getStyle("fontSize"));
+				trace(anemometerAlertColor, anemometerAlertFontSize);
+				*/
 			}
 		}
 
 		//小数点第一位の数値文字列に変換
-		private function _formatedNumber(value: Number): String
+		private function _formatedNumber(value: Number, digits: uint = 0): String
 		{
 			var nf:NumberFormatter = new NumberFormatter();
-			nf.fractionalDigits = 1;
-			return nf.format(Math.round(value * 10) / 10);
+			nf.fractionalDigits = digits;
+			return nf.format(Math.floor(value * 10) / 10);
 		}
 
 		//会議室情報
@@ -657,10 +729,62 @@ package kuraraysaijo.model.plugin.report
 			var param: Object = PostBox.get("PB_person");
 			var tripList: Array = param.data[0];
 			var absenceList: Array = param.data[1];
+			var list1: Array;
+			var list2: Array;
 		//出張書き換え
-			tripLabel = tripList.length > 0 ? tripList.join("\r") : "";
+trace("trip", tripList.length, tripList);
+			if(tripList.length == 0)
+			{
+				tripLabel1 = "";
+				tripLabel2 = "";
+			}
+			else if(tripList.length <= 10)
+			{
+				tripLabel1 = tripList.join("\r");
+				tripLabel2 = "";
+			}
+			else if(tripList.length <= 20)
+			{
+				list1 = tripList.slice(0, 9);
+				list2 = tripList.slice(10, -1);
+				tripLabel1 = list1.join("\r");
+				tripLabel2 = list2.join("\r");
+			}
+			else
+			{
+				list1 = tripList.slice(0, 10);
+				list2 = tripList.slice(10, 19);
+				tripLabel1 = list1.join("\r");
+				tripLabel2 = list2.join("\r");
+trace(tripLabel2);
+			}
 		//欠勤書き換え
-			absenceLabel = absenceList.length > 0 ? absenceList.join("\r") : "";
+trace("absence", absenceList.length, absenceList);
+			if(absenceList.length == 0)
+			{
+				absenceLabel1 = "";
+				absenceLabel2 = "";
+			}
+			else if(absenceList.length <= 10)
+			{
+				absenceLabel1 = absenceList.join("\r");
+				absenceLabel2 = "";
+			}
+			else if(absenceList.length <= 20)
+			{
+				list1 = absenceList.slice(0, 9);
+				list2 = absenceList.slice(10, -1);
+				absenceLabel1 = list1.join("\r");
+				absenceLabel2 = list2.join("\r");
+			}
+			else
+			{
+				list1 = absenceList.slice(0, 9);
+				list2 = absenceList.slice(10, 19);
+				absenceLabel1 = list1.join("\r");
+				absenceLabel2 = list2.join("\r");
+trace(list2);
+			}
 		}
 	}
 }

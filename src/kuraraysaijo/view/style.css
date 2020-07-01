@@ -199,6 +199,55 @@ s|Label.time {
 	paddingBottom: 20;
 	paddingLeft: 20;
 }
+.WBGTlv0 {
+	fontSize: 64;
+	color: #000000;
+}
+.WBGTlv1 {
+	fontSize: 64;
+	color: #000000;
+}
+.WBGTlv2 {
+	fontSize: 64;
+	color: #000000;
+}
+.WBGTlv3 {
+	fontSize: 64;
+	color: #000000;
+}
+.WBGTlv4 {
+	fontSize: 64;
+	color: #FFFFFF;
+}
+.anemometerlv0 {
+	fontSize: 64;
+	color: #000000;
+}
+.anemometerlv1 {
+	fontSize: 64;
+	color: #000000;
+}
+.anemometerlv2 {
+	fontSize: 52;
+	color: #000000;
+}
+.anemometerlv3 {
+	fontSize: 52;
+	color: #000000;
+}
+.anemometerlv4 {
+	fontSize: 52;
+	color: #EE0000;
+}
+.anemometerlv5 {
+	fontSize: 64;
+	color: #FFFFFF;
+}
+.anemometerlv6 {
+	fontSize: 52;
+	color: #EEEE00;
+}
+
 #settingsKuraraySaijoContainer s|TextArea {
 	color: #111111;
 	fontSize: 44;
@@ -209,7 +258,6 @@ s|Label.time {
 	color: #ff0000;
 	fontSize: 40;
 }
-
 /************************
 emergency
 ************************/

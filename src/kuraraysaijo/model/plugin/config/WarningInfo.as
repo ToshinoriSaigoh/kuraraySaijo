@@ -2,9 +2,15 @@ package kuraraysaijo.model.plugin.config
 {
 	public class WarningInfo
 	{
+		[Bindable]
 		public var id: String;
+		[Bindable]
 		public var label: String;
-		public var color: uint;
+		[Bindable]
+		public var fontSize: String;
+		[Bindable]
+		public var color: String;
+		[Bindable]
 		public var backgroundColor: uint;
 		public var conditions: Array;
 		public function WarningInfo()
@@ -16,8 +22,9 @@ package kuraraysaijo.model.plugin.config
 		{
 			id = null;
 			label = "";
-			color = 0x000000;
-			backgroundColor = 0x000000;
+			fontSize = "";
+			color = "";
+			backgroundColor = 0xFFFFFF;
 			conditions = [];
 		}
 
@@ -31,7 +38,8 @@ package kuraraysaijo.model.plugin.config
 			{
 				id = xml.@id;
 				if(xml.label.length() > 0) label = xml.label[0].toString();
-				if(xml.color.length() > 0) color = uint(xml.color[0].toString());
+				if(xml.fontSize.length() > 0) fontSize = xml.fontSize[0].toString();
+				if(xml.color.length() > 0) color = xml.color[0].toString();
 				if(xml.backgroundColor.length() > 0) backgroundColor = uint(xml.backgroundColor[0].toString());
 				if(xml.conditions.item.length() > 0)
 				{
