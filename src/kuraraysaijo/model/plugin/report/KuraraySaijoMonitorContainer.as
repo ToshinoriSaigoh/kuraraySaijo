@@ -729,61 +729,58 @@ package kuraraysaijo.model.plugin.report
 			var param: Object = PostBox.get("PB_person");
 			var tripList: Array = param.data[0];
 			var absenceList: Array = param.data[1];
-			var list1: Array;
-			var list2: Array;
 		//出張書き換え
-trace("trip", tripList.length, tripList);
-			if(tripList.length == 0)
+			if(tripList.length > 0)
+			{
+				_splitList(tripList, "trip");
+			}
+			else 
 			{
 				tripLabel1 = "";
 				tripLabel2 = "";
 			}
-			else if(tripList.length <= 10)
-			{
-				tripLabel1 = tripList.join("\r");
-				tripLabel2 = "";
-			}
-			else if(tripList.length <= 20)
-			{
-				list1 = tripList.slice(0, 9);
-				list2 = tripList.slice(10, -1);
-				tripLabel1 = list1.join("\r");
-				tripLabel2 = list2.join("\r");
-			}
-			else
-			{
-				list1 = tripList.slice(0, 10);
-				list2 = tripList.slice(10, 19);
-				tripLabel1 = list1.join("\r");
-				tripLabel2 = list2.join("\r");
-trace(tripLabel2);
-			}
 		//欠勤書き換え
-trace("absence", absenceList.length, absenceList);
-			if(absenceList.length == 0)
+			if(absenceList.length > 0)
+			{
+				_splitList(absenceList, "absence");
+			}
+			else 
 			{
 				absenceLabel1 = "";
 				absenceLabel2 = "";
 			}
-			else if(absenceList.length <= 10)
+
+		}
+		private function _splitList(list: Array, targetname: String): void
+		{
+			var list1: Array = [];
+			var list2: Array = [];
+			var i: uint;
+			for(i = 0; i < list.length; i++)
 			{
-				absenceLabel1 = absenceList.join("\r");
-				absenceLabel2 = "";
+				if(i < 10)
+				{
+					list1.push(list[i]);
+				}
+				else if(i < 20)
+				{
+					list2.push(list[i]);
+				}
+				else
+				{
+					break;
+				}
 			}
-			else if(absenceList.length <= 20)
+			switch(targetname)
 			{
-				list1 = absenceList.slice(0, 9);
-				list2 = absenceList.slice(10, -1);
-				absenceLabel1 = list1.join("\r");
-				absenceLabel2 = list2.join("\r");
-			}
-			else
-			{
-				list1 = absenceList.slice(0, 9);
-				list2 = absenceList.slice(10, 19);
-				absenceLabel1 = list1.join("\r");
-				absenceLabel2 = list2.join("\r");
-trace(list2);
+				case "trip":
+					tripLabel1 = list1.join("\r");
+					tripLabel2 = list2.join("\r");
+					break;
+				case "absence":
+					absenceLabel1 = list1.join("\r");
+					absenceLabel2 = list2.join("\r");
+					break;
 			}
 		}
 	}
