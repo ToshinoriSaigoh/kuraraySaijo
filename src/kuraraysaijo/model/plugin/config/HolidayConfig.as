@@ -21,25 +21,12 @@ package kuraraysaijo.model.plugin.config
 				var targetElement: XML = Config.configTree.holiday[0];
 				if(targetElement == null)
 				{
-trace("is NULL");
 					Config.configTree.appendChild(_config.data);
 				}
 				else
 				{
 					Config.configTree.replace("holiday", _config.data);
-trace("not NULL");
 				}
-/*
-				else
-				{
-trace("not NULL");
-					var branch: XML = Config.configTree;
-					branch.replace("holiday", _config.data);
-				}
-trace("■DateTypeConfig.save()");
-trace(Config.configTree);
-*/
-
 			}
 		}
 	}

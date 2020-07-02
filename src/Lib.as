@@ -173,7 +173,6 @@ package
 		{
 			var svgContainer: Sprite = new Sprite();
 			var sprite: Sprite = SVGUtils.loadSVG(Svg);
-trace("#Lib.svg.width", sprite.width);
 			sprite = fittingSprite(target, sprite);
 			target.addChild(sprite);
 			target.mouseChildren = false;

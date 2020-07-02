@@ -17,6 +17,16 @@ package kuraraysaijo.model.plugin.config
 			{
 				_config.importCSVFile(csvFile);
 				_config.save();
+
+				var targetElement: XML = Config.configTree.schedule[0];
+				if(targetElement == null)
+				{
+					Config.configTree.appendChild(_config.data);
+				}
+				else
+				{
+					Config.configTree.replace("schedule", _config.data);
+				}
 			}
 		}
 	}

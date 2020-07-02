@@ -123,7 +123,17 @@ package kuraraysaijo.model.plugin.config
 					data.appendChild(<person id={bizCode} num={num} name={name} title={bizTitle} />);
 				}
 			}
-			Config.configTree.setChildren(_data);
+
+			var targetElement: XML = Config.configTree.persons[0];
+			if(targetElement == null)
+			{
+				Config.configTree.appendChild(_data);
+			}
+			else
+			{
+				Config.configTree.replace("persons", _data);
+			}
+
 			PostBox.send("personCtrl", {command:"request"});
 		}
 		public function padLeft(value: String, padChar: String, length: uint):String {

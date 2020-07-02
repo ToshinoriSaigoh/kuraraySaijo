@@ -605,7 +605,6 @@ package kuraraysaijo.model.plugin.report
 		//スケジュール取り込みボタン処理
 		private function _insertScheduleBtnClickHandler(evt: MouseEvent): void
 		{
-trace("■取り込むボタン");
 			_insertSchecule();
 		}
 
@@ -627,7 +626,6 @@ trace("■取り込むボタン");
 			targetNextDay += "/";
 			targetNextDay += PaddingUtils.zeroPadding(nextWorkDay.getDate(), 2);
 			var schedule: XML = Config.configTree.schedule[0];
-trace(schedule);
 			var textSchedule: String = null;
 			var textNextschedule: String = null;
 			if(schedule != null)

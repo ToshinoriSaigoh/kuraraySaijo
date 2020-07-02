@@ -22,6 +22,8 @@ package kuraraysaijo.controller.documentroot.reportscreen
 
 	public class DrawContents extends controller.documentroot.reportscreen.DrawContents
 	{
+		private var _openedFlag: Boolean = false;//レポートが開かれている場合にafterのLoadでエラーになるため回避
+
 		public function DrawContents()
 		{
 			super();
@@ -146,9 +148,11 @@ package kuraraysaijo.controller.documentroot.reportscreen
 		//レポートディレクトリ（解凍したレポートデータ.zip）からレポートを開く
 		override public function GW_openReport(): void
 		{
+			_openedFlag = false;
 			var param: Object = PostBox.get("GW_openReport");
 			if(hasOwnReport(param.xml.@name))
 			{
+				_openedFlag = true;
 				//同名のレポートがあったときの処理
 				//レポートを初期化する
 				trace("#GW_openReport　true [すでに開かれているレポート]", param.xml.@name);
@@ -170,14 +174,21 @@ package kuraraysaijo.controller.documentroot.reportscreen
 		override public function PB_openReport_after(): void
 		{
 			var param: Object = PostBox.get("PB_openReport_after");
-			Load.loadDB(Report.reportMap[param.xml.@name]);
-			if(Report.reportMap[param.xml.@name].reportType == "calendar")
+			if(_openedFlag)
 			{
-				_openTodayReport();
+					PostBox.send("changeReport", {report: param.xml.@name});
 			}
 			else
 			{
-				PostBox.send("changeReport", {report: param.xml.@name});
+				Load.loadDB(Report.reportMap[param.xml.@name]);
+				if(Report.reportMap[param.xml.@name].reportType == "calendar")
+				{
+					_openTodayReport();
+				}
+				else
+				{
+					PostBox.send("changeReport", {report: param.xml.@name});
+				}
 			}
 		}
 

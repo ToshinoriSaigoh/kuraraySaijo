@@ -63,10 +63,10 @@
 		<kuraraysaijo.model.plugin.report.monitorcontainer:AnemometerAlert id="anemometerAlert" width="160" height="160" x="688" y="1910"/>
 
 
-		<s:Label id="tripLabel1" styleName="personList" text="{ctrlr.tripLabel1}" width="360" height="764" x="902" y="528" visible="true" visible.edit="false"/><!-- 出張 -->
-		<s:Label id="tripLabel2" styleName="personList" text="{ctrlr.tripLabel2}" width="360" height="764" x="1262" y="528" visible="true" visible.edit="false"/><!-- 出張 -->
-		<s:Label id="absenceLabel1" styleName="personList" text="{ctrlr.absenceLabel1}" width="360" height="764" x="1638" y="528" visible="true" visible.edit="false"/><!-- 欠勤 -->
-		<s:Label id="absenceLabel2" styleName="personList" text="{ctrlr.absenceLabel2}" width="360" height="764" x="1998" y="528" visible="true" visible.edit="false"/><!-- 欠勤 -->
+		<s:Label id="tripLabel1" styleName="personList" text="{ctrlr.tripLabel1}" width="360" height="764" x="902" y="528" visible="true"/><!-- 出張 -->
+		<s:Label id="tripLabel2" styleName="personList" text="{ctrlr.tripLabel2}" width="360" height="764" x="1262" y="528" visible="true"/><!-- 出張 -->
+		<s:Label id="absenceLabel1" styleName="personList" text="{ctrlr.absenceLabel1}" width="360" height="764" x="1638" y="528" visible="true"/><!-- 欠勤 -->
+		<s:Label id="absenceLabel2" styleName="personList" text="{ctrlr.absenceLabel2}" width="360" height="764" x="1998" y="528" visible="true"/><!-- 欠勤 -->
 
 
 		<s:Label id="scheduleHead" styleName="head" text="{ctrlr.scheduleHead}" width="930" height="80" x="912" y="1330"/><!-- 今日 -->
