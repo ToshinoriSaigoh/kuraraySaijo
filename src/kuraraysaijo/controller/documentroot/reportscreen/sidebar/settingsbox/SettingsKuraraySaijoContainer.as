@@ -139,7 +139,14 @@ package kuraraysaijo.controller.documentroot.reportscreen.sidebar.settingsbox
 		//保存ボタン処理
 		private function _importScheduleBtnClickHandler(evt: MouseEvent): void
 		{
-			_selectFile(ScheduleConfig.importCSVFile);
+			//_selectFile(ScheduleConfig.importCSVFile);
+
+			_selectFile(__selectedScheduleFile);
+			function __selectedScheduleFile(file: File): void
+			{
+				ScheduleConfig.importCSVFile(file);
+				PostBox.send("refreshSettings");
+			}
 		}
 
 		//保存ボタン処理

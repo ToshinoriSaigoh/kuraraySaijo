@@ -30,6 +30,7 @@ package kuraraysaijo.model.plugin.report
 				<schedule/>
 				<nextschedule/>
 				<message/>
+				<trainer>trainer test</trainer>
 			</report>;
 			super(parent, reportID, dataElement, "kuraraysaijo", null);
 		}

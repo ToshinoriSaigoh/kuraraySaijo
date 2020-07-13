@@ -74,6 +74,9 @@ package kuraraysaijo.model.plugin.report
 		[Bindable]
 		public var patrol22: String;//パトロール
 
+		[Bindable]
+		public var trainerLabel: String;//教育表示
+
 		//テキストエリア
 		[Bindable]
 		public var absenceLabel1: String;//欠勤
@@ -264,9 +267,9 @@ package kuraraysaijo.model.plugin.report
 			//_setElectricPerson();
 			mxml.insertSchedule.addEventListener(MouseEvent.CLICK, _insertScheduleBtnClickHandler);
 
-			mxml.MeetingRoomLamp1.label.text = "会議室１";
-			mxml.MeetingRoomLamp2.label.text = "会議室２";
-			mxml.MeetingRoomLamp3.label.text = "会議室３";
+			mxml.MeetingRoomLamp1.label.text = "第1会議室";
+			mxml.MeetingRoomLamp2.label.text = "第2会議室";
+			mxml.MeetingRoomLamp3.label.text = "第3会議室";
 			mxml.MeetingRoomLamp4.label.text = "面談室１";
 			mxml.MeetingRoomLamp5.label.text = "面談室２";
 			mxml.MeetingRoomLamp1.currentState = "empty";
@@ -297,11 +300,17 @@ package kuraraysaijo.model.plugin.report
 		{
 			_insertSchecule();
 			_setMessageBoard();
+			_setTrainer();
 		}
 		private function _setMessageBoard(): void
 		{
 			messageLabel = Config.get("config", "report", "message");
 			_setTextValue("message", messageLabel);
+		}
+		private function _setTrainer(): void
+		{
+			trainerLabel = Config.get("config", "report", "trainer");
+			_setTextValue("trainer", trainerLabel);
 		}
 
 		public function PB_changeTool(): void
@@ -331,11 +340,13 @@ package kuraraysaijo.model.plugin.report
 				mxml.schedule.text = scheduleLabel;
 				mxml.nextschedule.text = nextscheduleLabel;
 				mxml.message.text = messageLabel;
+				mxml.trainerInput.text = trainerLabel;
 				//mxml.absence.addEventListener(FocusEvent.FOCUS_OUT, _changeAbsenceHandler);
 				//mxml.trip.addEventListener(FocusEvent.FOCUS_OUT, _changeTripHandler);
 				mxml.schedule.addEventListener(FocusEvent.FOCUS_OUT, _changeScheduleHandler);
 				mxml.nextschedule.addEventListener(FocusEvent.FOCUS_OUT, _changeNextscheduleHandler);
 				mxml.message.addEventListener(FocusEvent.FOCUS_OUT, _changeMessageHandler);
+				mxml.trainerInput.addEventListener(FocusEvent.FOCUS_OUT, _changeTrainerHandler);
 			}
 		}
 
@@ -349,6 +360,7 @@ package kuraraysaijo.model.plugin.report
 				mxml.schedule.removeEventListener(FocusEvent.FOCUS_OUT, _changeScheduleHandler);
 				mxml.nextschedule.removeEventListener(FocusEvent.FOCUS_OUT, _changeNextscheduleHandler);
 				mxml.message.removeEventListener(FocusEvent.FOCUS_OUT, _changeMessageHandler);
+				mxml.trainerInput.removeEventListener(FocusEvent.FOCUS_OUT, _changeTrainerHandler);
 				_setTextLabel();
 			}
 		}
@@ -561,7 +573,13 @@ package kuraraysaijo.model.plugin.report
 		//連絡事項書き換え
 		private function _changeMessageHandler(evt: FocusEvent): void
 		{
+			Config.set("report", "message", evt.target.text);
 			_setTextValue("message", evt.target.text);
+		}
+		//教育書き換え
+		private function _changeTrainerHandler(evt: FocusEvent): void
+		{
+			_setTextValue("trainer", evt.target.text);
 		}
 
 		//データツリーに値をセット
@@ -596,9 +614,11 @@ package kuraraysaijo.model.plugin.report
 			scheduleLabel = mxml.parent.parent.parent.parent.owner.ctrlr.myDataElement.elements("schedule")[0].toString();//KuraraySaijoReport.schedule
 			nextscheduleLabel = mxml.parent.parent.parent.parent.owner.ctrlr.myDataElement.elements("nextschedule")[0].toString();//KuraraySaijoReport.nextschedule
 			messageLabel = mxml.parent.parent.parent.parent.owner.ctrlr.myDataElement.elements("message")[0].toString();//KuraraySaijoReport.message
+			trainerLabel = mxml.parent.parent.parent.parent.owner.ctrlr.myDataElement.elements("trainer")[0].toString();//KuraraySaijoReport.trainer
 
 			//config.xmlに連絡事項を保存
 			Config.set("config", "report", "message", messageLabel);
+			Config.set("config", "report", "trainer", trainerLabel);
 			Config.saveConfigXML(Config.configTree.config[0], "config.xml");
 		}
 
@@ -655,6 +675,7 @@ package kuraraysaijo.model.plugin.report
 			_setDuty("exercise");
 			_setDuty("dust");
 			_setDuty("patrol");
+			_insertSchecule();
 			//_setNoAccidentAllValue();
 			//_setNoAccidentDeptValue();
 		}
@@ -675,11 +696,12 @@ package kuraraysaijo.model.plugin.report
 			var Xi: Number = 0.14775;
 			var YXi: Number = -0.003665;
 			var wbgt: Number = Yi * temperature + Xi * humidity + YXi * temperature * humidity;
+			//WBGT = 温度 *0.90739 + 湿度 * 0.14775 + 温度 * 湿度 -0.003665
 
-			thermometerOutDoor = _formatedNumber(temperature, 0);
+			thermometerOutDoor = _formatedNumber(temperature, 1);
 			hygrometerOutDoor = _formatedNumber(humidity, 1);
-			WBGTOutDoor = _formatedNumber(wbgt, 0);
-			anemometer = _formatedNumber(windSpeed, 0);
+			WBGTOutDoor = _formatedNumber(wbgt, 1);
+			anemometer = _formatedNumber(windSpeed, 1);
 
 			noAccidentAll = param.data.recordAll;
 			noAccidentDept = param.data.recordDept;
@@ -754,6 +776,7 @@ package kuraraysaijo.model.plugin.report
 			{
 				tripLabel1 = "";
 				tripLabel2 = "";
+				mxml.tripOtherIcon.currentState = "off";
 			}
 		//欠勤書き換え
 			if(absenceList.length > 0)
@@ -764,6 +787,7 @@ package kuraraysaijo.model.plugin.report
 			{
 				absenceLabel1 = "";
 				absenceLabel2 = "";
+				mxml.absenceOtherIcon.currentState = "off";
 			}
 
 		}
@@ -792,10 +816,26 @@ package kuraraysaijo.model.plugin.report
 				case "trip":
 					tripLabel1 = list1.join("\r");
 					tripLabel2 = list2.join("\r");
+					if(list.length > 20)
+					{
+						mxml.tripOtherIcon.currentState = "on";
+					}
+					else
+					{
+						mxml.tripOtherIcon.currentState = "off";
+					}
 					break;
 				case "absence":
 					absenceLabel1 = list1.join("\r");
 					absenceLabel2 = list2.join("\r");
+					if(list.length > 20)
+					{
+						mxml.absenceOtherIcon.currentState = "on";
+					}
+					else
+					{
+						mxml.absenceOtherIcon.currentState = "off";
+					}
 					break;
 			}
 		}
