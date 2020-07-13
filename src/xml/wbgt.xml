@@ -4,7 +4,7 @@
 			<label>安全</label>
 			<fontSize>64</fontSize>
 			<color>#000000</color>
-			<backgroundColor>0x99CCFF</backgroundColor>
+			<backgroundColor>0x00b0f0</backgroundColor>
 			<conditions>
 				<item type="lessThan">21.0</item>
 			</conditions>
@@ -13,7 +13,7 @@
 			<label>注意</label>
 			<fontSize>64</fontSize>
 			<color>#000000</color>
-			<backgroundColor>0x66AAFF</backgroundColor>
+			<backgroundColor>0x0070c0</backgroundColor>
 			<conditions>
 				<item type="orMore">21.0</item>
 				<item type="lessThan">25.0</item>
@@ -23,7 +23,7 @@
 			<label>警戒</label>
 			<fontSize>64</fontSize>
 			<color>#000000</color>
-			<backgroundColor>0xEEEE00</backgroundColor>
+			<backgroundColor>0xffff00</backgroundColor>
 			<conditions>
 				<item type="orMore">25.0</item>
 				<item type="lessThan">28.0</item>
@@ -34,7 +34,7 @@
 警戒</label>
 			<fontSize>64</fontSize>
 			<color>#000000</color>
-			<backgroundColor>0xEEAA00</backgroundColor>
+			<backgroundColor>0xffc000</backgroundColor>
 			<conditions>
 				<item type="orMore">28.0</item>
 				<item type="lessThan">31.0</item>
@@ -44,7 +44,7 @@
 			<label>危険</label>
 			<fontSize>64</fontSize>
 			<color>#FFFFFF</color>
-			<backgroundColor>0xEE0000</backgroundColor>
+			<backgroundColor>0xff0000</backgroundColor>
 			<conditions>
 				<item type="orMore">31.0</item>
 			</conditions>

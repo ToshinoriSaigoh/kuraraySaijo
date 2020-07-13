@@ -22,5 +22,11 @@ package kuraraysaijo.model.plugin.config
 			if(_config != null) return _config.getWarning(value);
 			return null;
 		}
+		//警告LVで警告情報取得
+		public static function getWarningByLv(value: Number): WarningInfo
+		{
+			if(_config != null) return _config.getWarningByLv(value);
+			return null;
+		}
 	}
 }

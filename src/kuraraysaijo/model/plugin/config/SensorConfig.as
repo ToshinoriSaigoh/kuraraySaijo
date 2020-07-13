@@ -116,5 +116,27 @@ package kuraraysaijo.model.plugin.config
 			}
 			return info;
 		}
+
+		//警告レベル指定で情報取得
+		public function getWarningByLv(value: Number): WarningInfo
+		{
+			var info: WarningInfo;
+			var tmp: WarningInfo;
+			var i:int;
+			for(i = 0; i < _warningList.length; i++)
+			{
+				tmp = _warningList[i] as WarningInfo;
+				if(tmp != null)
+				{
+					if(tmp.id == String(value))
+					{
+						info = tmp;
+						trace("***********", value, info.id, info.label, info.backgroundColor);
+						break;
+					}
+				}
+			}
+			return info;
+		}
 	}
 }

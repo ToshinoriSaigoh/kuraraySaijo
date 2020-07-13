@@ -4,7 +4,7 @@
 			<label>静穏</label>
 			<fontSize>64</fontSize>
 			<color>#000000</color>
-			<backgroundColor>0x99CCFF</backgroundColor>
+			<backgroundColor>0x00b0f0</backgroundColor>
 			<conditions>
 				<item type="lessThan">0.3</item>
 			</conditions>
@@ -13,7 +13,7 @@
 			<label>弱風</label>
 			<fontSize>64</fontSize>
 			<color>#000000</color>
-			<backgroundColor>0x66AAFF</backgroundColor>
+			<backgroundColor>0x0070c0</backgroundColor>
 			<conditions>
 				<item type="orMore">0.3</item>
 				<item type="lessThan">10.0</item>
@@ -23,7 +23,7 @@
 			<label>やや強い風</label>
 			<fontSize>48</fontSize>
 			<color>#000000</color>
-			<backgroundColor>0xEEEE00</backgroundColor>
+			<backgroundColor>0xffff00</backgroundColor>
 			<conditions>
 				<item type="orMore">10.0</item>
 				<item type="lessThan">15.0</item>
@@ -33,7 +33,7 @@
 			<label>強い風</label>
 			<fontSize>48</fontSize>
 			<color>#000000</color>
-			<backgroundColor>0xEEAA00</backgroundColor>
+			<backgroundColor>0xffc000</backgroundColor>
 			<conditions>
 				<item type="orMore">15.0</item>
 				<item type="lessThan">20.0</item>
@@ -43,7 +43,7 @@
 			<label>非常に強い風</label>
 			<fontSize>48</fontSize>
 			<color>#EE0000</color>
-			<backgroundColor>0xEEAA00</backgroundColor>
+			<backgroundColor>0xffc000</backgroundColor>
 			<conditions>
 				<item type="orMore">20.0</item>
 				<item type="lessThan">25.0</item>
@@ -53,7 +53,7 @@
 			<label>暴風</label>
 			<fontSize>64</fontSize>
 			<color>#FFFFFF</color>
-			<backgroundColor>0xEE0000</backgroundColor>
+			<backgroundColor>0xff0000</backgroundColor>
 			<conditions>
 				<item type="orMore">25.0</item>
 				<item type="lessThan">30.0</item>
@@ -63,7 +63,7 @@
 			<label>猛烈な風</label>
 			<fontSize>48</fontSize>
 			<color>#EEEE00</color>
-			<backgroundColor>0xEE0000</backgroundColor>
+			<backgroundColor>0xff0000</backgroundColor>
 			<conditions>
 				<item type="orMore">30.0</item>
 			</conditions>

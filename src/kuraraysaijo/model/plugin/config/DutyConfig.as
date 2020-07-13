@@ -189,6 +189,8 @@ package kuraraysaijo.model.plugin.config
 			var date: String;
 			var patrol1: String;
 			var patrol2: String;
+			var patrol3: String;
+			var patrol4: String;
 			var electric: String;
 			var tmpList: Array = [];
 			var tmpData: Object = {};
@@ -201,13 +203,15 @@ package kuraraysaijo.model.plugin.config
 					date = _validate(row[0]);
 					patrol1 = row[1];
 					patrol2 = row[2];
+					patrol3 = row[3];
+					patrol4 = row[4];
 					if(date != null)
 					{
 						if(tmpData.hasOwnProperty(date) == false)
 						{
 							tmpList.push(date);
 						}
-						tmpData[date] = [patrol1, patrol2];
+						tmpData[date] = [patrol1, patrol2, patrol3, patrol4];
 					}
 				}
 			}
@@ -215,7 +219,7 @@ package kuraraysaijo.model.plugin.config
 			{
 				date = tmpList[i];
 				dayXML = _search(date);
-				node = <day id={date} patrol1={tmpData[date][0]} patrol2={tmpData[date][1]}/>;
+				node = <day id={date} patrol1={tmpData[date][0]} patrol2={tmpData[date][1]} patrol3={tmpData[date][2]} patrol4={tmpData[date][3]}/>;
 				if(dayXML == null)
 				{
 					_branchXML.appendChild(node);

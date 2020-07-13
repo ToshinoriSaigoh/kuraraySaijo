@@ -98,6 +98,8 @@ Dレジスタ, 列名, 名称, 備考
 					data.windSpeed = Number(row[12]);//風速
 					data.recordAll = Number(row[16]);//事業所無災害連続日数
 					data.recordDept = Number(row[17]);//設技部無災害連続日数
+					data.WBGTLv = Number(row[14]);
+					data.windLv = Number(row[15]);
 					PostBox.send("sensor", {data: data});
 					break;
 				}

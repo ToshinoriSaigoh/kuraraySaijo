@@ -267,9 +267,9 @@ package kuraraysaijo.model.plugin.report
 			//_setElectricPerson();
 			mxml.insertSchedule.addEventListener(MouseEvent.CLICK, _insertScheduleBtnClickHandler);
 
-			mxml.MeetingRoomLamp1.label.text = "第1会議室";
-			mxml.MeetingRoomLamp2.label.text = "第2会議室";
-			mxml.MeetingRoomLamp3.label.text = "第3会議室";
+			mxml.MeetingRoomLamp1.label.text = "第１会議室";
+			mxml.MeetingRoomLamp2.label.text = "第２会議室";
+			mxml.MeetingRoomLamp3.label.text = "第３会議室";
 			mxml.MeetingRoomLamp4.label.text = "面談室１";
 			mxml.MeetingRoomLamp5.label.text = "面談室２";
 			mxml.MeetingRoomLamp1.currentState = "empty";
@@ -370,22 +370,23 @@ package kuraraysaijo.model.plugin.report
 			var dutyList: Array;
 			var targetNode: XML = Config.configTree.duty.elements(type)[0];
 			if(targetNode == null) return;
+
 			switch(type)
 			{
 				case "morning":
-					dutyList = _setDutyTheDay(targetNode, new Date());
+					dutyList = _setDutyTheDay(targetNode, getLastSunday());
 					morningDesigning = dutyList[0] != null ? dutyList[0] : "";
 					morningPipe = dutyList[1] != null ? dutyList[1] : "";
 					morningElectric = dutyList[2] != null ? dutyList[2] : "";
 					break;
 				case "exercise":
-					dutyList = _setDutyTheDay(targetNode, new Date());
+					dutyList = _setDutyTheDay(targetNode, getLastSunday());
 					exerciseDesigning = dutyList[0] != null ? dutyList[0] : "";
 					exercisePipe = dutyList[1] != null ? dutyList[1] : "";
 					exerciseElectric = dutyList[2] != null ? dutyList[2] : "";
 					break;
 				case "dust":
-					dutyList = _setDutyDustTheDay(targetNode, new Date());
+					dutyList = _setDutyDustTheDay(targetNode, getLastSunday());
 					var design: Array = [dutyList[0], dutyList[1]];
 					var pipe: Array = [dutyList[2], dutyList[3]];
 					var electric: Array = [dutyList[4], dutyList[5]];
@@ -397,6 +398,13 @@ package kuraraysaijo.model.plugin.report
 					dust2Electric = electric[1] != null ? electric[1] : "";
 					break;
 				case "patrol":
+					dutyList = _setDutyPatrolThe2Day(targetNode, getLastSunday());
+					patrol11 = dutyList[0] != null ? dutyList[0] : "";
+					patrol12 = dutyList[1] != null ? dutyList[1] : "";
+					patrol21 = dutyList[2] != null ? dutyList[2] : "";
+					patrol22 = dutyList[3] != null ? dutyList[3] : "";
+
+					/*
 					var today: Date = new Date();
 					var todayDay: Number = today.day;
 					var tue: Date;
@@ -428,20 +436,25 @@ package kuraraysaijo.model.plugin.report
 							break;
 					}
 					var dutyList1: Array = _setDutyPatrolTheDay(targetNode, tue);
-					//patrol1Designing = dutyList1[0];
-					//patrol1Pipe = dutyList1[1];
-					//patrol1Electric = dutyList1[2];
 					patrol11 = dutyList1[0] != null ? dutyList1[0] : "";
 					patrol12 = dutyList1[1] != null ? dutyList1[1] : "";
 					var dutyList2: Array = _setDutyPatrolTheDay(targetNode, thu);
-					//patrol2Designing = dutyList2[0];
-					//patrol2Pipe = dutyList2[1];
-					//patrol2Electric = dutyList2[2];
 					patrol21 = dutyList2[0] != null ? dutyList2[0] : "";
 					patrol22 = dutyList2[1] != null ? dutyList2[1] : "";
+					*/
 					break;
 			}
+			function getLastSunday(): Date
+			{
+				var today: Date = new Date();
+				var todayDay: Number = today.day;//曜日
+				//日曜は今日より曜日番号分前
+				var sunday: Date = new Date(today.getFullYear(), today.getMonth(), today.getDate() - todayDay);
+				return sunday;
+			}
 		}
+
+		//dateで指定した日の当番を取得
 		private function _setDutyTheDay(xml: XML, date: Date): Array {
 			if(xml == null || date == null)
 			{
@@ -451,6 +464,7 @@ package kuraraysaijo.model.plugin.report
 			var node: XML = xml.day.(attribute("id") == day)[0];
 			return node == null ? [] : [node.@design[0], node.@pipe[0], node.@electric[0]];
 		}
+		//レポート当日のゴミ当番を取得
 		private function _setDutyDustTheDay(xml: XML, date: Date): Array {
 			if(xml == null || date == null)
 			{
@@ -460,6 +474,7 @@ package kuraraysaijo.model.plugin.report
 			var node: XML = xml.day.(attribute("id") == day)[0];
 			return node == null ? [] : [node.@design1[0], node.@design2[0], node.@pipe1[0], node.@pipe2[0], node.@electric1[0], node.@electric2[0]];
 		}
+		//火木取得//使用しない
 		private function _setDutyPatrolTheDay(xml: XML, date: Date): Array {
 			if(xml == null || date == null)
 			{
@@ -468,6 +483,15 @@ package kuraraysaijo.model.plugin.report
 			var day: String = Lib.getYMDString(date);
 			var node: XML = xml.day.(attribute("id") == day)[0];
 			return node == null ? [] : [node.@patrol1[0], node.@patrol2[0]];
+		}
+		private function _setDutyPatrolThe2Day(xml: XML, date: Date): Array {
+			if(xml == null || date == null)
+			{
+				return [];
+			}
+			var day: String = Lib.getYMDString(date);
+			var node: XML = xml.day.(attribute("id") == day)[0];
+			return node == null ? [] : [node.@patrol1[0], node.@patrol2[0], node.@patrol3[0], node.@patrol4[0]];
 		}
 /*
 		//設計担当者
@@ -691,6 +715,8 @@ package kuraraysaijo.model.plugin.report
 			var temperature: Number = param.data.temperature;
 			var humidity: Number = param.data.humidity;
 			var windSpeed: Number = param.data.windSpeed;
+			var windLv: Number = param.data.windLv;
+			var WBGTLv: Number = param.data.WBGTLv;
 
 			var Yi: Number = 0.90739;
 			var Xi: Number = 0.14775;
@@ -706,9 +732,10 @@ package kuraraysaijo.model.plugin.report
 			noAccidentAll = param.data.recordAll;
 			noAccidentDept = param.data.recordDept;
 			//WBGT
-			wbgtInfo = WBGTConfig.getWarning(wbgt);
+			wbgtInfo = WBGTConfig.getWarningByLv(WBGTLv);
 			if(wbgtInfo != null)
 			{
+trace("WBGTレベル", WBGTLv, wbgtInfo.id, wbgtInfo.backgroundColor);
 				//mxml.WBGTAlertOutDoor.currentState = "level" + wbgtInfo.id;
 				mxml.WBGTAlertOutDoor.label.styleName = "WBGTlv" + wbgtInfo.id;
 				mxml.WBGTAlertOutDoor.bg.color = wbgtInfo.backgroundColor;
@@ -724,9 +751,10 @@ package kuraraysaijo.model.plugin.report
 			}
 
 			//風速
-			anemometerInfo = AnemometerConfig.getWarning(windSpeed);
+			anemometerInfo = AnemometerConfig.getWarningByLv(windLv);
 			if(anemometerInfo != null)
 			{
+trace("風速レベル", windLv, anemometerInfo.id, anemometerInfo.backgroundColor);
 				//mxml.anemometerAlert.currentState = "level" + anemometerInfo.id;
 				mxml.anemometerAlert.label.styleName = "anemometerlv" + anemometerInfo.id;
 				mxml.anemometerAlert.bg.color = anemometerInfo.backgroundColor;
