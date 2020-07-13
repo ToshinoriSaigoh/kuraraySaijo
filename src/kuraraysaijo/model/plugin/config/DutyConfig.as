@@ -28,7 +28,7 @@ package kuraraysaijo.model.plugin.config
 			var tree: XML = Config.loadConfigXML(_fileName);
 			if(tree == null)
 			{
-				_data = <{_tagName}><morning/><exercise/><dust/><patrol/></{_tagName}>;
+				_data = <{_tagName}><morning/><exercise/><dust/><patrol/><trainer/></{_tagName}>;
 			}
 			else
 			{
@@ -54,6 +54,10 @@ package kuraraysaijo.model.plugin.config
 				else if(branch == "patrol")
 				{
 					_importCSVFilePatrol(csvFile);
+				}
+				else if(branch == "trainer")
+				{
+					_importCSVFileTrainer(csvFile);
 				}
 				else
 				{
@@ -191,7 +195,6 @@ package kuraraysaijo.model.plugin.config
 			var patrol2: String;
 			var patrol3: String;
 			var patrol4: String;
-			var electric: String;
 			var tmpList: Array = [];
 			var tmpData: Object = {};
 			var list: Array;
@@ -220,6 +223,53 @@ package kuraraysaijo.model.plugin.config
 				date = tmpList[i];
 				dayXML = _search(date);
 				node = <day id={date} patrol1={tmpData[date][0]} patrol2={tmpData[date][1]} patrol3={tmpData[date][2]} patrol4={tmpData[date][3]}/>;
+				if(dayXML == null)
+				{
+					_branchXML.appendChild(node);
+					dayXML = _search(date);
+				}
+				else
+				{
+					dayXML = node;//ノード置き換え
+				}
+			}
+		}
+		//教育CSV取り込み
+		private function _importCSVFileTrainer(csvFile: File): void
+		{
+			//System.useCodePage = true;
+			var csv: Array = _csvLoader.load(csvFile);
+			var i: uint;
+			var row: Array;
+			var dayXML: XML;
+			var node: XML;
+			var date: String;
+			var trainer: String;
+			var tmpList: Array = [];
+			var tmpData: Object = {};
+			var list: Array;
+			for(i = 0; i < csv.length; i++)
+			{
+				row = csv[i];
+				if(row.length >= 2 )
+				{
+					date = _validate(row[0]);
+					trainer = row[1];
+					if(date != null)
+					{
+						if(tmpData.hasOwnProperty(date) == false)
+						{
+							tmpList.push(date);
+						}
+						tmpData[date] = [trainer];
+					}
+				}
+			}
+			for(i = 0; i < tmpList.length; i++)
+			{
+				date = tmpList[i];
+				dayXML = _search(date);
+				node = <day id={date} trainer={tmpData[date][0]}/>;
 				if(dayXML == null)
 				{
 					_branchXML.appendChild(node);

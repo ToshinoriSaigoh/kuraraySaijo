@@ -52,6 +52,7 @@ package kuraraysaijo.controller.documentroot.reportscreen.sidebar.settingsbox
 			mxml.importExerciseBtn.addEventListener(MouseEvent.CLICK, _importExerciseBtnClickHandler);
 			mxml.importDustBtn.addEventListener(MouseEvent.CLICK, _importDustBtnClickHandler);
 			mxml.importPatrolBtn.addEventListener(MouseEvent.CLICK, _importPatrolBtnClickHandler);
+			mxml.importTrainerBtn.addEventListener(MouseEvent.CLICK, _importTrainerBtnClickHandler);
 			//勤怠管理.csv読込ボタン
 			mxml.importAttendanceBtn.addEventListener(MouseEvent.CLICK, _importAttendanceBtnClickHandler);
 
@@ -186,6 +187,17 @@ package kuraraysaijo.controller.documentroot.reportscreen.sidebar.settingsbox
 			function __selectedAttendanceFile(file: File): void
 			{
 				_dutyConfig.importCSVFile(file, "patrol");
+				PostBox.send("refreshSettings");
+			}
+		}
+
+		//教育csvボタン処理
+		private function _importTrainerBtnClickHandler(evt: MouseEvent): void
+		{
+			_selectFile(__selectedAttendanceFile);
+			function __selectedAttendanceFile(file: File): void
+			{
+				_dutyConfig.importCSVFile(file, "trainer");
 				PostBox.send("refreshSettings");
 			}
 		}

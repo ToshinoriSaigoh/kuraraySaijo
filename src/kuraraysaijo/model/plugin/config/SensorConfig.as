@@ -131,7 +131,6 @@ package kuraraysaijo.model.plugin.config
 					if(tmp.id == String(value))
 					{
 						info = tmp;
-						trace("***********", value, info.id, info.label, info.backgroundColor);
 						break;
 					}
 				}

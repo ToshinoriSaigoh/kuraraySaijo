@@ -262,6 +262,7 @@ package kuraraysaijo.model.plugin.report
 			_setDuty("exercise");
 			_setDuty("dust");
 			_setDuty("patrol");
+			_setDuty("trainer");
 			//_setDesigningPerson();
 			//_setPipePerson();
 			//_setElectricPerson();
@@ -300,19 +301,21 @@ package kuraraysaijo.model.plugin.report
 		{
 			_insertSchecule();
 			_setMessageBoard();
-			_setTrainer();
+			//_setTrainer();
 		}
 		private function _setMessageBoard(): void
 		{
 			messageLabel = Config.get("config", "report", "message");
 			_setTextValue("message", messageLabel);
 		}
+		//編集モードで教育を変更する場合//使用しない
+		/*
 		private function _setTrainer(): void
 		{
 			trainerLabel = Config.get("config", "report", "trainer");
 			_setTextValue("trainer", trainerLabel);
 		}
-
+		*/
 		public function PB_changeTool(): void
 		{
 			var param: Object = PostBox.get("PB_changeTool");
@@ -340,13 +343,14 @@ package kuraraysaijo.model.plugin.report
 				mxml.schedule.text = scheduleLabel;
 				mxml.nextschedule.text = nextscheduleLabel;
 				mxml.message.text = messageLabel;
-				mxml.trainerInput.text = trainerLabel;
 				//mxml.absence.addEventListener(FocusEvent.FOCUS_OUT, _changeAbsenceHandler);
 				//mxml.trip.addEventListener(FocusEvent.FOCUS_OUT, _changeTripHandler);
 				mxml.schedule.addEventListener(FocusEvent.FOCUS_OUT, _changeScheduleHandler);
 				mxml.nextschedule.addEventListener(FocusEvent.FOCUS_OUT, _changeNextscheduleHandler);
 				mxml.message.addEventListener(FocusEvent.FOCUS_OUT, _changeMessageHandler);
-				mxml.trainerInput.addEventListener(FocusEvent.FOCUS_OUT, _changeTrainerHandler);
+
+				//mxml.trainerInput.text = trainerLabel;//編集モードで教育を使用する場合//使用しない
+				//mxml.trainerInput.addEventListener(FocusEvent.FOCUS_OUT, _changeTrainerHandler);//編集モードで教育を使用する場合//使用しない
 			}
 		}
 
@@ -360,7 +364,7 @@ package kuraraysaijo.model.plugin.report
 				mxml.schedule.removeEventListener(FocusEvent.FOCUS_OUT, _changeScheduleHandler);
 				mxml.nextschedule.removeEventListener(FocusEvent.FOCUS_OUT, _changeNextscheduleHandler);
 				mxml.message.removeEventListener(FocusEvent.FOCUS_OUT, _changeMessageHandler);
-				mxml.trainerInput.removeEventListener(FocusEvent.FOCUS_OUT, _changeTrainerHandler);
+				//mxml.trainerInput.removeEventListener(FocusEvent.FOCUS_OUT, _changeTrainerHandler);//編集モードで教育を使用する場合//使用しない
 				_setTextLabel();
 			}
 		}
@@ -373,6 +377,10 @@ package kuraraysaijo.model.plugin.report
 
 			switch(type)
 			{
+				case "trainer":
+					dutyList = _setDutyTheDayOne(targetNode, new Date());
+					trainerLabel = dutyList[0] != null ? dutyList[0] : "";
+					break;
 				case "morning":
 					dutyList = _setDutyTheDay(targetNode, getLastSunday());
 					morningDesigning = dutyList[0] != null ? dutyList[0] : "";
@@ -454,7 +462,17 @@ package kuraraysaijo.model.plugin.report
 			}
 		}
 
-		//dateで指定した日の当番を取得
+		//dateで指定した日の当番を１名取得
+		private function _setDutyTheDayOne(xml: XML, date: Date): Array {
+			if(xml == null || date == null)
+			{
+				return [];
+			}
+			var day: String = Lib.getYMDString(date);
+			var node: XML = xml.day.(attribute("id") == day)[0];
+			return node == null ? [] : [node.@trainer[0]];
+		}
+		//dateで指定した日の当番を部署ごとに取得
 		private function _setDutyTheDay(xml: XML, date: Date): Array {
 			if(xml == null || date == null)
 			{
@@ -600,11 +618,13 @@ package kuraraysaijo.model.plugin.report
 			Config.set("report", "message", evt.target.text);
 			_setTextValue("message", evt.target.text);
 		}
-		//教育書き換え
+		//教育書き換え//編集モードで教育を使用する場合//使用しない
+		/*
 		private function _changeTrainerHandler(evt: FocusEvent): void
 		{
 			_setTextValue("trainer", evt.target.text);
 		}
+		*/
 
 		//データツリーに値をセット
 		private function _setTextValue(target: String, val: String): void
@@ -638,11 +658,11 @@ package kuraraysaijo.model.plugin.report
 			scheduleLabel = mxml.parent.parent.parent.parent.owner.ctrlr.myDataElement.elements("schedule")[0].toString();//KuraraySaijoReport.schedule
 			nextscheduleLabel = mxml.parent.parent.parent.parent.owner.ctrlr.myDataElement.elements("nextschedule")[0].toString();//KuraraySaijoReport.nextschedule
 			messageLabel = mxml.parent.parent.parent.parent.owner.ctrlr.myDataElement.elements("message")[0].toString();//KuraraySaijoReport.message
-			trainerLabel = mxml.parent.parent.parent.parent.owner.ctrlr.myDataElement.elements("trainer")[0].toString();//KuraraySaijoReport.trainer
+			//trainerLabel = mxml.parent.parent.parent.parent.owner.ctrlr.myDataElement.elements("trainer")[0].toString();//KuraraySaijoReport.trainer//編集モードで教育を使用する場合//使用しない
 
 			//config.xmlに連絡事項を保存
 			Config.set("config", "report", "message", messageLabel);
-			Config.set("config", "report", "trainer", trainerLabel);
+			//Config.set("config", "report", "trainer", trainerLabel);//編集モードで教育を使用する場合//使用しない
 			Config.saveConfigXML(Config.configTree.config[0], "config.xml");
 		}
 
@@ -735,7 +755,6 @@ package kuraraysaijo.model.plugin.report
 			wbgtInfo = WBGTConfig.getWarningByLv(WBGTLv);
 			if(wbgtInfo != null)
 			{
-trace("WBGTレベル", WBGTLv, wbgtInfo.id, wbgtInfo.backgroundColor);
 				//mxml.WBGTAlertOutDoor.currentState = "level" + wbgtInfo.id;
 				mxml.WBGTAlertOutDoor.label.styleName = "WBGTlv" + wbgtInfo.id;
 				mxml.WBGTAlertOutDoor.bg.color = wbgtInfo.backgroundColor;
@@ -754,7 +773,6 @@ trace("WBGTレベル", WBGTLv, wbgtInfo.id, wbgtInfo.backgroundColor);
 			anemometerInfo = AnemometerConfig.getWarningByLv(windLv);
 			if(anemometerInfo != null)
 			{
-trace("風速レベル", windLv, anemometerInfo.id, anemometerInfo.backgroundColor);
 				//mxml.anemometerAlert.currentState = "level" + anemometerInfo.id;
 				mxml.anemometerAlert.label.styleName = "anemometerlv" + anemometerInfo.id;
 				mxml.anemometerAlert.bg.color = anemometerInfo.backgroundColor;

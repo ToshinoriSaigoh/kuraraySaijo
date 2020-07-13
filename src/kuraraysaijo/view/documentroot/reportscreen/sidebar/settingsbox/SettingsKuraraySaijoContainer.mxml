@@ -32,6 +32,7 @@
 					<s:Button id="importExerciseBtn" label="体操当番インポート" name="importExerciseBtn" width="680" height="88" skinClass="view.utils.Skin_BtnText"/>
 					<s:Button id="importDustBtn" label="３Ｓ当番インポート" name="importDustBtn" width="680" height="88" skinClass="view.utils.Skin_BtnText"/>
 					<s:Button id="importPatrolBtn" label="パトロールインポート" name="importPatrolBtn" width="680" height="88" skinClass="view.utils.Skin_BtnText"/>
+					<s:Button id="importTrainerBtn" label="教育インポート" name="importTrainerBtn" width="680" height="88" skinClass="view.utils.Skin_BtnText"/>
 					<!--
 					<s:Button id="setBaseDateBtn" label="本日を基準日に設定する" name="importScheduleBtn" width="680" height="88" skinClass="view.utils.Skin_BtnText"/>
 					<s:HGroup gap="10">

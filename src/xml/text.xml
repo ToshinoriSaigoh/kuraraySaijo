@@ -18,6 +18,7 @@
 		<importExerciseBtn>体操.csvインポート</importExerciseBtn>
 		<importDustBtn>３Ｓ.csvインポート</importDustBtn>
 		<importPatrolBtn>パトロール.csvインポート</importPatrolBtn>
+		<importTrainerBtn>教育.csvインポート</importTrainerBtn>
 	</button>
 	<FileListBox>
 		<saveFileBtn>過去のレポート</saveFileBtn>
