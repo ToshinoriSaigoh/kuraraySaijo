@@ -18,7 +18,7 @@
 		</s:layout>
 		<s:Group id="header" left="0" width="100%">
 			<s:Label id="headerLabel" width="600" height="88" styleName="textMedium" verticalAlign="middle"/>
-			<s:Button id="closeBtn" name="closeBtn" top="4" right="12" skinClass="view.documentroot.reportscreen.sidebar.settingsbox.Skin_CloseBtn"/>
+			<s:Button id="closeBtn" name="closeBtn" top="4" right="12" width="88" height="88" skinClass="view.documentroot.reportscreen.sidebar.settingsbox.Skin_CloseBtn"/>
 		</s:Group>
 		<mx:ViewStack id="settingsViewStack" top="192" left="112" height="100%">
 			<kuraraysaijo.view.documentroot.reportscreen.sidebar.settingsbox:SettingsKuraraySaijoContainer id="settingsKuraraySaijoContainer" name="settingsKuraraySaijoContainer"/>

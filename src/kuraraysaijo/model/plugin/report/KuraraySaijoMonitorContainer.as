@@ -719,6 +719,7 @@ package kuraraysaijo.model.plugin.report
 			_setDuty("exercise");
 			_setDuty("dust");
 			_setDuty("patrol");
+			_setDuty("trainer");
 			_insertSchecule();
 			//_setNoAccidentAllValue();
 			//_setNoAccidentDeptValue();

@@ -21,18 +21,26 @@ package kuraraysaijo.controller.documentroot.reportscreen
 			//mxml.mainBtnViewStack.selectedIndex = 0;
 		}
 
+		public function MSG_closeSideBar(): void
+		{
+			_closeSidebar();
+		}
 		public function MSG_toggleSideBar(): void
 		{
 			if(mxml.visible)
 			{
-				mxml.visible = false;
-				App.mainStage.addEventListener(Event.ENTER_FRAME, _mouseEventHandler);
+				_closeSidebar();
 			}
 			else
 			{
 				mxml.visible = true;
 				App.mainStage.removeEventListener(Event.ENTER_FRAME, _mouseEventHandler);
 			}
+		}
+		private function _closeSidebar(): void
+		{
+			mxml.visible = false;
+			App.mainStage.addEventListener(Event.ENTER_FRAME, _mouseEventHandler);
 		}
 		private function _mouseEventHandler(e: Event): void
 		{
@@ -75,7 +83,14 @@ package kuraraysaijo.controller.documentroot.reportscreen
 				case "settings":
 				case "scrollTool":
 					PostBox.send("showPallet", {pallet: "timelinePallet", value: "hide"});
-					mxml.toolBoxContainer.selectedChild = mxml[param.tool];
+					if(mxml.toolBoxContainer.selectedChild == mxml[param.tool])
+					{
+						mxml.toolBoxContainer.selectedIndex = null;
+					}
+					else
+					{
+						mxml.toolBoxContainer.selectedChild = mxml[param.tool];
+					}
 					break;
 				case "hideTool":
 					PostBox.send("showPallet", {pallet: "timelinePallet", value: "hide"});
@@ -145,10 +160,12 @@ package kuraraysaijo.controller.documentroot.reportscreen
 			switch(Draw.activeReport.reportType)
 			{
 				case "calendar":
+					//mxml.calendarBtn.enabled = false;
 					mxml.changeModeBtn.enabled = false;
 					//PostBox.send("changeTool", {tool: "calendarTool"});
 					break;
 				default:
+					//mxml.calendarBtn.enabled = true;
 					mxml.changeModeBtn.enabled = true;
 					break;
 			}

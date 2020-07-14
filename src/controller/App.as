@@ -105,6 +105,7 @@ package controller
 				PostBox.send("meetingroomCtrl", {command:"start"});
 				PostBox.send("clockCtrl", {command:"start"});
 				PostBox.send("changeScreen", {screen: "reportScreen"});
+				PostBox.send("closeSideBar");
 			}
 		}
 		//アプリ終了時処理
@@ -195,7 +196,7 @@ package controller
 				//_disableEscapeKey();
 				//_setTouchPoint();
 				//_setKeepAwake();
-				////_setFullScreenSetting();
+				_setFullScreenSetting();
 			}
 		}
 		override protected function appClose(): void

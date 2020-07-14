@@ -23,9 +23,9 @@
 			<s:Button id="toggleSideBarBtn" label="toggleSideBarBtn" skinClass="kuraraysaijo.view.documentroot.reportscreen.sidebar.Skin_ToggleSideBarBtn"/>
 		</s:VGroup>
 		<s:VGroup id="mainToolGroup" width="100%" height="100%" horizontalAlign="center" verticalAlign="middle" gap="8">
-			<s:ToggleButton id="calendarBtn" label="calendarTool" skinClass="view.documentroot.reportscreen.sidebar.maintoolbox.Skin_CalendarBtn" width="88" height="88"/>
-			<s:ToggleButton id="changeModeBtn" label="changeMode" skinClass="kuraraysaijo.view.documentroot.reportscreen.sidebar.Skin_ChangeModeBtn"/>
-			<s:ToggleButton id="settingsBtn" label="settings" skinClass="view.documentroot.reportscreen.sidebar.maintoolbox.Skin_SettingsBtn" width="88" height="88"/>
+			<s:Button id="calendarBtn" label="calendarTool" skinClass="kuraraysaijo.view.documentroot.reportscreen.sidebar.Skin_CalendarBtn" width="88" height="88"/>
+			<s:Button id="changeModeBtn" label="changeMode" skinClass="kuraraysaijo.view.documentroot.reportscreen.sidebar.Skin_ChangeModeBtn"/>
+			<s:Button id="settingsBtn" label="settings" skinClass="kuraraysaijo.view.documentroot.reportscreen.sidebar.Skin_SettingsBtn" width="88" height="88"/>
 			<s:Button id="closeAppBtn" label="closeAppBtn" skinClass="kuraraysaijo.view.documentroot.reportscreen.sidebar.Skin_CloseAppBtn"/>
 		</s:VGroup>
 	</s:Group>

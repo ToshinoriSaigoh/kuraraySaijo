@@ -108,6 +108,11 @@
 			<receiver path="kuraraysaijo.controller.documentroot.reportscreen::SideBar"/>
 		</step>
 	</message>
+	<message name="closeSideBar" description="サイドバー閉">
+		<step type="MSG" message="MSG_closeSideBar">
+			<receiver path="kuraraysaijo.controller.documentroot.reportscreen::SideBar"/>
+		</step>
+	</message>
 	<!-- sidebar e -->
 
 	<!-- draw -->
@@ -346,7 +351,6 @@
 			<option>option</option>
 		</params>
 		<step type="PB" name="" message="PB_changeTool">
-			<receiver path="controller.documentroot.reportscreen.sidebar::MainToolBtn"/>
 			<receiver path="controller.documentroot.reportscreen.sidebar::EditToolBox"/>
 			<receiver path="controller.documentroot.reportscreen.sidebar::PenToolBox"/>
 			<receiver path="controller.documentroot.reportscreen.sidebar::TextToolBox"/>

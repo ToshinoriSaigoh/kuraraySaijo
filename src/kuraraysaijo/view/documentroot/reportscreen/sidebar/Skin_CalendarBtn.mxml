@@ -13,7 +13,7 @@
 	<![CDATA[
 		private function _init(): void
 		{
-			[Embed(source = "icon_pentool.svg", mimeType="application/octet-stream")]
+			[Embed(source = "icon_calendartool.svg", mimeType="application/octet-stream")]
 			var Svg: Class;
 			setSvg(Svg, "icon");
 		}

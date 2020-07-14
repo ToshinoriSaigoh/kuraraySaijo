@@ -16,7 +16,7 @@
 		<importAttendanceBtn>勤怠管理.csvインポート</importAttendanceBtn>
 		<importMorningBtn>朝礼.csvインポート</importMorningBtn>
 		<importExerciseBtn>体操.csvインポート</importExerciseBtn>
-		<importDustBtn>３Ｓ.csvインポート</importDustBtn>
+		<importDustBtn>５Ｓ.csvインポート</importDustBtn>
 		<importPatrolBtn>パトロール.csvインポート</importPatrolBtn>
 		<importTrainerBtn>教育.csvインポート</importTrainerBtn>
 	</button>
