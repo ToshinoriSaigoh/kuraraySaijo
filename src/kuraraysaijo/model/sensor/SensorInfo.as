@@ -96,6 +96,7 @@ Dレジスタ, 列名, 名称, 備考
 					data.humidity = Number(row[10]);//湿度
 					data.temperature = Number(row[11]);//温度
 					data.windSpeed = Number(row[12]);//風速
+					data.WBGT = Number(row[13]);//WBGT
 					data.recordAll = Number(row[16]);//事業所無災害連続日数
 					data.recordDept = Number(row[17]);//設技部無災害連続日数
 					data.WBGTLv = Number(row[14]);

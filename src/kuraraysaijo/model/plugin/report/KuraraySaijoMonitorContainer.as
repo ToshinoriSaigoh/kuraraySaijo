@@ -737,13 +737,16 @@ package kuraraysaijo.model.plugin.report
 			var humidity: Number = param.data.humidity;
 			var windSpeed: Number = param.data.windSpeed;
 			var windLv: Number = param.data.windLv;
-			var WBGTLv: Number = param.data.WBGTLv;
 
+			/*
 			var Yi: Number = 0.90739;
 			var Xi: Number = 0.14775;
 			var YXi: Number = -0.003665;
 			var wbgt: Number = Yi * temperature + Xi * humidity + YXi * temperature * humidity;
 			//WBGT = 温度 *0.90739 + 湿度 * 0.14775 + 温度 * 湿度 -0.003665
+			*/
+			var wbgt: Number = param.data.WBGT;
+			var WBGTLv: Number = param.data.WBGTLv;
 
 			thermometerOutDoor = _formatedNumber(temperature, 1);
 			hygrometerOutDoor = _formatedNumber(humidity, 1);
