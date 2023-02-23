@@ -147,6 +147,13 @@ s|Label.meter {
 	text-align: right;
 	padding-right: 20;
 }
+s|Label.eMeter {
+	color: #111111;
+	fontSize: 72;
+	vertical-align: middle;
+	text-align: right;
+	padding-right: 20;
+}
 s|Label.alertMeter {
 	fontSize: 108;
 	vertical-align: middle;

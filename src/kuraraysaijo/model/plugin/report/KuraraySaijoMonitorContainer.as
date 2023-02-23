@@ -66,13 +66,35 @@ package kuraraysaijo.model.plugin.report
 		*/
 		//パトロール
 		[Bindable]
-		public var patrol11: String;//パトロール
+		public var patrol1Designing: String;//パトロール
 		[Bindable]
-		public var patrol12: String;//パトロール
+		public var patrol2Designing: String;//パトロール
 		[Bindable]
-		public var patrol21: String;//パトロール
+		public var patrol3Designing: String;//パトロール
 		[Bindable]
-		public var patrol22: String;//パトロール
+		public var patrol4Designing: String;//パトロール
+		[Bindable]
+		public var patrol5Designing: String;//パトロール
+		[Bindable]
+		public var patrol1Pipe: String;//パトロール
+		[Bindable]
+		public var patrol2Pipe: String;//パトロール
+		[Bindable]
+		public var patrol3Pipe: String;//パトロール
+		[Bindable]
+		public var patrol4Pipe: String;//パトロール
+		[Bindable]
+		public var patrol5Pipe: String;//パトロール
+		[Bindable]
+		public var patrol1Electric: String;//パトロール
+		[Bindable]
+		public var patrol2Electric: String;//パトロール
+		[Bindable]
+		public var patrol3Electric: String;//パトロール
+		[Bindable]
+		public var patrol4Electric: String;//パトロール
+		[Bindable]
+		public var patrol5Electric: String;//パトロール
 
 		[Bindable]
 		public var trainerLabel: String;//教育表示
@@ -145,7 +167,7 @@ package kuraraysaijo.model.plugin.report
 		[Bindable]
 		public var anemometerAlertFontSize: String;
 */
-
+		//計器
 		[Bindable]
 		public var WBGTAlertOutDoor: String;
 		[Bindable]
@@ -155,6 +177,16 @@ package kuraraysaijo.model.plugin.report
 		public var anemometerAlert: String;//風速計テキスト
 		[Bindable]
 		public var anemometerAlertBg: Number;
+
+		//電力
+		[Bindable]
+		public var electricPowerNow: String;
+		[Bindable]
+		public var electricPowerThisMonth: String;
+		[Bindable]
+		public var electricPowerLastYear: String;
+		[Bindable]
+		public var electricPowerTwoYearsAgo: String;
 
 		//会議室
 		[Bindable]
@@ -385,19 +417,19 @@ package kuraraysaijo.model.plugin.report
 					dutyList = _setDutyTheDayOne(targetNode, new Date());
 					trainerLabel = dutyList[0] != null ? dutyList[0] : "";
 					break;
-				case "morning":
-					dutyList = _setDutyTheDay(targetNode, getLastSunday());
+				case "morning"://週替わり
+					dutyList = _setDutyTheDay(targetNode, getLastSunday());//日交代はnew Date()//週交代はgetLastSunday()
 					morningDesigning = dutyList[0] != null ? dutyList[0] : "";
 					morningPipe = dutyList[1] != null ? dutyList[1] : "";
 					morningElectric = dutyList[2] != null ? dutyList[2] : "";
 					break;
-				case "exercise":
-					dutyList = _setDutyTheDay(targetNode, getLastSunday());
+				case "exercise"://週替わり
+					dutyList = _setDutyTheDay(targetNode, getLastSunday());//日交代はnew Date()//週交代はgetLastSunday()
 					exerciseDesigning = dutyList[0] != null ? dutyList[0] : "";
 					exercisePipe = dutyList[1] != null ? dutyList[1] : "";
 					exerciseElectric = dutyList[2] != null ? dutyList[2] : "";
 					break;
-				case "dust":
+				case "dust"://週替わり
 					dutyList = _setDutyDustTheDay(targetNode, getLastSunday());
 					var design: Array = [dutyList[0], dutyList[1]];
 					var pipe: Array = [dutyList[2], dutyList[3]];
@@ -409,12 +441,33 @@ package kuraraysaijo.model.plugin.report
 					dust2Pipe = pipe[1] != null ? pipe[1] : "";
 					dust2Electric = electric[1] != null ? electric[1] : "";
 					break;
-				case "patrol":
-					dutyList = _setDutyPatrolThe2Day(targetNode, getLastSunday());
+				case "patrol"://日替わり
+					dutyList = _setDutyPatrolWeekDay(targetNode, getLastSunday());
+					var design: Array = [dutyList[0], dutyList[1]];
+					var pipe: Array = [dutyList[2], dutyList[3]];
+					var electric: Array = [dutyList[4], dutyList[5]];
+					patrol1Designing = design[0] != null ? design[0] : "";
+					patrol2Designing = design[1] != null ? design[1] : "";
+					patrol3Designing = design[2] != null ? design[2] : "";
+					patrol4Designing = design[3] != null ? design[3] : "";
+					patrol5Designing = design[4] != null ? design[4] : "";
+					patrol1Pipe = pipe[0] != null ? pipe[0] : "";
+					patrol2Pipe = pipe[1] != null ? pipe[1] : "";
+					patrol3Pipe = pipe[2] != null ? pipe[2] : "";
+					patrol4Pipe = pipe[3] != null ? pipe[3] : "";
+					patrol5Pipe = pipe[4] != null ? pipe[4] : "";
+					patrol1Electric = electric[0] != null ? electric[0] : "";
+					patrol2Electric = electric[1] != null ? electric[1] : "";
+					patrol3Electric = electric[2] != null ? electric[2] : "";
+					patrol4Electric = electric[3] != null ? electric[3] : "";
+					patrol5Electric = electric[4] != null ? electric[4] : "";
+
+					/*
 					patrol11 = dutyList[0] != null ? dutyList[0] : "";
 					patrol12 = dutyList[1] != null ? dutyList[1] : "";
 					patrol21 = dutyList[2] != null ? dutyList[2] : "";
 					patrol22 = dutyList[3] != null ? dutyList[3] : "";
+					*/
 
 					/*
 					var today: Date = new Date();
@@ -466,7 +519,7 @@ package kuraraysaijo.model.plugin.report
 			}
 		}
 
-		//dateで指定した日の当番を１名取得
+		//dateで指定した日の当番を１名取得//教育
 		private function _setDutyTheDayOne(xml: XML, date: Date): Array {
 			if(xml == null || date == null)
 			{
@@ -505,6 +558,24 @@ package kuraraysaijo.model.plugin.report
 			var day: String = Lib.getYMDString(date);
 			var node: XML = xml.day.(attribute("id") == day)[0];
 			return node == null ? [] : [node.@patrol1[0], node.@patrol2[0]];
+		}
+		//月曜～金曜取得
+		private function _setDutyPatrolWeekDay(xml: XML, date: Date): Array {
+			if(xml == null || date == null)
+			{
+				return [];
+			}
+			var i: int;
+			var weekday: Date;
+			var day: String;
+			var node: XML;
+			for(i = 0; i < 5; i++)
+			{
+				weekday = new Date(date.fullYear, date.month, date.date + i);
+				day = Lib.getYMDString(weekday);
+				node = xml.day.(attribute("id") == day)[0];
+			}
+			return node == null ? [] : [node.@design[0], node.@pipe[0], node.@electric[0]];
 		}
 		private function _setDutyPatrolThe2Day(xml: XML, date: Date): Array {
 			if(xml == null || date == null)
@@ -741,7 +812,15 @@ package kuraraysaijo.model.plugin.report
 			var humidity: Number = param.data.humidity;
 			var windSpeed: Number = param.data.windSpeed;
 			var windLv: Number = param.data.windLv;
-
+			//電力
+			var ePowerNow: Number = param.data.electricPowerNow;
+			var ePowerThisMonth: Number = param.data.electricPowerThisMonth;
+			var ePowerLastYear: Number = param.data.electricPowerLastYear;
+			var ePowerTwoYearsAgo: Number = param.data.electricPowerTwoYearsAgo;
+			electricPowerNow = _formatedNumber(ePowerNow, 1);
+			electricPowerThisMonth = _formatedNumber(ePowerThisMonth, 1);
+			electricPowerLastYear = _formatedNumber(ePowerLastYear, 1);
+			electricPowerTwoYearsAgo = _formatedNumber(ePowerTwoYearsAgo, 1);
 			/*
 			var Yi: Number = 0.90739;
 			var Xi: Number = 0.14775;

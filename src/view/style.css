@@ -62,8 +62,6 @@ s|Label {
 	fontWeight: normal;
 	color: #ffffff;
 	fontSize: 20;
-	contentBackgroundColor: #eeeeee;
-	backgroundColor: #eeeeee;/*#111133;*/
 }
 s|TextInput {
 	fontFamily: "Noto Sans Mono CJK JP Regular CFF";

@@ -103,6 +103,10 @@ Dレジスタ, 列名, 名称, 備考
 					data.recordAll = Number(row[16]);//事業所無災害連続日数
 					data.recordDept = Number(row[17]);//設技部無災害連続日数
 					data.workingNum = Number(row[18]);//在社人数
+					data.electricPowerNow = Number(row[19]);//現在電力
+					data.electricPowerThisMonth = Number(row[20]);//今月電力
+					data.electricPowerLastYear = Number(row[21]);//昨年同月電力
+					data.electricPowerTwoYearsAgo = Number(row[22]);//一昨年同月電力
 					PostBox.send("sensor", {data: data});
 					break;
 				}
