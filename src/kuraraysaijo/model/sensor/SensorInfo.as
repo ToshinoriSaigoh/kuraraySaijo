@@ -72,11 +72,12 @@ Dレジスタ, 列名, 名称, 備考
 172	[PLC]D00000172	湿度	サイネージ”湿度”に表示[10]
 173	[PLC]D00000173	温度	サイネージ”温度”に表示]11]
 174	[PLC]D00000174	風速	サイネージ”風速”に表示[12]
-175	[PLC]D00000175	予備	
+175	[PLC]D00004082	WBGT	[13]
 179	[PLC]D00000179	温度ﾚﾍﾞﾙ	
 180	[PLC]D00000180	風速ﾚﾍﾞﾙ	
 182	[PLC]D00000182	事業所無災害連続日数	サイネージ”事業所無災害連続日数”に表示[16]
 183	[PLC]D00000183	設技部無災害連続日数	サイネージ”設技部無災害連続日数”に表示[17]
+184	[PLC]D00000184	在社人数	サイネージ　在社人数表示に使用[18]
 */
 		private function _update(): void
 		{
@@ -97,10 +98,11 @@ Dレジスタ, 列名, 名称, 備考
 					data.temperature = Number(row[11]);//温度
 					data.windSpeed = Number(row[12]);//風速
 					data.WBGT = Number(row[13]);//WBGT
-					data.recordAll = Number(row[16]);//事業所無災害連続日数
-					data.recordDept = Number(row[17]);//設技部無災害連続日数
 					data.WBGTLv = Number(row[14]);
 					data.windLv = Number(row[15]);
+					data.recordAll = Number(row[16]);//事業所無災害連続日数
+					data.recordDept = Number(row[17]);//設技部無災害連続日数
+					data.workingNum = Number(row[18]);//在社人数
 					PostBox.send("sensor", {data: data});
 					break;
 				}

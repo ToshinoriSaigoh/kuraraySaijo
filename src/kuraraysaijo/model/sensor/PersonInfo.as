@@ -108,6 +108,7 @@ Dレジスタ[部員ID]	CSV列名	ステータス	部員名	所属
 			var person: XML;
 			var tripList: Array = [];
 			var absenceList: Array = [];
+			var workingList: Array = [];
 			for(p = 0; p < personList.length; p++)
 			{
 				var status: String = personList[p][1];
@@ -120,6 +121,13 @@ Dレジスタ[部員ID]	CSV列名	ステータス	部員名	所属
 							absenceList.push(person.@name);
 						}
 						break;
+					case "1":
+						person = persons.person.(@id == personList[p][0])[0];
+						if(person != null)
+						{
+							workingList.push(person.@name);
+						}
+						break;
 					case "2":
 						person = persons.person.(@id == personList[p][0])[0];
 						if(person != null)
@@ -129,7 +137,7 @@ Dレジスタ[部員ID]	CSV列名	ステータス	部員名	所属
 						break;
 				}
 			}
-			PostBox.send("person", {data: [tripList, absenceList]});
+			PostBox.send("person", {data: [tripList, absenceList, workingList]});
 		}
 	}
 }

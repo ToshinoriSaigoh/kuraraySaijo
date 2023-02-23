@@ -1,53 +1,53 @@
 <wbgt>
-	<warning>
-		<level id="0">
-			<label>安全</label>
-			<fontSize>64</fontSize>
-			<color>#000000</color>
-			<backgroundColor>0x00b0f0</backgroundColor>
-			<conditions>
-				<item type="lessThan">21.0</item>
-			</conditions>
-		</level>
-		<level id="1">
-			<label>注意</label>
-			<fontSize>64</fontSize>
-			<color>#000000</color>
-			<backgroundColor>0x0070c0</backgroundColor>
-			<conditions>
-				<item type="orMore">21.0</item>
-				<item type="lessThan">25.0</item>
-			</conditions>
-		</level>
-		<level id="2">
-			<label>警戒</label>
-			<fontSize>64</fontSize>
-			<color>#000000</color>
-			<backgroundColor>0xffff00</backgroundColor>
-			<conditions>
-				<item type="orMore">25.0</item>
-				<item type="lessThan">28.0</item>
-			</conditions>
-		</level>
-		<level id="3">
-			<label>厳重
+  <warning>
+    <level id="0">
+      <label>安全</label>
+      <fontSize>64</fontSize>
+      <color>#000000</color>
+      <backgroundColor>0x00b0f0</backgroundColor>
+      <conditions>
+        <item type="lessThan">21.0</item>
+      </conditions>
+    </level>
+    <level id="1">
+      <label>注意</label>
+      <fontSize>64</fontSize>
+      <color>#000000</color>
+      <backgroundColor>0x00AA00</backgroundColor>
+      <conditions>
+        <item type="orMore">21.0</item>
+        <item type="lessThan">25.0</item>
+      </conditions>
+    </level>
+    <level id="2">
+      <label>警戒</label>
+      <fontSize>64</fontSize>
+      <color>#000000</color>
+      <backgroundColor>0xffff00</backgroundColor>
+      <conditions>
+        <item type="orMore">25.0</item>
+        <item type="lessThan">28.0</item>
+      </conditions>
+    </level>
+    <level id="3">
+      <label>厳重
 警戒</label>
-			<fontSize>64</fontSize>
-			<color>#000000</color>
-			<backgroundColor>0xffc000</backgroundColor>
-			<conditions>
-				<item type="orMore">28.0</item>
-				<item type="lessThan">31.0</item>
-			</conditions>
-		</level>
-		<level id="4">
-			<label>危険</label>
-			<fontSize>64</fontSize>
-			<color>#FFFFFF</color>
-			<backgroundColor>0xff0000</backgroundColor>
-			<conditions>
-				<item type="orMore">31.0</item>
-			</conditions>
-		</level>
-	</warning>
+      <fontSize>64</fontSize>
+      <color>#000000</color>
+      <backgroundColor>0xffc000</backgroundColor>
+      <conditions>
+        <item type="orMore">28.0</item>
+        <item type="lessThan">31.0</item>
+      </conditions>
+    </level>
+    <level id="4">
+      <label>危険</label>
+      <fontSize>64</fontSize>
+      <color>#FFFFFF</color>
+      <backgroundColor>0xff0000</backgroundColor>
+      <conditions>
+        <item type="orMore">31.0</item>
+      </conditions>
+    </level>
+  </warning>
 </wbgt>

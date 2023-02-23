@@ -79,13 +79,15 @@ package kuraraysaijo.model.plugin.report
 
 		//テキストエリア
 		[Bindable]
+		public var workingLabel1: String;//在社
+		[Bindable]
 		public var absenceLabel1: String;//欠勤
 		[Bindable]
 		public var absenceLabel2: String;//欠勤
 		[Bindable]
 		public var tripLabel1: String;//出張
-		[Bindable]
-		public var tripLabel2: String;//出張
+		//[Bindable]
+		//public var tripLabel2: String;//出張
 		[Bindable]
 		public var scheduleHead: String;//今日の予定タイトル
 		[Bindable]
@@ -95,6 +97,8 @@ package kuraraysaijo.model.plugin.report
 		[Bindable]
 		public var messageLabel: String;//連絡事項
 
+		[Bindable]
+		public var workingNum: String;//在社数
 		[Bindable]
 		public var thermometerOutDoor: String;//温度計
 		[Bindable]
@@ -752,6 +756,7 @@ package kuraraysaijo.model.plugin.report
 			hygrometerOutDoor = _formatedNumber(humidity, 1);
 			WBGTOutDoor = _formatedNumber(wbgt, 1);
 			anemometer = _formatedNumber(windSpeed, 1);
+			workingNum = String(param.data.workingNum);
 
 			noAccidentAll = param.data.recordAll;
 			noAccidentDept = param.data.recordDept;
@@ -817,6 +822,7 @@ package kuraraysaijo.model.plugin.report
 			var param: Object = PostBox.get("PB_person");
 			var tripList: Array = param.data[0];
 			var absenceList: Array = param.data[1];
+			var workingList: Array = param.data[2];
 		//出張書き換え
 			if(tripList.length > 0)
 			{
@@ -825,7 +831,7 @@ package kuraraysaijo.model.plugin.report
 			else 
 			{
 				tripLabel1 = "";
-				tripLabel2 = "";
+				//tripLabel2 = "";
 				mxml.tripOtherIcon.currentState = "off";
 			}
 		//欠勤書き換え
@@ -838,6 +844,16 @@ package kuraraysaijo.model.plugin.report
 				absenceLabel1 = "";
 				absenceLabel2 = "";
 				mxml.absenceOtherIcon.currentState = "off";
+			}
+		//在社書き換え
+			if(workingList.length > 0)
+			{
+				_splitList(workingList, "working");
+			}
+			else 
+			{
+				workingLabel1 = "";
+				mxml.workingOtherIcon.currentState = "off";
 			}
 
 		}
@@ -865,8 +881,8 @@ package kuraraysaijo.model.plugin.report
 			{
 				case "trip":
 					tripLabel1 = list1.join("\r");
-					tripLabel2 = list2.join("\r");
-					if(list.length > 20)
+					//tripLabel2 = list2.join("\r");
+					if(list.length > 10)
 					{
 						mxml.tripOtherIcon.currentState = "on";
 					}
@@ -885,6 +901,17 @@ package kuraraysaijo.model.plugin.report
 					else
 					{
 						mxml.absenceOtherIcon.currentState = "off";
+					}
+					break;
+				case "working":
+					workingLabel1 = list1.join("\r");
+					if(list.length > 10)
+					{
+						mxml.workingOtherIcon.currentState = "on";
+					}
+					else
+					{
+						mxml.workingOtherIcon.currentState = "off";
 					}
 					break;
 			}

@@ -11,8 +11,10 @@
 		<textSize>24</textSize>
 	</tools>
 	<report>
-		<defaultViewWidth>3840</defaultViewWidth>
-		<defaultViewHeight>2160</defaultViewHeight>
+		<defaultViewWidth>1920</defaultViewWidth>
+		<defaultViewHeight>1080</defaultViewHeight>
+		<!--<defaultViewWidth>3840</defaultViewWidth>
+		<defaultViewHeight>2160</defaultViewHeight>-->
 		<message/>
 		<trainer/>
 	</report>
