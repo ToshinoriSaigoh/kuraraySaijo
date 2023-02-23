@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<view.utils:Skin_ToggleVLastBtn
+	xmlns:fx="http://ns.adobe.com/mxml/2009"
+	xmlns:s="library://ns.adobe.com/flex/spark"
+	xmlns:controller.documentroot.reportscreen.sidebar="controller.documentroot.reportscreen.sidebar.*"
+	xmlns:view.utils="view.utils.*"
+	top="0"
+	left="0"
+	bottom="0"
+	right="0"
+	width="48"
+	height="48"
+	creationComplete="_init()">
+	<fx:Script>
+	<![CDATA[
+		private function _init(): void
+		{
+			[Embed(source = "icon_shapetool_decenter.svg", mimeType="application/octet-stream")]
+			var Svg: Class;
+			setSvg(Svg, "icon");
+		}
+	]]>
+	</fx:Script>
+	<fx:Declarations>
+		<controller.documentroot.reportscreen.sidebar:OptionToolBtn id="ctrlr"/>
+	</fx:Declarations>
+</view.utils:Skin_ToggleVLastBtn>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Group xmlns:fx="http://ns.adobe.com/mxml/2009"
+	xmlns:s="library://ns.adobe.com/flex/spark"
+	xmlns:mx="library://ns.adobe.com/flex/mx"
+	xmlns:kuraraysaijo.model.plugin.report.clock="kuraraysaijo.model.plugin.report.clock.*"
+	creationComplete="_init()"
+	>
+	<fx:Declarations>
+		<kuraraysaijo.model.plugin.report.clock:AnalogClockCtrl id="ctrlr"/>
+	</fx:Declarations>
+	<fx:Script>
+	<![CDATA[
+		include "../../../../../view/utils/includes/SvgFuncs.as";
+		private function _init(): void
+		{
+			[Embed(source = "bg.svg", mimeType="application/octet-stream")]
+			var bgSvg: Class;
+			[Embed(source = "h.svg", mimeType="application/octet-stream")]
+			var hHandSvg: Class;
+			[Embed(source = "m.svg", mimeType="application/octet-stream")]
+			var mHandSvg: Class;
+			setSvg(bgSvg, "bg");
+			setSvg(hHandSvg, "hHand");
+			setSvg(mHandSvg, "mHand");
+		}
+	]]>
+	</fx:Script>
+	<s:SpriteVisualElement id="body"/>
+	<s:Group id="bg" width="600" height="600" x="0" y="0"/>
+	<s:Group id="hHandContainer" x="300" y="300">
+		<s:Group id="hHand" width="40" height="120" x="-20" y="-100"/>
+	</s:Group>
+	<s:Group id="mHandContainer" x="300" y="300">
+		<s:Group id="mHand" width="28" height="220" x="-14" y="-206"/>
+	</s:Group>
+</s:Group>

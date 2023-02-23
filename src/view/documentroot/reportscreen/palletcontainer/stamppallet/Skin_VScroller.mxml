@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:SparkSkin
+	xmlns:fx = "http://ns.adobe.com/mxml/2009"
+	xmlns:s = "library://ns.adobe.com/flex/spark">
+	<fx:Metadata>
+		<![CDATA[
+			[HostComponent("spark.components.Scroller")]
+		]]>
+	</fx:Metadata>
+	<s:VScrollBar id="verticalScrollBar" visible="true" width="48" skinClass="view.documentroot.reportscreen.palletcontainer.stamppallet.Skin_VScrollBar"/>
+</s:SparkSkin>

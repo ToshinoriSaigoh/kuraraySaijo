@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<view.documentroot.reportscreen.palletcontainer.moviectrlr:Skin_CommonBtn
+	xmlns:fx="http://ns.adobe.com/mxml/2009"
+	xmlns:s="library://ns.adobe.com/flex/spark"
+	xmlns:view.documentroot.reportscreen.palletcontainer.moviectrlr="view.documentroot.reportscreen.palletcontainer.moviectrlr.*"
+	creationComplete="_init()">
+	<fx:Script>
+	<![CDATA[
+		private function _init(): void
+		{
+			[Embed(source = "movieStopIcon.svg", mimeType="application/octet-stream")]
+			var Svg: Class;
+			setSvg(Svg, "icon");
+		}
+	]]>
+	</fx:Script>
+</view.documentroot.reportscreen.palletcontainer.moviectrlr:Skin_CommonBtn>

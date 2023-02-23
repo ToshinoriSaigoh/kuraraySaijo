@@ -1,0 +1,15 @@
+<monitors>
+	<monitor1>
+		<label>温度計</label>
+		<text>0.0</text>
+		<unit>℃</unit>
+		<width>300</width>
+		<height>120</height>
+		<horizontalAlign>right</horizontalAlign>
+		<verticalAlign>top</verticalAlign>
+		<x>40</x>
+		<y>20</y>
+		<borderValue>35.0</borderValue>
+		<operation>orOver</operation>
+	</monitor1>
+</monitors>

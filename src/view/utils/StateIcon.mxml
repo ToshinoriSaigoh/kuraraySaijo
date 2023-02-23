@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Group
+	xmlns:fx="http://ns.adobe.com/mxml/2009"
+	xmlns:s="library://ns.adobe.com/flex/spark"
+	width="0"
+	height="0"
+	currentState="default">
+	<fx:Declarations>
+	</fx:Declarations>
+	<fx:Script>
+	<![CDATA[
+		include "./includes/SvgFuncs.as";
+	]]>
+	</fx:Script>
+	<s:states>
+		<s:State name="default"/>
+	</s:states>
+	<s:SpriteVisualElement id="body"/>
+</s:Group>

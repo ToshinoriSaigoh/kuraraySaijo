@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<view.utils:Skin_Btn
+	xmlns:fx="http://ns.adobe.com/mxml/2009"
+	xmlns:s="library://ns.adobe.com/flex/spark"
+	xmlns:view.utils="view.utils.*"
+	top="0"
+	left="0"
+	bottom="0"
+	right="0"
+	width="240"
+	height="170">
+	<view.utils:states>
+		<s:State name="up"/>
+		<s:State name="over"/>
+		<s:State name="down"/>
+		<s:State name="disabled"/>
+	</view.utils:states>
+
+	<s:Rect width="238" height="168">
+		<s:fill>
+			<s:SolidColor color="0xeeeeee"/>
+		</s:fill>
+		<s:stroke>
+			<s:SolidColorStroke color="0xcccccc" weight="1"/>
+		</s:stroke>
+	</s:Rect>
+
+</view.utils:Skin_Btn>

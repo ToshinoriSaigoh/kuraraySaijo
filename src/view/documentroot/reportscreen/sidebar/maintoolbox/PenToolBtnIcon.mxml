@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<view.utils:StateIcon
+	xmlns:fx="http://ns.adobe.com/mxml/2009"
+	xmlns:s="library://ns.adobe.com/flex/spark"
+	xmlns:view.documentroot.reportscreen.sidebar.maintoolbox="view.documentroot.reportscreen.sidebar.maintoolbox.*"
+	xmlns:view.utils="view.utils.*"
+	width="100%" height="100%"
+	currentState="pen"
+	creationComplete="_init()">
+	<fx:Script>
+	<![CDATA[
+		private function _init(): void
+		{
+			[Embed(source = "icon_pentool.svg", mimeType="application/octet-stream")]
+			var penSvg: Class;
+			setSvg(penSvg, "pen");
+
+			/*
+			[Embed(source = "icon_pentool_marker.svg", mimeType="application/octet-stream")]
+			var markerSvg: Class;
+			setSvg(markerSvg, "marker");
+			[Embed(source = "icon_pentool_eraser.svg", mimeType="application/octet-stream")]
+			var eraserSvg: Class;
+			setSvg(eraserSvg, "eraser");
+			*/
+		}
+	]]>
+	</fx:Script>
+	<view.utils:states>
+		<s:State name="default"/>
+		<s:State name="pen"/>
+		<s:State name="marker"/>
+		<s:State name="eraser"/>
+	</view.utils:states>
+	<s:Group id="pen" width="100%" height="100%" visible="false" visible.pen="true"/>
+	<s:Group id="marker" width="100%" height="100%" visible="false" visible.marker="true"/>
+	<s:Group id="eraser" width="100%" height="100%" visible="false" visible.eraser="true"/>
+</view.utils:StateIcon>

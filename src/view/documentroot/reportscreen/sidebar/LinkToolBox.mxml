@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:NavigatorContent
+	xmlns:fx="http://ns.adobe.com/mxml/2009"
+	xmlns:s="library://ns.adobe.com/flex/spark"
+	xmlns:view.documentroot.reportscreen.sidebar.linktoolbox="view.documentroot.reportscreen.sidebar.linktoolbox.*"
+	xmlns:controller.documentroot.reportscreen.sidebar="controller.documentroot.reportscreen.sidebar.*"
+	xmlns:view.utils="view.utils.*"
+	height="100%">
+	<fx:Declarations>
+		<controller.documentroot.reportscreen.sidebar:LinkToolBox id="ctrlr"/>
+	</fx:Declarations>
+	<s:SpriteVisualElement id="body"/>
+	<s:Group width="100%" height="100%">
+		<s:layout>
+			<s:BasicLayout/>
+		</s:layout>
+		<s:Rect width="100%" height="100%" alpha="0">
+			<s:fill>
+				<s:SolidColor color="0x000000"/>
+			</s:fill>
+		</s:Rect>
+		<s:HGroup width="100%" height="100%" gap="0">
+			<s:VGroup width="344" height="100%" bottom="2" gap="4">
+				<s:Group id="chList" width="100%" height="208">
+					<s:HGroup gap="0">
+						<s:ButtonBar id="chBar" fontSize="24" requireSelection="true" width="300" height="44" skinClass="view.utils.Skin_ButtonBar"/>
+						<s:Button id="closeBtn" name="closeBtn" skinClass="view.documentroot.reportscreen.sidebar.linktoolbox.Skin_CloseBtn"/>
+					</s:HGroup>
+					<s:Button id="loginBtn" name="loginBtn" width="120" height="44" top="48" right="44" skinClass="view.utils.Skin_BtnText"/>
+					<s:TextArea id="loginTextarea" editable="false" width="300" height="100" top="98" skinClass="view.utils.Skin_TextArea"/>
+				</s:Group>
+				<s:Group id="memberListBox" top="0" bottom="4" width="100%" height="100%">
+					<s:Label id="memberListHead" top="0" width="344" height="30" styleName="textSmall" textAlign="center" verticalAlign="middle"/>
+					<s:Scroller id="memberListScroller" width="100%" height="100%" top="32" bottom="2" verticalScrollPolicy="on" skinClass="view.documentroot.reportscreen.sidebar.linktoolbox.Skin_VScroller">
+						<s:DataGroup id="memberList" name="memberList" itemRenderer="view.documentroot.reportscreen.sidebar.linktoolbox.MemberItem">
+							<s:layout>
+								<s:VerticalLayout gap="2"/>
+							</s:layout>
+						</s:DataGroup>
+					</s:Scroller>
+				</s:Group>
+			</s:VGroup>
+		</s:HGroup>
+	</s:Group>
+</s:NavigatorContent>

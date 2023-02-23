@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<view.utils:Skin_Btn
+	xmlns:fx="http://ns.adobe.com/mxml/2009"
+	xmlns:s="library://ns.adobe.com/flex/spark"
+	xmlns:view.utils="view.utils.*"
+	top="0"
+	left="0"
+	bottom="0"
+	right="0"
+	alpha.disabled="0.2"
+	creationComplete="_init()"
+	>
+	<fx:Script>
+	<![CDATA[
+		private function _init(): void
+		{
+			setText();
+		}
+		protected function setText(): void
+		{
+			this.label.text = Config.getText(hostComponent.id) != null ? Config.getText("button", hostComponent.id).toString() : hostComponent.label;
+		}
+	]]>
+	</fx:Script>
+	<view.utils:states>
+		<s:State name="up"/>
+		<s:State name="over"/>
+		<s:State name="down"/>
+		<s:State name="disabled"/>
+	</view.utils:states>
+	<s:Rect id="bg" left="0" right="0" top="0" bottom="0">
+		<s:fill>
+			<s:SolidColor color="0x000000"/>
+		</s:fill>
+	</s:Rect>
+	<s:Group id="icon" width="100%" height="100%"/>
+	<s:Rect top="1" right="1" bottom="1" left="1">
+		<s:stroke>
+			<s:SolidColorStroke color="0x666666" color.over="0xeeeeee" color.down="0x00bbee" weight="2"/>
+		</s:stroke>
+	</s:Rect>
+	<s:Label id="label" styleName="btnText" textAlign="center" verticalAlign="middle" width="100%" height="100%"/>
+</view.utils:Skin_Btn>

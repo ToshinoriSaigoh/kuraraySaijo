@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<view.utils:Skin_Btn
+	xmlns:fx="http://ns.adobe.com/mxml/2009"
+	xmlns:s="library://ns.adobe.com/flex/spark"
+	xmlns:view.utils="view.utils.*"
+	xmlns:controller.documentroot.reportscreen.sidebar="controller.documentroot.reportscreen.sidebar.*"
+	top="0"
+	left="0"
+	bottom="0"
+	right="0"
+	width="48"
+	height="48"
+	>
+	<view.utils:states>
+		<s:State name="up"/>
+		<s:State name="over"/>
+		<s:State name="down"/>
+		<s:State name="disabled"/>
+	</view.utils:states>
+	<s:Ellipse id="bg" left="0" right="0" top="0" bottom="0" alpha="0">
+		<s:fill>
+			<s:SolidColor color="0xffffff"/>
+		</s:fill>
+	</s:Ellipse>
+	<s:Ellipse left="1" right="1" top="1" bottom="1">
+		<s:stroke>
+			<s:SolidColorStroke id="lineColor" weight="6"/>
+		</s:stroke>
+	</s:Ellipse>
+	<s:Ellipse left="0" right="0" top="0" bottom="0" alpha="0.9">
+		<s:stroke>
+			<s:SolidColorStroke color="0xffffff" weight="2"/>
+		</s:stroke>
+	</s:Ellipse>
+	<s:Ellipse left="6" right="6" top="6" bottom="6" alpha="0.9">
+		<s:stroke>
+			<s:SolidColorStroke color="0xffffff" weight="2"/>
+		</s:stroke>
+	</s:Ellipse>
+	<s:Ellipse id="border" left="0" right="0" top="0" bottom="0" alpha="0" alpha.down="1.0">
+		<s:stroke>
+			<s:SolidColorStroke color="0x00bbee" weight="2"/>
+		</s:stroke>
+	</s:Ellipse>
+</view.utils:Skin_Btn>

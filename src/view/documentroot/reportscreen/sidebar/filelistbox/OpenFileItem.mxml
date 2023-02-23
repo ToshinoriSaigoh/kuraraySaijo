@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:ItemRenderer
+	xmlns:fx="http://ns.adobe.com/mxml/2009"
+	xmlns:s="library://ns.adobe.com/flex/spark"
+	xmlns:view.utils="view.utils.*"
+	xmlns:view.documentroot.reportscreen.sidebar.filelistbox="view.documentroot.reportscreen.sidebar.filelistbox.*"
+	xmlns:controller.documentroot.reportscreen.sidebar.filelistbox="controller.documentroot.reportscreen.sidebar.filelistbox.*"
+	autoDrawBackground="false"
+	mouseEnabled="false"
+	>
+	<fx:Declarations>
+		<controller.documentroot.reportscreen.sidebar.filelistbox:OpenFileItem id="ctrlr"/>
+	</fx:Declarations>
+	<s:states>
+		<s:State name="default"/>
+		<s:State name="selected"/>
+	</s:states>
+	<s:SpriteVisualElement id="body"/>
+	<s:Group id="openFileItem" name="openFileItem" width="352" right="2" height="88">
+		<s:ToggleButton id="toggleBtn" name="openFileItem" skinClass="view.documentroot.reportscreen.sidebar.filelistbox.Skin_ToggleBtnRect" width="100%" height="100%"/>
+		<s:HGroup width="100%" height="44" top="4" left="20" mouseEnabled="false" gap="0">
+			<s:VGroup width="100%" height="44" right="4" mouseEnabled="false">
+				<s:Label id="type" color.selected="#222222" textAlign="left" width="100%" left="0" height="24" mouseEnabled="false" mouseChildren="false"/>
+				<s:Label id="fileName" color.selected="#222222" text="{data.id}" textAlign="left" width="100%" left="0" height="24" mouseEnabled="false" mouseChildren="false"/>
+				<s:Label id="date" color.selected="#222222" text="{data.saveDate}" textAlign="right" width="100%" left="0" height="24" mouseEnabled="false" mouseChildren="false"/>
+			</s:VGroup>
+		</s:HGroup>
+		<view.utils:DataTypeMark id="dataTypeMark" width="12" height="100%" left="0"/>
+		<s:HGroup gap="4" top="4" right="4">
+			<s:Button id="shareReportBtn" name="shareReportBtn" width="44" height="44" visible="false" visible.selected="true" mouseEnabled="true" skinClass="view.documentroot.reportscreen.sidebar.filelistbox.Skin_ShareReportBtn"/>
+			<s:Button id="saveReportBtn" name="saveReportBtn" width="44" height="44" visible="false" visible.selected="true" mouseEnabled="true" skinClass="view.utils.button.Skin_SaveReportBtn"/>
+			<s:Button id="closeReportBtn" name="closeReportBtn" width="44" height="44" visible="false" visible.selected="true" mouseEnabled="true" skinClass="view.utils.button.Skin_CloseBtn"/>
+	</s:HGroup>
+	</s:Group>
+</s:ItemRenderer>

@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<project version="2">
+  <!-- Output SWF options -->
+  <output>
+    <movie outputType="Application" />
+    <movie input="" />
+    <movie path="bin\KuraraySaijo.swf" />
+    <movie fps="40" />
+    <movie width="1400" />
+    <movie height="940" />
+    <movie version="21" />
+    <movie minorVersion="0" />
+    <movie platform="AIR" />
+    <movie background="#000000" />
+    <movie preferredSDK="Apache Flex 4.16.1 FP27.0 AIR32.0 en_US;4.16.1;" />
+  </output>
+  <!-- Other classes to be compiled into your SWF -->
+  <classpaths>
+    <class path="src" />
+    <class path="utils\libs" />
+  </classpaths>
+  <!-- Build options -->
+  <build>
+    <option accessible="False" />
+    <option advancedTelemetry="False" />
+    <option allowSourcePathOverlap="False" />
+    <option benchmark="False" />
+    <option es="False" />
+    <option inline="False" />
+    <option locale="ja_JP" />
+    <option loadConfig="" />
+    <option optimize="True" />
+    <option omitTraces="True" />
+    <option showActionScriptWarnings="True" />
+    <option showBindingWarnings="True" />
+    <option showInvalidCSS="True" />
+    <option showDeprecationWarnings="True" />
+    <option showUnusedTypeSelectorWarnings="True" />
+    <option strict="True" />
+    <option useNetwork="True" />
+    <option useResourceBundleMetadata="True" />
+    <option warnings="True" />
+    <option verboseStackTraces="False" />
+    <option linkReport="" />
+    <option loadExterns="" />
+    <option staticLinkRSL="True" />
+    <option additional="-keep&#xA;-swf-version=20&#xA;-static-link-runtime-shared-libraries=true" />
+    <option compilerConstants="" />
+    <option minorVersion="" />
+  </build>
+  <!-- SWC Include Libraries -->
+  <includeLibraries>
+    <!-- example: <element path="..." /> -->
+  </includeLibraries>
+  <!-- SWC Libraries -->
+  <libraryPaths>
+    <element path=".\utils\libs\core.swc" />
+    <element path=".\utils\libs\frocessing-0.6.1.swc" />
+    <element path=".\utils\libs\shineMP3_alchemy.swc" />
+    <element path=".\utils\libs\fl.swc" />
+    <element path=".\utils\libs\coltware_commons_zip_v1_1.swc" />
+    <element path=".\utils\libs\Console.swc" />
+    <element path="assets\fonts\Fonts.swc" />
+    <element path=".\utils\libs\as3xls-1.0.swc" />
+    <element path=".\utils\libs\as3jcode-1_0_3.swc" />
+  </libraryPaths>
+  <!-- External Libraries -->
+  <externalLibraryPaths>
+    <element path="C:\AIR\ANE\ScreenShooter.ane" />
+  </externalLibraryPaths>
+  <!-- Runtime Shared Libraries -->
+  <rslPaths>
+    <!-- example: <element path="..." /> -->
+  </rslPaths>
+  <!-- Intrinsic Libraries -->
+  <intrinsics>
+    <element path="Library\AS3\frameworks\Flex4" />
+  </intrinsics>
+  <!-- Assets to embed into the output SWF -->
+  <library>
+    <!-- example: <asset path="..." id="..." update="..." glyphs="..." mode="..." place="..." sharepoint="..." /> -->
+  </library>
+  <!-- Class files to compile (other referenced classes will automatically be included) -->
+  <compileTargets>
+    <compile path="src\kuraraysaijo\view\Client.mxml" />
+  </compileTargets>
+  <!-- Paths to exclude from the Project Explorer tree -->
+  <hiddenPaths>
+    <hidden path="obj" />
+  </hiddenPaths>
+  <!-- Executed before build -->
+  <preBuildCommand />
+  <!-- Executed after build -->
+  <postBuildCommand alwaysRun="False" />
+  <!-- Other project options -->
+  <options>
+    <option showHiddenPaths="False" />
+    <option testMovie="Custom" />
+    <option testMovieCommand="bat\RunApp.bat" />
+  </options>
+  <!-- Plugin storage -->
+  <storage />
+</project>

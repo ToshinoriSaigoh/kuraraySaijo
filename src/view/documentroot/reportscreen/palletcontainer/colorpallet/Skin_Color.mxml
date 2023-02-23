@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:SparkSkin
+	xmlns:fx="http://ns.adobe.com/mxml/2009"
+	xmlns:s="library://ns.adobe.com/flex/spark"
+	xmlns:controller.documentroot.reportscreen.palletcontainer.colorpallet="controller.documentroot.reportscreen.palletcontainer.colorpallet.*"
+	xmlns:view.documentroot.reportscreen.palletcontainer.colorpallet="view.documentroot.reportscreen.palletcontainer.colorpallet.*"
+	alpha.disabled="0.1"
+	top="0"
+	left="0"
+	bottom="0"
+	right="0"
+	width="44"
+	height="44"
+	>
+	<fx:Declarations>
+		<controller.documentroot.reportscreen.palletcontainer.colorpallet:ColorButton id="ctrlr"/>
+	</fx:Declarations>
+	<fx:Metadata>
+	<![CDATA[
+		[HostComponent("view.documentroot.reportscreen.palletcontainer.colorpallet.ColorButton")]
+	]]>
+	</fx:Metadata>
+	<s:states>
+		<s:State name="up"/>
+		<s:State name="over"/>
+		<s:State name="down"/>
+		<s:State name="disabled"/>
+	</s:states>
+	<s:SpriteVisualElement id="body"/>
+	<s:Rect id="fill" left="0" right="0" top="0" bottom="0" alpha="1.0" alpha.up="1.0" alpha.over="1.0" alpha.down="1.0">
+		<s:fill>
+			<s:SolidColor color="{hostComponent.color}" />
+		</s:fill>
+	</s:Rect>
+</s:SparkSkin>
