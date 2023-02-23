@@ -1,6 +1,0 @@
-TypeError: Error #1009: Cannot access a property or method of a null object reference.
-	at Function/model.plugin.draw.stamptool:StampPalletBase/protected:init/model.plugin.draw.stamptool:selectFolder()[F:\git\KuraraySaijo\src\model\plugin\draw\stamptool\StampPalletBase.as:61]
-	at Function/http://adobe.com/AS3/2006/builtin::apply()
-	at SetIntervalTimer/onTimer()
-	at flash.utils::Timer/_timerDispatch()
-	at flash.utils::Timer/tick()
