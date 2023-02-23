@@ -1,2 +1,12 @@
+air/
 assets/
+bin/
 NSIS/
+obj/
+*.swf
+*.air
+*.ipa
+*.apk
+*.otf
+*.ttf
+*.sublime-workspace
