@@ -443,24 +443,25 @@ package kuraraysaijo.model.plugin.report
 					break;
 				case "patrol"://日替わり
 					dutyList = _setDutyPatrolWeekDay(targetNode, getLastSunday());
+trace("dutyList:", dutyList);
 					var design: Array = [dutyList[0], dutyList[1]];
 					var pipe: Array = [dutyList[2], dutyList[3]];
 					var electric: Array = [dutyList[4], dutyList[5]];
-					patrol1Designing = design[0] != null ? design[0] : "";
-					patrol2Designing = design[1] != null ? design[1] : "";
-					patrol3Designing = design[2] != null ? design[2] : "";
-					patrol4Designing = design[3] != null ? design[3] : "";
-					patrol5Designing = design[4] != null ? design[4] : "";
-					patrol1Pipe = pipe[0] != null ? pipe[0] : "";
-					patrol2Pipe = pipe[1] != null ? pipe[1] : "";
-					patrol3Pipe = pipe[2] != null ? pipe[2] : "";
-					patrol4Pipe = pipe[3] != null ? pipe[3] : "";
-					patrol5Pipe = pipe[4] != null ? pipe[4] : "";
-					patrol1Electric = electric[0] != null ? electric[0] : "";
-					patrol2Electric = electric[1] != null ? electric[1] : "";
-					patrol3Electric = electric[2] != null ? electric[2] : "";
-					patrol4Electric = electric[3] != null ? electric[3] : "";
-					patrol5Electric = electric[4] != null ? electric[4] : "";
+					patrol1Designing = dutyList[0][0] != null ? dutyList[0][0] : "";
+					patrol2Designing = dutyList[1][0] != null ? dutyList[1][0] : "";
+					patrol3Designing = dutyList[2][0] != null ? dutyList[2][0] : "";
+					patrol4Designing = dutyList[3][0] != null ? dutyList[3][0] : "";
+					patrol5Designing = dutyList[4][0] != null ? dutyList[4][0] : "";
+					patrol1Pipe = dutyList[0][1] != null ? dutyList[0][1] : "";
+					patrol2Pipe = dutyList[1][1] != null ? dutyList[1][1] : "";
+					patrol3Pipe = dutyList[2][1] != null ? dutyList[2][1] : "";
+					patrol4Pipe = dutyList[3][1] != null ? dutyList[3][1] : "";
+					patrol5Pipe = dutyList[4][1] != null ? dutyList[4][1] : "";
+					patrol1Electric = dutyList[0][2] != null ? dutyList[0][2] : "";
+					patrol2Electric = dutyList[1][2] != null ? dutyList[1][2] : "";
+					patrol3Electric = dutyList[2][2] != null ? dutyList[2][2] : "";
+					patrol4Electric = dutyList[3][2] != null ? dutyList[3][2] : "";
+					patrol5Electric = dutyList[4][2] != null ? dutyList[4][2] : "";
 
 					/*
 					patrol11 = dutyList[0] != null ? dutyList[0] : "";
@@ -569,13 +570,15 @@ package kuraraysaijo.model.plugin.report
 			var weekday: Date;
 			var day: String;
 			var node: XML;
+			var dutyList: Array = [];
 			for(i = 0; i < 5; i++)
 			{
-				weekday = new Date(date.fullYear, date.month, date.date + i);
+				weekday = new Date(date.fullYear, date.month, date.date + (i + 1));
 				day = Lib.getYMDString(weekday);
 				node = xml.day.(attribute("id") == day)[0];
+				dutyList[i] = node == null ? [] : [node.@design[0], node.@pipe[0], node.@electric[0]];
 			}
-			return node == null ? [] : [node.@design[0], node.@pipe[0], node.@electric[0]];
+			return dutyList;
 		}
 		private function _setDutyPatrolThe2Day(xml: XML, date: Date): Array {
 			if(xml == null || date == null)

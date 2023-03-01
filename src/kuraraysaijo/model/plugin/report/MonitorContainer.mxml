@@ -36,35 +36,35 @@
 		<kuraraysaijo.model.plugin.report.monitorcontainer:MeetingRoomLamp id="MeetingRoomLamp5" width="380" height="104" x="2990" y="294"/>
 
 		<!--設計Designing-->
-		<s:Label id="morningDesigning" styleName="person" text="{ctrlr.morningDesigning}" width="360" height="104" x="2650" y="516"/>
+		<s:Label id="morningDesigning" styleName="person" text="{ctrlr.morningDesigning}" width="360" height="104" x="2650" y="511"/>
 		<s:Label id="exerciseDesigning" styleName="person" text="{ctrlr.exerciseDesigning}" width="360" height="104" x="2650" y="632"/>
-		<s:Label id="dust1Designing" styleName="person" text="{ctrlr.dust1Designing}" width="360" height="104" x="2650" y="786"/>
+		<s:Label id="dust1Designing" styleName="person" text="{ctrlr.dust1Designing}" width="360" height="104" x="2650" y="781"/>
 		<s:Label id="dust2Designing" styleName="person" text="{ctrlr.dust2Designing}" width="360" height="104" x="2650" y="902"/>
-		<s:Label id="patrol1Designing" styleName="person" text="{ctrlr.patrol1Designing}" width="360" height="104" x="2650" y="1068"/>
-		<s:Label id="patrol2Designing" styleName="person" text="{ctrlr.patrol2Designing}" width="360" height="104" x="2650" y="1176"/>
-		<s:Label id="patrol3Designing" styleName="person" text="{ctrlr.patrol3Designing}" width="360" height="104" x="2650" y="1176"/>
-		<s:Label id="patrol4Designing" styleName="person" text="{ctrlr.patrol4Designing}" width="360" height="104" x="2650" y="1176"/>
-		<s:Label id="patrol5Designing" styleName="person" text="{ctrlr.patrol5Designing}" width="360" height="104" x="2650" y="1176"/>
+		<s:Label id="patrol1Designing" styleName="person" text="{ctrlr.patrol1Designing}" width="360" height="104" x="2650" y="1035"/>
+		<s:Label id="patrol2Designing" styleName="person" text="{ctrlr.patrol2Designing}" width="360" height="104" x="2650" y="1155"/>
+		<s:Label id="patrol3Designing" styleName="person" text="{ctrlr.patrol3Designing}" width="360" height="104" x="2650" y="1275"/>
+		<s:Label id="patrol4Designing" styleName="person" text="{ctrlr.patrol4Designing}" width="360" height="104" x="2650" y="1395"/>
+		<s:Label id="patrol5Designing" styleName="person" text="{ctrlr.patrol5Designing}" width="360" height="104" x="2650" y="1515"/>
 		<!--設管Pipe-->
-		<s:Label id="morningPipe" styleName="person" text="{ctrlr.morningPipe}" width="360" height="104" x="3026" y="516"/>
+		<s:Label id="morningPipe" styleName="person" text="{ctrlr.morningPipe}" width="360" height="104" x="3026" y="511"/>
 		<s:Label id="exercisePipe" styleName="person" text="{ctrlr.exercisePipe}" width="360" height="104" x="3026" y="632"/>
-		<s:Label id="dust1Pipe" styleName="person" text="{ctrlr.dust1Pipe}" width="360" height="104" x="3026" y="786"/>
+		<s:Label id="dust1Pipe" styleName="person" text="{ctrlr.dust1Pipe}" width="360" height="104" x="3026" y="781"/>
 		<s:Label id="dust2Pipe" styleName="person" text="{ctrlr.dust2Pipe}" width="360" height="104" x="3026" y="902"/>
-		<s:Label id="patrol1Pipe" styleName="person" text="{ctrlr.patrol1Pipe}" width="360" height="104" x="3026" y="1068"/>
-		<s:Label id="patrol2Pipe" styleName="person" text="{ctrlr.patrol2Pipe}" width="360" height="104" x="3026" y="1176"/>
-		<s:Label id="patrol3Pipe" styleName="person" text="{ctrlr.patrol3Pipe}" width="360" height="104" x="3026" y="1176"/>
-		<s:Label id="patrol4Pipe" styleName="person" text="{ctrlr.patrol4Pipe}" width="360" height="104" x="3026" y="1176"/>
-		<s:Label id="patrol5Pipe" styleName="person" text="{ctrlr.patrol5Pipe}" width="360" height="104" x="3026" y="1176"/>
+		<s:Label id="patrol1Pipe" styleName="person" text="{ctrlr.patrol1Pipe}" width="360" height="104" x="3026" y="1035"/>
+		<s:Label id="patrol2Pipe" styleName="person" text="{ctrlr.patrol2Pipe}" width="360" height="104" x="3026" y="1155"/>
+		<s:Label id="patrol3Pipe" styleName="person" text="{ctrlr.patrol3Pipe}" width="360" height="104" x="3026" y="1275"/>
+		<s:Label id="patrol4Pipe" styleName="person" text="{ctrlr.patrol4Pipe}" width="360" height="104" x="3026" y="1395"/>
+		<s:Label id="patrol5Pipe" styleName="person" text="{ctrlr.patrol5Pipe}" width="360" height="104" x="3026" y="1515"/>
 		<!--電装設管Electric-->
-		<s:Label id="morningElectric" styleName="person" text="{ctrlr.morningElectric}" width="360" height="104" x="3402" y="516"/>
+		<s:Label id="morningElectric" styleName="person" text="{ctrlr.morningElectric}" width="360" height="104" x="3402" y="511"/>
 		<s:Label id="exerciseElectric" styleName="person" text="{ctrlr.exerciseElectric}" width="360" height="104" x="3402" y="632"/>
-		<s:Label id="dust1Electric" styleName="person" text="{ctrlr.dust1Electric}" width="360" height="104" x="3402" y="786"/>
+		<s:Label id="dust1Electric" styleName="person" text="{ctrlr.dust1Electric}" width="360" height="104" x="3402" y="781"/>
 		<s:Label id="dust2Electric" styleName="person" text="{ctrlr.dust2Electric}" width="360" height="104" x="3402" y="902"/>
-		<s:Label id="patrol1Electric" styleName="person" text="{ctrlr.patrol1Electric}" width="360" height="104" x="3402" y="1068"/>
-		<s:Label id="patrol2Electric" styleName="person" text="{ctrlr.patrol2Electric}" width="360" height="104" x="3402" y="1176"/>
-		<s:Label id="patrol3Electric" styleName="person" text="{ctrlr.patrol3Electric}" width="360" height="104" x="3402" y="1176"/>
-		<s:Label id="patrol4Electric" styleName="person" text="{ctrlr.patrol4Electric}" width="360" height="104" x="3402" y="1176"/>
-		<s:Label id="patrol5Electric" styleName="person" text="{ctrlr.patrol5Electric}" width="360" height="104" x="3402" y="1176"/>
+		<s:Label id="patrol1Electric" styleName="person" text="{ctrlr.patrol1Electric}" width="360" height="104" x="3402" y="1035"/>
+		<s:Label id="patrol2Electric" styleName="person" text="{ctrlr.patrol2Electric}" width="360" height="104" x="3402" y="1155"/>
+		<s:Label id="patrol3Electric" styleName="person" text="{ctrlr.patrol3Electric}" width="360" height="104" x="3402" y="1275"/>
+		<s:Label id="patrol4Electric" styleName="person" text="{ctrlr.patrol4Electric}" width="360" height="104" x="3402" y="1395"/>
+		<s:Label id="patrol5Electric" styleName="person" text="{ctrlr.patrol5Electric}" width="360" height="104" x="3402" y="1515"/>
 
 		<!--教育-->
 		<s:Label id="trainerLabel" styleName="person" text="{ctrlr.trainerLabel}" width="360" height="104" x="2650" y="1690"/>
@@ -79,32 +79,32 @@
 		<kuraraysaijo.model.plugin.report.monitorcontainer:WBGTAlert id="WBGTAlertOutDoor" width="160" height="160" x="688" y="1600"/>
 		<kuraraysaijo.model.plugin.report.monitorcontainer:AnemometerAlert id="anemometerAlert" width="160" height="160" x="688" y="1910"/>
 		<!--電力-->
-		<s:Label id="electricPowerNow" styleName="eMeter" text="{ctrlr.electricPowerNow}" width="276" height="104" x="2750" y="1870"/>
-		<s:Label id="electricPowerThisMonth" styleName="eMeter" text="{ctrlr.electricPowerThisMonth}" width="276" height="104" x="2750" y="1990"/>
-		<s:Label id="electricPowerLastYear" styleName="eMeter" text="{ctrlr.electricPowerLastYear}" width="276" height="104" x="3338" y="1870"/>
-		<s:Label id="electricPowerTwoYearsAgo" styleName="eMeter" text="{ctrlr.electricPowerTwoYearsAgo}" width="276" height="104" x="3338" y="1990"/>
+		<s:Label id="electricPowerNow" styleName="eMeter" text="{ctrlr.electricPowerNow}" width="276" height="104" x="2730" y="1870"/>
+		<s:Label id="electricPowerThisMonth" styleName="eMeter" text="{ctrlr.electricPowerThisMonth}" width="276" height="104" x="2730" y="1990"/>
+		<s:Label id="electricPowerLastYear" styleName="eMeter" text="{ctrlr.electricPowerLastYear}" width="276" height="104" x="3358" y="1870"/>
+		<s:Label id="electricPowerTwoYearsAgo" styleName="eMeter" text="{ctrlr.electricPowerTwoYearsAgo}" width="276" height="104" x="3358" y="1990"/>
 
-
-		<s:Label id="workingLabel1" styleName="personList" text="{ctrlr.workingLabel1}" width="360" height="764" x="902" y="520" visible="true"/><!-- 出張 -->
+		<!--社員リスト -->
+		<s:Label id="workingLabel1" styleName="personList" text="{ctrlr.workingLabel1}" width="360" height="764" x="902" y="500" visible="true"/><!-- 出張 -->
 		<!--<s:Label id="tripLabel2" styleName="personList" text="{ctrlr.tripLabel2}" width="360" height="764" x="1262" y="528" visible="true"/> 出張 -->
-		<kuraraysaijo.model.plugin.report.monitorcontainer:OtherIcon id="workingOtherIcon" width="60" height="60" x="1182" y="1204"/>
+		<kuraraysaijo.model.plugin.report.monitorcontainer:OtherIcon id="workingOtherIcon" width="60" height="60" x="1182" y="1184"/>
 
-		<s:Label id="absenceLabel1" styleName="personList" text="{ctrlr.absenceLabel1}" width="352" height="764" x="1278" y="520" visible="true"/><!-- 欠勤 -->
-		<s:Label id="absenceLabel2" styleName="personList" text="{ctrlr.absenceLabel2}" width="352" height="764" x="1630" y="520" visible="true"/><!-- 欠勤 -->
-		<kuraraysaijo.model.plugin.report.monitorcontainer:OtherIcon id="absenceOtherIcon" width="60" height="60" x="1902" y="1204"/>
+		<s:Label id="absenceLabel1" styleName="personList" text="{ctrlr.absenceLabel1}" width="352" height="764" x="1278" y="500" visible="true"/><!-- 欠勤 -->
+		<s:Label id="absenceLabel2" styleName="personList" text="{ctrlr.absenceLabel2}" width="352" height="764" x="1630" y="500" visible="true"/><!-- 欠勤 -->
+		<kuraraysaijo.model.plugin.report.monitorcontainer:OtherIcon id="absenceOtherIcon" width="60" height="60" x="1902" y="1184"/>
 
-		<s:Label id="tripLabel1" styleName="personList" text="{ctrlr.tripLabel1}" width="360" height="764" x="1999" y="520" visible="true"/><!-- 出張 -->
-		<kuraraysaijo.model.plugin.report.monitorcontainer:OtherIcon id="tripOtherIcon" width="60" height="60" x="2279" y="1204"/>
+		<s:Label id="tripLabel1" styleName="personList" text="{ctrlr.tripLabel1}" width="360" height="764" x="1999" y="500" visible="true"/><!-- 出張 -->
+		<kuraraysaijo.model.plugin.report.monitorcontainer:OtherIcon id="tripOtherIcon" width="60" height="60" x="2279" y="1184"/>
 
 
-		<s:Label id="scheduleHead" styleName="head" text="{ctrlr.scheduleHead}" width="1456" height="80" x="912" y="1322"/><!-- 今日 -->
-		<s:Label id="scheduleLabel" styleName="textarea" text="{ctrlr.scheduleLabel}" width="1456" height="176" x="902" y="1412" visible="true" visible.edit="false"/><!-- 今日の予定 -->
-		<s:Label id="nextscheduleLabel" styleName="textarea" text="{ctrlr.nextscheduleLabel}" width="1456" height="176" x="902" y="1684" visible="true"/><!-- 明日の予定 -->
-		<s:Label id="messageLabel" styleName="textarea" text="{ctrlr.messageLabel}" width="1456" height="176" x="902" y="1956" visible="true" visible.edit="false"/><!-- 連絡事項-->
-		<s:TextArea id="schedule" width="1456" height="176" x="902" y="1408" visible="false" visible.edit="true"/><!-- 今日テキストエリア -->
-		<s:TextArea id="nextschedule" width="1456" height="176" x="902" y="1680" visible="false"/><!-- 明日テキストエリア -->
-		<s:TextArea id="message" width="1456" height="176" x="902" y="1952" visible="false" visible.edit="true"/><!-- 連絡事項テキストエリア -->
-		<s:Button id="insertSchedule" label="取り込む" width="240" height="72" x="2118" y="1874" visible="false" visible.edit="true" skinClass="view.utils.Skin_BtnText"/><!-- 取り込むボタン -->
+		<s:Label id="scheduleHead" styleName="head" text="{ctrlr.scheduleHead}" width="1456" height="80" x="912" y="1302"/><!-- 今日 -->
+		<s:Label id="scheduleLabel" styleName="textarea" text="{ctrlr.scheduleLabel}" width="1456" height="176" x="902" y="1382" visible="true" visible.edit="false"/><!-- 今日の予定 -->
+		<s:Label id="nextscheduleLabel" styleName="textarea" text="{ctrlr.nextscheduleLabel}" width="1456" height="176" x="902" y="1654" visible="true"/><!-- 明日の予定 -->
+		<s:Label id="messageLabel" styleName="textarea" text="{ctrlr.messageLabel}" width="1456" height="176" x="902" y="1926" visible="true" visible.edit="false"/><!-- 連絡事項-->
+		<s:TextArea id="schedule" width="1456" height="176" x="902" y="1382" visible="false" visible.edit="true"/><!-- 今日テキストエリア -->
+		<s:TextArea id="nextschedule" width="1456" height="176" x="902" y="1654" visible="false"/><!-- 明日テキストエリア -->
+		<s:TextArea id="message" width="1456" height="176" x="902" y="1926" visible="false" visible.edit="true"/><!-- 連絡事項テキストエリア -->
+		<s:Button id="insertSchedule" label="取り込む" width="240" height="72" x="2118" y="1844" visible="false" visible.edit="true" skinClass="view.utils.Skin_BtnText"/><!-- 取り込むボタン -->
 		<s:SpriteVisualElement id="body"/>
 	</s:Group>
 </s:Group>

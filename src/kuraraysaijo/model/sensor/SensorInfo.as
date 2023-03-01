@@ -94,6 +94,12 @@ Dレジスタ, 列名, 名称, 備考
 				if(row.length >= 6 )
 				{
 					data = {};
+					data.clockY = Number(row[3]);//年
+					data.clockM= Number(row[4]);//月
+					data.clockD = Number(row[5]);//日
+					data.clockH = Number(row[6]);//時
+					data.clockI = Number(row[7]);//分
+					data.clockS = Number(row[8]);//秒
 					data.humidity = Number(row[10]);//湿度
 					data.temperature = Number(row[11]);//温度
 					data.windSpeed = Number(row[12]);//風速
