@@ -17,7 +17,7 @@ package kuraraysaijo.model.sensor
 		private static var _procKey: String;//エンターフレーム処理キー
 		private static var _lastTime: int;//最後に確認した時間
 		private static var _currentTime: int;//現在の時間
-		private static var _inputInterval: int;//読み込みインターバル//ミリ秒
+		private static var _inputInterval: int;//読み込みインターバル//ミリ秒//config.xml
 
 		public function SensorInfo()
 		{
@@ -94,12 +94,6 @@ Dレジスタ, 列名, 名称, 備考
 				if(row.length >= 6 )
 				{
 					data = {};
-					data.clockY = Number(row[3]);//年
-					data.clockM= Number(row[4]);//月
-					data.clockD = Number(row[5]);//日
-					data.clockH = Number(row[6]);//時
-					data.clockI = Number(row[7]);//分
-					data.clockS = Number(row[8]);//秒
 					data.humidity = Number(row[10]);//湿度
 					data.temperature = Number(row[11]);//温度
 					data.windSpeed = Number(row[12]);//風速
@@ -114,6 +108,15 @@ Dレジスタ, 列名, 名称, 備考
 					data.electricPowerLastYear = Number(row[21]);//昨年同月電力
 					data.electricPowerTwoYearsAgo = Number(row[22]);//一昨年同月電力
 					PostBox.send("sensor", {data: data});
+					//時計更新//2023.03.01
+					data.clockY = Number(row[3]);//年
+					data.clockM= Number(row[4]);//月
+					data.clockD = Number(row[5]);//日
+					data.clockH = Number(row[6]);//時
+					data.clockI = Number(row[7]);//分
+					data.clockS = Number(row[8]);//秒
+					var datetime:Date = new Date(data.clockY, data.clockM, data.clockD, data.clockH, data.clockI, data.clockS);
+					PostBox.send("clockUpdate", {datetime: datetime});
 					break;
 				}
 			}

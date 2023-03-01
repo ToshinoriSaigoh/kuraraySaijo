@@ -103,7 +103,7 @@ package controller
 				PostBox.send("sensorCtrl", {command:"start"});
 				PostBox.send("personCtrl", {command:"start"});
 				PostBox.send("meetingroomCtrl", {command:"start"});
-				PostBox.send("clockCtrl", {command:"start"});
+				//PostBox.send("clockCtrl", {command:"start"});//エンターフレームで時計動作開始//停止中2023.03.01
 				PostBox.send("changeScreen", {screen: "reportScreen"});
 				PostBox.send("closeSideBar");
 			}

@@ -42,20 +42,23 @@ package model.plugin.clock
 			return _date;
 		}
 
+		//時計動作開始
+		//App.asで停止中//2023.03.01
 		public function PB_clockCtrl(): void
 		{
 			var param: Object = PostBox.get("PB_clockCtrl");
 			switch(param.command)
 			{
 				case "start":
-					EnterFrameProccess.start(_procKey, enterFrameHandler);
+					EnterFrameProccess.start(_procKey, enterFrameHandler);//エンターフレームで動作するプロセスをクラスで管理する
 					break;
 				case "stop":
 					EnterFrameProccess.stop(_procKey);
 					break;
 			}
 		}
-
+		//エンターフレームでローカルタイムを取得して時計更新
+		//App.asで停止中//2023.03.01
 		private function enterFrameHandler(e: Event): void
 		{
 			_currentTime = getTimer();
@@ -65,6 +68,17 @@ package model.plugin.clock
 				PostBox.send("clock", {date: current});
 				_lastTime = _currentTime;
 			}
+		}
+		//時計をcsvで更新//2023.03.01
+		public function PB_clockUpdate(): void
+		{
+			var param: Object = PostBox.get("PB_clockUpdate");
+			updateClock(param.datetime);
+		}
+		//時計を指定時間に更新する
+		public function updateClock(currentTime: Date): void
+		{
+			PostBox.send("clock", {date: currentTime});
 		}
 	}
 }

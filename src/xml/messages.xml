@@ -930,6 +930,14 @@
 			<receiver path="model.plugin.clock::Clock" />
 		</step>
 	</message>
+	<message name="clockUpdate" description="時計更新">
+		<params>
+			<param>datetime</param>
+		</params>
+		<step type="PB" name="" description="時計更新" message="PB_clockUpdate">
+			<receiver path="model.plugin.clock::Clock" />
+		</step>
+	</message>
 	<!-- 時計 end -->
 
 	<!-- 設定リフレッシュ関連 -->
