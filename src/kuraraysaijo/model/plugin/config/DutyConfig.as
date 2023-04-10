@@ -59,9 +59,13 @@ package kuraraysaijo.model.plugin.config
 				{
 					_importCSVFileTrainer(csvFile);
 				}
+				else if(branch == "morning")
+				{
+					_importCSVFileMorning(csvFile);
+				}
 				else
 				{
-					_importCSVFile(csvFile);
+					_importCSVFileMorning(csvFile);
 				}
 				var existsData: XMLList = data.elements(branch);
 				if(existsData.length() == 0)
@@ -79,7 +83,7 @@ package kuraraysaijo.model.plugin.config
 		}
 
 		//CSV取り込み
-		private function _importCSVFile(csvFile: File): void
+		private function _importCSVFileMorning(csvFile: File): void
 		{
 			//System.useCodePage = true;
 			var csv: Array = _csvLoader.load(csvFile);
@@ -214,7 +218,7 @@ package kuraraysaijo.model.plugin.config
 						{
 							tmpList.push(date);
 						}
-						tmpData[date] = [patrol1, patrol2, patrol3, patrol4];
+						tmpData[date] = [patrol1, patrol2, patrol3];
 					}
 				}
 			}
@@ -222,7 +226,7 @@ package kuraraysaijo.model.plugin.config
 			{
 				date = tmpList[i];
 				dayXML = _search(date);
-				node = <day id={date} patrol1={tmpData[date][0]} patrol2={tmpData[date][1]} patrol3={tmpData[date][2]} patrol4={tmpData[date][3]}/>;
+				node = <day id={date} design={tmpData[date][0]} pipe={tmpData[date][1]} electric={tmpData[date][2]}/>;
 				if(dayXML == null)
 				{
 					_branchXML.appendChild(node);

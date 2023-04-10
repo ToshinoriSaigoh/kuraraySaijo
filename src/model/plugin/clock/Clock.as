@@ -7,6 +7,7 @@ package model.plugin.clock
 
 	public class Clock extends Plug
 	{
+		public static var nowDateTime: Date;
 		private static const ONE_SECOND: uint = 1000;
 		private static var _procKey: String;
 		private static var _date: Date;

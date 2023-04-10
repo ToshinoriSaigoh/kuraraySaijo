@@ -408,32 +408,36 @@ package kuraraysaijo.model.plugin.report
 		private function _setDuty(type: String): void
 		{
 			var dutyList: Array;
+			var design: Array;
+			var pipe: Array;
+			var electric: Array;
 			var targetNode: XML = Config.configTree.duty.elements(type)[0];
 			if(targetNode == null) return;
-
+			//
 			switch(type)
 			{
-				case "trainer":
-					dutyList = _setDutyTheDayOne(targetNode, new Date());
+				case "trainer"://日替わり当日が表示される
+					//dutyList = _setDutyTheDayOne(targetNode, Global.get("nowDateTime"));//PLC読み込み時刻から取得
+					dutyList = _setDutyTheDayOne(targetNode, new Date());//2023.04.10修正前//ローカル時計から取得
 					trainerLabel = dutyList[0] != null ? dutyList[0] : "";
 					break;
-				case "morning"://週替わり
+				case "morning"://週替わり//当週の日曜が表示される
 					dutyList = _setDutyTheDay(targetNode, getLastSunday());//日交代はnew Date()//週交代はgetLastSunday()
 					morningDesigning = dutyList[0] != null ? dutyList[0] : "";
 					morningPipe = dutyList[1] != null ? dutyList[1] : "";
 					morningElectric = dutyList[2] != null ? dutyList[2] : "";
 					break;
-				case "exercise"://週替わり
+				case "exercise"://週替わり//当週の日曜が表示される
 					dutyList = _setDutyTheDay(targetNode, getLastSunday());//日交代はnew Date()//週交代はgetLastSunday()
 					exerciseDesigning = dutyList[0] != null ? dutyList[0] : "";
 					exercisePipe = dutyList[1] != null ? dutyList[1] : "";
 					exerciseElectric = dutyList[2] != null ? dutyList[2] : "";
 					break;
-				case "dust"://週替わり
+				case "dust"://週替わり//当週の日曜が表示される
 					dutyList = _setDutyDustTheDay(targetNode, getLastSunday());
-					var design: Array = [dutyList[0], dutyList[1]];
-					var pipe: Array = [dutyList[2], dutyList[3]];
-					var electric: Array = [dutyList[4], dutyList[5]];
+					design = [dutyList[0], dutyList[1]];
+					pipe = [dutyList[2], dutyList[3]];
+					electric = [dutyList[4], dutyList[5]];
 					dust1Designing = design[0] != null ? design[0] : "";
 					dust1Pipe = pipe[0] != null ? pipe[0] : "";
 					dust1Electric = electric[0] != null ? electric[0] : "";
@@ -443,10 +447,9 @@ package kuraraysaijo.model.plugin.report
 					break;
 				case "patrol"://日替わり
 					dutyList = _setDutyPatrolWeekDay(targetNode, getLastSunday());
-trace("dutyList:", dutyList);
-					var design: Array = [dutyList[0], dutyList[1]];
-					var pipe: Array = [dutyList[2], dutyList[3]];
-					var electric: Array = [dutyList[4], dutyList[5]];
+					design = [dutyList[0], dutyList[1]];
+					pipe = [dutyList[2], dutyList[3]];
+					electric = [dutyList[4], dutyList[5]];
 					patrol1Designing = dutyList[0][0] != null ? dutyList[0][0] : "";
 					patrol2Designing = dutyList[1][0] != null ? dutyList[1][0] : "";
 					patrol3Designing = dutyList[2][0] != null ? dutyList[2][0] : "";
@@ -530,7 +533,7 @@ trace("dutyList:", dutyList);
 			var node: XML = xml.day.(attribute("id") == day)[0];
 			return node == null ? [] : [node.@trainer[0]];
 		}
-		//dateで指定した日の当番を部署ごとに取得
+		//dateで指定した日の当番を部署ごとに取得//朝礼, 体操
 		private function _setDutyTheDay(xml: XML, date: Date): Array {
 			if(xml == null || date == null)
 			{

@@ -20,7 +20,7 @@ package kuraraysaijo.model.plugin.report.clock
 			var time: String = "";
 			day += PaddingUtils.zeroPadding(param.date.getFullYear(), 4);
 			day += "/";
-			day += PaddingUtils.zeroPadding(param.date.getMonth() + 1, 2);
+			day += PaddingUtils.zeroPadding(param.date.getMonth(), 2);
 			day += "/";
 			day += PaddingUtils.zeroPadding(param.date.getDate(), 2);
 			//週
