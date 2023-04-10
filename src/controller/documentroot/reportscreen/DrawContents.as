@@ -177,7 +177,7 @@ package controller.documentroot.reportscreen
 		public function PB_changeReport(): void
 		{
 			var param: Object = PostBox.get("PB_changeReport");
-			trace("■■DrawContents.PB_changeReport", param.report, hasOwnReport(param.report));
+//trace("■■DrawContents.PB_changeReport", param.report, hasOwnReport(param.report));
 			if(hasOwnReport(param.report))
 			{
 				Draw.setActiveReport(Report.reportMap[param.report]);
@@ -194,7 +194,7 @@ package controller.documentroot.reportscreen
 				}
 				else
 				{
-					//trace("##changePage", param.report, Report.reportMap[param.report].activePageID);
+//trace("##changePage", param.report, Report.reportMap[param.report].activePageID);
 					PostBox.send("changePage", {report: param.report, page: Report.reportMap[param.report].activePageID});
 				}
 			}

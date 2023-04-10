@@ -105,6 +105,7 @@ package kuraraysaijo.model.plugin.report
 
 			//monitor
 			var container: UIComponent = new UIComponent();
+//trace("**** new MonitorContainer()");
 			var monitorContainer: MonitorContainer = new MonitorContainer();
 			container.addChild(monitorContainer);
 			pageCollection.source[0].drawLayers[0].body.addChild(container);
