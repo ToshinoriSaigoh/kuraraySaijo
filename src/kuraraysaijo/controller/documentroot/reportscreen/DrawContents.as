@@ -77,7 +77,8 @@ package kuraraysaijo.controller.documentroot.reportscreen
 		}
 		private function _openTodayReport(): void
 		{
-			var now: Date = new Date();
+			//var now: Date = new Date();//更新前ローカル時間から取得
+			var now: Date = Global.get("nowDateTime");//2023.04.12PLC時間を取得
 			var year: String = String(now.getFullYear());
 			var month: String = String(now.getMonth() + 1);
 			var day: String = String(now.getDate());

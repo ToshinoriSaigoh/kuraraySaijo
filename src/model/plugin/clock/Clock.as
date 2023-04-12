@@ -1,5 +1,6 @@
 package model.plugin.clock
 {
+	import Global;
 	import common.EnterFrameProccess;
 	import flash.utils.getTimer;
 	import flash.events.Event;
@@ -16,7 +17,6 @@ package model.plugin.clock
 		private static var _lastTime: int;
 		private static var _currentTime: int;
 		private static var _waitTime: int;
-
 		public function Clock()
 		{
 			super();
@@ -25,6 +25,8 @@ package model.plugin.clock
 			_startDate = new Date();
 			_startTime = _lastTime = _currentTime = getTimer();
 			_waitTime = ONE_SECOND;
+			Global.define("nowDateTime", Clock);
+			Global.set("nowDateTime", _startDate);
 		}
 
 		//リセット処理
@@ -71,15 +73,12 @@ package model.plugin.clock
 			}
 		}
 		//時計をcsvで更新//2023.03.01
+		//時計を指定時間に更新する
 		public function PB_clockUpdate(): void
 		{
 			var param: Object = PostBox.get("PB_clockUpdate");
-			updateClock(param.datetime);
-		}
-		//時計を指定時間に更新する
-		public function updateClock(currentTime: Date): void
-		{
-			PostBox.send("clock", {date: currentTime});
+			Global.set("nowDateTime", param.datetime);
+			PostBox.send("clock", {date: param.datetime});
 		}
 	}
 }

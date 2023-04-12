@@ -110,7 +110,7 @@ Dレジスタ, 列名, 名称, 備考
 					PostBox.send("sensor", {data: data});
 					//時計更新//2023.03.01
 					data.clockY = Number(row[3]);//年
-					data.clockM= Number(row[4]);//月
+					data.clockM= Number(row[4]-1);//月
 					data.clockD = Number(row[5]);//日
 					data.clockH = Number(row[6]);//時
 					data.clockI = Number(row[7]);//分

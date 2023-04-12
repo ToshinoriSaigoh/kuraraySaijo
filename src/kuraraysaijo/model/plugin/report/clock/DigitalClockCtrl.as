@@ -18,9 +18,10 @@ package kuraraysaijo.model.plugin.report.clock
 			var param: Object = PostBox.get("PB_clock");
 			var day: String = "";
 			var time: String = "";
+trace("■DigitalClock:", param.date);
 			day += PaddingUtils.zeroPadding(param.date.getFullYear(), 4);
 			day += "/";
-			day += PaddingUtils.zeroPadding(param.date.getMonth(), 2);
+			day += PaddingUtils.zeroPadding(param.date.getMonth()+1, 2);
 			day += "/";
 			day += PaddingUtils.zeroPadding(param.date.getDate(), 2);
 			//週

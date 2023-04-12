@@ -417,24 +417,24 @@ package kuraraysaijo.model.plugin.report
 			switch(type)
 			{
 				case "trainer"://日替わり当日が表示される
-					//dutyList = _setDutyTheDayOne(targetNode, _getReportDate());//選択中レポートから日付取得
-					dutyList = _setDutyTheDayOne(targetNode, new Date());//2023.04.10修正前//ローカル時計から取得
+					dutyList = _setDutyTheDayOne(targetNode, _getReportDate());//選択中レポートから日付取得
+					//dutyList = _setDutyTheDayOne(targetNode, new Date());//2023.04.10修正前//ローカル時計から取得
 					trainerLabel = dutyList[0] != null ? dutyList[0] : "";
 					break;
 				case "morning"://週替わり//当週の日曜が表示される
-					dutyList = _setDutyTheDay(targetNode, getLastSunday(new Date()));//日交代はnew Date()//週交代はgetLastSunday()
+					dutyList = _setDutyTheDay(targetNode, getLastSunday(_getReportDate()));//日交代はnew Date()//週交代はgetLastSunday()
 					morningDesigning = dutyList[0] != null ? dutyList[0] : "";
 					morningPipe = dutyList[1] != null ? dutyList[1] : "";
 					morningElectric = dutyList[2] != null ? dutyList[2] : "";
 					break;
 				case "exercise"://週替わり//当週の日曜が表示される
-					dutyList = _setDutyTheDay(targetNode, getLastSunday(new Date()));//日交代はnew Date()//週交代はgetLastSunday()
+					dutyList = _setDutyTheDay(targetNode, getLastSunday(_getReportDate()));//日交代はnew Date()//週交代はgetLastSunday()
 					exerciseDesigning = dutyList[0] != null ? dutyList[0] : "";
 					exercisePipe = dutyList[1] != null ? dutyList[1] : "";
 					exerciseElectric = dutyList[2] != null ? dutyList[2] : "";
 					break;
 				case "dust"://週替わり//当週の日曜が表示される
-					dutyList = _setDutyDustTheDay(targetNode, getLastSunday(new Date()));//日交代はnew Date()//週交代はgetLastSunday()
+					dutyList = _setDutyDustTheDay(targetNode, getLastSunday(_getReportDate()));//日交代はnew Date()//週交代はgetLastSunday()
 					design = [dutyList[0], dutyList[1]];
 					pipe = [dutyList[2], dutyList[3]];
 					electric = [dutyList[4], dutyList[5]];
@@ -446,7 +446,7 @@ package kuraraysaijo.model.plugin.report
 					dust2Electric = electric[1] != null ? electric[1] : "";
 					break;
 				case "patrol"://日替わり
-					dutyList = _setDutyPatrolWeekDay(targetNode, getLastSunday(new Date()));
+					dutyList = _setDutyPatrolWeekDay(targetNode, getLastSunday(_getReportDate()));
 					design = [dutyList[0], dutyList[1]];
 					pipe = [dutyList[2], dutyList[3]];
 					electric = [dutyList[4], dutyList[5]];
@@ -661,6 +661,7 @@ package kuraraysaijo.model.plugin.report
 			patrol2Electric = personArr[(todayNum + 5) % personArr.length];
 		}
 */
+		//現在のレポートの日取得
 		private function _getReportDate(): Date
 		{
 			return new Date(Number(mxml.parent.parent.parent.parent.owner.ctrlr.year), Number(mxml.parent.parent.parent.parent.owner.ctrlr.month) - 1 , Number(mxml.parent.parent.parent.parent.owner.ctrlr.day));

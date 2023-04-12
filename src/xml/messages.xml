@@ -938,6 +938,11 @@
 			<receiver path="model.plugin.clock::Clock" />
 		</step>
 	</message>
+	<message name="changedDay" description="PLC読み込み時に日付変化">
+		<step type="MSG" name="" message="MSG_changedDay">
+			<receiver path="kuraraysaijo.model.batch::ReportChanger" />
+		</step>
+	</message>
 	<!-- 時計 end -->
 
 	<!-- 設定リフレッシュ関連 -->
